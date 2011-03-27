@@ -1,0 +1,1355 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>Sinatra &#304;le Sudoku Çözüm Yard&#305;mc&#305; Program&#305;</title>
+
+<style type="text/css">
+body
+{
+font-family: Monospace, monospace;
+font-size: 10pt;
+}
+.style_4
+{
+color: #400080;
+background-color: #ffffff;
+}
+.style_5
+{
+color: #111199;
+background-color: #ffffff;
+font-weight: bold;
+}
+.style_10
+{
+color: #000000;
+background-color: #ffffff;
+}
+.style_11
+{
+color: #000000;
+background-color: #ffffff;
+}
+.style_14
+{
+color: #008020;
+background-color: #ffffff;
+}
+.style_33
+{
+color: #000000;
+background-color: #000004;
+font-weight: bold;
+font-style: italic;
+}
+.style_34
+{
+color: #22d4b8;
+background-color: #000018;
+font-weight: bold;
+font-style: italic;
+}
+.style_35
+{
+color: #000000;
+background-color: #000000;
+font-weight: bold;
+}
+.style_36
+{
+color: #76d8732e;
+background-color: #76d82c28;
+font-weight: bold;
+font-style: italic;
+}
+.style_37
+{
+color: #0400ae;
+background-color: #000000;
+font-weight: bold;
+}
+.style_38
+{
+color: #000006;
+background-color: #0307d8;
+font-weight: bold;
+font-style: italic;
+}
+.style_39
+{
+color: #000000;
+background-color: #0400ae;
+font-weight: bold;
+font-style: italic;
+}
+.style_40
+{
+color: #000086;
+background-color: #000001;
+font-weight: bold;
+font-style: italic;
+}
+.style_42
+{
+color: #000000;
+background-color: #76d872e1;
+font-weight: bold;
+font-style: italic;
+}
+.style_43
+{
+color: #0307d8;
+background-color: #000006;
+font-weight: bold;
+font-style: italic;
+}
+.style_44
+{
+color: #76d88e72;
+background-color: #76dd98d8;
+font-weight: bold;
+font-style: italic;
+}
+.style_45
+{
+color: #76d872b6;
+background-color: #ca864721;
+font-weight: bold;
+font-style: italic;
+}
+.style_46
+{
+color: #000001;
+background-color: #000000;
+font-weight: bold;
+font-style: italic;
+}
+.style_47
+{
+color: #76dd62e3;
+background-color: #bc7ce059;
+font-weight: bold;
+font-style: italic;
+}
+.style_48
+{
+color: #0307d8;
+background-color: #000006;
+font-weight: bold;
+font-style: italic;
+}
+.style_50
+{
+color: #22d75c;
+background-color: #000047;
+font-weight: bold;
+font-style: italic;
+}
+.style_52
+{
+color: #000000;
+background-color: #22d75c;
+font-weight: bold;
+}
+.style_53
+{
+color: #22d6a4;
+background-color: #22d654;
+font-weight: bold;
+font-style: italic;
+}
+.style_55
+{
+color: #22d6a4;
+background-color: #000006;
+font-weight: bold;
+font-style: italic;
+}
+.style_56
+{
+color: #76d872b6;
+background-color: #22d6cc;
+font-weight: bold;
+font-style: italic;
+}
+.style_57
+{
+color: #000004;
+background-color: #3a18c80;
+font-weight: bold;
+}
+.style_58
+{
+color: #000000;
+background-color: #22d6c8;
+font-weight: bold;
+font-style: italic;
+}
+.style_59
+{
+color: #000017;
+background-color: #76be3ad3;
+font-weight: bold;
+font-style: italic;
+}
+.style_60
+{
+color: #3a18c80;
+background-color: #2b2160;
+font-style: italic;
+}
+.style_61
+{
+color: #bc7c1a09;
+background-color: #22d71c;
+font-weight: bold;
+font-style: italic;
+}
+.style_62
+{
+color: #76be3ad3;
+background-color: #76d83560;
+font-weight: bold;
+font-style: italic;
+}
+.style_63
+{
+color: #22d72c;
+background-color: #76d831eb;
+font-weight: bold;
+font-style: italic;
+}
+.style_64
+{
+color: #76d831fd;
+background-color: #ca8645b5;
+font-weight: bold;
+font-style: italic;
+}
+.style_65
+{
+color: #22d704;
+background-color: #22d760;
+font-weight: bold;
+font-style: italic;
+}
+.style_66
+{
+color: #fffffffe;
+background-color: #76d831fd;
+font-weight: bold;
+font-style: italic;
+}
+.style_67
+{
+color: #76d83255;
+background-color: #000000;
+font-weight: bold;
+font-style: italic;
+}
+.style_68
+{
+color: #22d780;
+background-color: #63a4603b;
+font-weight: bold;
+font-style: italic;
+}
+.style_69
+{
+color: #77486230;
+background-color: #0a0004;
+font-weight: bold;
+}
+.style_70
+{
+color: #000001;
+background-color: #1d1a5b8;
+font-weight: bold;
+font-style: italic;
+}
+.style_71
+{
+color: #b3e1b8;
+background-color: #00040c;
+font-weight: bold;
+font-style: italic;
+}
+.style_72
+{
+color: #22d7c4;
+background-color: #76d87bfb;
+font-weight: bold;
+font-style: italic;
+}
+.style_74
+{
+color: #000000;
+background-color: #000000;
+font-style: italic;
+}
+.style_75
+{
+color: #980115b6;
+background-color: #000000;
+font-weight: bold;
+font-style: italic;
+}
+.style_78
+{
+color: #000000;
+background-color: #000000;
+}
+.style_83
+{
+color: #1b00001b;
+background-color: #000000;
+font-weight: bold;
+font-style: italic;
+}
+.style_84
+{
+color: #0000d8;
+background-color: #22a0000;
+font-weight: bold;
+font-style: italic;
+}
+.style_86
+{
+color: #22a0000;
+background-color: #22b62f8;
+font-weight: bold;
+}
+.style_87
+{
+color: #22a0000;
+background-color: #122d8ec;
+font-weight: bold;
+font-style: italic;
+}
+.style_88
+{
+color: #7745d555;
+background-color: #22a0000;
+font-weight: bold;
+font-style: italic;
+}
+.style_89
+{
+color: #22a0150;
+background-color: #2000002;
+font-weight: bold;
+font-style: italic;
+}
+.style_90
+{
+color: #22b76f8;
+background-color: #0400ae;
+font-weight: bold;
+font-style: italic;
+}
+.style_91
+{
+color: #000036;
+background-color: #000000;
+font-weight: bold;
+font-style: italic;
+}
+.style_92
+{
+color: #22b8a38;
+background-color: #000000;
+font-weight: bold;
+font-style: italic;
+}
+.style_93
+{
+color: #000000;
+background-color: #76707be3;
+font-weight: bold;
+font-style: italic;
+}
+.style_94
+{
+color: #22d968;
+background-color: #76d84ceb;
+font-weight: bold;
+font-style: italic;
+}
+.style_95
+{
+color: #980115b6;
+background-color: #000002;
+font-weight: bold;
+}
+.style_97
+{
+color: #76749160;
+background-color: #76749100;
+font-weight: bold;
+font-style: italic;
+}
+.style_98
+{
+color: #76d8696a;
+background-color: #ca864b41;
+font-style: italic;
+}
+.style_99
+{
+color: #000001;
+background-color: #22d9ac;
+font-weight: bold;
+font-style: italic;
+}
+.style_100
+{
+color: #bc7cfbe9;
+background-color: #fffffffe;
+font-weight: bold;
+font-style: italic;
+}
+.style_101
+{
+color: #22b76f8;
+background-color: #000000;
+font-weight: bold;
+font-style: italic;
+}
+.style_104
+{
+color: #76710855;
+background-color: #76710835;
+font-weight: bold;
+font-style: italic;
+}
+.style_105
+{
+color: #000000;
+background-color: #22da58;
+font-weight: bold;
+font-style: italic;
+}
+.style_106
+{
+color: #000000;
+background-color: #000001;
+font-weight: bold;
+font-style: italic;
+}
+.style_108
+{
+color: #22b771c;
+background-color: #76d8f0ab;
+font-weight: bold;
+font-style: italic;
+}
+.style_109
+{
+color: #22db60;
+background-color: #73f9763f;
+font-weight: bold;
+font-style: italic;
+}
+.style_110
+{
+color: #22dba4;
+background-color: #000000;
+font-weight: bold;
+font-style: italic;
+}
+.style_114
+{
+color: #000000;
+background-color: #000000;
+font-style: italic;
+}
+.style_115
+{
+color: #000000;
+background-color: #000000;
+font-weight: bold;
+font-style: italic;
+}
+.style_117
+{
+color: #000017;
+background-color: #00000c;
+font-weight: bold;
+font-style: italic;
+}
+.style_118
+{
+color: #000004;
+background-color: #000000;
+}
+.style_119
+{
+color: #000004;
+background-color: #000004;
+font-weight: bold;
+}
+.style_120
+{
+color: #22db88;
+background-color: #73f9770e;
+}
+.style_121
+{
+color: #000000;
+background-color: #22b76f8;
+font-weight: bold;
+font-style: italic;
+}
+.style_122
+{
+color: #000001;
+background-color: #01082a;
+font-weight: bold;
+}
+.style_123
+{
+color: #000086;
+background-color: #0400ae;
+font-weight: bold;
+font-style: italic;
+}
+.style_125
+{
+color: #000001;
+background-color: #000001;
+}
+.style_127
+{
+color: #000001;
+background-color: #01082a;
+font-weight: bold;
+font-style: italic;
+}
+.style_128
+{
+color: #22b7708;
+background-color: #22dc40;
+font-weight: bold;
+font-style: italic;
+}
+.style_129
+{
+color: #01082a;
+background-color: #000086;
+font-weight: bold;
+font-style: italic;
+}
+.style_130
+{
+color: #22dc10;
+background-color: #ca864ec1;
+font-weight: bold;
+font-style: italic;
+}
+.style_131
+{
+color: #01082a;
+background-color: #22dcb0;
+font-weight: bold;
+}
+.style_132
+{
+color: #000001;
+background-color: #01082a;
+font-weight: bold;
+font-style: italic;
+}
+.style_133
+{
+color: #22dcbc;
+background-color: #000000;
+font-style: italic;
+}
+.style_134
+{
+color: #0400ae;
+background-color: #000006;
+font-weight: bold;
+}
+.style_135
+{
+color: #000006;
+background-color: #00017c;
+}
+.style_136
+{
+color: #0400ae;
+background-color: #000000;
+font-weight: bold;
+font-style: italic;
+}
+.style_137
+{
+color: #76d886ef;
+background-color: #0400ae;
+font-weight: bold;
+font-style: italic;
+}
+.style_138
+{
+color: #000006;
+background-color: #dcbaabcd;
+font-style: italic;
+}
+.style_139
+{
+color: #22dcec;
+background-color: #22dd08;
+font-weight: bold;
+font-style: italic;
+}
+.style_140
+{
+color: #76d888c9;
+background-color: #76be3b5a;
+font-weight: bold;
+font-style: italic;
+}
+.style_141
+{
+color: #0a0004;
+background-color: #000000;
+font-weight: bold;
+}
+.style_142
+{
+color: #76c4319b;
+background-color: #22dd60;
+font-weight: bold;
+font-style: italic;
+}
+.style_143
+{
+color: #ca864e44;
+background-color: #0400ae;
+font-weight: bold;
+}
+.style_144
+{
+color: #000000;
+background-color: #000004;
+font-weight: bold;
+font-style: italic;
+}
+.style_145
+{
+color: #76c4319b;
+background-color: #bc1aa9fc;
+font-weight: bold;
+font-style: italic;
+}
+.style_146
+{
+color: #0a0004;
+background-color: #0400ae;
+font-weight: bold;
+font-style: italic;
+}
+.style_147
+{
+color: #0a0004;
+background-color: #0400ae;
+font-weight: bold;
+font-style: italic;
+}
+.style_148
+{
+color: #0400ae;
+background-color: #cbc6d0;
+font-style: italic;
+}
+.style_149
+{
+color: #22dde8;
+background-color: #76dd62e3;
+font-weight: bold;
+font-style: italic;
+}
+.style_151
+{
+color: #000000;
+background-color: #000004;
+font-weight: bold;
+font-style: italic;
+}
+.style_153
+{
+color: #cbc6d0;
+background-color: #000000;
+font-weight: bold;
+font-style: italic;
+}
+.style_154
+{
+color: #000000;
+background-color: #000000;
+}
+.style_155
+{
+color: #000111;
+background-color: #000001;
+font-weight: bold;
+font-style: italic;
+}
+.style_156
+{
+color: #000006;
+background-color: #22debc;
+font-weight: bold;
+}
+.style_157
+{
+color: #76d886ef;
+background-color: #01082a;
+font-weight: bold;
+font-style: italic;
+}
+.style_158
+{
+color: #000111;
+background-color: #000011;
+font-weight: bold;
+font-style: italic;
+}
+.style_159
+{
+color: #22de7c;
+background-color: #22de98;
+font-weight: bold;
+font-style: italic;
+}
+.style_160
+{
+color: #01082a;
+background-color: #22b8568;
+font-weight: bold;
+font-style: italic;
+}
+.style_161
+{
+color: #22debc;
+background-color: #73f93199;
+font-weight: bold;
+font-style: italic;
+}
+.style_162
+{
+color: #01082a;
+background-color: #22debc;
+font-weight: bold;
+font-style: italic;
+}
+.style_163
+{
+color: #ca864c71;
+background-color: #76d87756;
+font-weight: bold;
+font-style: italic;
+}
+.style_164
+{
+color: #22debc;
+background-color: #01082a;
+font-weight: bold;
+font-style: italic;
+}
+.style_166
+{
+color: #000000;
+background-color: #22df58;
+font-weight: bold;
+font-style: italic;
+}
+.style_168
+{
+color: #01082a;
+background-color: #000082;
+}
+.style_170
+{
+color: #22a0000;
+background-color: #22b8560;
+font-style: italic;
+}
+.style_171
+{
+color: #22b8a38;
+background-color: #22a00c4;
+font-weight: bold;
+font-style: italic;
+}
+.style_172
+{
+color: #010000;
+background-color: #22b8560;
+font-weight: bold;
+font-style: italic;
+}
+.style_173
+{
+color: #77493189;
+background-color: #7681868d;
+font-style: italic;
+}
+.style_174
+{
+color: #000000;
+background-color: #000001;
+font-style: italic;
+}
+.style_175
+{
+color: #22e094;
+background-color: #22a00c4;
+font-weight: bold;
+font-style: italic;
+}
+.style_180
+{
+color: #000000;
+background-color: #000082;
+font-weight: bold;
+}
+.style_181
+{
+color: #000082;
+background-color: #22e038;
+font-weight: bold;
+font-style: italic;
+}
+.style_182
+{
+color: #000150;
+background-color: #000000;
+font-weight: bold;
+}
+.style_183
+{
+color: #1010001;
+background-color: #22df88;
+font-weight: bold;
+font-style: italic;
+}
+.style_184
+{
+color: #1ea6e35;
+background-color: #fffffffe;
+font-weight: bold;
+font-style: italic;
+}
+.style_185
+{
+color: #22e0ac;
+background-color: #22b8568;
+font-weight: bold;
+font-style: italic;
+}
+.style_186
+{
+color: #76d877cd;
+background-color: #76d87987;
+font-weight: bold;
+font-style: italic;
+}
+.style_187
+{
+color: #01082a;
+background-color: #00a91a;
+font-weight: bold;
+font-style: italic;
+}
+.style_188
+{
+color: #01082a;
+background-color: #00a91a;
+font-weight: bold;
+}
+.style_189
+{
+color: #22e0d8;
+background-color: #73f99086;
+font-weight: bold;
+font-style: italic;
+}
+.style_190
+{
+color: #22e0e8;
+background-color: #000000;
+font-style: italic;
+}
+.style_192
+{
+color: #000000;
+background-color: #000000;
+font-weight: bold;
+font-style: italic;
+}
+.style_193
+{
+color: #000082;
+background-color: #000000;
+font-style: italic;
+}
+.style_194
+{
+color: #000000;
+background-color: #000000;
+font-weight: bold;
+font-style: italic;
+}
+.style_195
+{
+color: #000000;
+background-color: #22e0a8;
+font-weight: bold;
+font-style: italic;
+}
+.style_196
+{
+color: #ca867335;
+background-color: #000000;
+font-weight: bold;
+font-style: italic;
+}
+.style_197
+{
+color: #000001;
+background-color: #000000;
+font-style: italic;
+}
+.style_198
+{
+color: #ffffffff;
+background-color: #76d8881f;
+font-weight: bold;
+}
+.style_199
+{
+color: #260000;
+background-color: #2dab00;
+font-style: italic;
+}
+.style_200
+{
+color: #76dd62e3;
+background-color: #bc7c1a09;
+font-weight: bold;
+font-style: italic;
+}
+.style_201
+{
+color: #010000;
+background-color: #2dab00;
+font-weight: bold;
+font-style: italic;
+}
+.style_202
+{
+color: #77493189;
+background-color: #76818449;
+font-style: italic;
+}
+.style_204
+{
+color: #22e1d4;
+background-color: #2dd2d8;
+font-weight: bold;
+font-style: italic;
+}
+.style_205
+{
+color: #260150;
+background-color: #76d870ff;
+font-weight: bold;
+font-style: italic;
+}
+.style_206
+{
+color: #000000;
+background-color: #31000031;
+font-weight: bold;
+font-style: italic;
+}
+.style_207
+{
+color: #000003;
+background-color: #000000;
+font-weight: bold;
+font-style: italic;
+}
+.style_208
+{
+color: #55000356;
+background-color: #000030;
+font-weight: bold;
+font-style: italic;
+}
+.style_209
+{
+color: #000082;
+background-color: #000000;
+font-weight: bold;
+}
+.style_211
+{
+color: #000030;
+background-color: #000000;
+font-weight: bold;
+}
+.style_212
+{
+color: #1010257;
+background-color: #22e1cc;
+font-style: italic;
+}
+.style_214
+{
+color: #2dab08;
+background-color: #000000;
+font-weight: bold;
+font-style: italic;
+}
+.style_215
+{
+color: #22e364;
+background-color: #76dce16d;
+font-weight: bold;
+}
+.style_217
+{
+color: #000400;
+background-color: #000258;
+font-style: italic;
+}
+.style_218
+{
+color: #000018;
+background-color: #00000f;
+font-weight: bold;
+font-style: italic;
+}
+.style_219
+{
+color: #000000;
+background-color: #0001b7;
+font-style: italic;
+}
+.style_220
+{
+color: #50022080;
+background-color: #a40bc4;
+}
+.style_222
+{
+color: #000020;
+background-color: #0001e1;
+font-weight: bold;
+font-style: italic;
+}
+.style_223
+{
+color: #000024;
+background-color: #000000;
+font-weight: bold;
+font-style: italic;
+}
+.style_224
+{
+color: #000007;
+background-color: #26d7684;
+font-weight: bold;
+font-style: italic;
+}
+.style_225
+{
+color: #b30000;
+background-color: #397c348;
+font-weight: bold;
+}
+.style_226
+{
+color: #000000;
+background-color: #000002;
+font-weight: bold;
+font-style: italic;
+}
+.style_227
+{
+color: #000001;
+background-color: #397c340;
+font-weight: bold;
+font-style: italic;
+}
+.style_228
+{
+color: #26d7684;
+background-color: #2732d78;
+font-weight: bold;
+font-style: italic;
+}
+.style_229
+{
+color: #b30000;
+background-color: #000000;
+font-weight: bold;
+font-style: italic;
+}
+.style_230
+{
+color: #b39990;
+background-color: #6900e0c8;
+font-weight: bold;
+}
+.style_232
+{
+color: #b39990;
+background-color: #26d7684;
+font-weight: bold;
+font-style: italic;
+}
+.style_233
+{
+color: #690120e0;
+background-color: #69003900;
+font-weight: bold;
+font-style: italic;
+}
+.style_234
+{
+color: #6900fae1;
+background-color: #6900475f;
+font-weight: bold;
+font-style: italic;
+}
+.style_235
+{
+color: #000000;
+background-color: #22e44c;
+font-weight: bold;
+font-style: italic;
+}
+.style_236
+{
+color: #4d5f434c;
+background-color: #41535345;
+font-weight: bold;
+font-style: italic;
+}
+.style_237
+{
+color: #6900f100;
+background-color: #000009;
+font-weight: bold;
+font-style: italic;
+}
+.style_238
+{
+color: #7702a53a;
+background-color: #2638780;
+font-weight: bold;
+font-style: italic;
+}
+.style_239
+{
+color: #000000;
+background-color: #ca86762d;
+font-weight: bold;
+font-style: italic;
+}
+.style_240
+{
+color: #000028;
+background-color: #0400ae;
+font-style: italic;
+}
+.style_242
+{
+color: #000000;
+background-color: #000000;
+font-weight: bold;
+font-style: italic;
+}
+.style_244
+{
+color: #000054;
+background-color: #10c0111;
+font-weight: bold;
+font-style: italic;
+}
+.style_245
+{
+color: #0400ae;
+background-color: #3a989d0;
+font-weight: bold;
+font-style: italic;
+}
+.style_246
+{
+color: #77491fc7;
+background-color: #3a99158;
+font-style: italic;
+}
+.style_247
+{
+color: #22e598;
+background-color: #000000;
+font-weight: bold;
+font-style: italic;
+}
+.style_248
+{
+color: #ca8670d4;
+background-color: #f00112;
+font-weight: bold;
+font-style: italic;
+}
+.style_249
+{
+color: #000200;
+background-color: #3a989d0;
+font-weight: bold;
+font-style: italic;
+}
+.style_250
+{
+color: #77491fc7;
+background-color: #3a990e8;
+font-style: italic;
+}
+.style_251
+{
+color: #22e5e8;
+background-color: #770298cd;
+font-weight: bold;
+}
+.style_252
+{
+color: #ca8670a4;
+background-color: #000000;
+font-weight: bold;
+font-style: italic;
+}
+.style_253
+{
+color: #3a99158;
+background-color: #fffffff8;
+font-weight: bold;
+font-style: italic;
+}
+.style_254
+{
+color: #22ffc4;
+background-color: #77048cd5;
+font-weight: bold;
+font-style: italic;
+}
+.style_255
+{
+color: #414322;
+background-color: #3a990e8;
+font-style: italic;
+}
+</style>
+</head>
+<body>
+<h1>Sinatra - Sinatra Zor ama Güzel Ne Yapay&#305;m</h1>
+Sinatra ö&#287;reneyim derken kendimi bir anda bir uygulama içinde buldum.
+Ad&#305;m ad&#305;m anlatmak isterim. Önce uygulama klasörünü üretip içinde
+"su.rb" ad&#305;nda bir dosya ürettim. <br>
+<pre style="color: rgb(24, 22, 21); background-color: rgb(255, 255, 255);"><span style="color: rgb(0, 0, 128);">require</span> <span style="color: rgb(191, 3, 3);">"rubygems"</span><br><span style="color: rgb(0, 0, 128);">require</span> <span style="color: rgb(191, 3, 3);">"sinatra"</span><br><br>get <span style="color: rgb(191, 3, 3);">"/"</span> <b>do</b><br> haml <span style="color: rgb(212, 0, 0);">:index</span><br><b>end</b>
+</pre>
+Bunu çal&#305;&#351;t&#305;rmaya kalkarsan&#305;z ilk önce "sinatra" gem sisteminizde yüklü
+olmal&#305;d&#305;r. Ayr&#305;ca bu &#351;ekliyle çal&#305;&#351;maz çünkü giri&#351; sayfas&#305; olarak
+"views" klasörü içinde "index.haml" ad&#305;na bir dosyay&#305; yay&#305;nlamas&#305;n&#305;
+istedik ama böyle bir dosya yok ki.<br>
+Uygulama klasörüne "views" ad&#305;nda bir alt klasör olu&#351;turdum ve içine
+"index.haml" ad&#305;nda&nbsp; bir dosya üretip içine tek sat&#305;rda &#351;unu
+yazd&#305;m.<br>
+<pre>%h1 Sinatradan merhaba<br></pre>
+Bu dosyay&#305; da haz&#305;rlad&#305;ktan sonra "su.rb" dosyas&#305;n&#305; çal&#305;&#351;t&#305;rd&#305;&#287;&#305;n&#305;zda
+server'&#305;n çal&#305;&#351;t&#305;&#287;&#305;n&#305; görürsünüz ve taray&#305;c&#305;n&#305;zda "localhost:4567"
+adresine giderseniz ve kocaman bir "Sinatradan Merhaba" yaz&#305;s&#305;
+görürseniz art&#305;k emeklemeye ba&#351;lad&#305;k demektir.<br>
+Bir zamanlar yak&#305;&#351;&#305;kl&#305; bir Sudoku çözüm yard&#305;mc&#305;s&#305; program görmü&#351;tüm
+ona benzetmeye çal&#305;&#351;aca&#287;&#305;z. Önce görsel düzenlemeler. Sudoku tahtas&#305;nda
+kaç hücre var ? 81 tane. Ekrana 81 tane kutu koyaca&#287;&#305;z. "index.haml"
+dosyas&#305;nda olan sat&#305;r&#305; silip &#351;unlar&#305; yazal&#305;m:<br>
+<pre style="color: rgb(24, 22, 21); background-color: rgb(255, 255, 255);"><span style="color: rgb(255, 159, 236);">-</span> (<span style="color: rgb(176, 128, 0);">1</span><span style="color: rgb(255, 159, 236);">..</span><span style="color: rgb(176, 128, 0);">81</span>)<span style="color: rgb(64, 0, 167);">.each</span> <b>do</b> <span style="color: rgb(255, 159, 236);">|</span>x<span style="color: rgb(255, 159, 236);">|</span><br><span style="color: rgb(0, 110, 40);"> %</span>div<span style="color: rgb(0, 110, 40);">.</span><span style="color: rgb(191, 3, 3);">b </span><br><span style="color: rgb(191, 3, 3);"> %h1 1</span>
+</pre>
+<br>
+Ana dosya olmay&#305;p ça&#287;r&#305;ld&#305;&#287;&#305; için "index.haml" dosyas&#305;nda de&#287;i&#351;iklik
+yapt&#305;ktan sonra server'&#305; tekrar ba&#351;latmak gerekmez. &#304;lk sat&#305;r&#305;n
+ba&#351;&#305;ndaki "-" ile haml dosyas&#305;nda ç&#305;kt&#305;s&#305; olmayan bir Ruby kodu
+çal&#305;&#351;t&#305;r&#305;yoruz. Burada 1 den 81 e kadar döngü ile ekrana 81 tane div
+koyup içlerine kocaman "1" yaz&#305;yoruz. Haml dosyas&#305;nda "end" komutlar&#305;
+kullan&#305;lmaz (yapanlar Python'dan m&#305; özendi ki?). Eee , diyeceksiniz
+nerede kutular ? Kodlamaya devam edelim, taray&#305;c&#305;ya gelen sayfan&#305;n
+kodunu incelerseniz 81 tane - class="b" - olan div görürsünüz. <br>
+&#350;imdi
+bu divleri önce kutu olarak çerçeve içine alaca&#287;&#305;z sonra da sudoku
+tahatas&#305; gibi yerle&#351;tirece&#287;iz. Nas&#305;l m&#305; ? Tabii ki CSS kullanarak.
+"index.haml" dosyas&#305;n&#305;n sonuna a&#351;a&#287;&#305;daki sat&#305;rlar&#305; ekleyelim.<br>
+<br>
+<pre><span class="style_10"></span><span class="style_14">:css</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">div</span><span class="style_10">.</span><span class="style_11">b&nbsp;</span><span class="style_10">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">position</span><span class="style_14">:&nbsp;</span><span class="style_11">absolute</span><span class="style_10">;&nbsp;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">border</span><span class="style_14">:&nbsp;</span><span class="style_4">2px&nbsp;</span><span class="style_11">solid</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">width</span><span class="style_14">:&nbsp;</span><span class="style_4">51px</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">height</span><span class="style_14">:&nbsp;</span><span class="style_4">51px</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">text</span><span class="style_10">-</span><span class="style_11">align</span><span class="style_14">:&nbsp;</span><span class="style_11">center</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">}</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">h1&nbsp;</span><span class="style_10">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">margin</span><span class="style_14">:&nbsp;</span><span class="style_4">0</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">}</span><br><br></pre>
+Ba&#351;tan itibaren bakarsak , ":css" ile arkas&#305;ndaki girintideki
+sat&#305;rlar&#305;n css stylesheets oldu&#287;unu belirtiyoruz. Bundan sonras&#305;
+standart css komutlar&#305;. Önce&nbsp;<span style="font-weight: bold;">class="b"</span>
+olan div'leri &#351;ekillendiriyoruz. "position: absolute;" çünkü sayfada
+kutular&#305; sabit yerlere koymak istiyoruz. 2 pixel kal&#305;nl&#305;&#287;&#305;nda bir çizgi
+ile div'lerimize s&#305;n&#305;r çiziyoruz. Geni&#351;lik ve yüksekli&#287;ini de 51 pixel
+olarak ayarl&#305;yoruz. En son da içine koyaca&#287;&#305;m&#305;z yaz&#305;n&#305;n yani say&#305;n&#305;n
+tam ortada olmas&#305;n&#305; istiyoruz. Bu kadar&#305; asl&#305;nda yeterli ancak firefox
+gibi baz&#305; taray&#305;c&#305;lar özellik belirtilmeyince &lt;h1&gt;
+tag'lerine
+otomatik olarak marjin tan&#305;ml&#305;yor ve bu da hücre içinde say&#305;m&#305;z&#305;n
+ortada ç&#305;kmas&#305;n&#305; engelledi&#287;i için &lt;h1&gt; leri de "margin:
+0;"
+olarak belirttik. &#350;imdi haml dosyas&#305;n&#305; kaydedip taray&#305;c&#305;y&#305; refresh
+etti&#287;imizde bizim 81 tane div 1 tane div olarak görünecek. Ne oldu?
+Pozisyonlar&#305;n&#305; absolute belirttik ama yerlerini belirtmedi&#287;imiz için
+hepsi geldi sol üst kö&#351;eye kondu. Sayfa kayna&#287;&#305;n&#305; incelersek bütün
+divlerin sayfada halen mevcutoldu&#287;unu görürüz. <br>
+<br>
+Bu durumda döngümüze bir kod ekleyip 81 hücrenin yerlerine da&#287;&#305;lmas&#305;n&#305;
+sa&#287;l&#305;yaca&#287;&#305;z.
+<pre><span class="style_10">-&nbsp;(</span><span class="style_4">1.</span><span class="style_10">.</span><span class="style_4">81</span><span class="style_10">).</span><span class="style_11">each&nbsp;</span><span class="style_5">do&nbsp;</span><span class="style_10">|</span><span class="style_11">x</span><span class="style_10">|</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">%</span><span class="style_11">div</span><span class="style_10">.</span><span class="style_11">b</span><span class="style_10">{</span><span class="style_14">:id</span><span class="style_10">=&gt;&nbsp;</span><span class="style_11">x</span><span class="style_10">.</span><span class="style_11">to_s</span><span class="style_10">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_14">:style</span><span class="style_10">=&gt;</span><span class="style_6">"left:&nbsp;</span><span class="style_10">#{((</span><span class="style_11">x</span><span class="style_10">-</span><span class="style_4">1</span><span class="style_10">)%</span><span class="style_4">9</span><span class="style_10">)*</span><span class="style_4">52</span><span class="style_10">+</span><span class="style_4">50</span><span class="style_10">}</span><span class="style_6">px;&nbsp;&nbsp;top:&nbsp;</span><span class="style_10">#{((</span><span class="style_11">x</span><span class="style_10">-</span><span class="style_4">1</span><span class="style_10">)/</span><span class="style_4">9</span><span class="style_10">)*</span><span class="style_4">52</span><span class="style_10">+</span><span class="style_4">50</span><span class="style_10">}</span><span class="style_6">px;"</span><span class="style_10">}</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">%</span><span class="style_11">h1</span><span class="style_10">=&nbsp;</span><span class="style_11">x&nbsp;</span><br></pre>
+Bunun için her koydu&#287;umuz div için ayr&#305; bir style uyduruyoruz ve
+kutular&#305;m&#305;z&#305;n yerlerini net olarak belirtiyoruz. De&#287;i&#351;ikli&#287;i yap&#305;p
+sayfay&#305; yenileyin ve sayfa görüntüsü ve kayna&#287;&#305;nda yat&#305;&#287;&#305;m&#305;z kodun
+etkisini görelim.<br>
+Art&#305;k tahta ortaya ç&#305;kt&#305; &#351;imdi yava&#351; yava&#351; görselden kontrol kodlar&#305;na
+do&#287;ru kayaca&#287;&#305;z. &#304;stiyorumki hücrelerin içinde küçük say&#305;lar ile olas&#305;
+tüm say&#305;lar yaz&#305;ls&#305;n. Bu küçük say&#305;lardan hangisi t&#305;klan&#305;rsa o say&#305; tek
+olas&#305;l&#305;k olarak kals&#305;n ve di&#287;er olas&#305;l&#305;klar listeden silinsin.
+Sonras&#305;nda bu tek kalan say&#305; en son elde etti&#287;imiz görüntüdeki gibi
+büyük olarak gösterilsin. Bunun için ilk önce her hücrede olas&#305; tüm
+de&#287;erleri içermesi için 81 elemanl&#305;k bir matris olu&#351;turuyoruz. Server'&#305;
+durdurup <span style="font-weight: bold; font-style: italic;">su.rb</span>
+dosyam&#305;z&#305; &#351;öyle düzenliyoruz:
+<pre><span class="style_5">require&nbsp;</span><span class="style_6">"rubygems"</span><br><span class="style_5">require&nbsp;</span><span class="style_6">"sinatra"</span><br><br><span class="style_11">mat&nbsp;</span><span class="style_10">=&nbsp;[]</span><br><span class="style_10">(</span><span class="style_4">1.</span><span class="style_10">.</span><span class="style_4">81</span><span class="style_10">).</span><span class="style_11">each&nbsp;</span><span class="style_5">do</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">mat&nbsp;</span><span class="style_10">&lt;&lt;&nbsp;</span><span class="style_6">"123456789"&nbsp;</span><br><span class="style_5">end</span><br><br><span class="style_11">get&nbsp;</span><span class="style_6">"/"&nbsp;</span><span class="style_5">do</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">haml&nbsp;</span><span class="style_14">:index</span><span class="style_10">,&nbsp;</span><span class="style_14">:locals</span><span class="style_10">=&gt;{</span><span class="style_14">:mat</span><span class="style_10">=&gt;</span><span class="style_11">mat</span><span class="style_10">}</span><br><span class="style_5">end</span><br></pre>
+En ba&#351;ta tüm hücreler içim 1'den 9'a kadar tüm say&#305;lar olas&#305;d&#305;r.
+Bunlar&#305; görselimizde küçük say&#305;lar olarak ç&#305;karmak için bu matrisi
+"index.haml" dosyas&#305;na göndermemiz gerekiyor. Bu gönderimi
+gerçekle&#351;tirme için matrisimizi "locals" içinde ayn&#305; isimle haml
+dosyas&#305;na aktar&#305;yoruz. S&#305;rada haml dosyam&#305;z var:<br>
+<pre><span class="style_10">-&nbsp;</span><span class="style_11">mat</span><span class="style_10">[</span><span class="style_4">0</span><span class="style_10">]=</span><span class="style_6">"1"</span><br><span class="style_10">-&nbsp;</span><span class="style_11">mat</span><span class="style_10">[</span><span class="style_4">1</span><span class="style_10">]=</span><span class="style_6">"28"</span><br><br><span class="style_10">-&nbsp;(</span><span class="style_4">1.</span><span class="style_10">.</span><span class="style_4">81</span><span class="style_10">).</span><span class="style_11">each&nbsp;</span><span class="style_5">do&nbsp;</span><span class="style_10">|</span><span class="style_11">x</span><span class="style_10">|</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">%</span><span class="style_11">div</span><span class="style_10">.</span><span class="style_11">b</span><span class="style_10">{</span><span class="style_14">:id</span><span class="style_10">=&gt;&nbsp;</span><span class="style_11">x</span><span class="style_10">.</span><span class="style_11">to_s</span><span class="style_10">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_14">:style</span><span class="style_10">=&gt;</span><span class="style_6">"left:&nbsp;</span><span class="style_10">#{((</span><span class="style_11">x</span><span class="style_10">-</span><span class="style_4">1</span><span class="style_10">)%</span><span class="style_4">9</span><span class="style_10">)*</span><span class="style_4">52</span><span class="style_10">+</span><span class="style_4">50</span><span class="style_10">}</span><span class="style_6">px;&nbsp;&nbsp;top:&nbsp;</span><span class="style_10">#{((</span><span class="style_11">x</span><span class="style_10">-</span><span class="style_4">1</span><span class="style_10">)/</span><span class="style_4">9</span><span class="style_10">)*</span><span class="style_4">52</span><span class="style_10">+</span><span class="style_4">50</span><span class="style_10">}</span><span class="style_6">px;"</span><span class="style_10">}</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">-&nbsp;</span><span class="style_5">if&nbsp;</span><span class="style_11">mat</span><span class="style_10">[</span><span class="style_11">x</span><span class="style_10">-</span><span class="style_4">1</span><span class="style_10">].</span><span class="style_11">length</span><span class="style_10">==</span><span class="style_4">1</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">%</span><span class="style_11">h1</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">=&nbsp;</span><span class="style_11">mat</span><span class="style_10">[</span><span class="style_11">x</span><span class="style_10">-</span><span class="style_4">1</span><span class="style_10">]</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">-&nbsp;</span><span class="style_5">else</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">-&nbsp;(</span><span class="style_4">1.</span><span class="style_10">.</span><span class="style_4">9</span><span class="style_10">).</span><span class="style_11">each&nbsp;</span><span class="style_5">do&nbsp;</span><span class="style_10">|</span><span class="style_11">xx</span><span class="style_10">|</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">-&nbsp;</span><span class="style_5">if&nbsp;</span><span class="style_11">mat</span><span class="style_10">[</span><span class="style_11">x</span><span class="style_10">-</span><span class="style_4">1</span><span class="style_10">].</span><span class="style_11">include?</span><span class="style_10">(</span><span class="style_11">xx</span><span class="style_10">.</span><span class="style_11">to_s</span><span class="style_10">)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">%</span><span class="style_11">div</span><span class="style_10">.</span><span class="style_11">l</span><span class="style_10">{</span><span class="style_14">:style</span><span class="style_10">=&gt;</span><span class="style_6">"left:&nbsp;</span><span class="style_10">#{((</span><span class="style_11">xx</span><span class="style_10">-</span><span class="style_4">1</span><span class="style_10">)%</span><span class="style_4">3</span><span class="style_10">)*</span><span class="style_4">17</span><span class="style_10">+</span><span class="style_4">0</span><span class="style_10">}</span><span class="style_6">px;&nbsp;&nbsp;top:&nbsp;</span><span class="style_10">#{((</span><span class="style_11">xx</span><span class="style_10">-</span><span class="style_4">1</span><span class="style_10">)/</span><span class="style_4">3</span><span class="style_10">)*</span><span class="style_4">17</span><span class="style_10">+</span><span class="style_4">0</span><span class="style_10">}</span><span class="style_6">px;&nbsp;"</span><span class="style_10">}</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">=</span><span class="style_11">xx&nbsp;</span><br><br><span class="style_14">:css</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">div</span><span class="style_10">.</span><span class="style_11">b&nbsp;</span><span class="style_10">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">position</span><span class="style_14">:&nbsp;</span><span class="style_11">absolute</span><span class="style_10">;&nbsp;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">border</span><span class="style_14">:&nbsp;</span><span class="style_4">2px&nbsp;</span><span class="style_11">solid</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">width</span><span class="style_14">:&nbsp;</span><span class="style_4">51px</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">height</span><span class="style_14">:&nbsp;</span><span class="style_4">51px</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">text</span><span class="style_10">-</span><span class="style_11">align</span><span class="style_14">:&nbsp;</span><span class="style_11">center</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">}</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">div</span><span class="style_10">.</span><span class="style_11">l&nbsp;</span><span class="style_10">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">position</span><span class="style_14">:&nbsp;</span><span class="style_11">absolute</span><span class="style_10">;&nbsp;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">border</span><span class="style_14">:&nbsp;</span><span class="style_4">1px&nbsp;</span><span class="style_11">solid</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">width</span><span class="style_14">:&nbsp;</span><span class="style_4">16px</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">height</span><span class="style_14">:&nbsp;</span><span class="style_4">16px</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">text</span><span class="style_10">-</span><span class="style_11">align</span><span class="style_14">:&nbsp;</span><span class="style_11">center</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">font</span><span class="style_10">-</span><span class="style_11">size</span><span class="style_14">:&nbsp;</span><span class="style_4">10px</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">z</span><span class="style_10">-</span><span class="style_11">index</span><span class="style_14">:&nbsp;</span><span class="style_4">1</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">}</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">h1&nbsp;</span><span class="style_10">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">margin</span><span class="style_14">:&nbsp;</span><span class="style_4">0</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">}</span><br></pre>
+
+en ba&#351; iki sat&#305;rda denme için matris de&#287;erlerinden baz&#305;lar&#305;n&#305;
+de&#287;i&#351;tiriyoruz ki sonucun istedi&#287;imiz gibi olmas&#305;n&#305; test edelim. Daha
+sonra bu iki sat&#305;r&#305; kald&#305;raca&#287;&#305;z. &#350;imdi sayfam&#305;z&#305; bir test edelim.
+Art&#305;k uygulama &#351;ekillenmeye ba&#351;lad&#305;. Bu noktada bir&#351;ey dikkatimi çekti
+ve deneme yapt&#305;m. Ayn&#305; uygulamay&#305; wxRuby ile ve StaticText'ler ile
+yapmaya çal&#305;&#351;t&#305;m. Bu uygulama çok daha seri cevap veriyor. Sinatra hem
+masaüstü hem web uygulamalar&#305; geli&#351;tirmek için kullan&#305;&#351;l&#305; ve ba&#351;ar&#305;l&#305;
+bir ortam. Burada geli&#351;tiricilerinden masaüstü uygulamas&#305; geli&#351;tirmek
+için bir "SinatraViewer" talep etmeye karar verdim. &#304;kinci bir grup
+div'imiz oldu "class=l" bunlar büyük div'lerin içinde olas&#305; say&#305;lar&#305;
+yazan küçük kutular. Bunlar&#305; da özelliklerini css içinde belirttik ve
+e&#287;er hücre için tek bir olas&#305;l&#305;k varsa hücrenin içinde &lt;h1&gt;
+olarak büyük yaz&#305;yla bu tek olas&#305;l&#305;&#287;&#305; yaz&#305;yoruz. Birden fazla olas&#305;l&#305;k
+varsa küçük kutular olarak tüm olas&#305;l&#305;klar&#305; büyük kutu içinde
+gösteriyoruz. &#304;&#351;in arkas&#305;nda &#351;öyle bir mant&#305;k olacak. <br></body></html>
