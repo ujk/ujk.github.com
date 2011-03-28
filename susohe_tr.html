@@ -1,1264 +1,948 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html><head>
+
   
-  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
-  <title>Sinatra &#304;le Sudoku Çözüm Yard&#305;mc&#305; Program&#305;</title>
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>Sinatra &#304;le Sudoku Çözüm Yard&#305;mc&#305; Program&#305;</title>
+  
 
   
   
   <style type="text/css">
-body
-{
-font-family: Monospace, monospace;
-font-size: 10pt;
-}
-.style_4
-{
-color: #400080;
-background-color: #ffffff;
-}
-.style_5
-{
-color: #111199;
-background-color: #ffffff;
-font-weight: bold;
-}
-.style_10
-{
-color: #000000;
-background-color: #ffffff;
-}
-.style_11
-{
-color: #000000;
-background-color: #ffffff;
-}
-.style_14
-{
-color: #008020;
-background-color: #ffffff;
-}
-.style_33
-{
-color: #000000;
-background-color: #000004;
-font-weight: bold;
-font-style: italic;
-}
-.style_34
-{
-color: #22d4b8;
-background-color: #000018;
-font-weight: bold;
-font-style: italic;
-}
-.style_35
-{
-color: #000000;
-background-color: #000000;
-font-weight: bold;
-}
-.style_36
-{
-color: #76d8732e;
-background-color: #76d82c28;
-font-weight: bold;
-font-style: italic;
-}
-.style_37
-{
-color: #0400ae;
-background-color: #000000;
-font-weight: bold;
-}
-.style_38
-{
-color: #000006;
-background-color: #0307d8;
-font-weight: bold;
-font-style: italic;
-}
-.style_39
-{
-color: #000000;
-background-color: #0400ae;
-font-weight: bold;
-font-style: italic;
-}
-.style_40
-{
-color: #000086;
-background-color: #000001;
-font-weight: bold;
-font-style: italic;
-}
-.style_42
-{
-color: #000000;
-background-color: #76d872e1;
-font-weight: bold;
-font-style: italic;
-}
-.style_43
-{
-color: #0307d8;
-background-color: #000006;
-font-weight: bold;
-font-style: italic;
-}
-.style_44
-{
-color: #76d88e72;
-background-color: #76dd98d8;
-font-weight: bold;
-font-style: italic;
-}
-.style_45
-{
-color: #76d872b6;
-background-color: #ca864721;
-font-weight: bold;
-font-style: italic;
-}
-.style_46
-{
-color: #000001;
-background-color: #000000;
-font-weight: bold;
-font-style: italic;
-}
-.style_47
-{
-color: #76dd62e3;
-background-color: #bc7ce059;
-font-weight: bold;
-font-style: italic;
-}
-.style_48
-{
-color: #0307d8;
-background-color: #000006;
-font-weight: bold;
-font-style: italic;
-}
-.style_50
-{
-color: #22d75c;
-background-color: #000047;
-font-weight: bold;
-font-style: italic;
-}
-.style_52
-{
-color: #000000;
-background-color: #22d75c;
-font-weight: bold;
-}
-.style_53
-{
-color: #22d6a4;
-background-color: #22d654;
-font-weight: bold;
-font-style: italic;
-}
-.style_55
-{
-color: #22d6a4;
-background-color: #000006;
-font-weight: bold;
-font-style: italic;
-}
-.style_56
-{
-color: #76d872b6;
-background-color: #22d6cc;
-font-weight: bold;
-font-style: italic;
-}
-.style_57
-{
-color: #000004;
-background-color: #3a18c80;
-font-weight: bold;
-}
-.style_58
-{
-color: #000000;
-background-color: #22d6c8;
-font-weight: bold;
-font-style: italic;
-}
-.style_59
-{
-color: #000017;
-background-color: #76be3ad3;
-font-weight: bold;
-font-style: italic;
-}
-.style_60
-{
-color: #3a18c80;
-background-color: #2b2160;
-font-style: italic;
-}
-.style_61
-{
-color: #bc7c1a09;
-background-color: #22d71c;
-font-weight: bold;
-font-style: italic;
-}
-.style_62
-{
-color: #76be3ad3;
-background-color: #76d83560;
-font-weight: bold;
-font-style: italic;
-}
-.style_63
-{
-color: #22d72c;
-background-color: #76d831eb;
-font-weight: bold;
-font-style: italic;
-}
-.style_64
-{
-color: #76d831fd;
-background-color: #ca8645b5;
-font-weight: bold;
-font-style: italic;
-}
-.style_65
-{
-color: #22d704;
-background-color: #22d760;
-font-weight: bold;
-font-style: italic;
-}
-.style_66
-{
-color: #fffffffe;
-background-color: #76d831fd;
-font-weight: bold;
-font-style: italic;
-}
-.style_67
-{
-color: #76d83255;
-background-color: #000000;
-font-weight: bold;
-font-style: italic;
-}
-.style_68
-{
-color: #22d780;
-background-color: #63a4603b;
-font-weight: bold;
-font-style: italic;
-}
-.style_69
-{
-color: #77486230;
-background-color: #0a0004;
-font-weight: bold;
-}
-.style_70
-{
-color: #000001;
-background-color: #1d1a5b8;
-font-weight: bold;
-font-style: italic;
-}
-.style_71
-{
-color: #b3e1b8;
-background-color: #00040c;
-font-weight: bold;
-font-style: italic;
-}
-.style_72
-{
-color: #22d7c4;
-background-color: #76d87bfb;
-font-weight: bold;
-font-style: italic;
-}
-.style_74
-{
-color: #000000;
-background-color: #000000;
-font-style: italic;
-}
-.style_75
-{
-color: #980115b6;
-background-color: #000000;
-font-weight: bold;
-font-style: italic;
-}
-.style_78
-{
-color: #000000;
-background-color: #000000;
-}
-.style_83
-{
-color: #1b00001b;
-background-color: #000000;
-font-weight: bold;
-font-style: italic;
-}
-.style_84
-{
-color: #0000d8;
-background-color: #22a0000;
-font-weight: bold;
-font-style: italic;
-}
-.style_86
-{
-color: #22a0000;
-background-color: #22b62f8;
-font-weight: bold;
-}
-.style_87
-{
-color: #22a0000;
-background-color: #122d8ec;
-font-weight: bold;
-font-style: italic;
-}
-.style_88
-{
-color: #7745d555;
-background-color: #22a0000;
-font-weight: bold;
-font-style: italic;
-}
-.style_89
-{
-color: #22a0150;
-background-color: #2000002;
-font-weight: bold;
-font-style: italic;
-}
-.style_90
-{
-color: #22b76f8;
-background-color: #0400ae;
-font-weight: bold;
-font-style: italic;
-}
-.style_91
-{
-color: #000036;
-background-color: #000000;
-font-weight: bold;
-font-style: italic;
-}
-.style_92
-{
-color: #22b8a38;
-background-color: #000000;
-font-weight: bold;
-font-style: italic;
-}
-.style_93
-{
-color: #000000;
-background-color: #76707be3;
-font-weight: bold;
-font-style: italic;
-}
-.style_94
-{
-color: #22d968;
-background-color: #76d84ceb;
-font-weight: bold;
-font-style: italic;
-}
-.style_95
-{
-color: #980115b6;
-background-color: #000002;
-font-weight: bold;
-}
-.style_97
-{
-color: #76749160;
-background-color: #76749100;
-font-weight: bold;
-font-style: italic;
-}
-.style_98
-{
-color: #76d8696a;
-background-color: #ca864b41;
-font-style: italic;
-}
-.style_99
-{
-color: #000001;
-background-color: #22d9ac;
-font-weight: bold;
-font-style: italic;
-}
-.style_100
-{
-color: #bc7cfbe9;
-background-color: #fffffffe;
-font-weight: bold;
-font-style: italic;
-}
-.style_101
-{
-color: #22b76f8;
-background-color: #000000;
-font-weight: bold;
-font-style: italic;
-}
-.style_104
-{
-color: #76710855;
-background-color: #76710835;
-font-weight: bold;
-font-style: italic;
-}
-.style_105
-{
-color: #000000;
-background-color: #22da58;
-font-weight: bold;
-font-style: italic;
-}
-.style_106
-{
-color: #000000;
-background-color: #000001;
-font-weight: bold;
-font-style: italic;
-}
-.style_108
-{
-color: #22b771c;
-background-color: #76d8f0ab;
-font-weight: bold;
-font-style: italic;
-}
-.style_109
-{
-color: #22db60;
-background-color: #73f9763f;
-font-weight: bold;
-font-style: italic;
-}
-.style_110
-{
-color: #22dba4;
-background-color: #000000;
-font-weight: bold;
-font-style: italic;
-}
-.style_114
-{
-color: #000000;
-background-color: #000000;
-font-style: italic;
-}
-.style_115
-{
-color: #000000;
-background-color: #000000;
-font-weight: bold;
-font-style: italic;
-}
-.style_117
-{
-color: #000017;
-background-color: #00000c;
-font-weight: bold;
-font-style: italic;
-}
-.style_118
-{
-color: #000004;
-background-color: #000000;
-}
-.style_119
-{
-color: #000004;
-background-color: #000004;
-font-weight: bold;
-}
-.style_120
-{
-color: #22db88;
-background-color: #73f9770e;
-}
-.style_121
-{
-color: #000000;
-background-color: #22b76f8;
-font-weight: bold;
-font-style: italic;
-}
-.style_122
-{
-color: #000001;
-background-color: #01082a;
-font-weight: bold;
-}
-.style_123
-{
-color: #000086;
-background-color: #0400ae;
-font-weight: bold;
-font-style: italic;
-}
-.style_125
-{
-color: #000001;
-background-color: #000001;
-}
-.style_127
-{
-color: #000001;
-background-color: #01082a;
-font-weight: bold;
-font-style: italic;
-}
-.style_128
-{
-color: #22b7708;
-background-color: #22dc40;
-font-weight: bold;
-font-style: italic;
-}
-.style_129
-{
-color: #01082a;
-background-color: #000086;
-font-weight: bold;
-font-style: italic;
-}
-.style_130
-{
-color: #22dc10;
-background-color: #ca864ec1;
-font-weight: bold;
-font-style: italic;
-}
-.style_131
-{
-color: #01082a;
-background-color: #22dcb0;
-font-weight: bold;
-}
-.style_132
-{
-color: #000001;
-background-color: #01082a;
-font-weight: bold;
-font-style: italic;
-}
-.style_133
-{
-color: #22dcbc;
-background-color: #000000;
-font-style: italic;
-}
-.style_134
-{
-color: #0400ae;
-background-color: #000006;
-font-weight: bold;
-}
-.style_135
-{
-color: #000006;
-background-color: #00017c;
-}
-.style_136
-{
-color: #0400ae;
-background-color: #000000;
-font-weight: bold;
-font-style: italic;
-}
-.style_137
-{
-color: #76d886ef;
-background-color: #0400ae;
-font-weight: bold;
-font-style: italic;
-}
-.style_138
-{
-color: #000006;
-background-color: #dcbaabcd;
-font-style: italic;
-}
-.style_139
-{
-color: #22dcec;
-background-color: #22dd08;
-font-weight: bold;
-font-style: italic;
-}
-.style_140
-{
-color: #76d888c9;
-background-color: #76be3b5a;
-font-weight: bold;
-font-style: italic;
-}
-.style_141
-{
-color: #0a0004;
-background-color: #000000;
-font-weight: bold;
-}
-.style_142
-{
-color: #76c4319b;
-background-color: #22dd60;
-font-weight: bold;
-font-style: italic;
-}
-.style_143
-{
-color: #ca864e44;
-background-color: #0400ae;
-font-weight: bold;
-}
-.style_144
-{
-color: #000000;
-background-color: #000004;
-font-weight: bold;
-font-style: italic;
-}
-.style_145
-{
-color: #76c4319b;
-background-color: #bc1aa9fc;
-font-weight: bold;
-font-style: italic;
-}
-.style_146
-{
-color: #0a0004;
-background-color: #0400ae;
-font-weight: bold;
-font-style: italic;
-}
-.style_147
-{
-color: #0a0004;
-background-color: #0400ae;
-font-weight: bold;
-font-style: italic;
-}
-.style_148
-{
-color: #0400ae;
-background-color: #cbc6d0;
-font-style: italic;
-}
-.style_149
-{
-color: #22dde8;
-background-color: #76dd62e3;
-font-weight: bold;
-font-style: italic;
-}
-.style_151
-{
-color: #000000;
-background-color: #000004;
-font-weight: bold;
-font-style: italic;
-}
-.style_153
-{
-color: #cbc6d0;
-background-color: #000000;
-font-weight: bold;
-font-style: italic;
-}
-.style_154
-{
-color: #000000;
-background-color: #000000;
-}
-.style_155
-{
-color: #000111;
-background-color: #000001;
-font-weight: bold;
-font-style: italic;
-}
-.style_156
-{
-color: #000006;
-background-color: #22debc;
-font-weight: bold;
-}
-.style_157
-{
-color: #76d886ef;
-background-color: #01082a;
-font-weight: bold;
-font-style: italic;
-}
-.style_158
-{
-color: #000111;
-background-color: #000011;
-font-weight: bold;
-font-style: italic;
-}
-.style_159
-{
-color: #22de7c;
-background-color: #22de98;
-font-weight: bold;
-font-style: italic;
-}
-.style_160
-{
-color: #01082a;
-background-color: #22b8568;
-font-weight: bold;
-font-style: italic;
-}
-.style_161
-{
-color: #22debc;
-background-color: #73f93199;
-font-weight: bold;
-font-style: italic;
-}
-.style_162
-{
-color: #01082a;
-background-color: #22debc;
-font-weight: bold;
-font-style: italic;
-}
-.style_163
-{
-color: #ca864c71;
-background-color: #76d87756;
-font-weight: bold;
-font-style: italic;
-}
-.style_164
-{
-color: #22debc;
-background-color: #01082a;
-font-weight: bold;
-font-style: italic;
-}
-.style_166
-{
-color: #000000;
-background-color: #22df58;
-font-weight: bold;
-font-style: italic;
-}
-.style_168
-{
-color: #01082a;
-background-color: #000082;
-}
-.style_170
-{
-color: #22a0000;
-background-color: #22b8560;
-font-style: italic;
-}
-.style_171
-{
-color: #22b8a38;
-background-color: #22a00c4;
-font-weight: bold;
-font-style: italic;
-}
-.style_172
-{
-color: #010000;
-background-color: #22b8560;
-font-weight: bold;
-font-style: italic;
-}
-.style_173
-{
-color: #77493189;
-background-color: #7681868d;
-font-style: italic;
-}
-.style_174
-{
-color: #000000;
-background-color: #000001;
-font-style: italic;
-}
-.style_175
-{
-color: #22e094;
-background-color: #22a00c4;
-font-weight: bold;
-font-style: italic;
-}
-.style_180
-{
-color: #000000;
-background-color: #000082;
-font-weight: bold;
-}
-.style_181
-{
-color: #000082;
-background-color: #22e038;
-font-weight: bold;
-font-style: italic;
-}
-.style_182
-{
-color: #000150;
-background-color: #000000;
-font-weight: bold;
-}
-.style_183
-{
-color: #1010001;
-background-color: #22df88;
-font-weight: bold;
-font-style: italic;
-}
-.style_184
-{
-color: #1ea6e35;
-background-color: #fffffffe;
-font-weight: bold;
-font-style: italic;
-}
-.style_185
-{
-color: #22e0ac;
-background-color: #22b8568;
-font-weight: bold;
-font-style: italic;
-}
-.style_186
-{
-color: #76d877cd;
-background-color: #76d87987;
-font-weight: bold;
-font-style: italic;
-}
-.style_187
-{
-color: #01082a;
-background-color: #00a91a;
-font-weight: bold;
-font-style: italic;
-}
-.style_188
-{
-color: #01082a;
-background-color: #00a91a;
-font-weight: bold;
-}
-.style_189
-{
-color: #22e0d8;
-background-color: #73f99086;
-font-weight: bold;
-font-style: italic;
-}
-.style_190
-{
-color: #22e0e8;
-background-color: #000000;
-font-style: italic;
-}
-.style_192
-{
-color: #000000;
-background-color: #000000;
-font-weight: bold;
-font-style: italic;
-}
-.style_193
-{
-color: #000082;
-background-color: #000000;
-font-style: italic;
-}
-.style_194
-{
-color: #000000;
-background-color: #000000;
-font-weight: bold;
-font-style: italic;
-}
-.style_195
-{
-color: #000000;
-background-color: #22e0a8;
-font-weight: bold;
-font-style: italic;
-}
-.style_196
-{
-color: #ca867335;
-background-color: #000000;
-font-weight: bold;
-font-style: italic;
-}
-.style_197
-{
-color: #000001;
-background-color: #000000;
-font-style: italic;
-}
-.style_198
-{
-color: #ffffffff;
-background-color: #76d8881f;
-font-weight: bold;
-}
-.style_199
-{
-color: #260000;
-background-color: #2dab00;
-font-style: italic;
-}
-.style_200
-{
-color: #76dd62e3;
-background-color: #bc7c1a09;
-font-weight: bold;
-font-style: italic;
-}
-.style_201
-{
-color: #010000;
-background-color: #2dab00;
-font-weight: bold;
-font-style: italic;
-}
-.style_202
-{
-color: #77493189;
-background-color: #76818449;
-font-style: italic;
-}
-.style_204
-{
-color: #22e1d4;
-background-color: #2dd2d8;
-font-weight: bold;
-font-style: italic;
-}
-.style_205
-{
-color: #260150;
-background-color: #76d870ff;
-font-weight: bold;
-font-style: italic;
-}
-.style_206
-{
-color: #000000;
-background-color: #31000031;
-font-weight: bold;
-font-style: italic;
-}
-.style_207
-{
-color: #000003;
-background-color: #000000;
-font-weight: bold;
-font-style: italic;
-}
-.style_208
-{
-color: #55000356;
-background-color: #000030;
-font-weight: bold;
-font-style: italic;
-}
-.style_209
-{
-color: #000082;
-background-color: #000000;
-font-weight: bold;
-}
-.style_211
-{
-color: #000030;
-background-color: #000000;
-font-weight: bold;
-}
-.style_212
-{
-color: #1010257;
-background-color: #22e1cc;
-font-style: italic;
-}
-.style_214
-{
-color: #2dab08;
-background-color: #000000;
-font-weight: bold;
-font-style: italic;
-}
-.style_215
-{
-color: #22e364;
-background-color: #76dce16d;
-font-weight: bold;
-}
-.style_217
-{
-color: #000400;
-background-color: #000258;
-font-style: italic;
-}
-.style_218
-{
-color: #000018;
-background-color: #00000f;
-font-weight: bold;
-font-style: italic;
-}
-.style_219
-{
-color: #000000;
-background-color: #0001b7;
-font-style: italic;
-}
-.style_220
-{
-color: #50022080;
-background-color: #a40bc4;
-}
-.style_222
-{
-color: #000020;
-background-color: #0001e1;
-font-weight: bold;
-font-style: italic;
-}
-.style_223
-{
-color: #000024;
-background-color: #000000;
-font-weight: bold;
-font-style: italic;
-}
-.style_224
-{
-color: #000007;
-background-color: #26d7684;
-font-weight: bold;
-font-style: italic;
-}
-.style_225
-{
-color: #b30000;
-background-color: #397c348;
-font-weight: bold;
-}
-.style_226
-{
-color: #000000;
-background-color: #000002;
-font-weight: bold;
-font-style: italic;
-}
-.style_227
-{
-color: #000001;
-background-color: #397c340;
-font-weight: bold;
-font-style: italic;
-}
-.style_228
-{
-color: #26d7684;
-background-color: #2732d78;
-font-weight: bold;
-font-style: italic;
-}
-.style_229
-{
-color: #b30000;
-background-color: #000000;
-font-weight: bold;
-font-style: italic;
-}
-.style_230
-{
-color: #b39990;
-background-color: #6900e0c8;
-font-weight: bold;
-}
-.style_232
-{
-color: #b39990;
-background-color: #26d7684;
-font-weight: bold;
-font-style: italic;
-}
-.style_233
-{
-color: #690120e0;
-background-color: #69003900;
-font-weight: bold;
-font-style: italic;
-}
-.style_234
-{
-color: #6900fae1;
-background-color: #6900475f;
-font-weight: bold;
-font-style: italic;
-}
-.style_235
-{
-color: #000000;
-background-color: #22e44c;
-font-weight: bold;
-font-style: italic;
-}
-.style_236
-{
-color: #4d5f434c;
-background-color: #41535345;
-font-weight: bold;
-font-style: italic;
-}
-.style_237
-{
-color: #6900f100;
-background-color: #000009;
-font-weight: bold;
-font-style: italic;
-}
-.style_238
-{
-color: #7702a53a;
-background-color: #2638780;
-font-weight: bold;
-font-style: italic;
-}
-.style_239
-{
-color: #000000;
-background-color: #ca86762d;
-font-weight: bold;
-font-style: italic;
-}
-.style_240
-{
-color: #000028;
-background-color: #0400ae;
-font-style: italic;
-}
-.style_242
-{
-color: #000000;
-background-color: #000000;
-font-weight: bold;
-font-style: italic;
-}
-.style_244
-{
-color: #000054;
-background-color: #10c0111;
-font-weight: bold;
-font-style: italic;
-}
-.style_245
-{
-color: #0400ae;
-background-color: #3a989d0;
-font-weight: bold;
-font-style: italic;
-}
-.style_246
-{
-color: #77491fc7;
-background-color: #3a99158;
-font-style: italic;
-}
-.style_247
-{
-color: #22e598;
-background-color: #000000;
-font-weight: bold;
-font-style: italic;
-}
-.style_248
-{
-color: #ca8670d4;
-background-color: #f00112;
-font-weight: bold;
-font-style: italic;
-}
-.style_249
-{
-color: #000200;
-background-color: #3a989d0;
-font-weight: bold;
-font-style: italic;
-}
-.style_250
-{
-color: #77491fc7;
-background-color: #3a990e8;
-font-style: italic;
-}
-.style_251
-{
-color: #22e5e8;
-background-color: #770298cd;
-font-weight: bold;
-}
-.style_252
-{
-color: #ca8670a4;
-background-color: #000000;
-font-weight: bold;
-font-style: italic;
-}
-.style_253
-{
-color: #3a99158;
-background-color: #fffffff8;
-font-weight: bold;
-font-style: italic;
-}
-.style_254
-{
-color: #22ffc4;
-background-color: #77048cd5;
-font-weight: bold;
-font-style: italic;
-}
-.style_255
-{
-color: #414322;
-background-color: #3a990e8;
-font-style: italic;
-}
-  </style>
-</head><body>
+body {
+  font-family: Monospace,monospace;
+  font-size: 10pt;
+}
+.style_4 {
+  color: #400080;
+  background-color: #ffffff;
+}
+.style_5 {
+  color: #111199;
+  background-color: #ffffff;
+  font-weight: bold;
+}
+.style_10 {
+  color: #000000;
+  background-color: #ffffff;
+}
+.style_11 {
+  color: #000000;
+  background-color: #ffffff;
+}
+.style_14 {
+  color: #008020;
+  background-color: #ffffff;
+}
+.style_33 {
+  color: #000000;
+  background-color: #000004;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_34 {
+  color: #22d4b8;
+  background-color: #000018;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_35 {
+  color: #000000;
+  background-color: #000000;
+  font-weight: bold;
+}
+.style_36 {
+  font-weight: bold;
+  font-style: italic;
+}
+.style_37 {
+  color: #0400ae;
+  background-color: #000000;
+  font-weight: bold;
+}
+.style_38 {
+  color: #000006;
+  background-color: #0307d8;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_39 {
+  color: #000000;
+  background-color: #0400ae;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_40 {
+  color: #000086;
+  background-color: #000001;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_42 {
+  color: #000000;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_43 {
+  color: #0307d8;
+  background-color: #000006;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_44 {
+  font-weight: bold;
+  font-style: italic;
+}
+.style_45 {
+  font-weight: bold;
+  font-style: italic;
+}
+.style_46 {
+  color: #000001;
+  background-color: #000000;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_47 {
+  font-weight: bold;
+  font-style: italic;
+}
+.style_48 {
+  color: #0307d8;
+  background-color: #000006;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_50 {
+  color: #22d75c;
+  background-color: #000047;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_52 {
+  color: #000000;
+  background-color: #22d75c;
+  font-weight: bold;
+}
+.style_53 {
+  color: #22d6a4;
+  background-color: #22d654;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_55 {
+  color: #22d6a4;
+  background-color: #000006;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_56 {
+  background-color: #22d6cc;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_57 {
+  color: #000004;
+  font-weight: bold;
+}
+.style_58 {
+  color: #000000;
+  background-color: #22d6c8;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_59 {
+  color: #000017;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_60 {
+  background-color: #2b2160;
+  font-style: italic;
+}
+.style_61 {
+  background-color: #22d71c;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_62 {
+  font-weight: bold;
+  font-style: italic;
+}
+.style_63 {
+  color: #22d72c;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_64 {
+  font-weight: bold;
+  font-style: italic;
+}
+.style_65 {
+  color: #22d704;
+  background-color: #22d760;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_66 {
+  font-weight: bold;
+  font-style: italic;
+}
+.style_67 {
+  background-color: #000000;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_68 {
+  color: #22d780;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_69 {
+  background-color: #0a0004;
+  font-weight: bold;
+}
+.style_70 {
+  color: #000001;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_71 {
+  color: #b3e1b8;
+  background-color: #00040c;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_72 {
+  color: #22d7c4;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_74 {
+  color: #000000;
+  background-color: #000000;
+  font-style: italic;
+}
+.style_75 {
+  background-color: #000000;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_78 {
+  color: #000000;
+  background-color: #000000;
+}
+.style_83 {
+  background-color: #000000;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_84 {
+  color: #0000d8;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_86 {
+  font-weight: bold;
+}
+.style_87 {
+  font-weight: bold;
+  font-style: italic;
+}
+.style_88 {
+  font-weight: bold;
+  font-style: italic;
+}
+.style_89 {
+  font-weight: bold;
+  font-style: italic;
+}
+.style_90 {
+  background-color: #0400ae;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_91 {
+  color: #000036;
+  background-color: #000000;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_92 {
+  background-color: #000000;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_93 {
+  color: #000000;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_94 {
+  color: #22d968;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_95 {
+  background-color: #000002;
+  font-weight: bold;
+}
+.style_97 {
+  font-weight: bold;
+  font-style: italic;
+}
+.style_98 {
+  font-style: italic;
+}
+.style_99 {
+  color: #000001;
+  background-color: #22d9ac;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_100 {
+  font-weight: bold;
+  font-style: italic;
+}
+.style_101 {
+  background-color: #000000;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_104 {
+  font-weight: bold;
+  font-style: italic;
+}
+.style_105 {
+  color: #000000;
+  background-color: #22da58;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_106 {
+  color: #000000;
+  background-color: #000001;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_108 {
+  font-weight: bold;
+  font-style: italic;
+}
+.style_109 {
+  color: #22db60;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_110 {
+  color: #22dba4;
+  background-color: #000000;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_114 {
+  color: #000000;
+  background-color: #000000;
+  font-style: italic;
+}
+.style_115 {
+  color: #000000;
+  background-color: #000000;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_117 {
+  color: #000017;
+  background-color: #00000c;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_118 {
+  color: #000004;
+  background-color: #000000;
+}
+.style_119 {
+  color: #000004;
+  background-color: #000004;
+  font-weight: bold;
+}
+.style_120 {
+  color: #22db88;
+}
+.style_121 {
+  color: #000000;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_122 {
+  color: #000001;
+  background-color: #01082a;
+  font-weight: bold;
+}
+.style_123 {
+  color: #000086;
+  background-color: #0400ae;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_125 {
+  color: #000001;
+  background-color: #000001;
+}
+.style_127 {
+  color: #000001;
+  background-color: #01082a;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_128 {
+  background-color: #22dc40;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_129 {
+  color: #01082a;
+  background-color: #000086;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_130 {
+  color: #22dc10;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_131 {
+  color: #01082a;
+  background-color: #22dcb0;
+  font-weight: bold;
+}
+.style_132 {
+  color: #000001;
+  background-color: #01082a;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_133 {
+  color: #22dcbc;
+  background-color: #000000;
+  font-style: italic;
+}
+.style_134 {
+  color: #0400ae;
+  background-color: #000006;
+  font-weight: bold;
+}
+.style_135 {
+  color: #000006;
+  background-color: #00017c;
+}
+.style_136 {
+  color: #0400ae;
+  background-color: #000000;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_137 {
+  background-color: #0400ae;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_138 {
+  color: #000006;
+  font-style: italic;
+}
+.style_139 {
+  color: #22dcec;
+  background-color: #22dd08;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_140 {
+  font-weight: bold;
+  font-style: italic;
+}
+.style_141 {
+  color: #0a0004;
+  background-color: #000000;
+  font-weight: bold;
+}
+.style_142 {
+  background-color: #22dd60;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_143 {
+  background-color: #0400ae;
+  font-weight: bold;
+}
+.style_144 {
+  color: #000000;
+  background-color: #000004;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_145 {
+  font-weight: bold;
+  font-style: italic;
+}
+.style_146 {
+  color: #0a0004;
+  background-color: #0400ae;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_147 {
+  color: #0a0004;
+  background-color: #0400ae;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_148 {
+  color: #0400ae;
+  background-color: #cbc6d0;
+  font-style: italic;
+}
+.style_149 {
+  color: #22dde8;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_151 {
+  color: #000000;
+  background-color: #000004;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_153 {
+  color: #cbc6d0;
+  background-color: #000000;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_154 {
+  color: #000000;
+  background-color: #000000;
+}
+.style_155 {
+  color: #000111;
+  background-color: #000001;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_156 {
+  color: #000006;
+  background-color: #22debc;
+  font-weight: bold;
+}
+.style_157 {
+  background-color: #01082a;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_158 {
+  color: #000111;
+  background-color: #000011;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_159 {
+  color: #22de7c;
+  background-color: #22de98;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_160 {
+  color: #01082a;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_161 {
+  color: #22debc;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_162 {
+  color: #01082a;
+  background-color: #22debc;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_163 {
+  font-weight: bold;
+  font-style: italic;
+}
+.style_164 {
+  color: #22debc;
+  background-color: #01082a;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_166 {
+  color: #000000;
+  background-color: #22df58;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_168 {
+  color: #01082a;
+  background-color: #000082;
+}
+.style_170 {
+  font-style: italic;
+}
+.style_171 {
+  font-weight: bold;
+  font-style: italic;
+}
+.style_172 {
+  color: #010000;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_173 {
+  font-style: italic;
+}
+.style_174 {
+  color: #000000;
+  background-color: #000001;
+  font-style: italic;
+}
+.style_175 {
+  color: #22e094;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_180 {
+  color: #000000;
+  background-color: #000082;
+  font-weight: bold;
+}
+.style_181 {
+  color: #000082;
+  background-color: #22e038;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_182 {
+  color: #000150;
+  background-color: #000000;
+  font-weight: bold;
+}
+.style_183 {
+  background-color: #22df88;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_184 {
+  font-weight: bold;
+  font-style: italic;
+}
+.style_185 {
+  color: #22e0ac;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_186 {
+  font-weight: bold;
+  font-style: italic;
+}
+.style_187 {
+  color: #01082a;
+  background-color: #00a91a;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_188 {
+  color: #01082a;
+  background-color: #00a91a;
+  font-weight: bold;
+}
+.style_189 {
+  color: #22e0d8;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_190 {
+  color: #22e0e8;
+  background-color: #000000;
+  font-style: italic;
+}
+.style_192 {
+  color: #000000;
+  background-color: #000000;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_193 {
+  color: #000082;
+  background-color: #000000;
+  font-style: italic;
+}
+.style_194 {
+  color: #000000;
+  background-color: #000000;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_195 {
+  color: #000000;
+  background-color: #22e0a8;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_196 {
+  background-color: #000000;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_197 {
+  color: #000001;
+  background-color: #000000;
+  font-style: italic;
+}
+.style_198 {
+  font-weight: bold;
+}
+.style_199 {
+  color: #260000;
+  background-color: #2dab00;
+  font-style: italic;
+}
+.style_200 {
+  font-weight: bold;
+  font-style: italic;
+}
+.style_201 {
+  color: #010000;
+  background-color: #2dab00;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_202 {
+  font-style: italic;
+}
+.style_204 {
+  color: #22e1d4;
+  background-color: #2dd2d8;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_205 {
+  color: #260150;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_206 {
+  color: #000000;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_207 {
+  color: #000003;
+  background-color: #000000;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_208 {
+  background-color: #000030;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_209 {
+  color: #000082;
+  background-color: #000000;
+  font-weight: bold;
+}
+.style_211 {
+  color: #000030;
+  background-color: #000000;
+  font-weight: bold;
+}
+.style_212 {
+  background-color: #22e1cc;
+  font-style: italic;
+}
+.style_214 {
+  color: #2dab08;
+  background-color: #000000;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_215 {
+  color: #22e364;
+  font-weight: bold;
+}
+.style_217 {
+  color: #000400;
+  background-color: #000258;
+  font-style: italic;
+}
+.style_218 {
+  color: #000018;
+  background-color: #00000f;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_219 {
+  color: #000000;
+  background-color: #0001b7;
+  font-style: italic;
+}
+.style_220 {
+  background-color: #a40bc4;
+}
+.style_222 {
+  color: #000020;
+  background-color: #0001e1;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_223 {
+  color: #000024;
+  background-color: #000000;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_224 {
+  color: #000007;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_225 {
+  color: #b30000;
+  font-weight: bold;
+}
+.style_226 {
+  color: #000000;
+  background-color: #000002;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_227 {
+  color: #000001;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_228 {
+  font-weight: bold;
+  font-style: italic;
+}
+.style_229 {
+  color: #b30000;
+  background-color: #000000;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_230 {
+  color: #b39990;
+  font-weight: bold;
+}
+.style_232 {
+  color: #b39990;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_233 {
+  font-weight: bold;
+  font-style: italic;
+}
+.style_234 {
+  font-weight: bold;
+  font-style: italic;
+}
+.style_235 {
+  color: #000000;
+  background-color: #22e44c;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_236 {
+  font-weight: bold;
+  font-style: italic;
+}
+.style_237 {
+  background-color: #000009;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_238 {
+  font-weight: bold;
+  font-style: italic;
+}
+.style_239 {
+  color: #000000;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_240 {
+  color: #000028;
+  background-color: #0400ae;
+  font-style: italic;
+}
+.style_242 {
+  color: #000000;
+  background-color: #000000;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_244 {
+  color: #000054;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_245 {
+  color: #0400ae;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_246 {
+  font-style: italic;
+}
+.style_247 {
+  color: #22e598;
+  background-color: #000000;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_248 {
+  background-color: #f00112;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_249 {
+  color: #000200;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_250 {
+  font-style: italic;
+}
+.style_251 {
+  color: #22e5e8;
+  font-weight: bold;
+}
+.style_252 {
+  background-color: #000000;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_253 {
+  font-weight: bold;
+  font-style: italic;
+}
+.style_254 {
+  color: #22ffc4;
+  font-weight: bold;
+  font-style: italic;
+}
+.style_255 {
+  color: #414322;
+  font-style: italic;
+}
+pre {
+  border-style: solid;
+}
+
+</style></head><body>
 <h1>Sinatra - Sinatra Zor ama Güzel Ne Yapay&#305;m</h1>
 
 Sinatra ö&#287;reneyim derken kendimi bir anda bir uygulama içinde buldum.
