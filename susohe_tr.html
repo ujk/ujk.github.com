@@ -1,9 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html><head>
-
   
-  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>Sinatra &#304;le Sudoku Çözüm Yard&#305;mc&#305; Program&#305;</title>
-  
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <title>Sinatra &#304;le Sudoku Çözüm Yard&#305;mc&#305; Program&#305;</title>
 
   
   
@@ -11,6 +10,7 @@
 body {
   font-family: Monospace,monospace;
   font-size: 10pt;
+background-color: #eeeeee;
 }
 .style_4 {
   color: #400080;
@@ -942,7 +942,8 @@ pre {
   border-style: solid;
 }
 
-</style></head><body>
+  </style>
+</head><body>
 <h1>Sinatra - Sinatra Zor ama Güzel Ne Yapay&#305;m</h1>
 
 Sinatra ö&#287;reneyim derken kendimi bir anda bir uygulama içinde buldum.
@@ -967,7 +968,9 @@ Bu dosyay&#305; da haz&#305;rlad&#305;ktan sonra "su.rb" dosyas&#305;n&#305; çal
 server'&#305;n çal&#305;&#351;t&#305;&#287;&#305;n&#305; görürsünüz ve taray&#305;c&#305;n&#305;zda "localhost:4567"
 adresine giderseniz ve kocaman bir "Sinatradan Merhaba" yaz&#305;s&#305;
 görürseniz art&#305;k emeklemeye ba&#351;lad&#305;k demektir.<br>
+
 <br>
+
 <img style="width: 618px; height: 423px;" alt="susohe_1.png" src="susohe_1.png"><br>
 
 Bir zamanlar yak&#305;&#351;&#305;kl&#305; bir Sudoku çözüm yard&#305;mc&#305;s&#305; program görmü&#351;tüm
@@ -1013,7 +1016,9 @@ ortada ç&#305;kmas&#305;n&#305; engelledi&#287;i için &lt;h1&gt; leri de "margin
 0;"
 olarak belirttik. &#350;imdi haml dosyas&#305;n&#305; kaydedip taray&#305;c&#305;y&#305; refresh
 etti&#287;imizde bizim 81 tane div 1 tane div olarak görünecek. <br>
+
 <img style="width: 548px; height: 333px;" alt="susohe_2.png" src="susohe_2.png"><br>
+
 Ne oldu?
 Pozisyonlar&#305;n&#305; absolute belirttik ama yerlerini belirtmedi&#287;imiz için
 hepsi geldi sol üst kö&#351;eye kondu. Sayfa kayna&#287;&#305;n&#305; incelersek bütün
@@ -1029,8 +1034,11 @@ Bunun için her koydu&#287;umuz div için ayr&#305; bir style uyduruyoruz ve
 kutular&#305;m&#305;z&#305;n yerlerini net olarak belirtiyoruz. De&#287;i&#351;ikli&#287;i yap&#305;p
 sayfay&#305; yenileyin ve sayfa görüntüsü ve kayna&#287;&#305;nda yat&#305;&#287;&#305;m&#305;z kodun
 etkisini görelim.<br>
+
 <br>
+
 <img style="width: 553px; height: 471px;" alt="susohe_3.png" src="susohe_3.png"><br>
+
 <br>
 
 Art&#305;k tahta ortaya ç&#305;kt&#305; &#351;imdi yava&#351; yava&#351; görselden kontrol kodlar&#305;na
@@ -1056,8 +1064,11 @@ en ba&#351; iki sat&#305;rda denme için matris de&#287;erlerinden baz&#305;lar&#
 de&#287;i&#351;tiriyoruz ki sonucun istedi&#287;imiz gibi olmas&#305;n&#305; test edelim. Daha
 sonra bu iki sat&#305;r&#305; kald&#305;raca&#287;&#305;z. &#350;imdi sayfam&#305;z&#305; bir test edelim.
 <br>
+
 <img style="width: 549px; height: 374px;" alt="susohe_4.png" src="susohe_4.png"><br>
+
 <br>
+
 Art&#305;k uygulama &#351;ekillenmeye ba&#351;lad&#305;. Bu noktada bir&#351;ey dikkatimi çekti
 ve deneme yapt&#305;m. Ayn&#305; uygulamay&#305; wxRuby ile ve StaticText'ler ile
 yapmaya çal&#305;&#351;t&#305;m. Bu uygulama çok daha seri cevap veriyor. Sinatra hem
@@ -1123,7 +1134,9 @@ siliyoruz. E&#287;er yoksa söz konusu say&#305; acaba hücrede varm&#305;. Yoksa
 hücredeki olas&#305; say&#305;lara ekliyoruz. Buradaki "singles.detect {|v| v =~
 (Regexp.new(row.to_s + "[1-9]" + x))}" komut sat&#305;r&#305; ile o sat&#305;rdaki
 tekleri avl&#305;yoruz. <br>
+
 <img style="width: 547px; height: 193px;" alt="susohe_5.png" src="susohe_5.png"><br>
+
 <br>
 
 Ayn&#305; teknikle sütundakileri de ay&#305;klayabiliriz. Kar&#351;&#305;la&#351;t&#305;rma komutunu :<br>
@@ -1135,13 +1148,18 @@ kontrolümüz daha kald&#305; 3x3 gruplar. Bunlar için ilk önce o anda
 bakt&#305;&#287;&#305;m&#305;z hücrenin hangi 3x3 grupta oldu&#287;unu buluyoruz.&nbsp; <br>
 
 <pre style="color: rgb(24, 22, 21); background-color: rgb(255, 255, 255);"><span style="color: rgb(0, 0, 128);"></span>    <b>for</b> row <b>in</b> <span style="color: rgb(176, 128, 0);">1</span><span style="color: rgb(255, 159, 236);">..</span><span style="color: rgb(176, 128, 0);">9</span><br>        <b>for</b> col <b>in</b> <span style="color: rgb(176, 128, 0);">1</span><span style="color: rgb(255, 159, 236);">..</span><span style="color: rgb(176, 128, 0);">9</span><br>            <b>if</b> mat<span style="color: rgb(255, 159, 236);">[</span>(row<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">*</span><span style="color: rgb(176, 128, 0);">9</span><span style="color: rgb(255, 159, 236);">+</span>(col<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">]</span><span style="color: rgb(64, 0, 167);">.length</span> !<span style="color: rgb(255, 159, 236);">=</span> <span style="color: rgb(176, 128, 0);">1</span>       <i><span style="color: rgb(137, 136, 135);">#e&#287;er hücrede 1 den fazla say&#305; varsa</span></i><br>                <span style="color: rgb(191, 3, 3);">"123456789"</span><span style="color: rgb(64, 0, 167);">.each_char</span> <b>do</b> <span style="color: rgb(255, 159, 236);">|</span>x<span style="color: rgb(255, 159, 236);">|</span>          	<i><span style="color: rgb(137, 136, 135);"># olas&#305; tüm say&#305;lar için </span></i><br>                    boxes <span style="color: rgb(255, 159, 236);">=</span> <span style="color: rgb(255, 159, 236);">[</span><span style="color: rgb(191, 3, 3);">"123"</span>,<span style="color: rgb(191, 3, 3);">"456"</span>,<span style="color: rgb(191, 3, 3);">"789"</span><span style="color: rgb(255, 159, 236);">]</span><br>                    row_box <span style="color: rgb(255, 159, 236);">=</span> boxes<span style="color: rgb(64, 0, 167);">.detect</span> <span style="color: rgb(255, 159, 236);">{|</span>v<span style="color: rgb(255, 159, 236);">|</span> v<span style="color: rgb(64, 0, 167);">.include?</span>(row<span style="color: rgb(64, 0, 167);">.to_s</span>)<span style="color: rgb(255, 159, 236);">}</span><br>                    col_box <span style="color: rgb(255, 159, 236);">=</span> boxes<span style="color: rgb(64, 0, 167);">.detect</span> <span style="color: rgb(255, 159, 236);">{|</span>v<span style="color: rgb(255, 159, 236);">|</span> v<span style="color: rgb(64, 0, 167);">.include?</span>(col<span style="color: rgb(64, 0, 167);">.to_s</span>)<span style="color: rgb(255, 159, 236);">}</span><br>					<i><span style="color: rgb(137, 136, 135);"># e&#287;er sat&#305;rda, sütunda o say&#305;dan varsa</span></i><br>                    <b>if</b> singles<span style="color: rgb(64, 0, 167);">.detect</span> <span style="color: rgb(255, 159, 236);">{|</span>v<span style="color: rgb(255, 159, 236);">|</span> v <span style="color: rgb(255, 159, 236);">=~</span> (<span style="color: rgb(0, 87, 174);">Regexp</span><span style="color: rgb(64, 0, 167);">.new</span>(row<span style="color: rgb(64, 0, 167);">.to_s</span> <span style="color: rgb(255, 159, 236);">+</span> <span style="color: rgb(191, 3, 3);">"[1-9]"</span> <span style="color: rgb(255, 159, 236);">+</span> x)) <b>or</b><br>				v <span style="color: rgb(255, 159, 236);">=~</span> <span style="color: rgb(0, 87, 174);">Regexp</span><span style="color: rgb(64, 0, 167);">.new</span>(<span style="color: rgb(191, 3, 3);">"[1-9]"</span> <span style="color: rgb(255, 159, 236);">+</span> col<span style="color: rgb(64, 0, 167);">.to_s</span> <span style="color: rgb(255, 159, 236);">+</span> x) <b>or</b><br>				v <span style="color: rgb(255, 159, 236);">=~</span> (<span style="color: rgb(0, 87, 174);">Regexp</span><span style="color: rgb(64, 0, 167);">.new</span>(<span style="color: rgb(191, 3, 3);">"["</span> <span style="color: rgb(255, 159, 236);">+</span> row_box <span style="color: rgb(255, 159, 236);">+</span> <span style="color: rgb(191, 3, 3);">"]"</span> <span style="color: rgb(255, 159, 236);">+</span> <span style="color: rgb(191, 3, 3);">"["</span> <span style="color: rgb(255, 159, 236);">+</span> col_box <span style="color: rgb(255, 159, 236);">+</span> <span style="color: rgb(191, 3, 3);">"]"</span> <span style="color: rgb(255, 159, 236);">+</span> x))<span style="color: rgb(255, 159, 236);">}</span> <br>                        mat<span style="color: rgb(255, 159, 236);">[</span>(row<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">*</span><span style="color: rgb(176, 128, 0);">9</span><span style="color: rgb(255, 159, 236);">+</span>(col<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">]</span><span style="color: rgb(64, 0, 167);">.delete!</span> x        <i><span style="color: rgb(137, 136, 135);"># o say&#305;y&#305; sil</span></i><br>                    <i><span style="color: rgb(137, 136, 135);"># tersi durumda da e&#287;er yoksa o say&#305;y&#305; ekle</span></i><br>                    <b>else</b>	<br>                        mat<span style="color: rgb(255, 159, 236);">[</span>(row<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">*</span><span style="color: rgb(176, 128, 0);">9</span><span style="color: rgb(255, 159, 236);">+</span>(col<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">]</span> <span style="color: rgb(255, 159, 236);">+=</span> x	<br>                    <b>end</b><br></pre>
+
 <br>
+
 Sonra da me&#351;hur "if" sat&#305;r&#305;na 3x3 grup içindeki kar&#351;&#305;la&#351;t&#305;rmay&#305; da
 koyuyoruz. Bu arada "detect" komutunu da baya&#287;&#305; bi kulland&#305;k yani. <br>
+
 &#304;&#351;te bu kadar bundan sonra sudoku çözerken kendi yapt&#305;&#287;&#305;n&#305;z bir
 yard&#305;mc&#305;n&#305;z var. Zevkle kullan&#305;n, daha da geli&#351;tirin, bana da haber
 verin.<br>
+
 <br>
+
 <img style="width: 1024px; height: 600px;" alt="susohe_6.png" src="susohe_6.png"><br>
 
 <br>
