@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Active Record Callbacks — Ruby on Rails Guides</title>
+  <link rel="stylesheet" type="text/css" href="stylesheets/style.css" data-turbolinks-track="reload">
+  <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+  <link rel="stylesheet" type="text/css" href="stylesheets/highlight.css" data-turbolinks-track="reload">
+  <link href="images/favicon.ico" rel="icon" type="image/x-icon" />
+  <script src="javascripts/turbolinks.js" data-turbolinks-track="reload"></script>
+  <script src="javascripts/clipboard.js" data-turbolinks-track="reload"></script>
+  <script src="javascripts/guides.js" data-turbolinks-track="reload"></script>
+  <meta property="og:title" content="Active Record Callbacks — Ruby on Rails Guides" />
+  <meta name="description" content="Active Record CallbacksThis guide teaches you how to hook into the life cycle of your Active Record objects.After reading this guide, you will know: The life cycle of Active Record objects. How to create callback methods that respond to events in the object life cycle. How to create special classes that encapsulate common behavior for your callbacks." />
+  <meta property="og:description" content="Active Record CallbacksThis guide teaches you how to hook into the life cycle of your Active Record objects.After reading this guide, you will know: The life cycle of Active Record objects. How to create callback methods that respond to events in the object life cycle. How to create special classes that encapsulate common behavior for your callbacks." />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="Ruby on Rails Guides" />
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/4223" />
+  <meta property="og:type" content="website" />
+</head>
+<body class="guide">
+  <div>
+    <div id="version-badge">edge</div>
+  </div>
+  <div id="topNav">
+    <div class="wrapper">
+      <strong class="more-info-label">More at <a href="https://rubyonrails.org/">rubyonrails.org:</a> </strong>
+      <span class="red-button more-info-button">
+        More Ruby on Rails
+      </span>
+      <ul class="more-info-links s-hidden">
+        <li class="more-info"><a href="https://rubyonrails.org/blog">Blog</a></li>
+        <li class="more-info"><a href="https://guides.rubyonrails.org/">Guides</a></li>
+        <li class="more-info"><a href="https://api.rubyonrails.org/">API</a></li>
+        <li class="more-info"><a href="https://discuss.rubyonrails.org/">Forum</a></li>
+        <li class="more-info"><a href="https://github.com/rails/rails">Contribute on GitHub</a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="header">
+    <div class="wrapper clearfix">
+      <h1><a href="index.html" title="Return to home page">Guides.rubyonrails.org</a></h1>
+      <ul class="nav">
+        <li><a class="nav-item" href="index.html">Home</a></li>
+        <li class="guides-index guides-index-large">
+          <a href="index.html" id="guidesMenu" class="guides-index-item nav-item">Guides Index</a>
+          <div id="guides" class="clearfix" style="display: none;">
+            <hr />
+            <dl class="guides-section-container">
+                <div class="guides-section">
+                  <dt>Buradan Başlayın</dt>
+                  <dd><a href="getting_started.html">Rails&#39;e Başlamak</a></dd>
+                </div>
+                <div class="guides-section">
+                  <dt>Models</dt>
+                  <dd><a href="active_record_basics.html">Active Record Basics</a></dd>
+                  <dd><a href="active_record_migrations.html">Active Record Migrations</a></dd>
+                  <dd><a href="active_record_validations.html">Active Record Validations</a></dd>
+                  <dd><a href="active_record_callbacks.html">Active Record Callbacks</a></dd>
+                  <dd><a href="association_basics.html">Active Record Associations</a></dd>
+                  <dd><a href="active_record_querying.html">Active Record Query Interface</a></dd>
+                </div>
+                <div class="guides-section">
+                  <dt>Views</dt>
+                  <dd><a href="layouts_and_rendering.html">Layouts and Rendering in Rails</a></dd>
+                  <dd><a href="form_helpers.html">Action View Form Helpers</a></dd>
+                </div>
+                <div class="guides-section">
+                  <dt>Controllers</dt>
+                  <dd><a href="action_controller_overview.html">Action Controller Overview</a></dd>
+                  <dd><a href="routing.html">Rails Routing from the Outside In</a></dd>
+                </div>
+                <div class="guides-section">
+                  <dt>Other Components</dt>
+                  <dd><a href="active_support_core_extensions.html">Active Support Core Extensions</a></dd>
+                  <dd><a href="action_mailer_basics.html">Action Mailer Basics</a></dd>
+                  <dd><a href="active_job_basics.html">Active Job Basics</a></dd>
+                  <dd><a href="active_storage_overview.html">Active Storage Overview</a></dd>
+                  <dd><a href="action_cable_overview.html">Action Cable Overview</a></dd>
+                  <dd><a href="webpacker.html">Webpacker</a></dd>
+                </div>
+                <div class="guides-section">
+                  <dt>Digging Deeper</dt>
+                  <dd><a href="i18n.html">Rails Internationalization (I18n) API</a></dd>
+                  <dd><a href="testing.html">Testing Rails Applications</a></dd>
+                  <dd><a href="security.html">Securing Rails Applications</a></dd>
+                  <dd><a href="debugging_rails_applications.html">Debugging Rails Applications</a></dd>
+                  <dd><a href="configuring.html">Configuring Rails Applications</a></dd>
+                  <dd><a href="command_line.html">The Rails Command Line</a></dd>
+                  <dd><a href="asset_pipeline.html">The Asset Pipeline</a></dd>
+                  <dd><a href="working_with_javascript_in_rails.html">Working with JavaScript in Rails</a></dd>
+                  <dd><a href="autoloading_and_reloading_constants.html">Autoloading and Reloading Constants</a></dd>
+                  <dd><a href="classic_to_zeitwerk_howto.html">Classic to Zeitwerk HOWTO</a></dd>
+                  <dd><a href="caching_with_rails.html">Caching with Rails: An Overview</a></dd>
+                  <dd><a href="api_app.html">Using Rails for API-only Applications</a></dd>
+                  <dd><a href="active_record_multiple_databases.html">Multiple Databases with Active Record</a></dd>
+                </div>
+                <div class="guides-section">
+                  <dt>Extending Rails</dt>
+                  <dd><a href="rails_on_rack.html">Rails on Rack</a></dd>
+                  <dd><a href="generators.html">Creating and Customizing Rails Generators &amp; Templates</a></dd>
+                </div>
+                <div class="guides-section">
+                  <dt>Contributions</dt>
+                  <dd><a href="contributing_to_ruby_on_rails.html">Contributing to Ruby on Rails</a></dd>
+                  <dd><a href="api_documentation_guidelines.html">API Documentation Guidelines</a></dd>
+                  <dd><a href="ruby_on_rails_guides_guidelines.html">Guides Guidelines</a></dd>
+                </div>
+                <div class="guides-section">
+                  <dt>Policies</dt>
+                  <dd><a href="maintenance_policy.html">Maintenance Policy</a></dd>
+                </div>
+                <div class="guides-section">
+                  <dt>Release Notes</dt>
+                  <dd><a href="upgrading_ruby_on_rails.html">Upgrading Ruby on Rails</a></dd>
+                  <dd><a href="7_0_release_notes.html">Version 7.0 - December 2021</a></dd>
+                  <dd><a href="6_1_release_notes.html">Version 6.1 - December 2020</a></dd>
+                  <dd><a href="6_0_release_notes.html">Version 6.0 - August 2019</a></dd>
+                  <dd><a href="5_2_release_notes.html">Version 5.2 - April 2018</a></dd>
+                  <dd><a href="5_1_release_notes.html">Version 5.1 - April 2017</a></dd>
+                  <dd><a href="5_0_release_notes.html">Version 5.0 - June 2016</a></dd>
+                  <dd><a href="4_2_release_notes.html">Version 4.2 - December 2014</a></dd>
+                  <dd><a href="4_1_release_notes.html">Version 4.1 - April 2014</a></dd>
+                  <dd><a href="4_0_release_notes.html">Version 4.0 - June 2013</a></dd>
+                  <dd><a href="3_2_release_notes.html">Version 3.2 - January 2012</a></dd>
+                  <dd><a href="3_1_release_notes.html">Version 3.1 - August 2011</a></dd>
+                  <dd><a href="3_0_release_notes.html">Version 3.0 - August 2010</a></dd>
+                  <dd><a href="2_3_release_notes.html">Version 2.3 - March 2009</a></dd>
+                  <dd><a href="2_2_release_notes.html">Version 2.2 - November 2008</a></dd>
+                </div>
+            </dl>
+          </div>
+        </li>
+        <li><a class="nav-item" href="contributing_to_ruby_on_rails.html">Contribute</a></li>
+        <li class="guides-index guides-index-small">
+          <select class="guides-index-item nav-item">
+            <option value="index.html">Guides Index</option>
+              <optgroup label="Buradan Başlayın">
+                  <option value="getting_started.html">Rails&#39;e Başlamak</option>
+              </optgroup>
+              <optgroup label="Models">
+                  <option value="active_record_basics.html">Active Record Basics</option>
+                  <option value="active_record_migrations.html">Active Record Migrations</option>
+                  <option value="active_record_validations.html">Active Record Validations</option>
+                  <option value="active_record_callbacks.html">Active Record Callbacks</option>
+                  <option value="association_basics.html">Active Record Associations</option>
+                  <option value="active_record_querying.html">Active Record Query Interface</option>
+              </optgroup>
+              <optgroup label="Views">
+                  <option value="layouts_and_rendering.html">Layouts and Rendering in Rails</option>
+                  <option value="form_helpers.html">Action View Form Helpers</option>
+              </optgroup>
+              <optgroup label="Controllers">
+                  <option value="action_controller_overview.html">Action Controller Overview</option>
+                  <option value="routing.html">Rails Routing from the Outside In</option>
+              </optgroup>
+              <optgroup label="Other Components">
+                  <option value="active_support_core_extensions.html">Active Support Core Extensions</option>
+                  <option value="action_mailer_basics.html">Action Mailer Basics</option>
+                  <option value="active_job_basics.html">Active Job Basics</option>
+                  <option value="active_storage_overview.html">Active Storage Overview</option>
+                  <option value="action_cable_overview.html">Action Cable Overview</option>
+                  <option value="webpacker.html">Webpacker</option>
+              </optgroup>
+              <optgroup label="Digging Deeper">
+                  <option value="i18n.html">Rails Internationalization (I18n) API</option>
+                  <option value="testing.html">Testing Rails Applications</option>
+                  <option value="security.html">Securing Rails Applications</option>
+                  <option value="debugging_rails_applications.html">Debugging Rails Applications</option>
+                  <option value="configuring.html">Configuring Rails Applications</option>
+                  <option value="command_line.html">The Rails Command Line</option>
+                  <option value="asset_pipeline.html">The Asset Pipeline</option>
+                  <option value="working_with_javascript_in_rails.html">Working with JavaScript in Rails</option>
+                  <option value="autoloading_and_reloading_constants.html">Autoloading and Reloading Constants</option>
+                  <option value="classic_to_zeitwerk_howto.html">Classic to Zeitwerk HOWTO</option>
+                  <option value="caching_with_rails.html">Caching with Rails: An Overview</option>
+                  <option value="api_app.html">Using Rails for API-only Applications</option>
+                  <option value="active_record_multiple_databases.html">Multiple Databases with Active Record</option>
+              </optgroup>
+              <optgroup label="Extending Rails">
+                  <option value="rails_on_rack.html">Rails on Rack</option>
+                  <option value="generators.html">Creating and Customizing Rails Generators &amp; Templates</option>
+              </optgroup>
+              <optgroup label="Contributions">
+                  <option value="contributing_to_ruby_on_rails.html">Contributing to Ruby on Rails</option>
+                  <option value="api_documentation_guidelines.html">API Documentation Guidelines</option>
+                  <option value="ruby_on_rails_guides_guidelines.html">Guides Guidelines</option>
+              </optgroup>
+              <optgroup label="Policies">
+                  <option value="maintenance_policy.html">Maintenance Policy</option>
+              </optgroup>
+              <optgroup label="Release Notes">
+                  <option value="upgrading_ruby_on_rails.html">Upgrading Ruby on Rails</option>
+                  <option value="7_0_release_notes.html">Version 7.0 - December 2021</option>
+                  <option value="6_1_release_notes.html">Version 6.1 - December 2020</option>
+                  <option value="6_0_release_notes.html">Version 6.0 - August 2019</option>
+                  <option value="5_2_release_notes.html">Version 5.2 - April 2018</option>
+                  <option value="5_1_release_notes.html">Version 5.1 - April 2017</option>
+                  <option value="5_0_release_notes.html">Version 5.0 - June 2016</option>
+                  <option value="4_2_release_notes.html">Version 4.2 - December 2014</option>
+                  <option value="4_1_release_notes.html">Version 4.1 - April 2014</option>
+                  <option value="4_0_release_notes.html">Version 4.0 - June 2013</option>
+                  <option value="3_2_release_notes.html">Version 3.2 - January 2012</option>
+                  <option value="3_1_release_notes.html">Version 3.1 - August 2011</option>
+                  <option value="3_0_release_notes.html">Version 3.0 - August 2010</option>
+                  <option value="2_3_release_notes.html">Version 2.3 - March 2009</option>
+                  <option value="2_2_release_notes.html">Version 2.2 - November 2008</option>
+              </optgroup>
+          </select>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <hr class="hide" />
+
+  <div id="feature">
+    <div class="wrapper">
+      <h2>Active Record Callbacks</h2><p>This guide teaches you how to hook into the life cycle of your Active Record
+objects.</p><p>After reading this guide, you will know:</p>
+<ul>
+<li>The life cycle of Active Record objects.</li>
+<li>How to create callback methods that respond to events in the object life cycle.</li>
+<li>How to create special classes that encapsulate common behavior for your callbacks.</li>
+</ul>
+
+
+                <div id="subCol">
+            <h3 class="chapter"><img src="images/chapters_icon.gif" alt="" />Chapters</h3>
+            <ol class="chapters">
+<li><a href="#the-object-life-cycle">The Object Life Cycle</a></li>
+<li>
+<a href="#callbacks-overview">Callbacks Overview</a>
+
+<ul>
+<li><a href="#callback-registration">Callback Registration</a></li>
+</ul>
+</li>
+<li>
+<a href="#available-callbacks">Available Callbacks</a>
+
+<ul>
+<li><a href="#creating-an-object">Creating an Object</a></li>
+<li><a href="#updating-an-object">Updating an Object</a></li>
+<li><a href="#destroying-an-object">Destroying an Object</a></li>
+<li><a href="#after-initialize-and-after-find"><code>after_initialize</code> and <code>after_find</code></a></li>
+<li><a href="#after-touch"><code>after_touch</code></a></li>
+</ul>
+</li>
+<li><a href="#running-callbacks">Running Callbacks</a></li>
+<li><a href="#skipping-callbacks">Skipping Callbacks</a></li>
+<li><a href="#halting-execution">Halting Execution</a></li>
+<li><a href="#relational-callbacks">Relational Callbacks</a></li>
+<li>
+<a href="#conditional-callbacks">Conditional Callbacks</a>
+
+<ul>
+<li><a href="#using-if-and-unless-with-a-symbol">Using <code>:if</code> and <code>:unless</code> with a <code>Symbol</code></a></li>
+<li><a href="#using-if-and-unless-with-a-proc">Using <code>:if</code> and <code>:unless</code> with a <code>Proc</code></a></li>
+<li><a href="#using-both-if-and-unless">Using both :if and :unless</a></li>
+<li><a href="#multiple-callback-conditions">Multiple Callback Conditions</a></li>
+</ul>
+</li>
+<li><a href="#callback-classes">Callback Classes</a></li>
+<li><a href="#transaction-callbacks">Transaction Callbacks</a></li>
+</ol>
+
+          </div>
+
+    </div>
+  </div>
+
+  <div id="container">
+    <div class="wrapper">
+      <div id="mainCol">
+        <h3 id="the-object-life-cycle"><a class="anchorlink" href="#the-object-life-cycle">1 The Object Life Cycle</a></h3><p>During the normal operation of a Rails application, objects may be created, updated, and destroyed. Active Record provides hooks into this <em>object life cycle</em> so that you can control your application and its data.</p><p>Callbacks allow you to trigger logic before or after an alteration of an object's state.</p><h3 id="callbacks-overview"><a class="anchorlink" href="#callbacks-overview">2 Callbacks Overview</a></h3><p>Callbacks are methods that get called at certain moments of an object's life cycle. With callbacks it is possible to write code that will run whenever an Active Record object is created, saved, updated, deleted, validated, or loaded from the database.</p><h4 id="callback-registration"><a class="anchorlink" href="#callback-registration">2.1 Callback Registration</a></h4><p>In order to use the available callbacks, you need to register them. You can implement the callbacks as ordinary methods and use a macro-style class method to register them as callbacks:</p><div class="code_container">
+<pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:login</span><span class="p">,</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span>
+
+  <span class="n">before_validation</span> <span class="ss">:ensure_login_has_a_value</span>
+
+  <span class="kp">private</span>
+    <span class="k">def</span> <span class="nf">ensure_login_has_a_value</span>
+      <span class="k">if</span> <span class="n">login</span><span class="p">.</span><span class="nf">nil?</span>
+        <span class="nb">self</span><span class="p">.</span><span class="nf">login</span> <span class="o">=</span> <span class="n">email</span> <span class="k">unless</span> <span class="n">email</span><span class="p">.</span><span class="nf">blank?</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+<button class="clipboard-button" data-clipboard-text="class User &lt; ApplicationRecord
+  validates :login, :email, presence: true
+
+  before_validation :ensure_login_has_a_value
+
+  private
+    def ensure_login_has_a_value
+      if login.nil?
+        self.login = email unless email.blank?
+      end
+    end
+end
+">Copy</button>
+</div>
+<p>The macro-style class methods can also receive a block. Consider using this style if the code inside your block is so short that it fits in a single line:</p><div class="code_container">
+<pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">validates</span> <span class="ss">:login</span><span class="p">,</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span>
+
+  <span class="n">before_create</span> <span class="k">do</span>
+    <span class="nb">self</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="n">login</span><span class="p">.</span><span class="nf">capitalize</span> <span class="k">if</span> <span class="nb">name</span><span class="p">.</span><span class="nf">blank?</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+<button class="clipboard-button" data-clipboard-text="class User &lt; ApplicationRecord
+  validates :login, :email, presence: true
+
+  before_create do
+    self.name = login.capitalize if name.blank?
+  end
+end
+">Copy</button>
+</div>
+<p>Callbacks can also be registered to only fire on certain life cycle events:</p><div class="code_container">
+<pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">before_validation</span> <span class="ss">:normalize_name</span><span class="p">,</span> <span class="ss">on: :create</span>
+
+  <span class="c1"># :on takes an array as well</span>
+  <span class="n">after_validation</span> <span class="ss">:set_location</span><span class="p">,</span> <span class="ss">on: </span><span class="p">[</span> <span class="ss">:create</span><span class="p">,</span> <span class="ss">:update</span> <span class="p">]</span>
+
+  <span class="kp">private</span>
+    <span class="k">def</span> <span class="nf">normalize_name</span>
+      <span class="nb">self</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="nb">name</span><span class="p">.</span><span class="nf">downcase</span><span class="p">.</span><span class="nf">titleize</span>
+    <span class="k">end</span>
+
+    <span class="k">def</span> <span class="nf">set_location</span>
+      <span class="nb">self</span><span class="p">.</span><span class="nf">location</span> <span class="o">=</span> <span class="no">LocationService</span><span class="p">.</span><span class="nf">query</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+<button class="clipboard-button" data-clipboard-text="class User &lt; ApplicationRecord
+  before_validation :normalize_name, on: :create
+
+  # :on takes an array as well
+  after_validation :set_location, on: [ :create, :update ]
+
+  private
+    def normalize_name
+      self.name = name.downcase.titleize
+    end
+
+    def set_location
+      self.location = LocationService.query(self)
+    end
+end
+">Copy</button>
+</div>
+<p>It is considered good practice to declare callback methods as private. If left public, they can be called from outside of the model and violate the principle of object encapsulation.</p><h3 id="available-callbacks"><a class="anchorlink" href="#available-callbacks">3 Available Callbacks</a></h3><p>Here is a list with all the available Active Record callbacks, listed in the same order in which they will get called during the respective operations:</p><h4 id="creating-an-object"><a class="anchorlink" href="#creating-an-object">3.1 Creating an Object</a></h4>
+<ul>
+<li><a href="https://edgeapi.rubyonrails.org/classes/ActiveModel/Validations/Callbacks/ClassMethods.html#method-i-before_validation"><code>before_validation</code></a></li>
+<li><a href="https://edgeapi.rubyonrails.org/classes/ActiveModel/Validations/Callbacks/ClassMethods.html#method-i-after_validation"><code>after_validation</code></a></li>
+<li><a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/Callbacks/ClassMethods.html#method-i-before_save"><code>before_save</code></a></li>
+<li><a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/Callbacks/ClassMethods.html#method-i-around_save"><code>around_save</code></a></li>
+<li><a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/Callbacks/ClassMethods.html#method-i-before_create"><code>before_create</code></a></li>
+<li><a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/Callbacks/ClassMethods.html#method-i-around_create"><code>around_create</code></a></li>
+<li><a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/Callbacks/ClassMethods.html#method-i-after_create"><code>after_create</code></a></li>
+<li><a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/Callbacks/ClassMethods.html#method-i-after_save"><code>after_save</code></a></li>
+<li>
+<a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/Transactions/ClassMethods.html#method-i-after_commit"><code>after_commit</code></a> / <a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/Transactions/ClassMethods.html#method-i-after_rollback"><code>after_rollback</code></a>
+</li>
+</ul>
+<h4 id="updating-an-object"><a class="anchorlink" href="#updating-an-object">3.2 Updating an Object</a></h4>
+<ul>
+<li><a href="https://edgeapi.rubyonrails.org/classes/ActiveModel/Validations/Callbacks/ClassMethods.html#method-i-before_validation"><code>before_validation</code></a></li>
+<li><a href="https://edgeapi.rubyonrails.org/classes/ActiveModel/Validations/Callbacks/ClassMethods.html#method-i-after_validation"><code>after_validation</code></a></li>
+<li><a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/Callbacks/ClassMethods.html#method-i-before_save"><code>before_save</code></a></li>
+<li><a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/Callbacks/ClassMethods.html#method-i-around_save"><code>around_save</code></a></li>
+<li><a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/Callbacks/ClassMethods.html#method-i-before_update"><code>before_update</code></a></li>
+<li><a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/Callbacks/ClassMethods.html#method-i-around_update"><code>around_update</code></a></li>
+<li><a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/Callbacks/ClassMethods.html#method-i-after_update"><code>after_update</code></a></li>
+<li><a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/Callbacks/ClassMethods.html#method-i-after_save"><code>after_save</code></a></li>
+<li>
+<a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/Transactions/ClassMethods.html#method-i-after_commit"><code>after_commit</code></a> / <a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/Transactions/ClassMethods.html#method-i-after_rollback"><code>after_rollback</code></a>
+</li>
+</ul>
+<h4 id="destroying-an-object"><a class="anchorlink" href="#destroying-an-object">3.3 Destroying an Object</a></h4>
+<ul>
+<li><a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/Callbacks/ClassMethods.html#method-i-before_destroy"><code>before_destroy</code></a></li>
+<li><a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/Callbacks/ClassMethods.html#method-i-around_destroy"><code>around_destroy</code></a></li>
+<li><a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/Callbacks/ClassMethods.html#method-i-after_destroy"><code>after_destroy</code></a></li>
+<li>
+<a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/Transactions/ClassMethods.html#method-i-after_commit"><code>after_commit</code></a> / <a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/Transactions/ClassMethods.html#method-i-after_rollback"><code>after_rollback</code></a>
+</li>
+</ul>
+<div class="warning"><p><code>after_save</code> runs both on create and update, but always <em>after</em> the more specific callbacks <code>after_create</code> and <code>after_update</code>, no matter the order in which the macro calls were executed.</p></div><div class="warning"><p>Avoid updating or saving attributes in callbacks. For example, don't call <code>update(attribute: "value")</code> within a callback. This can alter the state of the model and may result in unexpected side effects during commit. Instead, you can safely assign values directly (for example, <code>self.attribute = "value"</code>) in <code>before_create</code> / <code>before_update</code> or earlier callbacks.</p></div><div class="note"><p><code>before_destroy</code> callbacks should be placed before <code>dependent: :destroy</code>
+associations (or use the <code>prepend: true</code> option), to ensure they execute before
+the records are deleted by <code>dependent: :destroy</code>.</p></div><h4 id="after-initialize-and-after-find"><a class="anchorlink" href="#after-initialize-and-after-find">3.4 <code>after_initialize</code> and <code>after_find</code></a></h4><p>The <a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/Callbacks/ClassMethods.html#method-i-after_initialize"><code>after_initialize</code></a> callback will be called whenever an Active Record object is instantiated, either by directly using <code>new</code> or when a record is loaded from the database. It can be useful to avoid the need to directly override your Active Record <code>initialize</code> method.</p><p>The <a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/Callbacks/ClassMethods.html#method-i-after_find"><code>after_find</code></a> callback will be called whenever Active Record loads a record from the database. <code>after_find</code> is called before <code>after_initialize</code> if both are defined.</p><p>The <code>after_initialize</code> and <code>after_find</code> callbacks have no <code>before_*</code> counterparts, but they can be registered just like the other Active Record callbacks.</p><div class="code_container">
+<pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">after_initialize</span> <span class="k">do</span> <span class="o">|</span><span class="n">user</span><span class="o">|</span>
+    <span class="nb">puts</span> <span class="s2">"You have initialized an object!"</span>
+  <span class="k">end</span>
+
+  <span class="n">after_find</span> <span class="k">do</span> <span class="o">|</span><span class="n">user</span><span class="o">|</span>
+    <span class="nb">puts</span> <span class="s2">"You have found an object!"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+<button class="clipboard-button" data-clipboard-text='class User &lt; ApplicationRecord
+  after_initialize do |user|
+    puts "You have initialized an object!"
+  end
+
+  after_find do |user|
+    puts "You have found an object!"
+  end
+end
+'>Copy</button>
+</div>
+<div class="code_container">
+<pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="no">User</span><span class="p">.</span><span class="nf">new</span>
+<span class="go">You have initialized an object!
+</span><span class="p">=&gt;</span> <span class="kt">#&lt;</span><span class="no">User</span> <span class="ss">id: </span><span class="kp">nil</span><span class="kt">&gt;</span>
+
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="no">User</span><span class="p">.</span><span class="nf">first</span>
+<span class="go">You have found an object!
+You have initialized an object!
+</span><span class="p">=&gt;</span> <span class="kt">#&lt;</span><span class="no">User</span> <span class="ss">id: </span><span class="mi">1</span><span class="kt">&gt;</span>
+</code></pre>
+<button class="clipboard-button" data-clipboard-text="User.new
+User.first
+">Copy</button>
+</div>
+<h4 id="after-touch"><a class="anchorlink" href="#after-touch">3.5 <code>after_touch</code></a></h4><p>The <a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/Callbacks/ClassMethods.html#method-i-after_touch"><code>after_touch</code></a> callback will be called whenever an Active Record object is touched.</p><div class="code_container">
+<pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">after_touch</span> <span class="k">do</span> <span class="o">|</span><span class="n">user</span><span class="o">|</span>
+    <span class="nb">puts</span> <span class="s2">"You have touched an object"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+<button class="clipboard-button" data-clipboard-text='class User &lt; ApplicationRecord
+  after_touch do |user|
+    puts "You have touched an object"
+  end
+end
+'>Copy</button>
+</div>
+<div class="code_container">
+<pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">u</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">name: </span><span class="s1">'Kuldeep'</span><span class="p">)</span>
+<span class="p">=&gt;</span> <span class="kt">#&lt;</span><span class="no">User</span> <span class="ss">id: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">name: </span><span class="s2">"Kuldeep"</span><span class="p">,</span> <span class="ss">created_at: </span><span class="s2">"2013-11-25 12:17:49"</span><span class="p">,</span> <span class="ss">updated_at: </span><span class="s2">"2013-11-25 12:17:49"</span><span class="kt">&gt;</span>
+
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="nf">touch</span>
+<span class="go">You have touched an object
+</span><span class="p">=&gt;</span> <span class="kp">true</span>
+</code></pre>
+<button class="clipboard-button" data-clipboard-text="u = User.create(name: 'Kuldeep')
+u.touch
+">Copy</button>
+</div>
+<p>It can be used along with <code>belongs_to</code>:</p><div class="code_container">
+<pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Employee</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">belongs_to</span> <span class="ss">:company</span><span class="p">,</span> <span class="ss">touch: </span><span class="kp">true</span>
+  <span class="n">after_touch</span> <span class="k">do</span>
+    <span class="nb">puts</span> <span class="s1">'An Employee was touched'</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Company</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">has_many</span> <span class="ss">:employees</span>
+  <span class="n">after_touch</span> <span class="ss">:log_when_employees_or_company_touched</span>
+
+  <span class="kp">private</span>
+    <span class="k">def</span> <span class="nf">log_when_employees_or_company_touched</span>
+      <span class="nb">puts</span> <span class="s1">'Employee/Company was touched'</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+<button class="clipboard-button" data-clipboard-text="class Employee &lt; ApplicationRecord
+  belongs_to :company, touch: true
+  after_touch do
+    puts 'An Employee was touched'
+  end
+end
+
+class Company &lt; ApplicationRecord
+  has_many :employees
+  after_touch :log_when_employees_or_company_touched
+
+  private
+    def log_when_employees_or_company_touched
+      puts 'Employee/Company was touched'
+    end
+end
+">Copy</button>
+</div>
+<div class="code_container">
+<pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="vi">@employee</span> <span class="o">=</span> <span class="no">Employee</span><span class="p">.</span><span class="nf">last</span>
+<span class="p">=&gt;</span> <span class="kt">#&lt;</span><span class="no">Employee</span> <span class="ss">id: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">company_id: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">created_at: </span><span class="s2">"2013-11-25 17:04:22"</span><span class="p">,</span> <span class="ss">updated_at: </span><span class="s2">"2013-11-25 17:05:05"</span><span class="kt">&gt;</span>
+
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="vi">@employee</span><span class="p">.</span><span class="nf">touch</span> <span class="c1"># triggers @employee.company.touch</span>
+<span class="go">An Employee was touched
+Employee/Company was touched
+</span><span class="p">=&gt;</span> <span class="kp">true</span>
+</code></pre>
+<button class="clipboard-button" data-clipboard-text="@employee = Employee.last
+@employee.touch # triggers @employee.company.touch
+">Copy</button>
+</div>
+<h3 id="running-callbacks"><a class="anchorlink" href="#running-callbacks">4 Running Callbacks</a></h3><p>The following methods trigger callbacks:</p>
+<ul>
+<li><code>create</code></li>
+<li><code>create!</code></li>
+<li><code>destroy</code></li>
+<li><code>destroy!</code></li>
+<li><code>destroy_all</code></li>
+<li><code>destroy_by</code></li>
+<li><code>save</code></li>
+<li><code>save!</code></li>
+<li><code>save(validate: false)</code></li>
+<li><code>toggle!</code></li>
+<li><code>touch</code></li>
+<li><code>update_attribute</code></li>
+<li><code>update</code></li>
+<li><code>update!</code></li>
+<li><code>valid?</code></li>
+</ul>
+<p>Additionally, the <code>after_find</code> callback is triggered by the following finder methods:</p>
+<ul>
+<li><code>all</code></li>
+<li><code>first</code></li>
+<li><code>find</code></li>
+<li><code>find_by</code></li>
+<li><code>find_by_*</code></li>
+<li><code>find_by_*!</code></li>
+<li><code>find_by_sql</code></li>
+<li><code>last</code></li>
+</ul>
+<p>The <code>after_initialize</code> callback is triggered every time a new object of the class is initialized.</p><div class="note"><p>The <code>find_by_*</code> and <code>find_by_*!</code> methods are dynamic finders generated automatically for every attribute. Learn more about them at the <a href="active_record_querying.html#dynamic-finders">Dynamic finders section</a></p></div><h3 id="skipping-callbacks"><a class="anchorlink" href="#skipping-callbacks">5 Skipping Callbacks</a></h3><p>Just as with validations, it is also possible to skip callbacks by using the following methods:</p>
+<ul>
+<li><code>decrement!</code></li>
+<li><code>decrement_counter</code></li>
+<li><code>delete</code></li>
+<li><code>delete_all</code></li>
+<li><code>delete_by</code></li>
+<li><code>increment!</code></li>
+<li><code>increment_counter</code></li>
+<li><code>insert</code></li>
+<li><code>insert!</code></li>
+<li><code>insert_all</code></li>
+<li><code>insert_all!</code></li>
+<li><code>touch_all</code></li>
+<li><code>update_column</code></li>
+<li><code>update_columns</code></li>
+<li><code>update_all</code></li>
+<li><code>update_counters</code></li>
+<li><code>upsert</code></li>
+<li><code>upsert_all</code></li>
+</ul>
+<p>These methods should be used with caution, however, because important business rules and application logic may be kept in callbacks. Bypassing them without understanding the potential implications may lead to invalid data.</p><h3 id="halting-execution"><a class="anchorlink" href="#halting-execution">6 Halting Execution</a></h3><p>As you start registering new callbacks for your models, they will be queued for execution. This queue will include all your model's validations, the registered callbacks, and the database operation to be executed.</p><p>The whole callback chain is wrapped in a transaction. If any callback raises an exception, the execution chain gets halted and a ROLLBACK is issued. To intentionally stop a chain use:</p><div class="code_container">
+<pre><code class="highlight ruby"><span class="kp">throw</span> <span class="ss">:abort</span>
+</code></pre>
+<button class="clipboard-button" data-clipboard-text="throw :abort
+">Copy</button>
+</div>
+<div class="warning"><p>Any exception that is not <code>ActiveRecord::Rollback</code> or <code>ActiveRecord::RecordInvalid</code> will be re-raised by Rails after the callback chain is halted. Raising an exception other than <code>ActiveRecord::Rollback</code> or <code>ActiveRecord::RecordInvalid</code> may break code that does not expect methods like <code>save</code> and <code>update</code> (which normally try to return <code>true</code> or <code>false</code>) to raise an exception.</p></div><h3 id="relational-callbacks"><a class="anchorlink" href="#relational-callbacks">7 Relational Callbacks</a></h3><p>Callbacks work through model relationships, and can even be defined by them. Suppose an example where a user has many articles. A user's articles should be destroyed if the user is destroyed. Let's add an <code>after_destroy</code> callback to the <code>User</code> model by way of its relationship to the <code>Article</code> model:</p><div class="code_container">
+<pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">has_many</span> <span class="ss">:articles</span><span class="p">,</span> <span class="ss">dependent: :destroy</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Article</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">after_destroy</span> <span class="ss">:log_destroy_action</span>
+
+  <span class="k">def</span> <span class="nf">log_destroy_action</span>
+    <span class="nb">puts</span> <span class="s1">'Article destroyed'</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+<button class="clipboard-button" data-clipboard-text="class User &lt; ApplicationRecord
+  has_many :articles, dependent: :destroy
+end
+
+class Article &lt; ApplicationRecord
+  after_destroy :log_destroy_action
+
+  def log_destroy_action
+    puts 'Article destroyed'
+  end
+end
+">Copy</button>
+</div>
+<div class="code_container">
+<pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">first</span>
+<span class="p">=&gt;</span> <span class="kt">#&lt;</span><span class="no">User</span> <span class="ss">id: </span><span class="mi">1</span><span class="kt">&gt;</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">user</span><span class="p">.</span><span class="nf">articles</span><span class="p">.</span><span class="nf">create!</span>
+<span class="p">=&gt;</span> <span class="kt">#&lt;</span><span class="no">Article</span> <span class="ss">id: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">user_id: </span><span class="mi">1</span><span class="kt">&gt;</span>
+<span class="gp">irb&gt;</span><span class="w"> </span><span class="n">user</span><span class="p">.</span><span class="nf">destroy</span>
+<span class="go">Article destroyed
+</span><span class="p">=&gt;</span> <span class="kt">#&lt;</span><span class="no">User</span> <span class="ss">id: </span><span class="mi">1</span><span class="kt">&gt;</span>
+</code></pre>
+<button class="clipboard-button" data-clipboard-text="user = User.first
+user.articles.create!
+user.destroy
+">Copy</button>
+</div>
+<h3 id="conditional-callbacks"><a class="anchorlink" href="#conditional-callbacks">8 Conditional Callbacks</a></h3><p>As with validations, we can also make the calling of a callback method conditional on the satisfaction of a given predicate. We can do this using the <code>:if</code> and <code>:unless</code> options, which can take a symbol, a <code>Proc</code> or an <code>Array</code>. You may use the <code>:if</code> option when you want to specify under which conditions the callback <strong>should</strong> be called. If you want to specify the conditions under which the callback <strong>should not</strong> be called, then you may use the <code>:unless</code> option.</p><h4 id="using-if-and-unless-with-a-symbol"><a class="anchorlink" href="#using-if-and-unless-with-a-symbol">8.1 Using <code>:if</code> and <code>:unless</code> with a <code>Symbol</code></a></h4><p>You can associate the <code>:if</code> and <code>:unless</code> options with a symbol corresponding to the name of a predicate method that will get called right before the callback. When using the <code>:if</code> option, the callback won't be executed if the predicate method returns false; when using the <code>:unless</code> option, the callback won't be executed if the predicate method returns true. This is the most common option. Using this form of registration it is also possible to register several different predicates that should be called to check if the callback should be executed.</p><div class="code_container">
+<pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Order</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">before_save</span> <span class="ss">:normalize_card_number</span><span class="p">,</span> <span class="ss">if: :paid_with_card?</span>
+<span class="k">end</span>
+</code></pre>
+<button class="clipboard-button" data-clipboard-text="class Order &lt; ApplicationRecord
+  before_save :normalize_card_number, if: :paid_with_card?
+end
+">Copy</button>
+</div>
+<h4 id="using-if-and-unless-with-a-proc"><a class="anchorlink" href="#using-if-and-unless-with-a-proc">8.2 Using <code>:if</code> and <code>:unless</code> with a <code>Proc</code></a></h4><p>It is possible to associate <code>:if</code> and <code>:unless</code> with a <code>Proc</code> object. This option is best suited when writing short validation methods, usually one-liners:</p><div class="code_container">
+<pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Order</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">before_save</span> <span class="ss">:normalize_card_number</span><span class="p">,</span>
+    <span class="ss">if: </span><span class="no">Proc</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span> <span class="o">|</span><span class="n">order</span><span class="o">|</span> <span class="n">order</span><span class="p">.</span><span class="nf">paid_with_card?</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+<button class="clipboard-button" data-clipboard-text="class Order &lt; ApplicationRecord
+  before_save :normalize_card_number,
+    if: Proc.new { |order| order.paid_with_card? }
+end
+">Copy</button>
+</div>
+<p>As the proc is evaluated in the context of the object, it is also possible to write this as:</p><div class="code_container">
+<pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Order</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">before_save</span> <span class="ss">:normalize_card_number</span><span class="p">,</span> <span class="ss">if: </span><span class="no">Proc</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span> <span class="n">paid_with_card?</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+<button class="clipboard-button" data-clipboard-text="class Order &lt; ApplicationRecord
+  before_save :normalize_card_number, if: Proc.new { paid_with_card? }
+end
+">Copy</button>
+</div>
+<h4 id="using-both-if-and-unless"><a class="anchorlink" href="#using-both-if-and-unless">8.3 Using both :if and :unless</a></h4><p>Callbacks can mix both <code>:if</code> and <code>:unless</code> in the same declaration:</p><div class="code_container">
+<pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Comment</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">before_save</span> <span class="ss">:filter_content</span><span class="p">,</span>
+    <span class="ss">if: </span><span class="no">Proc</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span> <span class="n">forum</span><span class="p">.</span><span class="nf">parental_control?</span> <span class="p">},</span>
+    <span class="ss">unless: </span><span class="no">Proc</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span> <span class="n">author</span><span class="p">.</span><span class="nf">trusted?</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+<button class="clipboard-button" data-clipboard-text="class Comment &lt; ApplicationRecord
+  before_save :filter_content,
+    if: Proc.new { forum.parental_control? },
+    unless: Proc.new { author.trusted? }
+end
+">Copy</button>
+</div>
+<h4 id="multiple-callback-conditions"><a class="anchorlink" href="#multiple-callback-conditions">8.4 Multiple Callback Conditions</a></h4><p>The <code>:if</code> and <code>:unless</code> options also accept an array of procs or method names as symbols:</p><div class="code_container">
+<pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Comment</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">before_save</span> <span class="ss">:filter_content</span><span class="p">,</span>
+    <span class="ss">if: </span><span class="p">[</span><span class="ss">:subject_to_parental_control?</span><span class="p">,</span> <span class="ss">:untrusted_author?</span><span class="p">]</span>
+<span class="k">end</span>
+</code></pre>
+<button class="clipboard-button" data-clipboard-text="class Comment &lt; ApplicationRecord
+  before_save :filter_content,
+    if: [:subject_to_parental_control?, :untrusted_author?]
+end
+">Copy</button>
+</div>
+<p>The callback only runs when all the <code>:if</code> conditions and none of the <code>:unless</code> conditions are evaluated to <code>true</code>.</p><h3 id="callback-classes"><a class="anchorlink" href="#callback-classes">9 Callback Classes</a></h3><p>Sometimes the callback methods that you'll write will be useful enough to be reused by other models. Active Record makes it possible to create classes that encapsulate the callback methods, so they can be reused.</p><p>Here's an example where we create a class with an <code>after_destroy</code> callback for a <code>PictureFile</code> model:</p><div class="code_container">
+<pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">PictureFileCallbacks</span>
+  <span class="k">def</span> <span class="nf">after_destroy</span><span class="p">(</span><span class="n">picture_file</span><span class="p">)</span>
+    <span class="k">if</span> <span class="no">File</span><span class="p">.</span><span class="nf">exist?</span><span class="p">(</span><span class="n">picture_file</span><span class="p">.</span><span class="nf">filepath</span><span class="p">)</span>
+      <span class="no">File</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="n">picture_file</span><span class="p">.</span><span class="nf">filepath</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+<button class="clipboard-button" data-clipboard-text="class PictureFileCallbacks
+  def after_destroy(picture_file)
+    if File.exist?(picture_file.filepath)
+      File.delete(picture_file.filepath)
+    end
+  end
+end
+">Copy</button>
+</div>
+<p>When declared inside a class, as above, the callback methods will receive the model object as a parameter. We can now use the callback class in the model:</p><div class="code_container">
+<pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">PictureFile</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">after_destroy</span> <span class="no">PictureFileCallbacks</span><span class="p">.</span><span class="nf">new</span>
+<span class="k">end</span>
+</code></pre>
+<button class="clipboard-button" data-clipboard-text="class PictureFile &lt; ApplicationRecord
+  after_destroy PictureFileCallbacks.new
+end
+">Copy</button>
+</div>
+<p>Note that we needed to instantiate a new <code>PictureFileCallbacks</code> object, since we declared our callback as an instance method. This is particularly useful if the callbacks make use of the state of the instantiated object. Often, however, it will make more sense to declare the callbacks as class methods:</p><div class="code_container">
+<pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">PictureFileCallbacks</span>
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">after_destroy</span><span class="p">(</span><span class="n">picture_file</span><span class="p">)</span>
+    <span class="k">if</span> <span class="no">File</span><span class="p">.</span><span class="nf">exist?</span><span class="p">(</span><span class="n">picture_file</span><span class="p">.</span><span class="nf">filepath</span><span class="p">)</span>
+      <span class="no">File</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="n">picture_file</span><span class="p">.</span><span class="nf">filepath</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+<button class="clipboard-button" data-clipboard-text="class PictureFileCallbacks
+  def self.after_destroy(picture_file)
+    if File.exist?(picture_file.filepath)
+      File.delete(picture_file.filepath)
+    end
+  end
+end
+">Copy</button>
+</div>
+<p>If the callback method is declared this way, it won't be necessary to instantiate a <code>PictureFileCallbacks</code> object.</p><div class="code_container">
+<pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">PictureFile</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">after_destroy</span> <span class="no">PictureFileCallbacks</span>
+<span class="k">end</span>
+</code></pre>
+<button class="clipboard-button" data-clipboard-text="class PictureFile &lt; ApplicationRecord
+  after_destroy PictureFileCallbacks
+end
+">Copy</button>
+</div>
+<p>You can declare as many callbacks as you want inside your callback classes.</p><h3 id="transaction-callbacks"><a class="anchorlink" href="#transaction-callbacks">10 Transaction Callbacks</a></h3><p>There are two additional callbacks that are triggered by the completion of a database transaction: <a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/Transactions/ClassMethods.html#method-i-after_commit"><code>after_commit</code></a> and <a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/Transactions/ClassMethods.html#method-i-after_rollback"><code>after_rollback</code></a>. These callbacks are very similar to the <code>after_save</code> callback except that they don't execute until after database changes have either been committed or rolled back. They are most useful when your active record models need to interact with external systems which are not part of the database transaction.</p><p>Consider, for example, the previous example where the <code>PictureFile</code> model needs to delete a file after the corresponding record is destroyed. If anything raises an exception after the <code>after_destroy</code> callback is called and the transaction rolls back, the file will have been deleted and the model will be left in an inconsistent state. For example, suppose that <code>picture_file_2</code> in the code below is not valid and the <code>save!</code> method raises an error.</p><div class="code_container">
+<pre><code class="highlight ruby"><span class="no">PictureFile</span><span class="p">.</span><span class="nf">transaction</span> <span class="k">do</span>
+  <span class="n">picture_file_1</span><span class="p">.</span><span class="nf">destroy</span>
+  <span class="n">picture_file_2</span><span class="p">.</span><span class="nf">save!</span>
+<span class="k">end</span>
+</code></pre>
+<button class="clipboard-button" data-clipboard-text="PictureFile.transaction do
+  picture_file_1.destroy
+  picture_file_2.save!
+end
+">Copy</button>
+</div>
+<p>By using the <code>after_commit</code> callback we can account for this case.</p><div class="code_container">
+<pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">PictureFile</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">after_commit</span> <span class="ss">:delete_picture_file_from_disk</span><span class="p">,</span> <span class="ss">on: :destroy</span>
+
+  <span class="k">def</span> <span class="nf">delete_picture_file_from_disk</span>
+    <span class="k">if</span> <span class="no">File</span><span class="p">.</span><span class="nf">exist?</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+      <span class="no">File</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+<button class="clipboard-button" data-clipboard-text="class PictureFile &lt; ApplicationRecord
+  after_commit :delete_picture_file_from_disk, on: :destroy
+
+  def delete_picture_file_from_disk
+    if File.exist?(filepath)
+      File.delete(filepath)
+    end
+  end
+end
+">Copy</button>
+</div>
+<div class="note"><p>The <code>:on</code> option specifies when a callback will be fired. If you
+don't supply the <code>:on</code> option the callback will fire for every action.</p></div><p>Since using the <code>after_commit</code> callback only on create, update, or delete is
+common, there are aliases for those operations:</p>
+<ul>
+<li><a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/Transactions/ClassMethods.html#method-i-after_create_commit"><code>after_create_commit</code></a></li>
+<li><a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/Transactions/ClassMethods.html#method-i-after_update_commit"><code>after_update_commit</code></a></li>
+<li><a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/Transactions/ClassMethods.html#method-i-after_destroy_commit"><code>after_destroy_commit</code></a></li>
+</ul>
+<div class="code_container">
+<pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">PictureFile</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">after_destroy_commit</span> <span class="ss">:delete_picture_file_from_disk</span>
+
+  <span class="k">def</span> <span class="nf">delete_picture_file_from_disk</span>
+    <span class="k">if</span> <span class="no">File</span><span class="p">.</span><span class="nf">exist?</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+      <span class="no">File</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+<button class="clipboard-button" data-clipboard-text="class PictureFile &lt; ApplicationRecord
+  after_destroy_commit :delete_picture_file_from_disk
+
+  def delete_picture_file_from_disk
+    if File.exist?(filepath)
+      File.delete(filepath)
+    end
+  end
+end
+">Copy</button>
+</div>
+<div class="warning"><p>When a transaction completes, the <code>after_commit</code> or <code>after_rollback</code> callbacks are called for all models created, updated, or destroyed within that transaction. However, if an exception is raised within one of these callbacks, the exception will bubble up and any remaining <code>after_commit</code> or <code>after_rollback</code> methods will <em>not</em> be executed. As such, if your callback code could raise an exception, you'll need to rescue it and handle it within the callback in order to allow other callbacks to run.</p></div><div class="warning"><p>The code executed within <code>after_commit</code> or <code>after_rollback</code> callbacks is itself not enclosed within a transaction.</p></div><div class="warning"><p>Using both <code>after_create_commit</code> and <code>after_update_commit</code> with the same method name will only allow the last callback defined to take effect, as they both internally alias to <code>after_commit</code> which overrides previously defined callbacks with the same method name.</p></div><div class="code_container">
+<pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">after_create_commit</span> <span class="ss">:log_user_saved_to_db</span>
+  <span class="n">after_update_commit</span> <span class="ss">:log_user_saved_to_db</span>
+
+  <span class="kp">private</span>
+  <span class="k">def</span> <span class="nf">log_user_saved_to_db</span>
+    <span class="nb">puts</span> <span class="s1">'User was saved to database'</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+<button class="clipboard-button" data-clipboard-text="class User &lt; ApplicationRecord
+  after_create_commit :log_user_saved_to_db
+  after_update_commit :log_user_saved_to_db
+
+  private
+  def log_user_saved_to_db
+    puts 'User was saved to database'
+  end
+end
+">Copy</button>
+</div>
+<div class="code_container">
+<pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="vi">@user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">create</span> <span class="c1"># prints nothing</span>
+<span class="err">
+</span><span class="gp">irb&gt;</span><span class="w"> </span><span class="vi">@user</span><span class="p">.</span><span class="nf">save</span> <span class="c1"># updating @user</span>
+<span class="go">User was saved to database
+</span></code></pre>
+<button class="clipboard-button" data-clipboard-text="@user = User.create # prints nothing
+@user.save # updating @user
+">Copy</button>
+</div>
+<p>There is also an alias for using the <code>after_commit</code> callback for both create and update together:</p>
+<ul>
+<li><a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/Transactions/ClassMethods.html#method-i-after_save_commit"><code>after_save_commit</code></a></li>
+</ul>
+<div class="code_container">
+<pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">after_save_commit</span> <span class="ss">:log_user_saved_to_db</span>
+
+  <span class="kp">private</span>
+  <span class="k">def</span> <span class="nf">log_user_saved_to_db</span>
+    <span class="nb">puts</span> <span class="s1">'User was saved to database'</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+<button class="clipboard-button" data-clipboard-text="class User &lt; ApplicationRecord
+  after_save_commit :log_user_saved_to_db
+
+  private
+  def log_user_saved_to_db
+    puts 'User was saved to database'
+  end
+end
+">Copy</button>
+</div>
+<div class="code_container">
+<pre><code class="highlight irb"><span class="gp">irb&gt;</span><span class="w"> </span><span class="vi">@user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">create</span> <span class="c1"># creating a User</span>
+<span class="go">User was saved to database
+</span><span class="err">
+</span><span class="gp">irb&gt;</span><span class="w"> </span><span class="vi">@user</span><span class="p">.</span><span class="nf">save</span> <span class="c1"># updating @user</span>
+<span class="go">User was saved to database
+</span></code></pre>
+<button class="clipboard-button" data-clipboard-text="@user = User.create # creating a User
+@user.save # updating @user
+">Copy</button>
+</div>
+
+
+        <h3>Feedback</h3>
+        <p>
+          You're encouraged to help improve the quality of this guide.
+        </p>
+        <p>
+          Please contribute if you see any typos or factual errors.
+          To get started, you can read our <a href="https://edgeguides.rubyonrails.org/contributing_to_ruby_on_rails.html#contributing-to-the-rails-documentation">documentation contributions</a> section.
+        </p>
+        <p>
+          You may also find incomplete content or stuff that is not up to date.
+          Please do add any missing documentation for main. Make sure to check
+          <a href="https://edgeguides.rubyonrails.org">Edge Guides</a> first to verify
+          if the issues are already fixed or not on the main branch.
+          Check the <a href="ruby_on_rails_guides_guidelines.html">Ruby on Rails Guides Guidelines</a>
+          for style and conventions.
+        </p>
+        <p>
+          If for whatever reason you spot something to fix but cannot patch it yourself, please
+          <a href="https://github.com/rails/rails/issues">open an issue</a>.
+        </p>
+        <p>And last but not least, any kind of discussion regarding Ruby on Rails
+          documentation is very welcome on the <a href="https://discuss.rubyonrails.org/c/rubyonrails-docs">rubyonrails-docs mailing list</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="hide" />
+  <div id="footer">
+    <div class="wrapper">
+      <p>This work is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> License</p>
+<p>"Rails", "Ruby on Rails", and the Rails logo are trademarks of David Heinemeier Hansson. All rights reserved.</p>
+
+    </div>
+  </div>
+</body>
+</html>
