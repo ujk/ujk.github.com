@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Active Record Basics — Ruby on Rails Guides</title>
+  <title>Active Record Temelleri — Ruby on Rails Guides</title>
   <link rel="stylesheet" type="text/css" href="stylesheets/style.css" data-turbolinks-track="reload">
   <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
   <link rel="stylesheet" type="text/css" href="stylesheets/highlight.css" data-turbolinks-track="reload">
@@ -11,9 +11,9 @@
   <script src="javascripts/turbolinks.js" data-turbolinks-track="reload"></script>
   <script src="javascripts/clipboard.js" data-turbolinks-track="reload"></script>
   <script src="javascripts/guides.js" data-turbolinks-track="reload"></script>
-  <meta property="og:title" content="Active Record Basics — Ruby on Rails Guides" />
-  <meta name="description" content="Active Record BasicsThis guide is an introduction to Active Record.After reading this guide, you will know: What Object Relational Mapping and Active Record are and how they are used in Rails. How Active Record fits into the Model-View-Controller paradigm. How to use Active Record models to manipulate data stored in a relational database. Active Record schema naming conventions. The concepts of database migrations, validations, and callbacks." />
-  <meta property="og:description" content="Active Record BasicsThis guide is an introduction to Active Record.After reading this guide, you will know: What Object Relational Mapping and Active Record are and how they are used in Rails. How Active Record fits into the Model-View-Controller paradigm. How to use Active Record models to manipulate data stored in a relational database. Active Record schema naming conventions. The concepts of database migrations, validations, and callbacks." />
+  <meta property="og:title" content="Active Record Temelleri — Ruby on Rails Guides" />
+  <meta name="description" content="Active Record TemelleriBu klavuz Active Record&#39;a bir başlangıçtır.Bu klavuzu bitirdikten sonra şunları öğrenmiş olacaksınız: Object Relational Mapping (Nesne İlişkileriyle Eşleme) ve Active Record nedir ve Rails içinde nasıl kullanılır. Active Record Model-View-Controller yapısında nasıl yer alır. İlişkisel veritabanında saklanan veriler Active Record modelleri kullanarak nasıl işlenir. Active Record şemasında isimlendirme kuralları. Veritabanı migrasyonları, doğrulamaları ve prosedürlerinde temel yapılar." />
+  <meta property="og:description" content="Active Record TemelleriBu klavuz Active Record&#39;a bir başlangıçtır.Bu klavuzu bitirdikten sonra şunları öğrenmiş olacaksınız: Object Relational Mapping (Nesne İlişkileriyle Eşleme) ve Active Record nedir ve Rails içinde nasıl kullanılır. Active Record Model-View-Controller yapısında nasıl yer alır. İlişkisel veritabanında saklanan veriler Active Record modelleri kullanarak nasıl işlenir. Active Record şemasında isimlendirme kuralları. Veritabanı migrasyonları, doğrulamaları ve prosedürlerinde temel yapılar." />
   <meta property="og:locale" content="en_US" />
   <meta property="og:site_name" content="Ruby on Rails Guides" />
   <meta property="og:image" content="https://avatars.githubusercontent.com/u/4223" />
@@ -53,8 +53,8 @@
                   <dd><a href="getting_started.html">Rails&#39;e Başlamak</a></dd>
                 </div>
                 <div class="guides-section">
-                  <dt>Models</dt>
-                  <dd><a href="active_record_basics.html">Active Record Basics</a></dd>
+                  <dt>Modeller</dt>
+                  <dd><a href="active_record_basics.html">Active Record Temelleri</a></dd>
                   <dd><a href="active_record_migrations.html">Active Record Migrations</a></dd>
                   <dd><a href="active_record_validations.html">Active Record Validations</a></dd>
                   <dd><a href="active_record_callbacks.html">Active Record Callbacks</a></dd>
@@ -139,8 +139,8 @@
               <optgroup label="Buradan Başlayın">
                   <option value="getting_started.html">Rails&#39;e Başlamak</option>
               </optgroup>
-              <optgroup label="Models">
-                  <option value="active_record_basics.html">Active Record Basics</option>
+              <optgroup label="Modeller">
+                  <option value="active_record_basics.html">Active Record Temelleri</option>
                   <option value="active_record_migrations.html">Active Record Migrations</option>
                   <option value="active_record_validations.html">Active Record Validations</option>
                   <option value="active_record_callbacks.html">Active Record Callbacks</option>
@@ -216,15 +216,14 @@
 
   <div id="feature">
     <div class="wrapper">
-      <h2>Active Record Basics</h2><p>This guide is an introduction to Active Record.</p><p>After reading this guide, you will know:</p>
+      <h2>Active Record Temelleri</h2><p>Bu klavuz Active Record&#39;a bir başlangıçtır.</p><p>Bu klavuzu bitirdikten sonra şunları öğrenmiş olacaksınız:</p>
 <ul>
-<li>What Object Relational Mapping and Active Record are and how they are used in
-Rails.</li>
-<li>How Active Record fits into the Model-View-Controller paradigm.</li>
-<li>How to use Active Record models to manipulate data stored in a relational
-database.</li>
-<li>Active Record schema naming conventions.</li>
-<li>The concepts of database migrations, validations, and callbacks.</li>
+<li>Object Relational Mapping (Nesne İlişkileriyle Eşleme) ve Active Record nedir ve Rails içinde 
+nasıl kullanılır.</li>
+<li>Active Record Model-View-Controller yapısında nasıl yer alır.</li>
+<li>İlişkisel veritabanında saklanan veriler Active Record modelleri kullanarak nasıl işlenir.</li>
+<li>Active Record şemasında isimlendirme kuralları.</li>
+<li>Veritabanı migrasyonları, doğrulamaları ve prosedürlerinde temel yapılar.</li>
 </ul>
 
 
@@ -232,24 +231,24 @@ database.</li>
             <h3 class="chapter"><img src="images/chapters_icon.gif" alt="" />Chapters</h3>
             <ol class="chapters">
 <li>
-<a href="#what-is-active-record-questionmark">What is Active Record?</a>
+<a href="#active-record-nedir-questionmark">Active Record Nedir?</a>
 
 <ul>
-<li><a href="#the-active-record-pattern">The Active Record Pattern</a></li>
-<li><a href="#object-relational-mapping">Object Relational Mapping</a></li>
-<li><a href="#active-record-as-an-orm-framework">Active Record as an ORM Framework</a></li>
+<li><a href="#active-record-patterni">Active Record Patterni</a></li>
+<li><a href="#nesne-i%CC%87li%C5%9Fkisel-e%C5%9Fleme">Nesne İlişkisel Eşleme</a></li>
+<li><a href="#bir-orm-framework-olarak-active-record">Bir ORM Framework Olarak Active Record</a></li>
 </ul>
 </li>
 <li>
-<a href="#convention-over-configuration-in-active-record">Convention over Configuration in Active Record</a>
+<a href="#active-record-da-konfig%C3%BCrasyon-yerine-kabuller">Active Record'da Konfigürasyon Yerine Kabuller</a>
 
 <ul>
-<li><a href="#naming-conventions">Naming Conventions</a></li>
-<li><a href="#schema-conventions">Schema Conventions</a></li>
+<li><a href="#i%CC%87simlendirme-kabulleri">İsimlendirme Kabulleri</a></li>
+<li><a href="#%C5%9Fema-kabulleri">Şema Kabulleri</a></li>
 </ul>
 </li>
-<li><a href="#creating-active-record-models">Creating Active Record Models</a></li>
-<li><a href="#overriding-the-naming-conventions">Overriding the Naming Conventions</a></li>
+<li><a href="#active-record-modellerini-%C3%BCretmek">Active Record Modellerini Üretmek</a></li>
+<li><a href="#i%CC%87simlendirme-kabulleri-%C3%BCzerine-yazmak">İsimlendirme Kabulleri Üzerine Yazmak</a></li>
 <li>
 <a href="#crud-reading-and-writing-data">CRUD: Reading and Writing Data</a>
 
@@ -273,49 +272,48 @@ database.</li>
   <div id="container">
     <div class="wrapper">
       <div id="mainCol">
-        <h3 id="what-is-active-record-questionmark"><a class="anchorlink" href="#what-is-active-record-questionmark">1 What is Active Record?</a></h3><p>Active Record is the M in <a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">MVC</a> - the
-model - which is the layer of the system responsible for representing business
-data and logic. Active Record facilitates the creation and use of business
-objects whose data requires persistent storage to a database. It is an
-implementation of the Active Record pattern which itself is a description of an
-Object Relational Mapping system.</p><h4 id="the-active-record-pattern"><a class="anchorlink" href="#the-active-record-pattern">1.1 The Active Record Pattern</a></h4><p><a href="https://www.martinfowler.com/eaaCatalog/activeRecord.html">Active Record was described by Martin Fowler</a>
-in his book <em>Patterns of Enterprise Application Architecture</em>. In
-Active Record, objects carry both persistent data and behavior which
-operates on that data. Active Record takes the opinion that ensuring
-data access logic as part of the object will educate users of that
-object on how to write to and read from the database.</p><h4 id="object-relational-mapping"><a class="anchorlink" href="#object-relational-mapping">1.2 Object Relational Mapping</a></h4><p><a href="https://en.wikipedia.org/wiki/Object-relational_mapping">Object Relational Mapping</a>, commonly referred to as its abbreviation ORM, is
-a technique that connects the rich objects of an application to tables in
-a relational database management system. Using ORM, the properties and
-relationships of the objects in an application can be easily stored and
-retrieved from a database without writing SQL statements directly and with less
-overall database access code.</p><div class="note"><p>Basic knowledge of relational database management systems (RDBMS) and structured query language (SQL) is helpful in order to fully understand Active Record. Please refer to <a href="https://www.w3schools.com/sql/default.asp">this tutorial</a> (or <a href="http://www.sqlcourse.com/">this one</a>) or study them by other means if you would like to learn more.</p></div><h4 id="active-record-as-an-orm-framework"><a class="anchorlink" href="#active-record-as-an-orm-framework">1.3 Active Record as an ORM Framework</a></h4><p>Active Record gives us several mechanisms, the most important being the ability
-to:</p>
+        <h3 id="active-record-nedir-questionmark"><a class="anchorlink" href="#active-record-nedir-questionmark">1 Active Record Nedir?</a></h3><p>Active Record <a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">MVC</a> 
+yapısındaki M dir - model - sistemin , üzerinde çalışılan veriden sorumlu katmanıdır. 
+Active Record veritabanında kalıcı şekilde depolama gerektiren verilerin karşılığı olan
+nesnelerin üretilmesi ve kullanımını kolaylaştrır. Bir nesne ilişkisel eşleme sistemi 
+olan Active Record paterninin bir uygulamasıdır.</p><h4 id="active-record-patterni"><a class="anchorlink" href="#active-record-patterni">1.1 Active Record Patterni</a></h4><p><a href="https://www.martinfowler.com/eaaCatalog/activeRecord.html">Active Record Martin Fowler tarafından </a>
+<em>Patterns of Enterprise Application Architecture</em> kitabında tanımlandı. 
+Active Record'da nesneler hem kalıcı veriyi içerirken hem de bu veri üzerindeki davranışları 
+içerir. Active Record, veri erişim lojiğinin nesnenin parçası olmasının, bu nesneyi 
+kullananları veriyi veritababnına nasıl yazıp okuyacaklarına dair eğiteceği fikrini 
+taşır.</p><h4 id="nesne-i̇lişkisel-eşleme"><a class="anchorlink" href="#nesne-i%CC%87li%C5%9Fkisel-e%C5%9Fleme">1.2 Nesne İlişkisel Eşleme</a></h4><p><a href="https://en.wikipedia.org/wiki/Object-relational_mapping">Object Relational Mapping</a>, 
+genellikle baş harflerinden oluşan ORM ile anılır. İlişkisel veritabanı sistemlerinde 
+gelişmiş nesne yapıları veritabanı tablolarına eşleyen bir tekniktir. ORM kullanarak 
+bir uygulamadaki nesnelerin özellikleri ve ilişkileri veritabanına saklanır ya da okunur.
+Kolayca , SQL kod yazmadan ve veritabanı erişim kodlarını çok az kullanarak </p><div class="note"><p>Active Record'u tamamen anlamak için relational database management systems (RDBMS) ve
+structured query language (SQL) temel seviyede bilinmesi iyi olacaktır. Daha fazla bilgi 
+isterseniz lütfen <a href="https://www.w3schools.com/sql/default.asp">bu tutorial</a> 
+(veya <a href="http://www.sqlcourse.com/">bu tutorial</a>) okuyun ya da 
+başka bir yerden kendiniz de öğrenebilirsiniz.</p></div><h4 id="bir-orm-framework-olarak-active-record"><a class="anchorlink" href="#bir-orm-framework-olarak-active-record">1.3 Bir ORM Framework Olarak Active Record</a></h4><p>Active Record bize farklı mekanizmalar verir, en önemli yetenekler şunlar:</p>
 <ul>
-<li>Represent models and their data.</li>
-<li>Represent associations between these models.</li>
-<li>Represent inheritance hierarchies through related models.</li>
-<li>Validate models before they get persisted to the database.</li>
-<li>Perform database operations in an object-oriented fashion.</li>
+<li>Modellerin ve verilerinin temsili.</li>
+<li>Modeller arasındaki ilişkilerin temsili.</li>
+<li>İlişkili (akraba) modeller üzerinden kalıtım hiyerarşileri.</li>
+<li>Veritabanına kalıcı olarak saklanmadan önce modellerin doğrulamalarının yapılması.</li>
+<li>Nesne-temelli bir şekil ile veritabanı işlemlerinin yapılması.</li>
 </ul>
-<h3 id="convention-over-configuration-in-active-record"><a class="anchorlink" href="#convention-over-configuration-in-active-record">2 Convention over Configuration in Active Record</a></h3><p>When writing applications using other programming languages or frameworks, it
-may be necessary to write a lot of configuration code. This is particularly true
-for ORM frameworks in general. However, if you follow the conventions adopted by
-Rails, you'll need to write very little configuration (in some cases no
-configuration at all) when creating Active Record models. The idea is that if
-you configure your applications in the very same way most of the time then this
-should be the default way. Thus, explicit configuration would be needed
-only in those cases where you can't follow the standard convention.</p><h4 id="naming-conventions"><a class="anchorlink" href="#naming-conventions">2.1 Naming Conventions</a></h4><p>By default, Active Record uses some naming conventions to find out how the
-mapping between models and database tables should be created. Rails will
-pluralize your class names to find the respective database table. So, for
-a class <code>Book</code>, you should have a database table called <strong>books</strong>. The Rails
-pluralization mechanisms are very powerful, being capable of pluralizing (and
-singularizing) both regular and irregular words. When using class names composed
-of two or more words, the model class name should follow the Ruby conventions,
-using the CamelCase form, while the table name must use the snake_case form. Examples:</p>
+<h3 id="active-record-da-konfigürasyon-yerine-kabuller"><a class="anchorlink" href="#active-record-da-konfig%C3%BCrasyon-yerine-kabuller">2 Active Record'da Konfigürasyon Yerine Kabuller</a></h3><p>Başka diller ya da frameworklar ile uygulama yaparken bir çok konfigürasyon kodu 
+yazmak gerekebilir. Bu kısmen tüm ORM frameworklarda geçerlidir. Ancak eğer Rails'in 
+kabullerini izlerseniz Active Record modellerini tanımlarken çok az konfigürasyon 
+kodu (bazen hiç) yazmanıza gerek kalır. Ana fikir şudur, eğer uygulamalarınızda hep 
+benzer konfigürasyonlar yapıp duruyorsanız bu default yol olarak kullanılmalıdır. 
+Böylece sadece standart kabuller dışında kalan istisna durumlarda konfigürasyona 
+ihtiyacınız kalır.</p><h4 id="i̇simlendirme-kabulleri"><a class="anchorlink" href="#i%CC%87simlendirme-kabulleri">2.1 İsimlendirme Kabulleri</a></h4><p>Default olarak modeller ve üretilmesi gereken veritabanı tabloları arasında eşleşme 
+yapmak için Active Record bazı isimlendirme kabulleri kullanır. Rails sınıfa verdiğiniz 
+ismi çoğul yaparak veritabanı tablosu adını belirler. Yani <code>Book</code> adında bir modeliniz 
+varsa karşılığı olarak veritabanında <strong>books</strong> adında bir tablonuz olmalıdır. Rails 
+çoğullama mekanizması regular ve unregular kelimelerin çoğullanması (ve tekillenmesi)
+işinde çok kuvvetlidir. İki ya da daha fazla kelimeden oluşan model sınıf isimleri 
+Ruby kabullerine göre olmalıdır, CamelCase formunda, buradan üretilen tablo isimleri 
+ise snake_case formunda olacaktır. Örnekler:</p>
 <ul>
-<li>Model Class - Singular with the first letter of each word capitalized (e.g.,
-<code>BookClub</code>).</li>
-<li>Database Table - Plural with underscores separating words (e.g., <code>book_clubs</code>).</li>
+<li>Model Sınıf Adı - Tekil , her kelimenin ilk harfi büyük (örn. <code>BookClub</code>).</li>
+<li>Veritabanı Tablosu - Çoğul , kelimeler arasında altçizgi var (örn. <code>book_clubs</code>).</li>
 </ul>
 
 <table>
@@ -348,46 +346,47 @@ using the CamelCase form, while the table name must use the snake_case form. Exa
 </tr>
 </tbody>
 </table>
-<h4 id="schema-conventions"><a class="anchorlink" href="#schema-conventions">2.2 Schema Conventions</a></h4><p>Active Record uses naming conventions for the columns in database tables,
-depending on the purpose of these columns.</p>
+<h4 id="şema-kabulleri"><a class="anchorlink" href="#%C5%9Fema-kabulleri">2.2 Şema Kabulleri</a></h4><p>Active Record veritabanı tablosu sütun adlarında bu sütunun amacına göre 
+isimlendirme kabullerini kullanır.</p>
 <ul>
 <li>
-<strong>Foreign keys</strong> - These fields should be named following the pattern
-<code>singularized_table_name_id</code> (e.g., <code>item_id</code>, <code>order_id</code>). These are the
-fields that Active Record will look for when you create associations between
-your models.</li>
+<strong>Foreign keys</strong> - Bu alanlar şu paternde isimlendirilmelidir
+<code>tekil_tablo_adı_id</code> (örn. <code>items</code> tablosu ile ilişkili sütun adı <code>item_id</code>, 
+<code>orders</code> tablosu ile ilişkili sütun adı <code>order_id</code>). Bu sütunlar modelleriniz 
+arasında ilişkilendirme yapacağınız zaman Active Record tarafından kullanılır.</li>
 <li>
-<strong>Primary keys</strong> - By default, Active Record will use an integer column named
-<code>id</code> as the table's primary key (<code>bigint</code> for PostgreSQL and MySQL, <code>integer</code>
-for SQLite). When using <a href="active_record_migrations.html">Active Record Migrations</a>
-to create your tables, this column will be automatically created.</li>
+<strong>Primary keys</strong> - Default olarak Active Record <code>id</code> adlı integer değerli bir 
+sütunu tabloda primary key olarak kabul eder (PostgreSQL ve MySQL için <code>bigint</code> 
+ve SQLite için <code>integer</code>). Tabloları üretmek için <a href="active_record_migrations.html">Active Record Migrasyonlar</a> kullanılırken bu sütun otomatik olarak üretilir.</li>
 </ul>
-<p>There are also some optional column names that will add additional features
-to Active Record instances:</p>
+<p>Ayrıca Active Record oluşumlarına ek özellikler katan bazı opsiyonel sütun 
+isimleri vardır:</p>
 <ul>
 <li>
-<code>created_at</code> - Automatically gets set to the current date and time when the
-record is first created.</li>
+<code>created_at</code> - Kayıt ilk üretildiği anda otomatik olarak bulunulan ana ait tarih 
+saat değerini alır.</li>
 <li>
-<code>updated_at</code> - Automatically gets set to the current date and time whenever
-the record is created or updated.</li>
+<code>updated_at</code> - Kayıt ilk üretildiği ya da güncellendiği anda otomatik olarak 
+bulunulan ana ait tarih saat değerini alır.</li>
 <li>
-<code>lock_version</code> - Adds <a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/Locking.html">optimistic
-locking</a> to
-a model.</li>
+<code>lock_version</code> - Bir modele <a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/Locking.html">optimistic
+locking</a> ekler.</li>
 <li>
-<code>type</code> - Specifies that the model uses <a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/Base.html#class-ActiveRecord::Base-label-Single+table+inheritance">Single Table
-Inheritance</a>.</li>
+<code>type</code> - Modelin <a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/Base.html#class-ActiveRecord::Base-label-Single+table+inheritance">Single Table
+Inheritance</a> olduğunu belirtir.</li>
 <li>
-<code>(association_name)_type</code> - Stores the type for
-<a href="association_basics.html#polymorphic-associations">polymorphic associations</a>.</li>
+<code>(ilişkilendirme_adı)_type</code> - <a href="association_basics.html#polymorphic-associations">polymorphic ilişkilendirmeler</a> için type bilgisini saklar.</li>
 <li>
-<code>(table_name)_count</code> - Used to cache the number of belonging objects on
-associations. For example, a <code>comments_count</code> column in an <code>Article</code> class that
-has many instances of <code>Comment</code> will cache the number of existent comments
-for each article.</li>
+<code>(tablo_adı)_count</code> - İlişkilendirmelerde kayıta bağlı diğer tablodaki kayıt 
+sayısını tutar. Mesela <code>Article</code> sınıfında eğer bir çok <code>Comment</code> kaydına bağlıysa 
+<code>comments_count</code> o makaleye yapılan yorum sayısını içeren alandır.</li>
 </ul>
-<div class="note"><p>While these column names are optional, they are in fact reserved by Active Record. Steer clear of reserved keywords unless you want the extra functionality. For example, <code>type</code> is a reserved keyword used to designate a table using Single Table Inheritance (STI). If you are not using STI, try an analogous keyword like "context", that may still accurately describe the data you are modeling.</p></div><h3 id="creating-active-record-models"><a class="anchorlink" href="#creating-active-record-models">3 Creating Active Record Models</a></h3><p>To create Active Record models, subclass the <code>ApplicationRecord</code> class and you're good to go:</p><div class="code_container">
+<div class="note"><p>Bu sütun isimleri opsiyonel olmasına rağmen Active Record tarafından yerleri 
+ayrılmıştır. Ekstra işlevler istemiyorsanız ayrılmış kelimelerden uzak durun. Örneğin 
+<code>type</code> ayrılmış kelimedir ve eğer Single Table Inheritance (STI) kullanmıyorsanız bu 
+isimde bir sütun koymayın mesela "context" deyin. Özelliği naıl olsa kullanmıyorum deyip 
+o özelliğe ait ayrılmış kelimeyi kullanmayın.</p></div><h3 id="active-record-modellerini-üretmek"><a class="anchorlink" href="#active-record-modellerini-%C3%BCretmek">3 Active Record Modellerini Üretmek</a></h3><p>Active Record modellerini üretmek için <code>ApplicationRecord</code> sınıfının bir alt sınıfını 
+üretmeniz yeterlidir:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Product</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
 <span class="k">end</span>
 </code></pre>
@@ -395,10 +394,10 @@ for each article.</li>
 end
 ">Copy</button>
 </div>
-<p>This will create a <code>Product</code> model, mapped to a <code>products</code> table at the
-database. By doing this you'll also have the ability to map the columns of each
-row in that table with the attributes of the instances of your model. Suppose
-that the <code>products</code> table was created using an SQL (or one of its extensions) statement like:</p><div class="code_container">
+<p>Bu veritabanında <code>products</code> tablosuna eşleştirilmiş <code>Product</code> adında bir model 
+oluşturur. Bunu yaparak ayrıca modelinizin özelliklerine erişir gibi eşleşmiş 
+olduğu tablonun sütunlarına erişebilirsiniz. Diyelim <code>products</code> tablosu SQL 
+kullanarak üretildi ve yapısı şöyle:</p><div class="code_container">
 <pre><code class="highlight sql"><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">products</span> <span class="p">(</span>
   <span class="n">id</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">auto_increment</span><span class="p">,</span>
   <span class="n">name</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
@@ -412,9 +411,9 @@ that the <code>products</code> table was created using an SQL (or one of its ext
 );
 ">Copy</button>
 </div>
-<p>The schema above declares a table with two columns: <code>id</code> and <code>name</code>. Each row of
-this table represents a certain product with these two parameters. Thus, you
-would be able to write code like the following:</p><div class="code_container">
+<p>Yukarıdaki şema iki sütunlu bir tablo tanımlıyor: <code>id</code> ve <code>name</code>. Bu tablodaki her 
+kayıt bu iki parametrenin birleşmesinden oluşur. Bu sayede aşağıdaki gibi kodlarla 
+kayıtlar üzerinde çalışabilirsiniz:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="nb">p</span> <span class="o">=</span> <span class="no">Product</span><span class="p">.</span><span class="nf">new</span>
 <span class="nb">p</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="s2">"Some Book"</span>
 <span class="nb">puts</span> <span class="nb">p</span><span class="p">.</span><span class="nf">name</span> <span class="c1"># "Some Book"</span>
@@ -424,7 +423,7 @@ p.name = "Some Book"
 puts p.name # "Some Book"
 '>Copy</button>
 </div>
-<h3 id="overriding-the-naming-conventions"><a class="anchorlink" href="#overriding-the-naming-conventions">4 Overriding the Naming Conventions</a></h3><p>What if you need to follow a different naming convention or need to use your
+<h3 id="i̇simlendirme-kabulleri-üzerine-yazmak"><a class="anchorlink" href="#i%CC%87simlendirme-kabulleri-%C3%BCzerine-yazmak">4 İsimlendirme Kabulleri Üzerine Yazmak</a></h3><p>What if you need to follow a different naming convention or need to use your
 Rails application with a legacy database? No problem, you can easily override
 the default conventions.</p><p><code>ApplicationRecord</code> inherits from <code>ActiveRecord::Base</code>, which defines a
 number of helpful methods. You can use the <code>ActiveRecord::Base.table_name=</code>
