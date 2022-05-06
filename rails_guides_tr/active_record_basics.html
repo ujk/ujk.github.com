@@ -250,16 +250,16 @@ nasıl kullanılır.</li>
 <li><a href="#active-record-modellerini-%C3%BCretmek">Active Record Modellerini Üretmek</a></li>
 <li><a href="#i%CC%87simlendirme-kabulleri-%C3%BCzerine-yazmak">İsimlendirme Kabulleri Üzerine Yazmak</a></li>
 <li>
-<a href="#crud-reading-and-writing-data">CRUD: Reading and Writing Data</a>
+<a href="#crud-veriyi-okumak-ve-yazmak">CRUD: Veriyi Okumak ve Yazmak</a>
 
 <ul>
-<li><a href="#create">Create</a></li>
-<li><a href="#read">Read</a></li>
-<li><a href="#update">Update</a></li>
-<li><a href="#delete">Delete</a></li>
+<li><a href="#create-%C3%BCret">Create - Üret</a></li>
+<li><a href="#read-oku">Read - Oku</a></li>
+<li><a href="#update-g%C3%BCncelle">Update - Güncelle</a></li>
+<li><a href="#delete-sil">Delete - Sil</a></li>
 </ul>
 </li>
-<li><a href="#validations">Validations</a></li>
+<li><a href="#do%C4%9Frulamalar">Doğrulamalar</a></li>
 <li><a href="#callbacks">Callbacks</a></li>
 <li><a href="#migrations">Migrations</a></li>
 </ol>
@@ -423,11 +423,11 @@ p.name = "Some Book"
 puts p.name # "Some Book"
 '>Copy</button>
 </div>
-<h3 id="i̇simlendirme-kabulleri-üzerine-yazmak"><a class="anchorlink" href="#i%CC%87simlendirme-kabulleri-%C3%BCzerine-yazmak">4 İsimlendirme Kabulleri Üzerine Yazmak</a></h3><p>What if you need to follow a different naming convention or need to use your
-Rails application with a legacy database? No problem, you can easily override
-the default conventions.</p><p><code>ApplicationRecord</code> inherits from <code>ActiveRecord::Base</code>, which defines a
-number of helpful methods. You can use the <code>ActiveRecord::Base.table_name=</code>
-method to specify the table name that should be used:</p><div class="code_container">
+<h3 id="i̇simlendirme-kabulleri-üzerine-yazmak"><a class="anchorlink" href="#i%CC%87simlendirme-kabulleri-%C3%BCzerine-yazmak">4 İsimlendirme Kabulleri Üzerine Yazmak</a></h3><p>Eğer farklı bir isimlendirme kullanmak isterseniz ya da Rails uygulamanızı eski 
+bir veritabanı ile kullanmak isterseniz ne olacak? Problem yok, default isimlendirme 
+kuralları üzerine kolayca yazabilirsiniz.</p><p><code>ApplicationRecord</code> sınıfı <code>ActiveRecord::Base</code> sınıfından kalıtımla üretilmiştir 
+ve bir çok yardımcı metodlar içerir. <code>ActiveRecord::Base.table_name=</code> formatını 
+kullanarak veritabanı tablo adınızı belirtebilirsiniz:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Product</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="nb">self</span><span class="p">.</span><span class="nf">table_name</span> <span class="o">=</span> <span class="s2">"my_products"</span>
 <span class="k">end</span>
@@ -437,9 +437,8 @@ method to specify the table name that should be used:</p><div class="code_contai
 end
 '>Copy</button>
 </div>
-<p>If you do so, you will have to define manually the class name that is hosting
-the fixtures (my_products.yml) using the <code>set_fixture_class</code> method in your test
-definition:</p><div class="code_container">
+<p>Böyle yaparsanız test tanımlamanızı içeren sınıf adını (my_products.yml)
+ <code>set_fixture_class</code> metodu kullanarak bildirmek zorundasınız:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">ProductTest</span> <span class="o">&lt;</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">TestCase</span>
   <span class="n">set_fixture_class</span> <span class="ss">my_products: </span><span class="no">Product</span>
   <span class="n">fixtures</span> <span class="ss">:my_products</span>
@@ -453,8 +452,8 @@ definition:</p><div class="code_container">
 end
 ">Copy</button>
 </div>
-<p>It's also possible to override the column that should be used as the table's
-primary key using the <code>ActiveRecord::Base.primary_key=</code> method:</p><div class="code_container">
+<p>Ayrıca tablonun primary key sütunu için <code>id</code> den başka isim vermek için 
+<code>ActiveRecord::Base.primary_key=</code> metodunu kullanabilirsiniz:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="k">class</span> <span class="nc">Product</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="nb">self</span><span class="p">.</span><span class="nf">primary_key</span> <span class="o">=</span> <span class="s2">"product_id"</span>
 <span class="k">end</span>
@@ -464,18 +463,19 @@ primary key using the <code>ActiveRecord::Base.primary_key=</code> method:</p><d
 end
 '>Copy</button>
 </div>
-<div class="note"><p>Active Record does not support using non-primary key columns named <code>id</code>.</p></div><h3 id="crud-reading-and-writing-data"><a class="anchorlink" href="#crud-reading-and-writing-data">5 CRUD: Reading and Writing Data</a></h3><p>CRUD is an acronym for the four verbs we use to operate on data: <strong>C</strong>reate,
-<strong>R</strong>ead, <strong>U</strong>pdate and <strong>D</strong>elete. Active Record automatically creates methods
-to allow an application to read and manipulate data stored within its tables.</p><h4 id="create"><a class="anchorlink" href="#create">5.1 Create</a></h4><p>Active Record objects can be created from a hash, a block, or have their
-attributes manually set after creation. The <code>new</code> method will return a new
-object while <code>create</code> will return the object and save it to the database.</p><p>For example, given a model <code>User</code> with attributes of <code>name</code> and <code>occupation</code>,
-the <code>create</code> method call will create and save a new record into the database:</p><div class="code_container">
+<div class="note"><p>Active Record adı <code>id</code> olan ama primary key olmayan sütunu desteklemez.</p></div><h3 id="crud-veriyi-okumak-ve-yazmak"><a class="anchorlink" href="#crud-veriyi-okumak-ve-yazmak">5 CRUD: Veriyi Okumak ve Yazmak</a></h3><p>CRUD veriler üzerinde işlem yaparken kullandığımız dört kelimenin baş harflerinden 
+oluşur: <strong>C</strong>reate, <strong>R</strong>ead, <strong>U</strong>pdate ve <strong>D</strong>elete. Active Record tablolarında 
+saklanan verilere erişmek ve işlemek için gereken metodları otomatik olarak üretir.</p><h4 id="create-üret"><a class="anchorlink" href="#create-%C3%BCret">5.1 Create - Üret</a></h4><p>Active Record nesneleri bir hash veya bir blok olarak özellik değerleri verilerek 
+üretildiği gibi nesne üretildikten sonra da özellik değerleri verilebilir. <code>new</code> 
+metodu sadece yeni bir nesne dönerken, <code>create</code> metodu hem yeni nesneyi döner hem 
+de veritabanına kaydeder.</p><p>Örneğin, bir <code>User</code> modeli <code>name</code> ve <code>occupation</code> özellikleri ile veriliyorsa 
+<code>create</code> metodu yeni kayıt oluşturur ve veritabanına kaydeder:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">name: </span><span class="s2">"David"</span><span class="p">,</span> <span class="ss">occupation: </span><span class="s2">"Code Artist"</span><span class="p">)</span>
 </code></pre>
 <button class="clipboard-button" data-clipboard-text='user = User.create(name: "David", occupation: "Code Artist")
 '>Copy</button>
 </div>
-<p>Using the <code>new</code> method, an object can be instantiated without being saved:</p><div class="code_container">
+<p><code>new</code> metodu kullanarak bir nesne oluşumu üretilir ama kaydedilmez:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">new</span>
 <span class="n">user</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="s2">"David"</span>
 <span class="n">user</span><span class="p">.</span><span class="nf">occupation</span> <span class="o">=</span> <span class="s2">"Code Artist"</span>
@@ -485,8 +485,8 @@ user.name = "David"
 user.occupation = "Code Artist"
 '>Copy</button>
 </div>
-<p>A call to <code>user.save</code> will commit the record to the database.</p><p>Finally, if a block is provided, both <code>create</code> and <code>new</code> will yield the new
-object to that block for initialization:</p><div class="code_container">
+<p><code>user.save</code> çağrısı yapılırsa kayıt veritabanına kaydedilir.</p><p>Son olarak, eğer blok verildiyse <code>create</code> de <code>new</code> de yeni üretilen nesneyi 
+blok içine gönderir:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">u</span><span class="o">|</span>
   <span class="n">u</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="s2">"David"</span>
   <span class="n">u</span><span class="p">.</span><span class="nf">occupation</span> <span class="o">=</span> <span class="s2">"Code Artist"</span>
@@ -498,42 +498,44 @@ object to that block for initialization:</p><div class="code_container">
 end
 '>Copy</button>
 </div>
-<h4 id="read"><a class="anchorlink" href="#read">5.2 Read</a></h4><p>Active Record provides a rich API for accessing data within a database. Below
-are a few examples of different data access methods provided by Active Record.</p><div class="code_container">
-<pre><code class="highlight ruby"><span class="c1"># return a collection with all users</span>
+<h4 id="read-oku"><a class="anchorlink" href="#read-oku">5.2 Read - Oku</a></h4><p>Active Record veritabanındaki verilere erişmek için zengin bir API sahibidir. 
+Aşağıda Active Record tarafından sağlanan birkaç veri erişim metodu görebilirsiniz.</p><div class="code_container">
+<pre><code class="highlight ruby"><span class="c1"># Tüm kullanıcı kayıtlarını içeren bir kolleksiyon döner</span>
 <span class="n">users</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">all</span>
 </code></pre>
-<button class="clipboard-button" data-clipboard-text="# return a collection with all users
+<button class="clipboard-button" data-clipboard-text="# Tüm kullanıcı kayıtlarını içeren bir kolleksiyon döner
 users = User.all
 ">Copy</button>
 </div>
 <div class="code_container">
-<pre><code class="highlight ruby"><span class="c1"># return the first user</span>
+<pre><code class="highlight ruby"><span class="c1"># tablodaki ilk kullanıcı kaydını döner</span>
 <span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">first</span>
 </code></pre>
-<button class="clipboard-button" data-clipboard-text="# return the first user
+<button class="clipboard-button" data-clipboard-text="# tablodaki ilk kullanıcı kaydını döner
 user = User.first
 ">Copy</button>
 </div>
 <div class="code_container">
-<pre><code class="highlight ruby"><span class="c1"># return the first user named David</span>
+<pre><code class="highlight ruby"><span class="c1"># name özelliği David olan ilk kullanıcıyı döner</span>
 <span class="n">david</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">find_by</span><span class="p">(</span><span class="ss">name: </span><span class="s1">'David'</span><span class="p">)</span>
 </code></pre>
-<button class="clipboard-button" data-clipboard-text="# return the first user named David
+<button class="clipboard-button" data-clipboard-text="# name özelliği David olan ilk kullanıcıyı döner
 david = User.find_by(name: 'David')
 ">Copy</button>
 </div>
 <div class="code_container">
-<pre><code class="highlight ruby"><span class="c1"># find all users named David who are Code Artists and sort by created_at in reverse chronological order</span>
+<pre><code class="highlight ruby"><span class="c1"># işi Code Artist ve adı David olan tüm kullanıcıları </span>
+<span class="c1"># created_at sütunu verisine göre azalan sıralama</span>
 <span class="n">users</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="ss">name: </span><span class="s1">'David'</span><span class="p">,</span> <span class="ss">occupation: </span><span class="s1">'Code Artist'</span><span class="p">).</span><span class="nf">order</span><span class="p">(</span><span class="ss">created_at: :desc</span><span class="p">)</span>
 </code></pre>
-<button class="clipboard-button" data-clipboard-text="# find all users named David who are Code Artists and sort by created_at in reverse chronological order
+<button class="clipboard-button" data-clipboard-text="# işi Code Artist ve adı David olan tüm kullanıcıları 
+# created_at sütunu verisine göre azalan sıralama
 users = User.where(name: 'David', occupation: 'Code Artist').order(created_at: :desc)
 ">Copy</button>
 </div>
-<p>You can learn more about querying an Active Record model in the <a href="active_record_querying.html">Active Record
-Query Interface</a> guide.</p><h4 id="update"><a class="anchorlink" href="#update">5.3 Update</a></h4><p>Once an Active Record object has been retrieved, its attributes can be modified
-and it can be saved to the database.</p><div class="code_container">
+<p>Active Record modellerinde sorgular hakkında daha fazla bilgi 
+<a href="active_record_querying.html">Active Record Sorgu Arabirimi</a> klavuzunda.</p><h4 id="update-güncelle"><a class="anchorlink" href="#update-g%C3%BCncelle">5.3 Update - Güncelle</a></h4><p>Bir Active Record nesnesi veritabanından okunduktan sonra özellikleri değiştirilip, 
+veritabanına kaydedilebilir.</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">find_by</span><span class="p">(</span><span class="ss">name: </span><span class="s1">'David'</span><span class="p">)</span>
 <span class="n">user</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="s1">'Dave'</span>
 <span class="n">user</span><span class="p">.</span><span class="nf">save</span>
@@ -543,8 +545,7 @@ user.name = 'Dave'
 user.save
 ">Copy</button>
 </div>
-<p>A shorthand for this is to use a hash mapping attribute names to the desired
-value, like so:</p><div class="code_container">
+<p>Bunu kısaca özellik isimlerine hash eşleme ile de yapabiliriz, bu durumda şöyle yazılır:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">find_by</span><span class="p">(</span><span class="ss">name: </span><span class="s1">'David'</span><span class="p">)</span>
 <span class="n">user</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span><span class="ss">name: </span><span class="s1">'Dave'</span><span class="p">)</span>
 </code></pre>
@@ -552,22 +553,22 @@ value, like so:</p><div class="code_container">
 user.update(name: 'Dave')
 ">Copy</button>
 </div>
-<p>This is most useful when updating several attributes at once. If, on the other
-hand, you'd like to update several records in bulk, you may find the
-<code>update_all</code> class method useful:</p><div class="code_container">
+<p>Bu şekil birçok özelliği bir kerede değiştirmek için kullanışlıdır. Diğer taraftan 
+bir grup kaydın hepsinde değişiklik yapmak isterseniz <code>update_all</code> sınıf metodu 
+işinizi görecektir:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="no">User</span><span class="p">.</span><span class="nf">update_all</span> <span class="s2">"max_login_attempts = 3, must_change_password = 'true'"</span>
 </code></pre>
 <button class="clipboard-button" data-clipboard-text="User.update_all &quot;max_login_attempts = 3, must_change_password = 'true'&quot;
 ">Copy</button>
 </div>
-<p>This is the same as if you wrote:</p><div class="code_container">
+<p>Bu aşağıdakini yazmakla aynı işi yapar:</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="no">User</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span><span class="ss">:all</span><span class="p">,</span> <span class="ss">max_login_attempts: </span><span class="mi">3</span><span class="p">,</span> <span class="ss">must_change_password: </span><span class="kp">true</span><span class="p">)</span>
 </code></pre>
 <button class="clipboard-button" data-clipboard-text="User.update(:all, max_login_attempts: 3, must_change_password: true)
 ">Copy</button>
 </div>
-<h4 id="delete"><a class="anchorlink" href="#delete">5.4 Delete</a></h4><p>Likewise, once retrieved an Active Record object can be destroyed which removes
-it from the database.</p><div class="code_container">
+<h4 id="delete-sil"><a class="anchorlink" href="#delete-sil">5.4 Delete - Sil</a></h4><p>Benzer şekilde bir kayıt Active Record objesine alındıktan sonra yok edilebilir, 
+bu veritabanından da kaydı silecektir.</p><div class="code_container">
 <pre><code class="highlight ruby"><span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">find_by</span><span class="p">(</span><span class="ss">name: </span><span class="s1">'David'</span><span class="p">)</span>
 <span class="n">user</span><span class="p">.</span><span class="nf">destroy</span>
 </code></pre>
@@ -575,22 +576,22 @@ it from the database.</p><div class="code_container">
 user.destroy
 ">Copy</button>
 </div>
-<p>If you'd like to delete several records in bulk, you may use <code>destroy_by</code>
-or <code>destroy_all</code> method:</p><div class="code_container">
-<pre><code class="highlight ruby"><span class="c1"># find and delete all users named David</span>
+<p>Eğer bir grup kaydı yok etmek isterseniz <code>destroy_by</code> ya da <code>destroy_all</code> metodlarını
+kullanabilirsiniz:</p><div class="code_container">
+<pre><code class="highlight ruby"><span class="c1"># adı David olan tüm kullanıcıları bul ve sil</span>
 <span class="no">User</span><span class="p">.</span><span class="nf">destroy_by</span><span class="p">(</span><span class="ss">name: </span><span class="s1">'David'</span><span class="p">)</span>
 
-<span class="c1"># delete all users</span>
+<span class="c1"># tüm kullanıcıları sil</span>
 <span class="no">User</span><span class="p">.</span><span class="nf">destroy_all</span>
 </code></pre>
-<button class="clipboard-button" data-clipboard-text="# find and delete all users named David
+<button class="clipboard-button" data-clipboard-text="# adı David olan tüm kullanıcıları bul ve sil
 User.destroy_by(name: 'David')
 
-# delete all users
+# tüm kullanıcıları sil
 User.destroy_all
 ">Copy</button>
 </div>
-<h3 id="validations"><a class="anchorlink" href="#validations">6 Validations</a></h3><p>Active Record allows you to validate the state of a model before it gets written
+<h3 id="doğrulamalar"><a class="anchorlink" href="#do%C4%9Frulamalar">6 Doğrulamalar</a></h3><p>Active Record allows you to validate the state of a model before it gets written
 into the database. There are several methods that you can use to check your
 models and validate that an attribute value is not empty, is unique and not
 already in the database, follows a specific format, and many more.</p><p>Validation is a very important issue to consider when persisting to the database, so
