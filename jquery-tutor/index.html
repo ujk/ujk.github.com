@@ -8,17 +8,267 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        div .scroll{
+            height:300px;
+            width: 100%;
+            overflow:scroll;
+            scrollbar-color: dark;
+        }
 
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: white;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: gray;
+            border-radius: 10px;
+        }
+
+        .cborder {
+            border: 1px solid black;
+            padding: 5px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>JQuery Öğrenimi</h1>
         
         <div class="row">
-            <div class="col-md-8">
-                <button title="Otomatik popover" data-toggle="popover" data-trigger="hover" 
-                  data-content="bu popover gezinirken açılır ve kapanır">Üzerimde gezin</button>
+            <div class="col-md-2">
+                <a href="#home" class="btn btn-success btn-block">Giriş</a>
             </div>
+            <div class="col-md-8">
+                <h1 id="home">JQuery Öğrenimi</h1>
+                <p>
+                    JQuery çok yaygın olan bir JavaScript kütüphanesi. Bu sayfada JQuery kütüphanesini en 
+                    baştan başlayarak ele alacağız.
+                </p>
+                <h2>JQuery Nedir?</h2>
+                <p>
+                    JQuery bir HTML kodu içinde özellikleri verilen elemanları bulup , bu elemanlar 
+                    üzerinde stiller, olaylar, içerikler vs. üzerinde işlemler yapmayı kolaylaştırmayı hedefleyen 
+                    bir JavaScript kütüphanesidir. 
+                </p>
+                <p class="well">
+                    JQuery MIT lisanslı açık kaynak kodlu bir kütüphanedir ve dünyada yayınlanan web sitelerinin
+                    %70'inden fazlasında kullanılır.
+                </p>
+                <p>
+                    JQuery şu prensipler ışığında tasarlanmıştır :
+                </p>
+                <ul>
+                    <li><strong>JavaScript ve HTML kodların ayrılması </strong> ile geliştiriciyi HTML ve 
+                        JavaScript kodlarını ayrı düşünmeye zorlar.
+                    </li>
+                    <li><strong>Kısalık ve berraklık </strong>ile zincirleme fonksiyon kullanımı sağlayarak 
+                        ve kısa fonksiyon isimleri kullanarak kodun berraklığı arttırılır.
+                    </li>
+                    <li><strong>Tarayıcı farklılıklarını elimine eder </strong> ile kodunuzu JQuery ile yazarak 
+                        değişik tarayıcılarda nasıl çalışacak endişesi taşımazsınız.
+                    </li>
+                    <li><strong>Genişletilebilirlik </strong> ile JQuery fonksiyonlarına yenilerini ekleyerek 
+                        kolayca plugin olarak kullanabilirsiniz.
+                    </li>
+                </ul>
+                <br>
+
+                <h2>JQuery Özellikleri</h2>
+                <p>JQuery geliştiricilerin işlerini daha az kod yazarak yapmalarına yardımcı olacak şekilde 
+                    tasarlanmıştır. Aşağıda bazı önemli temel JQuery özelliklerinin bir listesi var.
+                </p>
+                <ul class="well">
+                    <li>
+                        <strong>DOM manipülasyon - </strong>JQuery DOM elemanlarının seçilmesinde kolaylık 
+                        sağlar. <strong>Sizzle</strong> adı verilen seçme prosedürü sayesinde kullanılan 
+                        tarayıcıdan bağımsız olarak elemanlar seçilir ve içerikleri ve özellikleri değiştirilebilir.
+                    </li>
+                    <li>
+                        <strong>Olay işleme - </strong>JQuery çok çeşitli olayları işlemek için etkili bir yöntem 
+                        sunar. Örneğin kullanıcı bir linke tıkladığında yapılacakları HTML kodu içinde karmaşık 
+                        ilaveler yapmadan script kodunda yapabilirsiniz.
+                    </li>
+                    <li>
+                        <strong>AJAX desteği - </strong>JQuery duyarlı ve zengin özelliklere sahip web sayfalarını 
+                        AJAX teknolojileri kullanarak geliştirmenize yardımcı olur.
+                    </li>
+                    <li>
+                        <strong>Animasyonlar - </strong>JQuery web sitelerinizde kullanabileceğiniz birçok 
+                        animasyon efektlerine sahiptir.
+                    </li>
+                    <li>
+                        <strong>Hafiflik - </strong>JQuery yaklaşık 19kb boyutunda çok az hafıza kaplayan bir 
+                        kütüphanedir.
+                    </li>
+                    <li>
+                        <strong>Tarayıcıdan bağımsız çalışma - </strong>JQuery tarayıcıdan bağımsız olarak 
+                        sağlıklı çalışır. IE 6.0+, FF 2.0+, Safari 3.0+, Chrome ve Opera 9.0+ tarayıcılarda 
+                        sorunsuz çalışır.
+                    </li>
+                    <li>
+                        <strong>Son teknoloji - </strong>JQuery CSS3 eleman seçicileri ve temel XPath deyimlerini 
+                        kullanır.
+                    </li>
+                </ul><br>
+
+                <h2>JQuery Kurulumu</h2>
+                <p>
+                    JQuery kurmak için 2 yöntem vardır.
+                </p>
+                <ol>
+                    <li>
+                        <strong>Yerel kurulum - </strong>JQuery kütüphanesini sitesinden bilgisayarınıza indirebilir 
+                        ve sitenizin HTML kodunda kullanabilirsiniz.
+                    </li>
+                    <li>
+                        <strong>CDN  temelli kurulum - </strong>JQuery kütüphanesini HTML kodunuzda CDN (Content 
+                        Delivery Network) sürücüleri üzerinden başvuru yoluyla kullanabilirsiniz.
+                    </li>
+                </ol>
+                <h3>Yerel Kurulum</h3>
+                <p>
+                    JQuery kütüphanesini web server'ınıza yükleyip yerel bir JavaScript dosya gibi web sitenizde 
+                    kullanabilirsiniz. Daha iyi bir performans için sıkıştırılmış dosya kullanmanız tavsiye edilir.
+                </p>
+                <ul>
+                    <li>
+                        <a href="https://jquery.com/download/" target="_blank">https://jquery.com/download/</a> 
+                        adresine gidin ve en son versiyonu indirin.
+                    </li>
+                    <li>
+                        İndirdiğiniz örneğin <strong>jquery-3.6.0.min.js</strong> dosyasını web sitenizin kodunu 
+                        barındırdığınız klasörde bir yere yerleştirinç Örneğin <strong> /jquery/jquery-3.6.0.js</strong>
+                        olarak bir alt klasör içine yerleştirin.
+                    </li>
+                    <li>
+                        Son olarak bu dosyayı HTML kodunuz içinde aşağıda gösterildiği şekilde web sayfanıza dahil 
+                        edin.
+                    </li>
+                </ul>
+                <h4>Örnek</h4>
+                <div class="scroll" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>jQuery Örneği<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"/jquery/jquery-3.7.1.min.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #dcdcaa;">$</span>(<span style="color: #9cdcfe;">document</span>).<span style="color: #dcdcaa;">ready</span>(<span style="color: #569cd6;">function</span>() {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #9cdcfe;">document</span>.<span style="color: #dcdcaa;">write</span>(<span style="color: #ce9178;">"Merhaba, Dünya!"</span>);</div><div>&nbsp; &nbsp;});</div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #7ca668;">&lt;!-- HTML body içeriği buraya gelecek --&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div>
+                <br>
+                <script>
+                    $(document).ready(function() {
+                        $("#test1").text("Merhaba, Dünya!");
+                    });
+                </script>
+                <div class="cborder" id="test1"></div>
+                <br>
+                <h3>CDN Temelli Kurulum</h3>
+                <p>
+                    JQuery kütüphanesini CDN server'larından da kullanabilirsiniz. Bu sayede hem server'ınızda 
+                    yer kaplamaz (ki oldukça küçük bir yer kaplıyor aslında), hem de eğer web sitenizi gösteren 
+                    tarayıcı aynı dosyayı başka sitelerde gezerken indirmiş olabilir ve cash'inden daha hızlı 
+                    kullanabilir. Aşağıdaki örnek Google CDN server kullanıyor.
+                </p>
+                <h4>Örnek</h4>
+                <div class="scroll" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>jQuery Örneği<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #9cdcfe;">document</span>).<span style="color: #dcdcaa;">ready</span>(<span style="color: #569cd6;">function</span>() {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #9cdcfe;">document</span>.<span style="color: #dcdcaa;">write</span>(<span style="color: #ce9178;">"Merhaba, Dünya!"</span>);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #7ca668;">&lt;!-- HTML body içeriği buraya gelecek --&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div>
+                <p>Bu da aynı şekilde çalışacaktır.</p>
+                <br><hr>
+
+                <h2>JQuery Fonksiyonları Nasıl Kullanılır?</h2>
+                <p>
+                    JQuery ile yapacağımız hemen her şey DOM elemanlarını okumak ve manipüle etmek üzerinedir. Bu 
+                    yüzden bir işlem yapmadan önce DOM elemanlarının tamamen yüklenmiş olduğundan emin olmalıyız. 
+                </p>
+                <p>
+                    Eğer bir olayın sayfanızda çalışmasını istiyorsanız onu <code>$(document).ready()</code>
+                    fonksiyonu içinde çağırmalısınız. Buraya konan her kod DOM elemanları yüklendikten sonra 
+                    çalışacaktır.
+                </p>
+                <p>
+                    Aslında daha sonra ayrıntılarını öğreneceğimiz gibi bu kod <code>document</code> elemanının 
+                    <code>ready</code> olayına bir işlem eklemek işini yapıyoruz burada. <code>ready</code> olayı da
+                    dökümanın tamamıyla tarayıcıya yüklendiği anda tetiklenen bir olaydır. 
+                </p>
+                <div style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #dcdcaa;">$</span>(<span style="color: #9cdcfe;">document</span>).<span style="color: #dcdcaa;">ready</span>(<span style="color: #569cd6;">function</span>() {</div><div>&nbsp; &nbsp;<span style="color: #7ca668;">// DOM hazır olunca yapılacak işler</span></div><div>});</div></div></div></div>                
+                <br><p>
+                    Bu doğrultuda bir JQuery fonksiyonunu çağırma şekli sayfa kodunuzda bu örnekte verildiği gibi olacaktır.
+                </p>
+                <div class="scroll" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>jQuery Örneği<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"/jquery/jquery-3.7.1.min.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #9cdcfe;">document</span>).<span style="color: #dcdcaa;">ready</span>(<span style="color: #569cd6;">function</span>() {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"div"</span>).<span style="color: #dcdcaa;">click</span>(<span style="color: #569cd6;">function</span>() {<span style="color: #dcdcaa;">alert</span>(<span style="color: #ce9178;">"Merhaba, dünya!"</span>);});</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span>Diyalog kutusunu görmek için bu yazıya tıklayın.<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div>                
+        <script>
+            $(document).ready(function() {
+                $("#test2").click(function() {alert("Merhaba, dünya!");});
+            });
+        </script>
+        <div class="cborder" id="test2">Diyalog kutusunu görmek için bu yazıya tıklayın.</div><br><hr>
+
+                <h2>Kendi Scriptlerinizi Nereye Koymalısınız?</h2>
+                <p>
+                    En iyisi kendi scriptlerinizi de ayrı bir <code>.js</code> dosyası içinde toplamak olur. 
+                    Örneğin scriptimizi <strong>/jquery/custom.js</strong> adında bir dosyada saklayalım.
+                </p>
+                <div style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #7ca668;">/* Dosya adı: custom.js */</span></div><div><span style="color: #dcdcaa;">$</span>(<span style="color: #9cdcfe;">document</span>).<span style="color: #dcdcaa;">ready</span>(<span style="color: #569cd6;">function</span>() {</div><div>&nbsp; &nbsp;<span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"div"</span>).<span style="color: #dcdcaa;">click</span>(<span style="color: #569cd6;">function</span>() {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">alert</span>(<span style="color: #ce9178;">"Merhaba, dünya!"</span>);</div><div>&nbsp; &nbsp;});</div><div>});</div></div></div></div></div></div>           
+                <br><p>
+                    Sonra bu dosyayı HTML kodumuza dahil edelim
+                </p>
+                <div style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>jQuery Örneği<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"/jquery/jquery-3.7.1.min.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"/jquery/custom.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span>Diyalog kutusunu görmek için bu yazıya tıklayın.<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div>
+                <br><p>
+                    Şimdi daha sade oldu. Yukarıdaki kodları anlamadıysanız merak etmeyin, yakında her birini tekrar tekrar 
+                    görerek anlayacaksınız.
+                </p><br><hr>
+
+                <h2>JQuery - Temel İşlemler</h2>
+                <p>
+                    JQuery deyim yapısını görmeden önce JavaScript kodlamanın temellerini bir gözden geçirelim. Çünkü 
+                    JQuery JavaScript kodları kullanan bir kütüphane, yani JQuery kütüphanesini kullanırken birçok 
+                    JavaScript deyimler kullanacaksınız. JQuery'de çok kullanılan temel teknikleri bir gözden 
+                    geçirerek başlayalım.
+                </p><br>
+
+                <h3>String</h3>
+                <p>
+                    JavaScript'te bir <code>string</code> değer bir ya da birden çok karakterden oluşan bir yazı 
+                    değeridir, ayrıca string'de hiç sayıda karakter de olabilir (null). Aşağıda geçerli JavaScript 
+                    string değerlerine örnekler var.
+                </p>
+                <p class="well">
+                    "Bu bir JavaScript String"<br>
+                    'Bu bir JavaScript String'<br>
+                    'Bu "gerçekten" bir JavaScript String'<br>
+                    "Bu 'gerçekten' bir JavaScript String"
+                </p><br>
+
+                <h3>Sayılar</h3>
+                <p>
+                    JavaScript'de sayılar 64-bit düzende double-precision IEEE 754 standardı değerlerdir. String 
+                    gibi bunlar da sabit değerlerdir. Aşağıda JavaScript sayılara geçerli örnekler veriliyor.
+                </p>
+                <p class="well">
+                    5350<br>
+                    120.27<br>
+                    0.26
+                </p><br>
+
+                <h3>Boolean değerler</h3>
+                <p>
+                    JavaScript'de <code>boolean</code> bir değer doğru-yanlış değerler olan <code>true</code> veya
+                    <code>false</code> değerlerinde olabilir. Bir sayı değeri <code>sıfır</code>sa buna karşılık 
+                    boolean değer <code>false</code> olur. Boş bir string de boolean olarak <code>false</code> olur.
+                    Bunların dışındaki sayı ve stringler <code>true</code> olarak boolean değere karşılık gelirler.
+                    Aşağıda geçerli boolean değer örnekleri var.
+                </p>
+                <div class="cborder" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #569cd6;">true</span> &nbsp; &nbsp; &nbsp;<span style="color: #7ca668;">// true</span></div><div><span style="color: #569cd6;">false</span> &nbsp; &nbsp; <span style="color: #7ca668;">// false</span></div><div><span style="color: #b5cea8;">0</span> &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #7ca668;">// false</span></div><div><span style="color: #b5cea8;">1</span> &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #7ca668;">// true</span></div><div><span style="color: #ce9178;">""</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #7ca668;">// false</span></div><div><span style="color: #ce9178;">"hello"</span> &nbsp; <span style="color: #7ca668;">// true</span></div></div></div></div></div></div></div></div>
+
+                <br><br><h3>Nesneler (Object)</h3>
+                <p>
+                    JavaScript (ve tabi ki JQuery) nesne yapısını çok etkili kullanır. Bir nesneyi aşağıdaki 
+                    tanımlama tekniğiyle tanımlayabilirsiniz. 
+                </p>
+                <div style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #569cd6;">var</span> <span style="color: #9cdcfe;">çalışan</span> <span style="color: #d4d4d4;">=</span> {</div><div>&nbsp; &nbsp;<span style="color: #9cdcfe;">isim</span><span style="color: #9cdcfe;">:</span> <span style="color: #ce9178;">"Zara"</span>,</div><div>&nbsp; &nbsp;<span style="color: #9cdcfe;">yaş</span><span style="color: #9cdcfe;">:</span> <span style="color: #b5cea8;">20</span></div><div>};</div></div></div></div></div></div></div></div></div>                
+                <p>
+                    Nesnenizin özelliklerine noktalı kodlama ile erişebilirsiniz.
+                </p>
+                <div style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #7ca668;">// Nesne özelliklerini okurken</span></div><div><span style="color: #9cdcfe;">çalışan</span>.<span style="color: #9cdcfe;">isim</span> &nbsp;<span style="color: #7ca668;">// ==&gt; Zara</span></div><div><span style="color: #9cdcfe;">çalışan</span>.<span style="color: #9cdcfe;">yaş</span> &nbsp; <span style="color: #7ca668;">// ==&gt; 20</span></div><br /><div><span style="color: #7ca668;">// Nesne özelliklerini değiştirmek</span></div><div><span style="color: #9cdcfe;">çalışan</span>.<span style="color: #9cdcfe;">isim</span> <span style="color: #d4d4d4;">=</span> <span style="color: #ce9178;">"Daisy"</span> &nbsp;<span style="color: #7ca668;">// &lt;== Daisy</span></div><div><span style="color: #9cdcfe;">çalışan</span>.<span style="color: #9cdcfe;">yaş</span> &nbsp;<span style="color: #d4d4d4;">=</span> &nbsp;<span style="color: #b5cea8;">22</span> &nbsp; &nbsp; &nbsp;<span style="color: #7ca668;">// &lt;== 22</span></div><div><span style="color: #9cdcfe;">console</span>.<span style="color: #dcdcaa;">log</span>(<span style="color: #9cdcfe;">çalışan</span>.<span style="color: #9cdcfe;">isim</span>);</div></div></div></div></div></div></div></div></div></div>                
+                
+                <p>.</p><p>.</p><p>.</p>
+            </div>
+            <div class="col-md-2">.</div>
         </div>
     </div>
 
@@ -28,4 +278,6 @@ $(document).ready(function(){
 });
 </script>
     
+
+
 </body>
