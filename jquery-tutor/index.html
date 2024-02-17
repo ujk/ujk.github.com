@@ -37,6 +37,10 @@
         .cpadding {
             padding: 15px;
         }
+
+        body {
+            font-size: large;
+        }
     </style>
 </head>
 <body>
@@ -47,6 +51,8 @@
                 <a href="#home" class="btn btn-success btn-block">Giriş</a><br>
                 <a href="#basics" class="btn btn-default btn-block">Temeller</a><br>
                 <a href="#syntax" class="btn btn-success btn-block">Deyim Yapısı</a><br>
+                <a href="#selectors" class="btn btn-default btn-block">Seçici İfadeler</a><br>
+                <a href="#events" class="btn btn-success btn-block">Olay İşleme</a><br>
             </div>
             <div class="col-md-8">
                 <h1 id="home">JQuery Öğrenimi</h1>
@@ -469,7 +475,7 @@
                     ele alalım.
                 </p>
                 <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>DOM Örneği<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Bu bir paragraph.<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Bu ikinci paragraph.<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Bu üçüncü paragraph.<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div>
-                <p>
+                <br><p>
                     DOM ağacını esasen bir soy ağacına benzetebiliriz. Yukarıdaki ağacın önemli noktaları şunlardır.
                 </p>
                 <ul>
@@ -534,7 +540,257 @@
                     Aşağıda bir elemanı bulup onun üzerinde işlem yapan temel JQuery deyim yapısı gösteriliyor.
                 </p>
                 <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #dcdcaa;">$</span>(<span style="color: #569cd6;">function</span>(){</div><div>&nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #9cdcfe;">seçici</span>).<span style="color: #dcdcaa;">işlem</span>();</div><div>});</div></div></div></div></div></div></div></div>
+                <br><p>
+                    Herhangi bir JQuery satırı bir <strong>$</strong> sembolü ile başlar. Sonrasında parantez içinde 
+                    bir <strong>seçici</strong> ifade girersiniz. Bu <code>$(seçici)</code> deyimi bulmak istediğimiz 
+                    eleman ya da elemanları bize geri dönecektir. Fakat elemanlar üzerinde bir işlem yapmak 
+                    isterseniz <code>işlem()</code> kısmını da eklemelisiniz.
+                </p>
+                <p class="well">
+                    <strong>Not : </strong> ana yapının en önemli taşı <code>$()</code>, aynı zamanda 
+                    <code>jQuery()</code> fonksiyonu ile aynı anlamda. Yani başka bir JavaScript kütüphanesi ile 
+                    birlikte kullanırken eğer <strong>$</strong> işareti orada başka anlamlar taşıyorsa , jQuery 
+                    kodlarınız ile karışmaması için <code>jQuery()</code> olarak kullanabilirsiniz.
+                </p>
+                <p>
+                    En dıştaki <code>$(document).ready(...)</code> de aslında dikkat ederseniz aynı deyim yapısına 
+                    sahip. Burada seçici olarak kullanılan <code>document</code> kelimesi içinde bulunulan 
+                    sayfayı bulup geri dönüyor. Sonra elemanın <code>ready()</code> metodunu kullanarak sayfa 
+                    tamamen yüklendikten sonra çalışacak kodlarımızı yazıyoruz.
+                </p>
 
+                <br><br><h3>Örnekler</h3>
+                <p>
+                    Aşağıda temel jQuery deyim yapısını gösteren birkaç örnek görülüyor. İlk örnek bir HTML 
+                    döküman içindeki tüm <code>&lt;p&gt;</code> elemanları bulur ve onları görünmez yapar.
+                </p>
+                <div class="cpadding scroll" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>jQuery Örneği<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"/jquery/jquery-3.7.1.min.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #7ca668;">&lt;!-- script src="/jquery/custom.js"&gt;&lt;/script --&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #9cdcfe;">document</span>).<span style="color: #dcdcaa;">ready</span>(<span style="color: #569cd6;">function</span>() {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"p"</span>).<span style="color: #dcdcaa;">hide</span>()</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">h1</span><span style="color: grey;">&gt;</span>jQuery Deyim Yapısı<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">h1</span><span style="color: grey;">&gt;</span></div><br /><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Bu bir p tag<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Bu diğer bir p tag<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">span</span><span style="color: grey;">&gt;</span>Bu bir span tag<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">span</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span>Bu bir div tag<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div>
+                <br><p>
+                    Bu örneği <code>$()</code> yerine <code>jQuery()</code> kullanarak yazalım ve aynı şekilde 
+                    çalıştığını test edelim.
+                </p>
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div>....</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #9cdcfe;">document</span>).<span style="color: #dcdcaa;">ready</span>(<span style="color: #569cd6;">function</span>() {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">jQuery</span>(<span style="color: #ce9178;">"p"</span>).<span style="color: #dcdcaa;">hide</span>()</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">....</span></div></div>
+                <br><p>Bu da aynı şekilde sayfadaki <code>&lt;p&gt;</code> elemanlarını görünmez yapacaktır. 
+                Görünmez diyorum çünkü tarayıcınızın Geliştirici Araçları ile incelerseniz <code>&lt;p&gt;</code>
+                elemanlarının hala HTML elemanlar içinde olduğunu ama <code>&lt;p style="display: none;"&gt;</code>
+                şeklinde stili değiştirilerek görünmez olmalarının sağlandığını göreceksiniz.</p>
+                <br><p>
+                    Aşağıdaki örnek <code>&lt;h1&gt;</code> elemanlarının rengini kırmızıya döndürür.
+                </p>
+                <div class="cpadding scroll" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>jQuery Örneği<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"/jquery/jquery-3.7.1.min.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #7ca668;">&lt;!-- script src="/jquery/custom.js"&gt;&lt;/script --&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #9cdcfe;">document</span>).<span style="color: #dcdcaa;">ready</span>(<span style="color: #569cd6;">function</span>() {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"h1"</span>).<span style="color: #dcdcaa;">css</span>(<span style="color: #ce9178;">"color"</span>, <span style="color: #ce9178;">"red"</span>);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">h1</span><span style="color: grey;">&gt;</span>jQuery Deyim Yapısı<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">h1</span><span style="color: grey;">&gt;</span></div><br /><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Bu bir p tag<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">span</span><span style="color: grey;">&gt;</span>Bu bir span tag<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">span</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span>Bu bir div tag<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div>
+                <div class="cborder cpadding">
+                    <h1 id="test3">jQuery Deyim Yapısı</h1>
+
+                    <p>Bu bir p tag</p>
+                    <span>Bu bir span tag</span>
+                    <div>Bu bir div tag</div>
+                    <script>
+                        $(document).ready(function() {
+                            $("h1#test3").css("color", "red");
+                        });
+                    </script>
+                </div>
+                <br><p>
+                    Benzer bir teknikle tüme <code>.red</code> sınıfına sahip elemanların rengini kırmızıya 
+                    döndürmek için şu kodu kullanırsınız.
+                </p>
+                <div class="cpadding scroll" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>jQuery Örneği<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"/jquery/jquery-3.7.1.min.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #7ca668;">&lt;!-- script src="/jquery/custom.js"&gt;&lt;/script --&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #9cdcfe;">document</span>).<span style="color: #dcdcaa;">ready</span>(<span style="color: #569cd6;">function</span>() {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">".red"</span>).<span style="color: #dcdcaa;">css</span>(<span style="color: #ce9178;">"color"</span>, <span style="color: #ce9178;">"red"</span>);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">h1</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"red"</span><span style="color: grey;">&gt;</span>jQuery Deyim Yapısı<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">h1</span><span style="color: grey;">&gt;</span></div><br /><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Bu bir p tag<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">span</span><span style="color: grey;">&gt;</span>Bu bir span tag<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">span</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"red"</span><span style="color: grey;">&gt;</span>Bu bir div tag<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div>
+                <div class="cborder cpadding">
+                    <h1 class="test4">jQuery Deyim Yapısı</h1>
+
+                    <p>Bu bir p tag</p>
+                    <span>Bu bir span tag</span>
+                    <div class="test4">Bu bir div tag</div>
+                    <script>
+                        $(document).ready(function() {
+                            $(".test4").css("color", "red");
+                        });
+                    </script>
+                </div>
+                <br><p>
+                    Bu bölümde de jQuery deyim yapısının temellerini gördük. Örneklerdeki değerleri değiştirerek 
+                    değişik çalışmaları test ederek anlamanızı geliştirebilirsiniz. 
+                </p>
+
+
+                <!-- SELECTORS -->
+                <br><br><hr><h2 id="selectors">Seçici İfadeler (selectors)</h2>
+                <p>
+                    <strong>JQuery'</strong>nin en önemli işlevi olan elemanları bulma işi için <strong>seçici</strong>
+                    adı verilen ifadeler kullanılır. Bu bölümde 3 değişik jQuery seçici türüne ait basit örnekleri 
+                    yaparak anlamaya çalışalım.
+                </p>
+
+                <br><br><h3>JQuery Seçicileri</h3>
+                <p>
+                    JQuery seçiciler bir HTML döküman içerisinde istenen kritere uygun elemanları bulmaya yarar. 
+                    Örneğin bir HTML döküman içerisindeki tüm <code>&lt;div&gt;</code> elemanları bulmak 
+                    istiyorsanız jQuery seçicileri kullanacaksınız demektir.
+                </p>
+                <p>
+                    JQuery seçiciler aşağıdaki kriterlere göre HTML elemanları bulurlar.
+                </p>
+                <ul>
+                    <li>HTML eleman adı</li>
+                    <li>Eleman ID değeri</li>
+                    <li>Eleman Class değeri</li>
+                    <li>Eleman özelliği adı</li>
+                    <li>Eleman özelliği değeri</li>
+                    <li>Başka birçok kriter</li>
+                </ul>
+                <p>
+                    JQuery kütüphanesi stillerde kullandığımız <code>CSS seçicileri</code> kullanır. Böylece DOM 
+                    elemanlarını bilinen yöntemlerle bulabilirsiniz. 
+                </p>
+
+                <br><br><h3>JQuery Seçici Deyimler</h3>
+                <p>
+                    Aşağıdaki kod HTML elemanları bulup getirmeye yarayan JQuery Seçici Deyimi gösteriyor.
+                </p>
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #dcdcaa;">$</span>(<span style="color: #9cdcfe;">document</span>).<span style="color: #dcdcaa;">ready</span>(<span style="color: #569cd6;">function</span>(){</div><div>&nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #9cdcfe;">seçici</span>)</div><div>});</div></div></div></div></div>
+                <br><p>
+                    Bir jQuery seçici <code>$</code> sembolü ile başlar ve <strong>seçici ifadeyi</strong> 
+                    parantez içine yazarız. Burada <code>$()</code> kodu standart fonksiyondur ve bize 3 yöntemle 
+                    HTML elemanları bulma imkanı sunar. 
+                </p>
+                <table class="table">
+                    <thead>
+                        <tr class="active">
+                            <th>Seçici Adı</th>
+                            <th>Açıklama</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Eleman</strong> <br>seçici</td>
+                            <td>
+                                DOM içinde aranan elemanın adı verilir. Örneğin <code>$("p")</code> sayfadaki tüm 
+                                <code>&lt;p&gt;</code> (paragraf) elemanlarını bulur.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>#id</strong><br>seçicisi</td>
+                            <td>
+                                Belirtilen ID değerine sahip elemanları DOM içinde bulur. Örneğin <code>$("#id-değer")</code>
+                                ile <code>id="id-değer"</code> özelliğine sahip elemanlar bulunur. 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>.class</strong><br>seçicisi</td>
+                            <td>
+                                Belirtilen class değerine sahip elemanları DOM içinde bulur. Örneğin <code>$(".bir-class")</code>
+                                ile <code>class="bir-class"</code> özelliğine sahip elemanlar bulunur. 
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>
+                    Tüm yukarıdaki seçici ifadeler tek başlarına ya da birbirleri ile kombinasyon yaparak 
+                    kullanılabilir.
+                </p>
+
+                <br><br><h3>Eleman Seçicisi</h3>
+                <p>
+                    JQuery <strong>eleman</strong> seçicisi aranan HTML elemanı adına göre arar. Aşağıda 
+                    temel eleman seçici deyim yapısı görülüyor.
+                </p>
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #dcdcaa;">$</span>(<span style="color: #569cd6;">function</span>(){</div><div>&nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"Html Eleman Adı"</span>)</div><div>});</div></div></div></div></div></div>
+                <br><p>
+                    JQuery'de eleman adına göre arama yaparken elemanın adını açılı braketler olmadan tırnak içinde 
+                    yazmalısınız. Yani <code>"&lt;p&gt;"</code> şeklinde değil sadece <code>"p"</code> şeklinde.
+                </p>
+                <br><h4><i>Örnekler</i></h4>
+                <p>
+                    Aşağıdaki örnekte bir HTML kodu içindeki tüm paragrafları bulup bunların arkaplan rengini 
+                    değiştiriyoruz. 
+                </p>
+                <div class="cpadding scroll" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>jQuery Örneği<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"/jquery/jquery-3.7.1.min.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #7ca668;">&lt;!-- script src="/jquery/custom.js"&gt;&lt;/script --&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #569cd6;">function</span>() {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"p"</span>).<span style="color: #dcdcaa;">css</span>(<span style="color: #ce9178;">"background-color"</span>, <span style="color: #ce9178;">"yellow"</span>);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">h1</span><span style="color: grey;">&gt;</span>jQuery Eleman<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">h1</span><span style="color: grey;">&gt;</span></div><br /><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Bu bir p tag<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">span</span><span style="color: grey;">&gt;</span>Bu bir span tag<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">span</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span>Bu bir div tag<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div>
+                <div class="cborder" id="test5">
+                    <h1>jQuery Eleman</h1>
+
+                    <p>Bu bir p tag</p>
+                    <span>Bu bir span tag</span>
+                    <div>Bu bir div tag</div>
+                </div>
+                <script>
+                    $(function() {
+                        $("#test5 p").css("background-color", "yellow");
+                    });
+                </script>
+
+                <br><br><h3>#id Seçicisi</h3>
+                <p>
+                    JQuery <code>#id</code> seçicisi HTML elemanını <code>id</code> özelliğine verilen değere 
+                    göre bulur. Aşağıda temel <code>#id</code> seçici deyim yapısı görülüyor.
+                </p>
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #dcdcaa;">$</span>(<span style="color: #569cd6;">function</span>(){</div><div>&nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"#eleman id değeri"</span>)</div><div>});</div></div></div></div></div></div></div></div>
+
+                <br><h4><i>Örnek</i></h4>
+                <p>
+                    Aşağıdaki örnek <code>id</code> değeri <code>foo</code> olan paragrafı bulur ve arkaplan rengini 
+                    değiştirir. Kodu diğer id değerine sahip elemanlar için de test edebilirsiniz.
+                </p>
+                <div class="cpadding scroll" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>jQuery Örneği<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"/jquery/jquery-3.7.1.min.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #7ca668;">&lt;!-- script src="/jquery/custom.js"&gt;&lt;/script --&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #569cd6;">function</span>() {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"#foo"</span>).<span style="color: #dcdcaa;">css</span>(<span style="color: #ce9178;">"background-color"</span>, <span style="color: #ce9178;">"yellow"</span>);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">h1</span><span style="color: grey;">&gt;</span>jQuery #id Seçicisi<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">h1</span><span style="color: grey;">&gt;</span></div><br /><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span> <span style="color: #9cdcfe;">id</span>=<span style="color: #ce9178;">"foo"</span><span style="color: grey;">&gt;</span>Bu "foo" id değere sahip p tag<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">span</span> <span style="color: #9cdcfe;">id</span>=<span style="color: #ce9178;">"bar"</span><span style="color: grey;">&gt;</span>Bu "bar" id değere sahip span tag<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">span</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">id</span>=<span style="color: #ce9178;">"bill"</span><span style="color: grey;">&gt;</span>Bu "bill" id değere sahip div tag<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div>
+                <div class="cborder" id="test6">
+                    <h1>jQuery #id Seçicisi</h1>
+
+                    <p id="foo">Bu "foo" id değere sahip p tag</p>
+                    <span id="bar">Bu "bar" id değere sahip span tag</span>
+                    <div id="bill">Bu "bill" id değere sahip div tag</div>
+                </div>
+                <script>
+                    $(function() {
+                        $("#test6 #foo").css("background-color", "yellow");
+                    });
+                </script>                
+
+                <br><br><h3>.class Seçicisi</h3>
+                <p>
+                    JQuery <code>.class</code> seçicisi HTML elemanları <code>class</code> özelliğine verilen değere 
+                    göre arar. Aşağıda temel deyim yapısı görünüyor. 
+                </p>
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #dcdcaa;">$</span>(<span style="color: #569cd6;">function</span>(){</div><div>&nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">".eleman class değeri"</span>)</div><div>});</div></div></div></div></div></div></div></div></div></div>
+                <br><p>
+                    Aynı CSS seçicilerde olduğu gibi id değer ifade ederken <code>#</code> işareti ile başlarken ,
+                    class değeri ifade edilirken de <code>.</code> ile başlanır. HTML içinde aynı class değerine 
+                    sahip birden fazla eleman olabileceğinden bu seçici kullanıldığında verilen class değerine sahip
+                    tüm elemanlar gelir.
+                </p>
+                <br><h4><i>Örnek</i></h4>
+                <p>
+                    Aşağıda <strong>foo</strong> sınıfına sahip tüm elemanların arkaplan rengini değiştiren kod 
+                    görülüyor.
+                </p>
+                <div class="cpadding scroll" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>jQuery Örneği<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"/jquery/jquery-3.7.1.min.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #7ca668;">&lt;!-- script src="/jquery/custom.js"&gt;&lt;/script --&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #569cd6;">function</span>() {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">".foo"</span>).<span style="color: #dcdcaa;">css</span>(<span style="color: #ce9178;">"background-color"</span>, <span style="color: #ce9178;">"yellow"</span>);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">h1</span><span style="color: grey;">&gt;</span>jQuery .class Seçicisi<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">h1</span><span style="color: grey;">&gt;</span></div><br /><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"foo"</span><span style="color: grey;">&gt;</span>Bu "foo" class değere sahip p tag<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"foo"</span><span style="color: grey;">&gt;</span>Bu "foo" class değere sahip başka bir p tag<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">span</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"bar"</span><span style="color: grey;">&gt;</span>Bu "bar" class değere sahip span tag<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">span</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"bill"</span><span style="color: grey;">&gt;</span>Bu "bill" class değere sahip div tag<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div>
+                <div class="cborder" id="test7">
+                    <h1>jQuery .class Seçicisi</h1>
+
+                    <p class="foo">Bu "foo" class değere sahip p tag</p>
+                    <p class="foo">Bu "foo" class değere sahip başka bir p tag</p>
+                    <span class="bar">Bu "bar" class değere sahip span tag</span>
+                    <div class="bill">Bu "bill" class değere sahip div tag</div>
+                </div>
+                <script>
+                    $(function() {
+                        $("#test7 .foo").css("background-color", "yellow");
+                    });
+                </script>                
+
+                <!-- EVENTS -->
+                <br><br><br><hr><h2 id="events">JQuery Olay İşlemeleri</h2>
+                <p>
+                    Modern bir web uygulaması değişik olaylara göre davranışlara sahip olacaktır. Olaylar etkileşimli 
+                    web sayfaları yapmanın mekanizmasıdır. JQuery bir HTML sayfasında oluşan olayları işlemekte çok 
+                    başarılıdır. İlk önce <strong>olay</strong> kelimesinin anlamını bir kavrayalım. 
+                </p>
+
+                <br><br><h3>JQuery Olayları Nedir?</h3>
+                <p>
+                    JavaScript'de ya da JQuery'de olay , bir aksiyonun sonucunda oluşur. Bu olaylar tetiklendiğinde 
+                    kendi fonksiyonunuzla olaya ait işlerinizi yapabilirsiniz. Bu kendi fonksiyonlarınıza <strong>
+                    olay işleyici</strong> adı verilir. 
+                </p>
+                
                 <p>.</p><p>.</p>
             </div>
             <div class="col-md-2">.</div>
