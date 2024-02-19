@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootstrap Buttons</title>
+    <title>JQUERY Öğrenimi</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -44,15 +44,23 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+    </nav>
+
+    <div class="container" style="padding-top: 70px;;">
         
         <div class="row">
             <div class="col-md-2">
-                <a href="#home" class="btn btn-success btn-block">Giriş</a><br>
-                <a href="#basics" class="btn btn-default btn-block">Temeller</a><br>
-                <a href="#syntax" class="btn btn-success btn-block">Deyim Yapısı</a><br>
-                <a href="#selectors" class="btn btn-default btn-block">Seçici İfadeler</a><br>
-                <a href="#events" class="btn btn-success btn-block">Olay İşleme</a><br>
+                <div style="position:fixed; left: 50px; top: 70px;;">
+                    <br>
+                    <a href="#home" class="badge alert-success" style="width: 150px;">Giriş</a><br>
+                    <a href="#basics" class="badge" style="width: 150px;">Temeller</a><br>
+                    <a href="#syntax" class="badge alert-success" style="width: 150px;">Deyim Yapısı</a><br>
+                    <a href="#selectors" class="badge" style="width: 150px;">Seçici İfadeler</a><br>
+                    <a href="#events" class="badge alert-success" style="width: 150px;">Olay İşleme</a><br>
+                    <a href="#attr-manip" class="badge" style="width: 150px;">Özellik Değiştirmek</a><br>
+                </div>
             </div>
             <div class="col-md-8">
                 <h1 id="home">JQuery Öğrenimi</h1>
@@ -784,13 +792,413 @@
                     başarılıdır. İlk önce <strong>olay</strong> kelimesinin anlamını bir kavrayalım. 
                 </p>
 
-                <br><br><h3>JQuery Olayları Nedir?</h3>
+                <br><h3>JQuery Olayları Nedir?</h3>
                 <p>
                     JavaScript'de ya da JQuery'de olay , bir aksiyonun sonucunda oluşur. Bu olaylar tetiklendiğinde 
                     kendi fonksiyonunuzla olaya ait işlerinizi yapabilirsiniz. Bu kendi fonksiyonlarınıza <strong>
                     olay işleyici</strong> adı verilir. 
                 </p>
+                <p>
+                    JQuery kütüphanesi DOM olaylarını işlemek için birçok yararlı metodlara sahiptir. Böylece 
+                    olay işleme rutinleri JavaScript'e nazaran çok daha kolay yazılailir.
+                </p>
+                <p>Aşağıda bazı çok kullanılan olay türleri sıralanıyor.</p>
+                <ul>
+                    <li>Mouse tıklaması</li>
+                    <li>Web sayfasının yüklenmesi</li>
+                    <li>Bir eleman üzerine mouse gelmesi</li>
+                    <li>Bir HTML formun gönderilmesi</li>
+                    <li>Tuş takımında bir tuşa basılması vs.</li>
+                </ul>
+                <p>Aşağıdaki tabloda bazı önemli DOM olaylarının bir listesi görülüyor.</p>
+                <table class="table">
+                    <th>
+                        <tr class="active">
+                            <td><strong>Mouse<br>Olayları</strong></td>
+                            <td><strong>Tuş Takımı<br>Olayları</strong></td>
+                            <td><strong>Form<br>Olayları</strong></td>
+                            <td><strong>Document<br>Olayları</strong></td>
+                        </tr>
+                    </th>
+                    <tbody>
+                        <tr>
+                            <td>click</td><td>keypress</td><td>submit</td><td>load</td>
+                        </tr>
+                        <tr><td>dblclick</td><td>keydown</td><td>change</td><td>resize</td></tr>
+                        <tr><td>hover</td><td>keyup</td><td>select</td><td>scroll</td></tr>
+                        <tr><td>mousedown</td><td></td><td>blur</td><td>unload</td></tr>
+                        <tr><td>mouseup</td><td></td><td>focusin</td><td>ready</td></tr>
+                    </tbody>
+                </table>
+                <p>Bu bölümde bu olayların bir kısmını örneklerle göreceğiz</p>
+
+                <br><br><h3>JQuery Olay Bağlama Deyim Yapısı</h3>
+                <p>
+                    Örneğin HTML döküman içindeki bir <code>&lt;div&gt;</code> elemanına tıklandığında bir 
+                    şeyler olmasını istiyorsunuz. Bunu elde edebilmek için jQuery yardımıyla <code>&lt;div&gt;</code> 
+                    elemanına bir olay işleyici fonksiyonu bağlamanız gerekir.
+                </p>
+                <p>
+                    Aşağıda bir HTML döküman içindeki herhangi bir <code>&lt;div&gt;</code> elemanına tıklanınca 
+                    çalışmasını istediğiniz fonksiyonu <code>click</code> olayına bağlamak için kullanılan deyim 
+                    yapısı görünüyor.
+                </p>
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"div"</span>).<span style="color: #dcdcaa;">click</span>();</div></div></div></div>
+                <br><p>
+                    Sonraki adım <code>click</code> olayına karşı gelen fonksiyonu tanımlamak. Bu fonksiyon tanımı 
+                    <code>click()</code> metodu parametresi olarak direk yerinde yapılabilir. Bu fonksiyona 
+                    <strong>Jquery Olay İşleyici</strong> adı verilir.
+                </p>
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"div"</span>).<span style="color: #dcdcaa;">click</span>(<span style="color: #569cd6;">function</span>(){</div><div>&nbsp; &nbsp;<span style="color: #7ca668;">// jQuery işleme kodu buraya yazılır..</span></div><div>});</div></div></div></div></div>
+                <br><p>
+                    Başka bir olay işleyici bağlama yöntemi de <code>bind()</code> metodunu kullanmaktır.
+                </p>
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"div"</span>).<span style="color: #dcdcaa;">bind</span>(<span style="color: #ce9178;">"click"</span>, <span style="color: #569cd6;">function</span>(){</div><div>&nbsp; &nbsp;<span style="color: #7ca668;">// jQuery işleme kodu buraya yazılır..</span></div><div>});</div></div></div></div></div></div>
+                <br><p>
+                    <code>bind()</code> metoduna 2 parametre verilir. İlk parametre olay adının bir string değer 
+                    olarak verilmesi, ikinci parametre ise aynı yukarıdaki gibi olay işleyici fonksiyonun tanımlamasıdır. 
+                    Fonksiyon tanımlama içeriği çok uzun olacaksa fonksiyon başka yerde tanımlanıp parametrede sadece
+                    adı da verilebilir.
+                </p>
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #569cd6;">function</span> <span style="color: #dcdcaa;">div_click</span>(){</div><div>&nbsp; &nbsp;<span style="color: #7ca668;">// jQuery işleme kodu buraya yazılır..</span></div><div>}</div><div><br /></div><div><span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"div"</span>).<span style="color: #dcdcaa;">click</span>(<span style="color: #dcdcaa;">div_click</span>);</div></div></div></div></div></div></div>
+                <br><p>
+                    gibi. Dikkat ediniz burada sadece fonksiyonun adını yazıyoruz. <code>div_click()</code> yazarsak yanlış 
+                    olacaktır. Çünkü o durumda fonksiyon çalıştırılır ve geri dönen değer parametre olarak verilir. Halbuki 
+                    biz fonksiyonun kendisinin parametrede olmasını istiyoruz. Bu durumda parantezler olmadan sadece fonksiyon
+                    adı yazılır. 
+                </p>
+
+                <br><br><h3>JQuery Olay Örnekleri</h3>
+                <h4><i>JQuery click Olayı</i></h4>
+                <p>
+                    Aşağıda <code>&lt;div&gt;</code> elemanlarından birine tıklayınca alarm popup'ı gösteren kod örneği var.
+                </p>
+                <div class="cpadding scroll" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>jQuery Örneği<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"/jquery/jquery-3.7.1.min.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #7ca668;">&lt;!-- script src="/jquery/custom.js"&gt;&lt;/script --&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #569cd6;">function</span>() {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"div"</span>).<span style="color: #dcdcaa;">click</span>(<span style="color: #569cd6;">function</span>(){</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">alert</span>(<span style="color: #ce9178;">'Merhabalar!'</span>);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">div</span>{ <span style="color: #d4d4d4;">margin</span>:<span style="color: #b5cea8;">10px</span>; <span style="color: #d4d4d4;">padding</span>:<span style="color: #b5cea8;">12px</span>; <span style="color: #d4d4d4;">border</span>:<span style="color: #b5cea8;">2px</span> <span style="color: #ce9178;">solid</span> <span style="color: #ce9178;">#666</span>; </div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">width</span>:<span style="color: #b5cea8;">60px</span>; <span style="color: #d4d4d4;">cursor</span>:<span style="color: #ce9178;">pointer</span>}</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Herhangi bir kutuya tıklayın ve mesajı görün.<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><br /><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span>Bir<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span>İki<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span>Üç<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div>
+                <style>
+                    #test8 div{ margin:10px; padding:12px; border:2px solid #666; 
+                        width:60px; cursor:pointer}
+                </style>                
+                <div class="cborder" id="test8">
+                    <p>Herhangi bir kutuya tıklayın ve mesajı görün.</p>
+
+                    <div>Bir</div>
+                    <div>İki</div>
+                    <div>Üç</div>
+                </div>
+                <script>
+                    $(function() {
+                        $("#test8 div").click(function(){
+                            alert('Merhabalar!');
+                        });
+                    });
+                </script>
+                <br><p>
+                    Aynısının çift tıklama ile çalışmasını istiyorsanız sadece olay adını <code>dblclick</code> 
+                    yaparsınız
+                </p>
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div>....</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #569cd6;">function</span>() {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"div"</span>).<span style="color: #dcdcaa;">dblclick</span>(<span style="color: #569cd6;">function</span>(){</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">alert</span>(<span style="color: #ce9178;">'Merhabalar!'</span>);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">....</span></div></div></div></div></div></div></div></div></div>
+                <style>
+                    #test9 div{ margin:10px; padding:12px; border:2px solid #666; 
+                        width:60px; cursor:pointer}
+                </style> <br>               
+                <div class="cborder" id="test9">
+                    <p>Herhangi bir kutuya çift tıklayın ve mesajı görün.</p>
+
+                    <div>Bir</div>
+                    <div>İki</div>
+                    <div>Üç</div>
+                </div>
+                <script>
+                    $(function() {
+                        $("#test9 div").dblclick(function(){
+                            alert('Merhabalar!');
+                        });
+                    });
+                </script>
+
+                <br><h4><i>JQuery mouseenter ve mouseleave Olayları</i></h4>
+                <p>
+                    <code>mouseenter</code> olayı mouse işaretçisi eleman üzerine geldiğinde oluşur. 
+                    <code>mouseleave</code> olayı da mouse pointer eleman dışına çıkınca oluşur.
+                </p>
+                <div class="scroll cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>jQuery Örneği<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"/jquery/jquery-3.7.1.min.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #7ca668;">&lt;!-- script src="/jquery/custom.js"&gt;&lt;/script --&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #569cd6;">function</span>() {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"div"</span>).<span style="color: #dcdcaa;">mouseenter</span>(<span style="color: #569cd6;">function</span>(){</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #569cd6;">this</span>).<span style="color: #dcdcaa;">css</span>(<span style="color: #ce9178;">"background-color"</span>, <span style="color: #ce9178;">"yellow"</span>);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"div"</span>).<span style="color: #dcdcaa;">mouseleave</span>(<span style="color: #569cd6;">function</span>(){</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #569cd6;">this</span>).<span style="color: #dcdcaa;">css</span>(<span style="color: #ce9178;">"background-color"</span>, <span style="color: #ce9178;">""</span>);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">div</span>{ <span style="color: #d4d4d4;">margin</span>:<span style="color: #b5cea8;">10px</span>; <span style="color: #d4d4d4;">padding</span>:<span style="color: #b5cea8;">12px</span>; <span style="color: #d4d4d4;">border</span>:<span style="color: #b5cea8;">2px</span> <span style="color: #ce9178;">solid</span> <span style="color: #ce9178;">#666</span>; </div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">width</span>:<span style="color: #b5cea8;">60px</span>; <span style="color: #d4d4d4;">cursor</span>:<span style="color: #ce9178;">pointer</span>}</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Herhangi bir kutu üzerine gidin.<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><br /><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span>Bir<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span>İki<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span>Üç<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div>
+                <style>
+                    #test10 div{ margin:10px; padding:12px; border:2px solid #666; 
+                        width:60px; cursor:pointer}
+                </style> <br>               
+                <div class="cborder" id="test10">
+                    <p>Herhangi bir kutu üzerine gidin.</p>
+
+                    <div>Bir</div>
+                    <div>İki</div>
+                    <div>Üç</div>
+                </div>
+                <script>
+                    $(function() {
+                        $("#test10 div").mouseenter(function(){
+                            $(this).css("background-color", "yellow");
+                        });
+                        $("#test10 div").mouseleave(function(){
+                            $(this).css("background-color", "");
+                        });
+                    });
+                </script>
+                <br><h4><i>JQuery mousedown ve mouseup Olayları</i></h4>
+                <p>
+                    <code>mousedown</code> olayı eleman üzerinde mouse butonuna bastığımız anda oluşur. 
+                    <code>mouseup</code> olayı eleman üzerindeyken basılı olan mouse butonunu bırakınca oluşur. 
+                </p>
+                <div class="cpadding scroll" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>jQuery Örneği<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"/jquery/jquery-3.7.1.min.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #7ca668;">&lt;!-- script src="/jquery/custom.js"&gt;&lt;/script --&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #569cd6;">function</span>() {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"div"</span>).<span style="color: #dcdcaa;">mousedown</span>(<span style="color: #569cd6;">function</span>(){</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #569cd6;">this</span>).<span style="color: #dcdcaa;">css</span>(<span style="color: #ce9178;">"background-color"</span>, <span style="color: #ce9178;">"yellow"</span>);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"div"</span>).<span style="color: #dcdcaa;">mouseup</span>(<span style="color: #569cd6;">function</span>(){</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #569cd6;">this</span>).<span style="color: #dcdcaa;">css</span>(<span style="color: #ce9178;">"background-color"</span>, <span style="color: #ce9178;">"lime"</span>);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Herhangi bir satır üzerinde buton basın ya da bırakın.<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><br /><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span>Bir<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span>İki<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span>Üç<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div>
+                <div class="cborder" id="test11">
+                    <p>Herhangi bir satır üzerinde buton basın ya da bırakın.</p>
+
+                    <div>Bir</div>
+                    <div>İki</div>
+                    <div>Üç</div>
+                </div>
+                <script>
+                    $(function() {
+                        $("#test11 div").mousedown(function(){
+                            $(this).css("background-color", "yellow");
+                        });
+                        $("#test11 div").mouseup(function(){
+                            $(this).css("background-color", "lime");
+                        });
+                    });
+                </script>
+
+                <br><br><h3>JQuery <i>event</i> Nesnesi</h3>
+                <p>
+                    Bir jQuery olayı ateşlendiğinde jQuery olay işleyici fonksiyona bir <strong>event nesnesi</strong> 
+                    gönderir. Bu nesne gerçekleşen olayla ilgili bir çok yararlı bilgiyi içinde bulundurur.
+                </p>
+                <p>
+                    Event nesnesi olay işleyici fonksiyona parametre olarak verilir. Daha önceki örneklerimizde 
+                    bu nesneyi kullanmadığımız için bu parametreyi hep boş bıraktık, ama eğer kullanacaksak ona bir 
+                    isim verir ve sonra aynı isimle fonksiyon içinde kullanarak içerdiği bilgilere erişebiliriz.
+                </p>
+                <p>
+                    Aşağıda bu olay nesnesinin içerdiği bazı bilgilerin bir listesi görülüyor.
+                </p>
+                <table class="table">
+                    <th>
+                        <tr class="active"><td><strong>Özellik</strong></td><td><strong>Açıklaması</strong></td></tr>
+                    </th>
+                    <tbody>
+                        <tr>
+                            <td><strong>altKey</strong></td>
+                            <td>
+                                Olay tetiklendiği anda eğer <kbd>Alt</kbd> tuşu basılıysa <code>true</code> değeri 
+                                alır, değilse <code>false</code>. Alt tuşunun Mac sistemde karşılığı <kbd>Option</kbd>
+                                tuşudur.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>ctrlKey</strong></td>
+                            <td>
+                                Olay tetiklendiği anda eğer <kbd>Ctrl</kbd> tuşu basılıysa <code>true</code> değeri 
+                                alır, değilse <code>false</code>. 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>data</strong></td>
+                            <td>
+                                Eğer olay işleme fonksiyonunu çağırırken başka değerler de göndermek isterseniz, 
+                                <code>bind()</code> metodunda olay isminden sonra ve fonksiyon tanımından önce 
+                                ikinci bir parametreyi nesne şeklinde verirsiniz ve o nesne bu <code>data</code> 
+                                özelliğine gelir.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>keyCode</strong></td>
+                            <td>
+                                <code>keyup</code> ve <code>keydown</code> olaylarını işlerken bu özellik 
+                                basılan tuşun kodunu verir.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>metaKey</strong></td>
+                            <td>
+                                Olay tetiklendiğinde Meta tuşu basılıysa <code>true</code> değer alır. PClerde 
+                                Meta tuşu <kbd>Ctrl</kbd> tuşudur. Mac'lerde <kbd>Command</kbd> tuşudur.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>pageX</strong></td>
+                            <td>
+                                Mouse olayları için olayın gerçekleştiği pozisyonun sayfa orjinine göre yatay 
+                                koordinatını verir.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>pageY</strong></td>
+                            <td>
+                                Mouse olayları için olayın gerçekleştiği pozisyonun sayfa orjinine göre dikey 
+                                koordinatını verir.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>relatedTarget</strong></td>
+                            <td>
+                                Bazı mouse olaylarında olay tetiklendiğinde mouse işaretçinin girdiği ya da terkettiği 
+                                elemandır.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>screenX</strong></td>
+                            <td>
+                                Mouse olayları için olayın gerçekleştiği pozisyonun ekran orjinine göre yatay 
+                                koordinatını verir.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>screenY</strong></td>
+                            <td>
+                                Mouse olayları için olayın gerçekleştiği pozisyonun ekran orjinine göre dikey 
+                                koordinatını verir.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>target</strong></td>
+                            <td>
+                                Olayın tetiklendiği eleman değerini içerir.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>timeStamp</strong></td>
+                            <td>
+                                Olayın gerçekleştiği anın milisaniye olarak değeridir.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>type</strong></td>
+                            <td>
+                                Tüm olaylar için , tetiklenen olayın tipidir. Örneğin <code>click</code>.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>which</strong></td>
+                            <td>
+                                Tuş takımı olayları için olaya sebep olan tuşun kodudur. Mouse olayları için 
+                                hangi butonun tıklandığıdır. (sol için 1, orta için 2, sağ için 3).
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <br><h4><i>Örnek</i></h4>
+                <p>
+                    Aşağıdaki örnekte farklı koordinatlarda kutulara tıklanınca olanlar işleniyor.
+                </p>
+                <div class="cpadding scroll" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>jQuery Örneği<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"/jquery/jquery-3.7.1.min.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #7ca668;">&lt;!-- script src="/jquery/custom.js"&gt;&lt;/script --&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #569cd6;">function</span>() {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"div"</span>).<span style="color: #dcdcaa;">click</span>(<span style="color: #569cd6;">function</span>(<span style="color: #9cdcfe;">olayNesnesi</span>){</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">alert</span>(<span style="color: #ce9178;">'Olay tipi '</span> <span style="color: #d4d4d4;">+</span> <span style="color: #9cdcfe;">olayNesnesi</span>.<span style="color: #9cdcfe;">type</span>);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">alert</span>(<span style="color: #ce9178;">'pageX : '</span> <span style="color: #d4d4d4;">+</span> <span style="color: #9cdcfe;">olayNesnesi</span>.<span style="color: #9cdcfe;">pageX</span>);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">alert</span>(<span style="color: #ce9178;">'pageY : '</span> <span style="color: #d4d4d4;">+</span> <span style="color: #9cdcfe;">olayNesnesi</span>.<span style="color: #9cdcfe;">pageY</span>);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">alert</span>(<span style="color: #ce9178;">'target : '</span> <span style="color: #d4d4d4;">+</span> <span style="color: #9cdcfe;">olayNesnesi</span>.<span style="color: #9cdcfe;">target</span>.<span style="color: #9cdcfe;">innerHTML</span>);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">div</span>{ <span style="color: #d4d4d4;">margin</span>:<span style="color: #b5cea8;">10px</span>; <span style="color: #d4d4d4;">padding</span>:<span style="color: #b5cea8;">12px</span>; <span style="color: #d4d4d4;">border</span>:<span style="color: #b5cea8;">2px</span> <span style="color: #ce9178;">solid</span> <span style="color: #ce9178;">#666</span>; </div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">width</span>:<span style="color: #b5cea8;">60px</span>; <span style="color: #d4d4d4;">cursor</span>:<span style="color: #ce9178;">pointer</span>}</div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Herhangi bir kutuya tıklayın.<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><br /><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span>Bir<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span>İki<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span>Üç<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div>
+                <style>
+                    #test12 div{ margin:10px; padding:12px; border:2px solid #666; 
+                        width:60px; cursor:pointer}
+                </style>
+                <div class="cborder" id="test12">
+                    <p>Herhangi bir kutuya tıklayın.</p>
+
+                    <div>Bir</div>
+                    <div>İki</div>
+                    <div>Üç</div>
+                </div>
+                <script>
+                    $(function() {
+                        $("#test12 div").click(function(olayNesnesi){
+                            alert('Olay tipi ' + olayNesnesi.type);
+                            alert('pageX : ' + olayNesnesi.pageX);
+                            alert('pageY : ' + olayNesnesi.pageY);
+                            alert('target : ' + olayNesnesi.target.innerHTML);
+                        });
+                    });
+                </script>         
                 
+                <br><br><h3>Olay İşleyicideki <i>this</i> Kelimesi</h3>
+                <p>
+                    Birçok seferinde olay işleyici fonksiyonu içinde <code>this</code> kelimesini kullanmak 
+                    işleri kolaylaştırır. Bu değişken olayı tetikleyen DOM elemanı içerir.
+                </p>
+                <p>
+                    Aşağıdaki örnek tıklanan <code>&lt;div&gt;</code> elemanı içinde yazanı gösterir.
+                </p>
+                <div class="cpadding scroll" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>jQuery Örneği<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"/jquery/jquery-3.7.1.min.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #7ca668;">&lt;!-- script src="/jquery/custom.js"&gt;&lt;/script --&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #569cd6;">function</span>() {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"div"</span>).<span style="color: #dcdcaa;">click</span>(<span style="color: #569cd6;">function</span>(){</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">alert</span>(<span style="color: #dcdcaa;">$</span>(<span style="color: #569cd6;">this</span>).<span style="color: #dcdcaa;">text</span>());</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">div</span>{ <span style="color: #d4d4d4;">margin</span>:<span style="color: #b5cea8;">10px</span>; <span style="color: #d4d4d4;">padding</span>:<span style="color: #b5cea8;">12px</span>; <span style="color: #d4d4d4;">border</span>:<span style="color: #b5cea8;">2px</span> <span style="color: #ce9178;">solid</span> <span style="color: #ce9178;">#666</span>; </div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">width</span>:<span style="color: #b5cea8;">60px</span>; <span style="color: #d4d4d4;">cursor</span>:<span style="color: #ce9178;">pointer</span>}</div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Herhangi bir kutuya tıklayın.<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><br /><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span>Bir<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span>İki<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span>Üç<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                <style>
+                    #test13 div{ margin:10px; padding:12px; border:2px solid #666; 
+                        width:60px; cursor:pointer}
+                </style>                
+                <div class="cborder" id="test13">
+                    <p>Herhangi bir kutuya tıklayın.</p>
+
+                    <div>Bir</div>
+                    <div>İki</div>
+                    <div>Üç</div>
+                </div>
+                <script>
+                    $(function() {
+                        $("#test13 div").click(function(){
+                            alert($(this).text());
+                        });
+                    });
+                </script>
+
+                <br><br><h3>Olay İşleyicinin Kaldırılması</h3>
+                <p>
+                    Normalde bir olay işleyici bir kere bağlandı mı sayfa yaşadığı müddetçe geçerlidir ve çalışır. 
+                    Ama bazen olay işleyiciyi iptal etmek gerekebilir.
+                </p>
+                <p>
+                    JQuery <code>unbind()</code> metodu mevcut bir olay işleyiciyi iptal etmek için kullanılır. unbind()
+                    metodunun kullanımı aşağıda görülüyor.
+                </p>
+                <p class="well">
+                    seçici.unbind(eventType, handler);<br><br>
+                    ya da <br><br>
+                    seçici.unbind(eventType);
+                </p>
+                <p>Parametrelerin açıklaması şöyle :</p>
+                <ul>
+                    <li>
+                        <strong>eventType - </strong>JavaScript olay tipini barındıran string değer (submit ya da 
+                        click gibi). 
+                    </li>
+                    <li>
+                        <strong>handler - </strong>Eğer verilmişse kaldırılacak olan olay işleyici fonksiyon adını 
+                        içerir.
+                    </li>
+                </ul>
+
+
+                <!-- ATRIBUTES MANIPULATION -->
+                <br><br><br><hr><h2 id="attr-manip">Eleman Özelliklerinin Manipülasyonu</h2>
+                <p>
+                    JQuery , HTML elemanlarının bağlı özellik değerlerini değiştirmek için sıklıkla kullanılır. Her 
+                    HTML elemanın değişik standart ya da kendine has özellikleri olabilir. Bunlar elemanın 
+                    karakteristiğini belirler.
+                </p>
+                <p>
+                    JQuery bize eleman özelliklerini okumak ya da değiştirmek için kolay yöntemler sunar. Öncelikle 
+                    standart ve kendine has özellikler nelerdir, onlara bakalım.
+                </p>
+
+                <br><br><h3>Standart Özellikler</h3>
+                <p>
+                    Çok kullanılan standart özeeliklerden bazıları :
+                </p>
+                <div class="well">
+                    <ul>
+                        <li>className</li>
+                        <li>tagName</li>
+                        <li>id</li>
+                        <li>href</li>
+                        <li>title</li>
+                        <li>rel</li>
+                        <li>src</li>
+                        <li>style</li>
+                    </ul>
+                </div>
+
+                <br><br><h4><i>Örnek</i></h4>
+
                 <p>.</p><p>.</p>
             </div>
             <div class="col-md-2">.</div>
