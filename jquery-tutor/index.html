@@ -51,7 +51,7 @@
     <div class="container" style="padding-top: 70px;;">
         
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-xs-2 hidden-xs">
                 <div style="position:fixed; left: 50px; top: 70px;;">
                     <br>
                     <a href="#home" class="badge alert-success" style="width: 150px;">Giriş</a><br>
@@ -62,7 +62,7 @@
                     <a href="#attr-manip" class="badge" style="width: 150px;">Özellik Değiştirmek</a><br>
                 </div>
             </div>
-            <div class="col-md-8">
+            <div class="col-xs-8">
                 <h1 id="home">JQuery Öğrenimi</h1>
                 <p>
                     JQuery çok yaygın olan bir JavaScript kütüphanesi. Bu sayfada JQuery kütüphanesini en 
@@ -231,9 +231,9 @@
                 <br><p>
                     Şimdi daha sade oldu. Yukarıdaki kodları anlamadıysanız merak etmeyin, yakında her birini tekrar tekrar 
                     görerek anlayacaksınız.
-                </p><br><hr>
+                </p><br id="basics"><br><hr>
 
-                <h2 id="basics">JQuery - Temel İşlemler</h2>
+                <h2>JQuery - Temel İşlemler</h2>
                 <p>
                     JQuery deyim yapısını görmeden önce JavaScript kodlamanın temellerini bir gözden geçirelim. Çünkü 
                     JQuery JavaScript kodları kullanan bir kütüphane, yani JQuery kütüphanesini kullanırken birçok 
@@ -512,7 +512,7 @@
                 </p>
 
                 <!-- SYNTAX -->
-                <br><br><br><hr><h2 id="syntax">JQuery Deyim Yapısı</h2>
+                <br id="syntax"><br><br><hr><h2>JQuery Deyim Yapısı</h2>
                 <p>
                     JQuery bir HTML dökümandan herhangi bir HTML elemanı bulup onun üzerinde işlemler yapmak için 
                     kullanılır. Bir HTML elemanını bulmak için JQuery seçicileri kullanılır. Bu seçicileri bir 
@@ -622,7 +622,7 @@
 
 
                 <!-- SELECTORS -->
-                <br><br><hr><h2 id="selectors">Seçici İfadeler (selectors)</h2>
+                <br id="selectors"><br><hr><h2>Seçici İfadeler (selectors)</h2>
                 <p>
                     <strong>JQuery'</strong>nin en önemli işlevi olan elemanları bulma işi için <strong>seçici</strong>
                     adı verilen ifadeler kullanılır. Bu bölümde 3 değişik jQuery seçici türüne ait basit örnekleri 
@@ -785,7 +785,7 @@
                 </script>                
 
                 <!-- EVENTS -->
-                <br><br><br><hr><h2 id="events">JQuery Olay İşlemeleri</h2>
+                <br id="events"><br><br><hr><h2>JQuery Olay İşlemeleri</h2>
                 <p>
                     Modern bir web uygulaması değişik olaylara göre davranışlara sahip olacaktır. Olaylar etkileşimli 
                     web sayfaları yapmanın mekanizmasıdır. JQuery bir HTML sayfasında oluşan olayları işlemekte çok 
@@ -1169,7 +1169,7 @@
 
 
                 <!-- ATRIBUTES MANIPULATION -->
-                <br><br><br><hr><h2 id="attr-manip">Eleman Özelliklerinin Manipülasyonu</h2>
+                <br id="attr-manip"><br><br><hr><h2>Eleman Özelliklerinin Manipülasyonu</h2>
                 <p>
                     JQuery , HTML elemanlarının bağlı özellik değerlerini değiştirmek için sıklıkla kullanılır. Her 
                     HTML elemanın değişik standart ya da kendine has özellikleri olabilir. Bunlar elemanın 
@@ -1198,10 +1198,66 @@
                 </div>
 
                 <br><br><h4><i>Örnek</i></h4>
+                <p>
+                    Aşağıdaki resim elemanının özelliklerine bir bakalım.
+                </p>
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">img</span> <span style="color: #9cdcfe;">id</span>=<span style="color: #ce9178;">"id"</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"image.gif"</span> <span style="color: #9cdcfe;">alt</span>=<span style="color: #ce9178;">"Resim"</span> </div><div>&nbsp; &nbsp; &nbsp;<span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"class"</span> <span style="color: #9cdcfe;">title</span>=<span style="color: #ce9178;">"Bu bir resim"</span><span style="color: grey;">/&gt;</span></div></div></div>
+                <br><p>
+                    Bu elemanın kodlamasında tag ismi <code>img</code>, <strong>id, src, alt, class</strong> ve 
+                    <strong>title</strong> elemanın standart özellikleridir. Her birinin bir adı ve bir değeri olur.
+                </p>
 
+                <br><br><h3>Elemana özel <i>data-*</i> Özellikler</h3>
+                <p>
+                    HTML bize DOM elemanlarına isteğimize göre değişik özellik değerleri vermemiz için bir deyim 
+                    yapısı sunuyor. Bu özelliklerin isimleri <code>data-</code> ile başlamalıdır.
+                </p>
+                <br><h4><i>Örnek</i></h4>
+                <p>
+                    Aşağıdaki örnekte elemana özel değer olarak <code>data-copyright</code> özelliği kullanılmış.
+                </p>
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: grey;">&lt;</span><span style="color: #569cd6;">img</span> <span style="color: #9cdcfe;">data-copyright</span>=<span style="color: #ce9178;">"UJK"</span> <span style="color: #9cdcfe;">id</span>=<span style="color: #ce9178;">"imageid"</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"image.gif"</span> <span style="color: #9cdcfe;">alt</span>=<span style="color: #ce9178;">"Image"</span><span style="color: grey;">/&gt;</span></div></div></div>
+                
+                <br><br><br><h3>JQuery - Standart Özelliğin Okunması</h3>
+                <p>
+                    JQuery <code>attr()</code> metodu, bir HTML elemana ait standart özelliğin değerini okumak için 
+                    kullanılır. <strong>JQuery seçici</strong> kullanarak eleman(lar) seçilir ve arkasından 
+                    <code>attr()</code> metodu, parametresinde istenen özelliğin adı string olarak verilerek, 
+                    istenen özellik okunur.
+                </p>
+                <p class="well">
+                    Eğer seçilen elemanlar birden çoksa bu method, jQuery Array iterasyonları ile işlenebilecek bir 
+                    değer dönecektir.
+                </p>
+                <br><h4><i>Örnek</i></h4>
+                <p>
+                    Aşağıda bir <code>&lt;a&gt;</code> elemanının <code>href</code> ve <code>title</code> 
+                    özelliklerini okuyan bir örnek görülüyor.
+                </p>
+                <div class="cpadding scroll" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>jQuery Örneği<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"/jquery/jquery-3.7.1.min.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #7ca668;">&lt;!-- script src="/jquery/custom.js"&gt;&lt;/script --&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #569cd6;">function</span>() {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"button"</span>).<span style="color: #dcdcaa;">click</span>(<span style="color: #569cd6;">function</span>(){</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">alert</span>( <span style="color: #ce9178;">"Href = "</span> <span style="color: #d4d4d4;">+</span> <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"#home"</span>).<span style="color: #dcdcaa;">attr</span>(<span style="color: #ce9178;">"href"</span>));</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">alert</span>( <span style="color: #ce9178;">"Title = "</span> <span style="color: #d4d4d4;">+</span> <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"#home"</span>).<span style="color: #dcdcaa;">attr</span>(<span style="color: #ce9178;">"title"</span>));</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Sonucu görmek için aşağıdaki butona tıklayın :<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; </div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;&lt;</span><span style="color: #569cd6;">a</span> <span style="color: #9cdcfe;">id</span>=<span style="color: #ce9178;">"home"</span> <span style="color: #9cdcfe;">href</span>=<span style="color: #ce9178;">"index.htm"</span> <span style="color: #9cdcfe;">title</span>=<span style="color: #ce9178;">"JQuery Başlangıç"</span><span style="color: grey;">&gt;</span>Home<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">a</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">button</span><span style="color: grey;">&gt;</span>Özellikleri Oku<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">button</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div>
+                <div class="cborder" id="test14">
+                    <p>Sonucu görmek için aşağıdaki butona tıklayın :</p>
+                    
+                    <p><a id="home" href="index.htm" title="JQuery Başlangıç">Home</a></p>
+                    <button>Özellikleri Oku</button>
+                </div>
+                <script>
+                    $(function() {
+                        $("#test14 button").click(function(){
+                            alert( "Href = " + $("#test14 #home").attr("href"));
+                            alert( "Title = " + $("#test14 #home").attr("title"));
+                        });
+                    });
+                </script>
+
+                <br><br><br><h3>JQuery - Data-* Özellikleri Okumak</h3>
+                <p>
+                    JQuery
+                </p>
+                
                 <p>.</p><p>.</p>
             </div>
-            <div class="col-md-2">.</div>
+            <div class="col-xs-2">.</div>
         </div>
     </div>
 
