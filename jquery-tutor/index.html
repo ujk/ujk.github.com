@@ -1461,7 +1461,7 @@
                 <script>
                     $(function() {
                         $("#test19 #driver").click(function(){
-                            $.getJSON('/jquery/result.json', function(jd) {
+                            $.getJSON('./jquery/result.json', function(jd) {
                                 $('#test19 #stage').html('<p> İsim: ' + jd.isim + '</p>');
                                 $('#test19 #stage').append('<p> Yaş : ' + jd.yaş+ '</p>');
                                 $('#test19 #stage').append('<p> Cinsiyet: ' + jd.cinsiyet+ '</p>');
