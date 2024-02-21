@@ -60,9 +60,10 @@
                     <a href="#selectors" class="badge" style="width: 150px;">Seçici İfadeler</a><br>
                     <a href="#events" class="badge alert-success" style="width: 150px;">Olay İşleme</a><br>
                     <a href="#attr-manip" class="badge" style="width: 150px;">Özellik Değiştirmek</a><br>
+                    <a href="#ajax" class="badge alert-success" style="width: 150px;">Ajax</a><br>
                 </div>
             </div>
-            <div class="col-md-8 col">
+            <div class="col-md-8">
                 <h1 id="home">JQuery Öğrenimi</h1>
                 <p>
                     JQuery çok yaygın olan bir JavaScript kütüphanesi. Bu sayfada JQuery kütüphanesini en 
@@ -1252,9 +1253,178 @@
 
                 <br><br><br><h3>JQuery - Data-* Özellikleri Okumak</h3>
                 <p>
-                    JQuery
+                    JQuery <code>data()</code> metodu elemana has özellikleri okumak amaçlı kullanılır. JQuery 
+                    seçiler ile eleman(lar) seçilir ve <code>data()</code> metodu ile özellik okunur.
                 </p>
+                <br><h4><i>Örnek</i></h4>
+                <p>
+                    Aşağıda bir <code>&lt;div&gt;</code> elemanından <code>data-author-name</code> özelliğinin 
+                    değerinin nasıl okunacağı gösteriliyor.
+                </p>
+                <div class="cpadding scroll" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>jQuery Örneği<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"/jquery/jquery-3.7.1.min.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #7ca668;">&lt;!-- script src="/jquery/custom.js"&gt;&lt;/script --&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #569cd6;">function</span>() {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"button"</span>).<span style="color: #dcdcaa;">click</span>(<span style="color: #569cd6;">function</span>(){</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">alert</span>( <span style="color: #ce9178;">"Yazar = "</span> <span style="color: #d4d4d4;">+</span> <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"#home"</span>).<span style="color: #dcdcaa;">data</span>(<span style="color: #ce9178;">"author-name"</span>));</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">alert</span>( <span style="color: #ce9178;">"Yıl = "</span> <span style="color: #d4d4d4;">+</span> <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"#home"</span>).<span style="color: #dcdcaa;">data</span>(<span style="color: #ce9178;">"year"</span>));</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Sonucu görmek için butona tıklayın :<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; </div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">id</span>=<span style="color: #ce9178;">"home"</span> <span style="color: #9cdcfe;">data-author-name</span>=<span style="color: #ce9178;">"Ümit Kayacık"</span> <span style="color: #9cdcfe;">data-year</span>=<span style="color: #ce9178;">"2024"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Örnek olarak bir içerik.</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">br</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">button</span><span style="color: grey;">&gt;</span>Özelliği Oku<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">button</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div>
+                <div class="cborder" id="test15">
+                    <p>Sonucu görmek için butona tıklayın :</p>
+                    
+                    <div id="home" data-author-name="Ümit Kayacık" data-year="2024">
+                        Örnek olarak bir içerik.
+                    </div>
+                    <br>
+                    <button>Özelliği Oku</button>
+                </div>
+                <script>
+                    $(function() {
+                        $("#test15 button").click(function(){
+                            alert( "Yazar = " + $("#test15 #home").data("author-name"));
+                            alert( "Yıl = " + $("#test15 #home").data("year"));
+                        });
+                    });
+                </script>   
                 
+                <br><br><br><h3>JQuery - Standart Özellik Değerini Değiştirmek</h3>
+                <p>
+                    JQuery <code>attr(isim, değer)</code> metodu ile elemanın ya da elemanların istenen değeri 
+                    değiştirilir. JQuery seçiciler ile eleman(lar) seçilir ve <code>attr(isim, değer)</code> ile 
+                    değer değiştirilir.
+                </p>
+                <p class="well">
+                    Eğer seçici ile birden fazla eleman bulunduysa , tüm bulunan elemanların ismi verilen 
+                    özelliği verilen değere değiştirilir.
+                </p>
+                <br><h4><i>Örnek</i></h4>
+                <p>
+                    Aşağıda bir <code>&lt;a&gt;</code> elemanının <code>title</code> değerinin değiştirilmesi 
+                    gösteriliyor.
+                </p>
+                <div class="cpadding scroll" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>jQuery Örneği<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"/jquery/jquery-3.7.1.min.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #7ca668;">&lt;!-- script src="/jquery/custom.js"&gt;&lt;/script --&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #569cd6;">function</span>() {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"button"</span>).<span style="color: #dcdcaa;">click</span>(<span style="color: #569cd6;">function</span>(){</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"#home"</span>).<span style="color: #dcdcaa;">attr</span>(<span style="color: #ce9178;">"title"</span>, <span style="color: #ce9178;">"Yeni Anchor Title"</span>);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #7ca668;">/* Let's get and display changed title */</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">alert</span>( <span style="color: #ce9178;">"Değişen Title = "</span> <span style="color: #d4d4d4;">+</span> <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"#home"</span>).<span style="color: #dcdcaa;">attr</span>(<span style="color: #ce9178;">"title"</span>));</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Sonucu görmek için aşağıdaki butona tıklayın :<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; </div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;&lt;</span><span style="color: #569cd6;">a</span> <span style="color: #9cdcfe;">id</span>=<span style="color: #ce9178;">"home"</span> <span style="color: #9cdcfe;">href</span>=<span style="color: #ce9178;">"index.htm"</span> <span style="color: #9cdcfe;">title</span>=<span style="color: #ce9178;">"Eski Anchor Title"</span><span style="color: grey;">&gt;</span>Home<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">a</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">button</span><span style="color: grey;">&gt;</span>Özelliği Değiştir<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">button</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Yukarıdaki Home linkinin üzerine butonu tıklamadan önce ve sonra mouse </div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; işaretçisini getirip ipucu yazısına bakın.<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div>
+                <div class="cborder" id="test16">
+                    <p>Sonucu görmek için aşağıdaki butona tıklayın :</p>
+                    
+                    <p><a id="home" href="index.htm" title="Eski Anchor Title">Home</a></p>
+                    <button>Özelliği Değiştir</button>
+                    <p>Yukarıdaki Home linkinin üzerine butonu tıklamadan önce ve sonra mouse 
+                        işaretçisini getirip ipucu yazısına bakın.</p>
+                </div>
+                <script>
+                    $(function() {
+                        $("#test16 button").click(function(){
+                            $("#test16 #home").attr("title", "Yeni Anchor Title");
+                            
+                            /* Let's get and display changed title */
+                            alert( "Değişen Title = " + $("#test16 #home").attr("title"));
+                        });
+                    });
+                </script>
+
+                <br><br><br><h3>JQuery - Elemana Has Özellik Değerini Değiştirmek</h3>
+                <p>
+                    JQuery <code>data(isim, değer)</code> metodu elemanın kendine has <code>data-*</code> 
+                    özelliklerinin değerini değiştirmek için kullanılır.
+                </p>
+                <p class="well">
+                    Eğer seçici ile birden fazla eleman bulunduysa , tüm bulunan elemanların ismi verilen 
+                    özelliği verilen değere değiştirilir.
+                </p>
+                <br><h4><i>Örnek</i></h4>
+                <p>
+                    Aşağıdaki jQuery program bir <code>&lt;div&gt;</code> elemanının <code>data-author-name</code> 
+                    adı verilen özelliğini değiştiriyor.
+                </p>
+                <div class="cpadding scroll" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>jQuery Örneği<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"/jquery/jquery-3.7.1.min.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #7ca668;">&lt;!-- script src="/jquery/custom.js"&gt;&lt;/script --&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #569cd6;">function</span>() {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"button"</span>).<span style="color: #dcdcaa;">click</span>(<span style="color: #569cd6;">function</span>(){</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"#home"</span>).<span style="color: #dcdcaa;">data</span>(<span style="color: #ce9178;">"author-name"</span>, <span style="color: #ce9178;">"Ümit Kayacık"</span>);</div><br /><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #7ca668;">/* Değişen değeri okuyup gösterelim */</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">alert</span>( <span style="color: #ce9178;">"Değişen isim = "</span> <span style="color: #d4d4d4;">+</span> <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"#home"</span>).<span style="color: #dcdcaa;">data</span>(<span style="color: #ce9178;">"author-name"</span>));</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Sonucu görmek için aşağıdaki butona tıklayın :<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; </div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">id</span>=<span style="color: #ce9178;">"home"</span> <span style="color: #9cdcfe;">data-author-name</span>=<span style="color: #ce9178;">"UJK"</span> <span style="color: #9cdcfe;">data-year</span>=<span style="color: #ce9178;">"2024"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Örnek bir içerik</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">br</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">button</span><span style="color: grey;">&gt;</span>Özelliği Değiştir<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">button</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div>
+                <div class="cborder" id="test17">
+                    <p>Sonucu görmek için aşağıdaki butona tıklayın :</p>
+                    
+                    <div id="home" data-author-name="UJK" data-year="2024">
+                        Örnek bir içerik
+                    </div>
+                    <br>
+                    <button>Özelliği Değiştir</button>
+                </div>
+                <script>
+                    $(function() {
+                        $("button").click(function(){
+                            $("#test17 #home").data("author-name", "Ümit Kayacık");
+
+                            /* Değişen değeri okuyup gösterelim */
+                            alert( "Değişen isim = " + $("#test17 #home").data("author-name"));
+                        });
+                    });
+                </script>     
+                <br><p>
+                    Kısa bir not ekleyelim. Standart özelliklerden birinin değerini değiştirince , tarayıcınızın 
+                    geliştirici araçlarında <strong>elemanlar</strong> listesinde direk görebilirsiniz. Ancak 
+                    <code>data-*</code> özellikleri aynı yerde canlı değişimini görmeyebilirsiniz, ama JavaScript
+                    kodlarında yeni değer çalışacaktır.
+                </p>           
+
+                <!-- AJAX -->
+                <br id="ajax"><br><hr><h2>JQuery - Ajax</h2>
+                <p>
+                    AJAX kelimesi <strong>Asynchronous JavaScript and XML</strong> cümlesi başharflerinden 
+                    oluşur. Bu teknik bize syfayı yeniden yüklemeden server'dan verileri okuma fırsatı verir.
+                </p>
+                <p>
+                    AJAX teknolojisinde yeniyseniz, başlamadan önce temellerini öğrenmenizi tavsiye ederiz.
+                </p>
+                <p>
+                    JQuery yeni jenerasyon web uygulamaları geliştirmenizi kolaylaştıracak birçok AJAX araçlarına 
+                    sahiptir.
+                </p>
+
+                <br><br><h3>Basit Veri Yükleme</h3>
+                <p>
+                    JQuery <code>load()</code> metodu ile statik ya da dinamik verileri kolayca jQuery AJAX 
+                    kullanarak okuyabilirsiniz.
+                </p>
+                <br><h4><i>Deyim yapısı</i></h4>
+                <p><code>load()</code> metodunun temel deyim yapısı şöyle :</p>
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;">[<span style="color: #9cdcfe;">seçici</span>].<span style="color: #dcdcaa;">load</span>( <span style="color: #4ec9b0;">URL</span>, [<span style="color: #9cdcfe;">veri</span>], [<span style="color: #9cdcfe;">callback</span>] );</div></div></div></div></div>
+                <br><p>
+                    Parametrelerin açıklaması şöyle :
+                </p>
+                <ul>
+                    <li>
+                        <strong>URL - </strong> AJAX veri isteğinin gönderileceği server'daki dosyanın URL değeri. 
+                        Bu bir CGI, ASP, JSP veya PHP script yardımıyla üretilen dinamik veri olabileceği gibi statik 
+                        bir dosya içeriği de okunabilir.
+                    </li>
+                    <li>
+                        <strong>veri - </strong> eğer istenen verinin özelliklerini belirtmek üzere server'a bilgi 
+                        gönderilecekse bu opsiyonel parametrede bu değer(ler) server'a gönderilir. Bu parametre 
+                        verilmişse server'a istek <strong>POST</strong> olarak yapılır, parametre yoksa istek 
+                        <strong>GET</strong> isteği olarak yapılır.
+                    </li>
+                    <li>
+                        <strong>callback - </strong> Yükleme işlemi tamamlandığında yapılmasını istediklerimizi 
+                        tanımladığımız olay işleme fonksiyonudur. Bu fonksiyona verilen ilk parametrede yapılan 
+                        isteğe server'dan dönülen cevap vardır, ikinci parametre ise isteğin durum kodudur.
+                    </li>
+                </ul>
+
+                <br><h4><i>Örnek</i></h4>
+                <p>
+                    Aşağıdaki örnekte bir HTML elemanın içeriğini server'daki başka bir dosyadan okuduğu değere 
+                    değiştiren bir kod görülüyor.
+                </p>
+                <div class="cpadding scroll" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>jQuery Örneği<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"/jquery/jquery-3.7.1.min.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #7ca668;">&lt;!-- script src="/jquery/custom.js"&gt;&lt;/script --&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #569cd6;">function</span>() {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"#driver"</span>).<span style="color: #dcdcaa;">click</span>(<span style="color: #569cd6;">function</span>(<span style="color: #9cdcfe;">event</span>){</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">'#stage'</span>).<span style="color: #dcdcaa;">load</span>(<span style="color: #ce9178;">'/jquery/result.html'</span>);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Butona tıklayarak /jquery/result.html dosyasından içerik yükleyin −<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">id</span> = <span style="color: #ce9178;">"stage"</span> <span style="color: #9cdcfe;">style</span> = <span style="color: #ce9178;">"</span><span style="color: #ce9178;">background-color:#cc0;"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; STAGE</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">input</span> <span style="color: #9cdcfe;">type</span> = <span style="color: #ce9178;">"button"</span> <span style="color: #9cdcfe;">id</span> = <span style="color: #ce9178;">"driver"</span> <span style="color: #9cdcfe;">value</span> = <span style="color: #ce9178;">"Veri Yükle"</span> <span style="color: grey;">/&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div>
+                <p>Server'da <strong>/jquery/result.html</strong> dosya içeriği de şöyle olsun</p>
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: grey;">&lt;</span><span style="color: #569cd6;">h1</span><span style="color: grey;">&gt;</span>Server Cevabı<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">h1</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div>
+                <br><div class="cborder" id="test18">
+                    <p>Butona tıklayarak /jquery/result.html dosyasından içerik yükleyin −</p>
+                        
+                    <div id = "stage" style = "background-color:#cc0;">
+                        STAGE
+                    </div>
+                        
+                    <input type = "button" id = "driver" value = "Veri Yükle" />
+                </div>
+                <script>
+                    $(function() {
+                        $("#test18 #driver").click(function(event){
+                        $('#test18 #stage').load('/jquery/result.html');
+                        });
+                    });
+                </script>
+
                 <p>.</p><p>.</p>
             </div>
             <div class="col-md-2 hidden-xs">.</div>
