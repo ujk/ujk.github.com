@@ -1420,8 +1420,53 @@
                 <script>
                     $(function() {
                         $("#test18 #driver").click(function(event){
-                        $('#test18 #stage').load('./jquery/result.html');
+                        $('#test18 #stage').load('/jquery/result.html');
                         });
+                    });
+                </script>
+                <br><p>
+                    Burada <code>load()</code> metodu belirtilen URL adresindeki <strong>/jquery/result.html</strong>
+                    dosyası için bir AJAX isteği başlatır. Yükleme tamamlanınca server'dan dönen cevap <code>id</code> 
+                    değeri <code>stage</code> olan <code>&lt;div&gt;</code> elemanına içerik olarak yüklenir. 
+                </p>
+
+                <br><br><h3>JSON Veri Getirmek</h3>
+                <p>
+                    Eğer server'da veriyi JSON formatında bir text dosyada saklıyorsak, veriyi daha kolay işlemek için 
+                    jQuery'nin <code>getJSON()</code> metodunu kullanarak veriyi okumak çok daha avantajlı olacaktır. 
+                    <code>getJSON()</code> metodu <code>load()</code> metodu ile aynı parametreleri alır ama bir farkla.
+                    Olay işleme fonksiyonuna verilen ilk parametre sadece bir string olarak değil, geri dönen JSON 
+                    değerin bir JavaScript nesne olmasını sağlar.
+                </p>
+                <br><h4><i>Örnek</i></h4>
+                <p>
+                    Öncelikle veri dosyamızdan başlayalım. <strong>/jquery/result.json</strong> dosyamızın içinde 
+                    şunlar olsun :
+                </p>
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div>{</div><div>&nbsp; &nbsp;<span style="color: #d4d4d4;">"isim"</span>: <span style="color: #ce9178;">"Ümit Kayacık"</span>,</div><div>&nbsp; &nbsp;<span style="color: #d4d4d4;">"yaş"</span> : <span style="color: #ce9178;">"58"</span>,</div><div>&nbsp; &nbsp;<span style="color: #d4d4d4;">"cinsiyet"</span>: <span style="color: #ce9178;">"Erkek"</span></div><div>}</div></div></div></div></div></div></div></div></div>
+                <br><p>
+                    Şimdi de bir önceki örnekteki <code>&lt;div&gt;</code> elemanı içeriğini bu JSON veriye göre 
+                    olay işleme fonksiyonu içinde değiştirelim.
+                </p>
+                <div class="cpadding scroll" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>jQuery Örneği<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"/jquery/jquery-3.7.1.min.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #7ca668;">&lt;!-- script src="/jquery/custom.js"&gt;&lt;/script --&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #569cd6;">function</span>() {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"#driver"</span>).<span style="color: #dcdcaa;">click</span>(<span style="color: #569cd6;">function</span>(){</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #9cdcfe;">$</span>.<span style="color: #dcdcaa;">getJSON</span>(<span style="color: #ce9178;">'/jquery/result.json'</span>, <span style="color: #569cd6;">function</span>(<span style="color: #9cdcfe;">jd</span>) {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">'#stage'</span>).<span style="color: #dcdcaa;">html</span>(<span style="color: #ce9178;">'&lt;p&gt; İsim: '</span> <span style="color: #d4d4d4;">+</span> <span style="color: #9cdcfe;">jd</span>.<span style="color: #9cdcfe;">isim</span> <span style="color: #d4d4d4;">+</span> <span style="color: #ce9178;">'&lt;/p&gt;'</span>);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">'#stage'</span>).<span style="color: #dcdcaa;">append</span>(<span style="color: #ce9178;">'&lt;p&gt; Yaş : '</span> <span style="color: #d4d4d4;">+</span> <span style="color: #9cdcfe;">jd</span>.<span style="color: #9cdcfe;">yaş</span><span style="color: #d4d4d4;">+</span> <span style="color: #ce9178;">'&lt;/p&gt;'</span>);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">'#stage'</span>).<span style="color: #dcdcaa;">append</span>(<span style="color: #ce9178;">'&lt;p&gt; Cinsiyet: '</span> <span style="color: #d4d4d4;">+</span> <span style="color: #9cdcfe;">jd</span>.<span style="color: #9cdcfe;">cinsiyet</span><span style="color: #d4d4d4;">+</span> <span style="color: #ce9178;">'&lt;/p&gt;'</span>);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; })</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Butona tıklayarak /jquery/result.json dosyasından içerik yükleyin −<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">id</span> = <span style="color: #ce9178;">"stage"</span> <span style="color: #9cdcfe;">style</span> = <span style="color: #ce9178;">"</span><span style="color: #ce9178;">background-color:#cc0;"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; STAGE</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">input</span> <span style="color: #9cdcfe;">type</span> = <span style="color: #ce9178;">"button"</span> <span style="color: #9cdcfe;">id</span> = <span style="color: #ce9178;">"driver"</span> <span style="color: #9cdcfe;">value</span> = <span style="color: #ce9178;">"Veri Yükle"</span> <span style="color: grey;">/&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div>
+                <div class="cborder" id="test19">
+                    <p>Butona tıklayarak /jquery/result.json dosyasından içerik yükleyin −</p>
+                        
+                    <div id = "stage" style = "background-color:#cc0;">
+                        STAGE
+                    </div>
+                        
+                    <input type = "button" id = "driver" value = "Veri Yükle" />
+                </div>
+                <script>
+                    $(function() {
+                        $("#test19 #driver").click(function(){
+                            $.getJSON('/jquery/result.json', function(jd) {
+                                $('#test19 #stage').html('<p> İsim: ' + jd.isim + '</p>');
+                                $('#test19 #stage').append('<p> Yaş : ' + jd.yaş+ '</p>');
+                                $('#test19 #stage').append('<p> Cinsiyet: ' + jd.cinsiyet+ '</p>');
+                            });
+                        })
                     });
                 </script>
 
