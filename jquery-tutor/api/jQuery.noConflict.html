@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery.noConflict()</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        div .scroll{
+            height:300px;
+            width: 100%;
+            overflow:scroll;
+            scrollbar-color: dark;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: white;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: gray;
+            border-radius: 10px;
+        }
+
+        .cborder {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        .cpadding {
+            padding: 15px;
+        }
+
+        body {
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+    </nav>
+
+    <div class="container" style="padding-top: 70px;">
+        <div class="row">
+            <div class="col-md-2 hidden-xs">
+
+            </div>
+            <div class="col-md-8">
+                <h1>jQuery.noConflict()</h1>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <span>jQuery.noConflict( [removeAll ] )/span>
+                        <span class="pull-right"><i>Dönen Değer : JS Nesne</i></span>
+                    </div>
+                    <div class="panel-body">
+                        <b>Açıklama : </b><i>JQuery'nin <code>$</code> değişkeni üzerindeki hakimiyetini iptal eder.</i>
+                        <br><br><div class="panel panel-info">
+                            <div class="panel-heading">
+                                <span>jQuery.noConflict( [removeAll ] )</span>
+                            </div>
+                            <div class="panel-body">
+                                <b>removeAll</b><br>
+                                <span>Tip : Boolean</span><br><span>Tüm jQery değişkenlerinin global scope'tan 
+                                    çıkarılmasını sağlayan boolean değer (jQuery'nin kendisi dahil).
+                                </span>
+                            </div>
+                        </div>
+                        <p>
+                            Birçok JavaScript kütüphanesi <code>$</code> işaretini özel bir değişken adı olarak 
+                            kullanır. JQuery'ye baktığımızda <code>$</code> aslında <code>jQuery</code> nesnesinin 
+                            alias ile adlandırılmasıdır. Yani <code>$</code> kullanmadan da jQuery kullanılabilir. 
+                            Eğer başka bir kütüphanenin <code>$</code> değişkenini kullanmasını istiyorsanız 
+                            <code>$.noConflict()</code> metodu ile değişkeni diğer kütüphaneye bırakabilirsiniz. 
+                        </p>
+                        <p>
+                            Genel kullanım şekli şöyle :
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"other_lib.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"jquery.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div><span style="color: #9cdcfe;">$</span>.<span style="color: #dcdcaa;">noConflict</span>();</div><div><span style="color: #7ca668;">// Buradan itibaren other_lib '$' değeri geçerlidir.</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div><div style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"></div></div></div>
+                        <br><p>
+                            Başka bir teknik olarak jQuery <code>ready()</code> metodu içinde <code>$</code> değişkenini 
+                            kullanmak isterseniz:
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"other_lib.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"jquery.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div><span style="color: #9cdcfe;">$</span>.<span style="color: #dcdcaa;">noConflict</span>();</div><div><span style="color: #dcdcaa;">jQuery</span>( <span style="color: #9cdcfe;">document</span> ).<span style="color: #dcdcaa;">ready</span>(<span style="color: #569cd6;">function</span>( <span style="color: #9cdcfe;">$</span> ) {</div><div>&nbsp; <span style="color: #7ca668;">// jQuery'nin $ kullanan kod burada olabilir.</span></div><div>});</div><div><span style="color: #7ca668;">// other_lib $ kullanan kod burada olabilir..</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div><div style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"></div></div></div>
+
+                    </div>
+                </div>
+                <p>.</p><p>.</p>
+
+            </div>
+            <div class="col-md-2 hidden-xs">
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

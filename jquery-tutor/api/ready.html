@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery .ready()</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        div .scroll{
+            height:300px;
+            width: 100%;
+            overflow:scroll;
+            scrollbar-color: dark;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: white;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: gray;
+            border-radius: 10px;
+        }
+
+        .cborder {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        .cpadding {
+            padding: 15px;
+        }
+
+        body {
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+    </nav>
+
+    <div class="container" style="padding-top: 70px;">
+        <div class="row">
+            <div class="col-md-2 hidden-xs">
+
+            </div>
+            <div class="col-md-8">
+                <h1>.ready()</h1>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <span>.ready(handler)</span>
+                        <span class="pull-right"><i>Dönen Değer : JQuery Nesnesi</i></span>
+                    </div>
+                    <div class="panel-body">
+                        <b>Açıklama : </b><i>DOM tamamen yüklendiğinde çalışması için bir fonksiyon tanımlaması 
+                            yapılır.</i>
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <span>.ready(handler)</span>
+                            </div>
+                            <div class="panel-body">
+                                <b>handler</b><br>
+                                <span>Tip : Fonksiyon</span><br><span>DOM yüklendikten sonra çalışması istenen 
+                                    fonksiyon
+                                </span>
+                            </div>
+                        </div>
+                        <p>
+                            <code>ready()</code> metodu JavaScript kodunu DOM (Document Object Model) yüklenip 
+                            manipüle edilmeye hazır olduğunda çalıştırmak için kullanılır. Bu an kullanıcının sayfayı 
+                            görmesi ve kullanmaya başlamasından önce yapılması gerekenler için en uygun zamandır. Örneğin 
+                            olay işleyicilerin tanımlanması ve plugin'lerin aktif edilmesi gibi. 
+                        </p>
+                        <p>
+                            Birçok tarayıcı <code>DOMContentLoaded</code> olayı ile benzer olanak sağlar. Fakat jQuery 
+                            <code>.ready()</code> metodu önemli bir noktada farklılık gösterir: Olay tetiklendikten 
+                            sonra yapılan bir <code>DOMContentLoaded</code> olay işleyicisi hiç bir zaman çalışmayacaktır. 
+                            Ama <code>.ready(handler)</code> tanımlaması yapılırsa , bu tanımlama olay tetiklendikten 
+                            sonra yapılsa dahi çalışır.
+                        </p>
+                        <p>
+                            Tarayıcılar ayrıca <code>window</code> nesnesinde <code>load</code> olayını da üretir. 
+                            Bu olay ateşlenmişse sayfadaki resimler dahil tüm varlıklar yüklenmiş demektir. Bu olay 
+                            da jQuery <code>$("window").on("load", handler)</code> fonksiyonu ile izlenebilir. Kod 
+                            yüklü varlıklarla alakalı olduğunda (mesela bir resmin boyutları kullanılacaksa), kod 
+                            <code>load</code> olayına bağlanmalıdır.
+                        </p>
+                        <p>
+                            JQuery DOM hazır olduğunda çalışacak fonksiyonu tanımlamak için değişik yöntemler sunar. 
+                            Aşağıdaki tüm deyimler aynı çalışırlar.
+                        </p>
+                        <ul>
+                            <li><code>$(handler)</code></li>
+                            <li><code>$(document).ready(handler)</code></li>
+                            <li><code>$("document").ready(handler)</code></li>
+                            <li><code>$("img").ready(handler)</code></li>
+                            <li><code>$().ready(handler)</code></li>
+                        </ul>
+                        <p>
+                            Versiyon 3.0'dan itibaren ilk örnek kullanımı tavsiye edilir. Diğerleri zamanla deprecated 
+                            olacaklar. Sebebi ise <code>ready()</code> fonksiyon kullanımı için eleman seçimine gerek 
+                            olmaması. Örneğin 3. maddedeki <code>"document"</code> elemanı seçicisinin aslında anlamı 
+                            yok, olmasa da olur, ki sonuncu zaten öyle. 4. madde yanlış şekilde resimler hazır olursa 
+                            diye yazılmış ama yine de döküman hazır olunca çalışır.
+                        </p>
+                        <p>
+                            Ayrıca versiyon 1.8'den beri kullanılmayan <code>$(document).on( "ready", handler )</code> 
+                            şeklinde bir tanım da vardır, bilginiz olsun. Bu kullanımda eğer DOM bu kod çalışmadan önce
+                            yüklenirse <b>handler</b> çalışmaz.
+                        </p>
+                        <p>
+                            <code>.ready()</code> metodu genellikle isimsiz (anonim) bir fonksiyon tanımı ile kullanılır. 
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #dcdcaa;">$</span>( <span style="color: #9cdcfe;">document</span> ).<span style="color: #dcdcaa;">ready</span>(<span style="color: #569cd6;">function</span>() {</div><div>&nbsp; <span style="color: #7ca668;">// .ready() için çağrılan olay işleyici kod.</span></div><div>});</div></div></div></div><div style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"></div></div></div>
+                        <br><p>
+                            Bu kod tavsiye edilen şu şekil yazım ile aynıdır:
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #dcdcaa;">$</span>(<span style="color: #569cd6;">function</span>() {</div><div>&nbsp; <span style="color: #7ca668;">// .ready() için çağrılan olay işleyici kod.</span></div><div>});</div></div></div></div></div><div style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"></div></div></div>
+                        <br><h4><i>JQuery Nesnesi Ad Değiştirmesi</i></h4>
+                        <p>
+                            İsim çakışmalarını önlemek için <a href="jQuery.noConflict.html">$.noConflict()</a> 
+                            kullanılırsa <code>$</code> kısayolu artık geçersiz olur. 
+                        </p>
+                    </div>
+                </div>
+                <p>.</p><p>.</p>
+
+            </div>
+            <div class="col-md-2 hidden-xs">
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

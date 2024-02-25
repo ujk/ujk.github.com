@@ -61,7 +61,46 @@
                 <p>
                     JQuery hakkında önemli şeylerden biri sadece bir <b>JavaScript kütüphanesi</b> olmasıdır. Bu 
                     yüzden JQuery kodlarınızı etkili yazmanız için JavaScript bilginiz oldukça yararlı olacaktır. 
+                    JavaScript hakkında bilginizi arttırmak isterseniz size 
+                    <a href="https://developer.mozilla.org/en-US/Learn/Getting_started_with_the_web/JavaScript_basics" 
+                    target="_blank">Mozilla JavaScript Temelleri</a> sayfasını öneririz.
                 </p>
+
+                <br><h2>JQuery Nasıl Çalışır?</h2>
+                <p>
+                    Bu bölümde JQuery kütüphanesini nasıl kullanacağınızı anlatacağız. Eğer şimdiye kadar bir test 
+                    sayfası yapmadıysanız , bir klasör seçip içinde <code>test.html</code> adında bir dosya ekleyin 
+                    ve dosya içine şu kodları girin. 
+                </p>
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">meta</span> <span style="color: #9cdcfe;">charset</span>=<span style="color: #ce9178;">"utf-8"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>Demo<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">a</span> <span style="color: #9cdcfe;">href</span>=<span style="color: #ce9178;">"http://jquery.com/"</span><span style="color: grey;">&gt;</span>jQuery<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">a</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"jquery.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; </div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #7ca668;">// Kodunuz buraya gelecek.</span></div><div>&nbsp; &nbsp; </div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div><div style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"></div></div></div>
+                <br><p>
+                    Size kodlama için <a href="https://code.visualstudio.com" target="_blank">VSCode</a> uygulamasını 
+                    kullanmanızı şiddetle tavsiye ederim. <code>Live Server</code> eklentisi ile birlikte kullanırsanız, 
+                    sayfanızın kodu üzerinde bir yere sağ tıklayıp <code>Open With Live Server</code> seçince, tarayıcınızda 
+                    sayfanızın bir server'da yayınlanınca nasıl görüneceğini direk test edebilirsiniz.
+                </p>
+                <p>
+                    Gelelim yukarıdaki test sayfası kodumuzun açıklamasına. <code>&lt;script&gt;</code> elemanının 
+                    <code>src</code> özelliği sayfanızla aynı klasöre bir kopyasını indirdiğiniz <code>jquery.js</code> 
+                    dosyasını sayfaya dahil ediyor. Bu dosyayı indirmek için <a href="http://jquery.com/download/" 
+                    target="_blank">JQuery Download</a> sayfasına gidin ve en son sürümün sıkıştırılmış versiyonunu test 
+                    klasörünüze <code>jquery.js</code> adıyla indirin.
+                </p>
+
+                <br><h3>Sayfa Yüklendiğinde Kodunuzu Çalıştırmak</h3>
+                <p>
+                    Birçok JavaScript kodunda , kodun sayfa yüklenmesi tamamen bittiğinde çalışması için <code>onload()</code> 
+                    fonksiyonu içine konması tercih edilir. 
+                </p>
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div><span style="color: #9cdcfe;">window</span>.<span style="color: #dcdcaa;">onload</span> <span style="color: #d4d4d4;">=</span> <span style="color: #569cd6;">function</span>() {</div><div>&nbsp;</div><div>&nbsp; &nbsp; <span style="color: #dcdcaa;">alert</span>( <span style="color: #ce9178;">"welcome"</span> );</div><div>&nbsp;</div><div>};</div></div></div><div style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"></div></div></div>
+                <br><p>
+                    Malesef bu kod sayfadaki tüm resimler dahil yüklenmeden çalışmayacaktır. Ama bizim kodumuz HTML 
+                    elemanları yüklenip manipüle edilmeye hazır hale geldiğinde çalışabilir. Kodun elemanlar manipüle 
+                    edilmeye hazır olduğu anda çalışması için JQuery <a href="../api/ready.html">.ready()</a> adlı 
+                    fonksiyona sahiptir. 
+                </p>
+                <p>.</p><p>.</p>
+
             </div>
             <div class="col-md-2 hidden-xs">
 
