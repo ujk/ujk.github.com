@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery .addClass()</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        div .scroll{
+            height:300px;
+            width: 100%;
+            overflow:scroll;
+            scrollbar-color: dark;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: white;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: gray;
+            border-radius: 10px;
+        }
+
+        .cborder {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        .cpadding {
+            padding: 15px;
+        }
+
+        body {
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+    </nav>
+
+    <div class="container" style="padding-top: 70px;">
+        <div class="row">
+            <div class="col-md-2 hidden-xs">
+
+            </div>
+            <div class="col-md-8">
+                <h1>.addClass()</h1>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <span>.addClass(className)</span>
+                        <span class="pull-right"><i>Dönen Değer : JQuery Nesnesi</i></span>
+                    </div>
+                    <div class="panel-body">
+                        <b>Açıklama : </b><i>Seçilen eleman(lar)a belirtilen sınıf(lar)ı ekler.</i>
+                        <br><br><div class="panel panel-info">
+                            <div class="panel-heading">
+                                <span>.addClass(className)</span>
+                            </div>
+                            <div class="panel-body">
+                                <b>className</b><br>
+                                <span>Tip : String</span><br>
+                                <span> 
+                                    Seçilen elemanların her birine bir ya da boşlukla ayrılmış şekilde yazılmış birden 
+                                    fazla sınıf adı eklenir.
+                                </span>
+                            </div>
+                        </div>
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <span>.addClass(classNames)</span>
+                            </div>
+                            <div class="panel-body">
+                                <b>classNames</b><br>
+                                <span>Tip : Array</span><br>
+                                <span> 
+                                    Seçilen elemanların her birine bir array içinde verilen sınıf adları eklenir.
+                                </span>
+                            </div>
+                        </div>
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <span>.addClass(function)</span>
+                            </div>
+                            <div class="panel-body">
+                                <b>function</b><br>
+                                <span>Tip : Function( Integer index, String currentClassName ) => String</span><br>
+                                <span> 
+                                    Bir ya da boşlukla ayrılmış birden fazla sınıf adı içeren bir String değer dönen 
+                                    fonksiyondur. <code>index</code> değeri fonksiyon içinde seçilmiş elemanın index 
+                                    numarası olarak kullanılabilir, <code>currentClassName</code> ise seçilmiş 
+                                    elemanın o anki class değeri olarak fonksiyon içinde kullanılabilir. Ayrıca tabi 
+                                    ki <code>this</code> fonksiyon içinde o anda işlenmekte olan elemanı ifade eder.
+                                </span>
+                            </div>
+                        </div>
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <span>.addClass(function)</span>
+                            </div>
+                            <div class="panel-body">
+                                <b>function</b><br>
+                                <span>Tip : Function( Integer index, String currentClassName ) => String | Array</span><br>
+                                <span> 
+                                    Bir ya da boşlukla ayrılmış birden fazla sınıf adı içeren bir String değer ya da 
+                                    class adlarının olduğu bir array dönen 
+                                    fonksiyondur. <code>index</code> değeri fonksiyon içinde seçilmiş elemanın index 
+                                    numarası olarak kullanılabilir, <code>currentClassName</code> ise seçilmiş 
+                                    elemanın o anki class değeri olarak fonksiyon içinde kullanılabilir. Ayrıca tabi 
+                                    ki <code>this</code> fonksiyon içinde o anda işlenmekte olan elemanı ifade eder.
+                                </span>
+                            </div>
+                        </div>
+                        <p>
+                            Dikkat edilmesi gereken nokta, bu metod bir class değerini değiştirmez. Basit şekilde , 
+                            verilen sınıfları elemana ekler. Daha önceden elemanda mevcut olan sınıflar olsa da yine 
+                            ekler. 
+                        </p>
+                        <p>
+                            Birden fazla sınıf adı değiştirmek için boşluklarla ayrılmış sınıf adları kullanılabilir.
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"p"</span> ).<span style="color: #dcdcaa;">addClass</span>( <span style="color: #ce9178;">"myClass yourClass"</span> );</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div><div style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"></div></div></div>
+                        <br><p>
+                            Bu metod sıklıkla <code>removeClass()</code> metodu ile birlikte elemanların sınıf 
+                            değerlerini bir değerden diğerine değiştirmek için kullanılır.
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"p"</span>).<span style="color: #dcdcaa;">removeClass</span>(<span style="color: #ce9178;">"myClass noClass"</span>).<span style="color: #dcdcaa;">addClass</span>(<span style="color: #ce9178;">"yourClass"</span>);</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div><div style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"></div></div></div>
+                        <br><p>
+                            Burada <code>myClass</code> ve <code>noClass</code> sınıf isimleri elemandan silinir ve 
+                            <code>yourClass</code> sınıfı elemana eklenir.
+                        </p>
+                        <p>
+                            Fonksiyon kullanan <code>addClass()</code> metodu kullanımı da şöyle :
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"ul li"</span> ).<span style="color: #dcdcaa;">addClass</span>(<span style="color: #569cd6;">function</span>( <span style="color: #9cdcfe;">index</span> ) {</div><div>&nbsp; <span style="color: #c586c0;">return</span> <span style="color: #ce9178;">"item-"</span> <span style="color: #d4d4d4;">+</span> <span style="color: #9cdcfe;">index</span>;</div><div>});</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div><div style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"></div></div></div>
+                        <br><p>
+                            Verilen numarasız listede ilk elemana <code>item-0</code> sınıfı, ikinciye <code>item-1</code> 
+                            sınıfı ekler vs.
+                        </p>
+                        <br><br><h3>Örnekler :</h3>
+                        <p>
+                            Seçilen eleman(lar)a <code>selected</code> sınıfını ekler.
+                        </p>
+                        <div class="cpadding scroll" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">meta</span> <span style="color: #9cdcfe;">charset</span>=<span style="color: #ce9178;">"utf-8"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>JQuery Öğrenimi<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"jquery.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #569cd6;">function</span>() {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"p"</span>).<span style="color: #dcdcaa;">last</span>().<span style="color: #dcdcaa;">addClass</span>(<span style="color: #ce9178;">"selected"</span>);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">p</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">margin</span>: <span style="color: #b5cea8;">8px</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">font-size</span>: <span style="color: #b5cea8;">16px</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">.selected</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">color</span>: <span style="color: #ce9178;">blue</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">.highlight</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">background</span>: <span style="color: #ce9178;">yellow</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Merhaba<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>ve<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Hoşçakal<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div><div style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"></div></div></div>
+                        <style>
+                            #test1 p {
+                                margin: 8px;
+                                font-size: 16px;
+                            }
+                            #test1 .selected {
+                                color: blue;
+                            }
+                        </style>
+                        <div class="cborder" id="test1">
+                            <p>Merhaba</p>
+                            <p>ve</p>
+                            <p>Hoşçakal</p>
+                        </div>
+                        <script>
+                            $(function() {
+                                $("#test1 p").last().addClass("selected");
+                            });
+                        </script>
+                        <br><hr><p>
+                            Seçilen eleman(lar)a <code>selected</code> ve <code>highlight</code> sınıflarını ekler.
+                        </p>
+                        <div class="cpadding scroll" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">meta</span> <span style="color: #9cdcfe;">charset</span>=<span style="color: #ce9178;">"utf-8"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>JQuery Öğrenimi<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"jquery.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #569cd6;">function</span>() {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"p"</span>).<span style="color: #dcdcaa;">last</span>().<span style="color: #dcdcaa;">addClass</span>(<span style="color: #ce9178;">"selected highlight"</span>);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">p</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">margin</span>: <span style="color: #b5cea8;">8px</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">font-size</span>: <span style="color: #b5cea8;">16px</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">.selected</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">color</span>: <span style="color: #ce9178;">red</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">.highlight</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">background</span>: <span style="color: #ce9178;">yellow</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Merhaba<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>ve<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Hoşçakal<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div><div style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"></div></div></div>
+                        <style>
+                            #test2 p {
+                                margin: 8px;
+                                font-size: 16px;
+                            }
+                            #test2 .selected {
+                                color: red;
+                            }
+                            #test2 .highlight {
+                                background: yellow;
+                            }                            
+                        </style>
+                        <div class="cborder" id="test2">
+                            <p>Merhaba</p>
+                            <p>ve</p>
+                            <p>Hoşçakal</p>
+                        </div>
+                        <script>
+                            $(function() {
+                                $("#test2 p").last().addClass("selected highlight");
+                            });
+                        </script>
+                        <br><hr><p>
+                            Seçilen eleman(lar)a <code>selected</code> ve <code>highlight</code> sınıflarını array 
+                            olarak verilen parametre ile ekler.
+                        </p>
+                        <div class="cpadding scroll" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">meta</span> <span style="color: #9cdcfe;">charset</span>=<span style="color: #ce9178;">"utf-8"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>JQuery Öğrenimi<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"jquery.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #569cd6;">function</span>() {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"p"</span>).<span style="color: #dcdcaa;">last</span>().<span style="color: #dcdcaa;">addClass</span>([<span style="color: #ce9178;">"selected"</span>, <span style="color: #ce9178;">"highlight"</span>]);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">p</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">margin</span>: <span style="color: #b5cea8;">8px</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">font-size</span>: <span style="color: #b5cea8;">16px</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">.selected</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">color</span>: <span style="color: #ce9178;">red</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">.highlight</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">background</span>: <span style="color: #ce9178;">yellow</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Merhaba<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>ve<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Hoşçakal<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div><div style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"></div></div></div>
+                        <style>
+                            #test3 p {
+                                margin: 8px;
+                                font-size: 16px;
+                            }
+                            #test3 .selected {
+                                color: red;
+                            }
+                            #test3 .highlight {
+                                background: yellow;
+                            }                            
+                        </style>
+                        <div class="cborder" id="test3">
+                            <p>Merhaba</p>
+                            <p>ve</p>
+                            <p>Hoşçakal</p>
+                        </div>
+                        <script>
+                            $(function() {
+                                $("#test3 p").last().addClass(["selected", "highlight"]);
+                            });
+                        </script>
+                    </div>
+                </div>
+                <p>.</p><p>.</p>
+
+            </div>
+            <div class="col-md-2 hidden-xs">
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -2,26 +2,29 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Demo</title>
-    </head>
-    <body>
-        <a href="http://jquery.com/">jQuery</a>
+        <title>JQuery Öğrenimi</title>
         <script src="jquery.js"></script>
         <script>
-    
-$(function() {
-  // .ready() için çağrılan olay işleyici kod.
-});
-    
+            $(function() {
+                $("p").last().addClass(["selected", "highlight"]);
+            });
         </script>
-<script src="other_lib.js"></script>
-<script src="jquery.js"></script>
-<script>
-$.noConflict();
-jQuery( document ).ready(function( $ ) {
-  // jQuery'nin $ kullanan kod burada olabilir.
-});
-// other_lib $ kullanan kod burada olabilir..
-</script>
+        <style>
+            p {
+                margin: 8px;
+                font-size: 16px;
+            }
+            .selected {
+                color: red;
+            }
+            .highlight {
+                background: yellow;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Merhaba</p>
+        <p>ve</p>
+        <p>Hoşçakal</p>
     </body>
 </html>
