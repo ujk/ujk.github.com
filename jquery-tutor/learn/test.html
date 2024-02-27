@@ -22,15 +22,15 @@
         </style>
     </head>
     <body>
-        <p class="blue under">Merhaba</p>
-        <p class="blue under highlight">ve</p>
-        <p class="blue under">sonra</p>
-        <p class="blue under">Hoşçakal</p>
+<ul>
+  <li>liste elemanı 1</li>
+  <li>liste elemanı 2</li>
+  <li>liste elemanı 3</li>
+</ul>
+<p>bir paragraf</p>
         <script>
-$.get( "ajax/test.html", function( data ) {
-  $( ".result" ).html( data );
-  alert( "Yükleme gerçekleşti." );
-});
+$( "li" ).add( "<p>yeni paragraf</p>" )
+  .css( "background-color", "red" );
         </script>
     </body>
 </html>

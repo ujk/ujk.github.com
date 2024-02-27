@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.not()</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        div .scroll{
+            height:300px;
+            width: 100%;
+            overflow:scroll;
+            scrollbar-color: dark;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: white;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: gray;
+            border-radius: 10px;
+        }
+
+        .cborder {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        .cpadding {
+            padding: 15px;
+        }
+
+        body {
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+    </nav>
+
+    <div class="container" style="padding-top: 70px;">
+        <div class="row">
+            <div class="col-md-2 hidden-xs">
+
+            </div>
+            <div class="col-md-8">
+                <h1>.not()</h1>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <span>.not(seçici)</span>
+                        <span class="pull-right"><i>Dönen Değer : jQuery Nesnesi</i></span>
+                    </div>
+                    <div class="panel-body">
+                        <b>Açıklama : </b><i>Seçilmiş olan elemanlardan belirtilen elemanları çıkarır. </i>
+                        <br><br><div class="panel panel-info">
+                            <div class="panel-heading">
+                                <span>.not(seçici)</span>
+                            </div>
+                            <div class="panel-body">
+                                <b>seçici</b><br>
+                                <span>Tip : Seçici değer, eleman ya da array</span><br>
+                                <span> 
+                                    Çıkarılmak istenen elemanları gösteren seçici değeri, DOM elemanı ya da 
+                                    elemanlardan oluşan array değeri.
+                                </span>
+                            </div>
+                        </div>
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <span>.not(fonksiyon)</span>
+                            </div>
+                            <div class="panel-body">
+                                <b>fonksiyon</b><br>
+                                <span>Tip : Function( Integer index, Element element ) => Boolean</span><br>
+                                <span> 
+                                    Set içindeki elemanları test etmek için kullanılan bir fonksiyon. İki 
+                                    parametresi var, <code>index</code> test edilen elemanın indexi , <code>element</code> 
+                                    ise DOM elemanı. Ayrıca fonksiyon içinde <code>this</code> test edilmekte olan 
+                                    elemanı ifade eder.
+                                </span>
+                            </div>
+                        </div>
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <span>.not(seçim)</span>
+                            </div>
+                            <div class="panel-body">
+                                <b>seçim</b><br>
+                                <span>Tip : jQuery nesnesi</span><br>
+                                <span> 
+                                    Silinmek istenen jQuery nesnesi olarak eleman(lar).
+                                </span>
+                            </div>
+                        </div>
+------------------------------------------
+                        <p>
+                            DOM elemanlarından oluşan bir jQuery nesnesi verildiğinde, <code>.add()</code> metodu bu 
+                            elemanlara yeni elemanlar ekler ve toplam tüm elemanları yeni bir jQuery nesne olarak 
+                            geri döner. <code>.add()</code> metoduna verilecek argümanlar <code>$()</code> metodu 
+                            ile eleman seçerken verdiğimiz argümanlarla aynıdır. Bir seçici değer ya da bir HTML kod 
+                            olabilir.
+                        </p>
+                        <p>
+                            Bu metodun kendisine verilen eleman setine yenilerini eklerken <code>.add()</code> 
+                            metoduna verilen sıraya göre eklediğini düşünmeyin. Elemanlar döküman içerisinde 
+                            oldukları sıraya göre sonuç eleman seti sıralanır. Örneğin :
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span>div 1<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Merhaba<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span>DIV 2<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                        <p>bu elemanlara şu scripti çalıştırsak :</p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #9cdcfe;">console</span>.<span style="color: #dcdcaa;">log</span>(<span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"p"</span>).<span style="color: #dcdcaa;">add</span>(<span style="color: #ce9178;">"div"</span>));</div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                        <br><p>
+                            Bize konsolda bir <code>&lt;p&gt;</code> ve arkasından 2 tane <code>&lt;div&gt;</code> 
+                            elemanı vermez, aynen dökümandaki sırasına göre toplamda seçilen elemanlar verilir.
+                        </p>
+                        <p>
+                            Elde edilen yeni eleman seti aşağıda gösterildiği gibi zincirleme metodlar olarak 
+                            kullanılabileceği gibi, bir değişkene aktarılarak daha sonra da kullanılabilir.
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"p"</span> ).<span style="color: #dcdcaa;">add</span>( <span style="color: #ce9178;">"div"</span> ).<span style="color: #dcdcaa;">addClass</span>( <span style="color: #ce9178;">"widget"</span> );</div><div><span style="color: #569cd6;">var</span> <span style="color: #9cdcfe;">pdiv</span> <span style="color: #d4d4d4;">=</span> <span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"p"</span> ).<span style="color: #dcdcaa;">add</span>( <span style="color: #ce9178;">"div"</span> );</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                        <br><p>
+                            Aşağıdaki kod eklenen elemanları orjinal sete <i>eklemez</i>, yeni bir set oluşturur.
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #569cd6;">var</span> <span style="color: #9cdcfe;">pdiv</span> <span style="color: #d4d4d4;">=</span> <span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"p"</span> );</div><div><span style="color: #9cdcfe;">pdiv</span>.<span style="color: #dcdcaa;">add</span>( <span style="color: #ce9178;">"div"</span> ); <span style="color: #7ca668;">// YANLIŞ, pdiv değeri değişmez</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                        <br><p>
+                            Basit bir liste ve bir paragraftan oluşan bir içerik düşünelim :
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">ul</span><span style="color: grey;">&gt;</span></div><div>&nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">li</span><span style="color: grey;">&gt;</span>liste elemanı 1<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">li</span><span style="color: grey;">&gt;</span></div><div>&nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">li</span><span style="color: grey;">&gt;</span>liste elemanı 2<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">li</span><span style="color: grey;">&gt;</span></div><div>&nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">li</span><span style="color: grey;">&gt;</span>liste elemanı 3<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">li</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">ul</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>bir paragraf<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                        <br><p>
+                            Liste elemanlarını ve paragrafı elde etmek için <code>.add()</code> metoduna bir seçici 
+                            değeri ya da DOM elemanın kendisini referans vererek gerçekleştirebiliriz.
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"li"</span> ).<span style="color: #dcdcaa;">add</span>( <span style="color: #ce9178;">"p"</span> ).<span style="color: #dcdcaa;">css</span>( <span style="color: #ce9178;">"background-color"</span>, <span style="color: #ce9178;">"red"</span> );</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                        <p>ya da</p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"li"</span> ).<span style="color: #dcdcaa;">add</span>( <span style="color: #9cdcfe;">document</span>.<span style="color: #dcdcaa;">getElementsByTagName</span>( <span style="color: #ce9178;">"p"</span> )[ <span style="color: #b5cea8;">0</span> ] )</div><div>&nbsp; .<span style="color: #dcdcaa;">css</span>( <span style="color: #ce9178;">"background-color"</span>, <span style="color: #ce9178;">"red"</span> );</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                        <br><p>
+                            Bu kodun sonucu dört elemanın da arkaplan renginin kırmızı olmasıdır. <code>.add()</code> 
+                            metoduna bir HTML kodunu string olarak verirsek o koddaki eleman da sete eklenerek işlem 
+                            görecektir. Örneğin listemize yeni bir paragraf ekleyip onların arka rengini değiştirmek 
+                            istersek :
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"li"</span> ).<span style="color: #dcdcaa;">add</span>( <span style="color: #ce9178;">"&lt;p&gt;yeni paragraf&lt;/p&gt;"</span> )</div><div>&nbsp; .<span style="color: #dcdcaa;">css</span>( <span style="color: #ce9178;">"background-color"</span>, <span style="color: #ce9178;">"red"</span> );</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                        <br><p>
+                            Eleman setine yeni paragraf eklenir ve arka rengi kırmızı da olur , ancak paragraf sayfada 
+                            görünmez. Sonuçta hafızada yeni bir eleman oluşturup onu değiştirdiniz, sayfaya eklenmesi 
+                            için başka kodlar yazmalısınız.
+                        </p>
+                        <p class="well">
+                            <b>Not : </b><code>.add()</code> metodunun tersi işlem yapmak için 
+                            <a href="not.html">not(elemanlar | seçici)</a> metodunu belirttiğiniz elemanları seçilenlerden 
+                            kaldırmak için kullanabilirsiniz. 
+                        </p>
+
+                        <br><br><h3>Örnekler :</h3>
+                        <p>
+                            <b>test.php</b> dosyasına istekte bulunur , ama dönen cevapla ilgilenmez :
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #9cdcfe;">$</span>.<span style="color: #dcdcaa;">get</span>(<span style="color: #ce9178;">"test.php"</span>);</div></div></div></div>
+                        <br><p>
+                            <b>test.php</b> dosyasına bazı parmetrelerle istekte bulunur (hala dönen cevapla 
+                            ilgilenilmiyor) :
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #9cdcfe;">$</span>.<span style="color: #dcdcaa;">get</span>(<span style="color: #ce9178;">"test.php"</span>, { <span style="color: #9cdcfe;">name</span><span style="color: #9cdcfe;">:</span> <span style="color: #ce9178;">"John"</span>, <span style="color: #9cdcfe;">time</span><span style="color: #9cdcfe;">:</span> <span style="color: #ce9178;">"2pm"</span> });</div></div></div></div></div>
+                        <br><p>
+                            Server'a array şeklinde veri gönderir (hala dönen cevapla ilgilenilmiyor) :
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #9cdcfe;">$</span>.<span style="color: #dcdcaa;">get</span>(<span style="color: #ce9178;">"test.php"</span>, {<span style="color: #ce9178;">"choices[]"</span><span style="color: #9cdcfe;">:</span> [<span style="color: #ce9178;">"Jon"</span>, <span style="color: #ce9178;">"Susan"</span>]});</div></div></div></div></div></div>
+                        <br><p>
+                            <b>test.php</b> dosyasına yapılan istekten geri dönen veriyi alarm popup ile kullanıcıya 
+                            bildirir (HTML ya da XML nasıl veri dönerse). 
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #9cdcfe;">$</span>.<span style="color: #dcdcaa;">get</span>(<span style="color: #ce9178;">"test.php"</span>, <span style="color: #569cd6;">function</span>(<span style="color: #9cdcfe;">data</span>) {</div><div>&nbsp; <span style="color: #dcdcaa;">alert</span>(<span style="color: #ce9178;">"Yüklenen veri: "</span> <span style="color: #d4d4d4;">+</span> <span style="color: #9cdcfe;">data</span> );</div><div>});</div></div></div></div></div></div></div></div>
+                        <br><p>
+                            <b>test.cgi</b> dosyasına bazı parametrelerle yapılan isteğin cevabını alarm popup ile 
+                            kullanıcıya bildirir.
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #9cdcfe;">$</span>.<span style="color: #dcdcaa;">get</span>(<span style="color: #ce9178;">"test.cgi"</span>, {<span style="color: #9cdcfe;">name</span><span style="color: #9cdcfe;">:</span> <span style="color: #ce9178;">"John"</span>, <span style="color: #9cdcfe;">time</span><span style="color: #9cdcfe;">:</span> <span style="color: #ce9178;">"2pm"</span>})</div><div>&nbsp; .<span style="color: #dcdcaa;">done</span>(<span style="color: #569cd6;">function</span>(<span style="color: #9cdcfe;">data</span>) {</div><div>&nbsp; &nbsp; <span style="color: #dcdcaa;">alert</span>(<span style="color: #ce9178;">"Yüklenen veri: "</span> <span style="color: #d4d4d4;">+</span> <span style="color: #9cdcfe;">data</span>);</div><div>&nbsp; });</div></div></div></div></div></div></div></div></div></div>
+                        <br><p>
+                            <b>test.php</b> dosyasına yapılan istekten dönen JSON şeklindeki verinin sayfa içeriğinde 
+                            kullanılması ( <code>&lt;?php echo json_encode(array("name"=&gt;"John", "time"=&gt"2pm")); ?&gt;</code> ):
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #9cdcfe;">$</span>.<span style="color: #dcdcaa;">get</span>(<span style="color: #ce9178;">"test.php"</span>, <span style="color: #569cd6;">function</span>(<span style="color: #9cdcfe;">data</span>) {</div><div>&nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"body"</span>)</div><div>&nbsp; &nbsp; .<span style="color: #dcdcaa;">append</span>( <span style="color: #ce9178;">"İsim: "</span> <span style="color: #d4d4d4;">+</span> <span style="color: #9cdcfe;">data</span>.<span style="color: #9cdcfe;">name</span> ) <span style="color: #7ca668;">// John</span></div><div>&nbsp; &nbsp; .<span style="color: #dcdcaa;">append</span>( <span style="color: #ce9178;">"Zaman: "</span> <span style="color: #d4d4d4;">+</span> <span style="color: #9cdcfe;">data</span>.<span style="color: #9cdcfe;">time</span> ); <span style="color: #7ca668;">// &nbsp;2pm</span></div><div>}, <span style="color: #ce9178;">"json"</span> );</div></div></div></div></div></div></div></div></div></div></div>
+
+                    </div>
+                </div>
+                <p>.</p><p>.</p>
+
+            </div>
+            <div class="col-md-2 hidden-xs">
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
