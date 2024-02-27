@@ -4,18 +4,17 @@
         <meta charset="utf-8">
         <title>JQuery Öğrenimi</title>
         <script src="jquery.js"></script>
-        <script>
-            $(function() {
-                $("p").last().addClass(["selected", "highlight"]);
-            });
-        </script>
         <style>
             p {
-                margin: 8px;
+                margin: 4px;
                 font-size: 16px;
+                font-weight: bolder;
             }
-            .selected {
-                color: red;
+            .blue {
+                color: blue;
+            }
+            .under {
+                text-decoration: underline;
             }
             .highlight {
                 background: yellow;
@@ -23,8 +22,15 @@
         </style>
     </head>
     <body>
-        <p>Merhaba</p>
-        <p>ve</p>
-        <p>Hoşçakal</p>
+        <p class="blue under">Merhaba</p>
+        <p class="blue under highlight">ve</p>
+        <p class="blue under">sonra</p>
+        <p class="blue under">Hoşçakal</p>
+        <script>
+$.get( "ajax/test.html", function( data ) {
+  $( ".result" ).html( data );
+  alert( "Yükleme gerçekleşti." );
+});
+        </script>
     </body>
 </html>

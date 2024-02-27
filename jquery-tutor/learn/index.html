@@ -143,6 +143,78 @@
                 <br><p>
                     Şimdi script içinde <a href="../api/addClass.html">addClass()</a> metodunu kullanalım.
                 </p>
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"a"</span>).<span style="color: #dcdcaa;">addClass</span>(<span style="color: #ce9178;">"test"</span>); &nbsp; &nbsp;</div></div></div></div></div>
+                <br><p>
+                    <code>&lt;a&gt;</code> elemanı şimdi koyu yazı olacaktır. 
+                </p>
+                <p>
+                    Mevcut bir sınıfı elemandan silmek için <a href="../api/removeClass.html">removeClass()</a> metodu 
+                    kullanılır.
+                </p>
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"a"</span> ).<span style="color: #dcdcaa;">removeClass</span>( <span style="color: #ce9178;">"test"</span> );</div></div></div></div></div></div></div></div></div></div>
+
+                <br><br><h3>Özel Efektler</h3>
+                <p>
+                    JQuery web sitenizin daha etkileyici olması için birçok animasyo efektleri de sağlar. Örneğin 
+                    tıklanan elemanın yok olma efekti :
+                </p>
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"p"</span>).<span style="color: #dcdcaa;">click</span>(<span style="color: #569cd6;">function</span>(<span style="color: #9cdcfe;">event</span>){</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #9cdcfe;">event</span>.<span style="color: #dcdcaa;">preventDefault</span>();</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #569cd6;">this</span>).<span style="color: #dcdcaa;">hide</span>(<span style="color: #ce9178;">"slow"</span>);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</div></div></div></div></div></div></div></div></div></div></div></div>
+                <br><p>Tıklanan paragraf yavaşça yok olur.</p>
+
+                <br><br><h3>Callback'ler ve Fonksiyonlar</h3>
+                <p>
+                    Diğer birçok programlama dilinin dışında bir özellik olarak JavaScript size fonksiyonları dilediğiniz 
+                    bir zamanda çalıştırmak üzere tanımlama imkanı sunar. Callback adı verilen fonksiyon 
+                    tanımları da, diğer fonksiyonlara parametre olarak verilen ve o diğer fonksiyon içinde belirlenen 
+                    zamanda çalıştırılan fonksiyonlardır. Callback'ler özeldir, çünkü ana fonksiyonlarının işini 
+                    yapmasını beklerler. Bu arada tarayıcı diğer fonksiyonları ve işlerini yapmaya devam edebilir.
+                </p>
+                <p>
+                    Callback kullanmak için, onları ana fonksiyona nasıl parametre olarak geçireceğinizi bilmek 
+                    önemlidir.
+                </p>
+                <br><h4><i>Argümanı Olmayan Callback</i></h4>
+                <p>
+                    Eğer bir Callback argüman almayacaksa , ana fonksiyona şöyle geçirilir :
+                </p>
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #9cdcfe;">$</span>.<span style="color: #dcdcaa;">get</span>(<span style="color: #ce9178;">"myhtmlpage.html"</span>, <span style="color: #9cdcfe;">myCallBack</span>);</div></div></div></div></div></div></div></div></div></div></div></div>
+                <br><p>
+                    Burada <a href="../api/jQuery.get.html">.get()</a> fonksiyonu <code>myhtmlpage.html</code> 
+                    dosyasını yüklemeyi bitirdikten sonra <code>myCallBack()</code> fonksiyonu çalışır.
+                </p>
+                <p class="well">
+                    <b>Not : </b>Burada ikinci parametre basitçe fonksiyonun adıdır. Tırnak içinde string gibi değil 
+                    ve parantezleri olmadan.
+                </p>
+                <br><h4><i>Argümanı Olan Callback</i></h4>
+                <p>
+                    Callback metodları parametrelerle kullanmak biraz daha zorludur. 
+                </p>
+                <p><b>Yanlış</b></p>
+                <p>Bu kod örneği <b>yanlış</b> çalışır.</p>
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #9cdcfe;">$</span>.<span style="color: #dcdcaa;">get</span>(<span style="color: #ce9178;">"myhtmlpage.html"</span>, <span style="color: #dcdcaa;">myCallBack</span>(<span style="color: #9cdcfe;">param1</span>, <span style="color: #9cdcfe;">param2</span>));</div></div></div></div></div></div></div></div></div></div></div>
+                <br><p>
+                    Hatanın sebebi <code>myCallBack(param1, param2)</code> fonksiyonu anında çalışır ve ondan dönen 
+                    değer <code>.get()</code> fonksiyonuna parametre olarak verilir. Halbuki fonksiyonun tanımı 
+                    verilmeliydi. Peki <code>myCallBack()</code> fonksiyonunu parametreleri ile birlikte 
+                    <code>.get()</code> fonksiyonuna nasıl verilecek?
+                </p>
+                <p><b>Doğru</b></p>
+                <p>
+                    <code>myCallBack()</code> fonksiyonunu parametreleri ile birlikte hemen çalışmasını engellemek 
+                    için fonksiyon bir isimsiz fonksiyon tanımı içine konabilir.
+                </p>
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #9cdcfe;">$</span>.<span style="color: #dcdcaa;">get</span>(<span style="color: #ce9178;">"myhtmlpage.html"</span>, <span style="color: #569cd6;">function</span>() {</div><div>&nbsp; &nbsp; <span style="color: #dcdcaa;">myCallBack</span>(<span style="color: #9cdcfe;">param1</span>, <span style="color: #9cdcfe;">param2</span>);</div><div>});</div></div></div></div></div></div></div></div></div></div></div></div></div>
+                <br><p>
+                    Bir daha üzerinden geçersek, <code>function(){...}</code> deyimi bir bir fonksiyon nesnesi üretir
+                    ama <code>myCallBack(param1, param2)</code> deyimi myCallBack fonksiyonunu çalıştırıp ondan geri 
+                    dönen değeri üretir. 
+                </p>
+                <p>
+                    <code>$.get()</code> metodu <code>myhtmlpage.html</code> dosyasına yaptığı isteği tamamlayınca ikinci 
+                    parametresinde verilen isimsiz fonksiyonu çalıştırır, onun içinde de <code>myCallBack(param1, param2)</code>
+                    fonksiyonu çalıştırılır.
+                </p>
                 <p>.</p><p>.</p>
 
             </div>

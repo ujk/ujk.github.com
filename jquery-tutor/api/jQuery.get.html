@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery .get()</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        div .scroll{
+            height:300px;
+            width: 100%;
+            overflow:scroll;
+            scrollbar-color: dark;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: white;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: gray;
+            border-radius: 10px;
+        }
+
+        .cborder {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        .cpadding {
+            padding: 15px;
+        }
+
+        body {
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+    </nav>
+
+    <div class="container" style="padding-top: 70px;">
+        <div class="row">
+            <div class="col-md-2 hidden-xs">
+
+            </div>
+            <div class="col-md-8">
+                <h1>jQuery.get()</h1>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <span>jQuery.get(url [,data] [,success] [,dataType])</span>
+                        <span class="pull-right"><i>Dönen Değer : jqXHR Nesnesi</i></span>
+                    </div>
+                    <div class="panel-body">
+                        <b>Açıklama : </b><i>Server'dan HTTP GET isteği kullanarak veri yükler</i>
+                        <br><br><div class="panel panel-info">
+                            <div class="panel-heading">
+                                <span>jQuery.get(url [,data] [,success] [,dataType])</span>
+                            </div>
+                            <div class="panel-body">
+                                <b>url</b><br>
+                                <span>Tip : String</span><br>
+                                <span> 
+                                    İsteğin gönderileceği web adresinin string şeklinde değeri.
+                                </span>
+                                <hr>
+                                <b>data</b><br>
+                                <span>Tip : Düz nesne veya String</span><br>
+                                <span>
+                                    Server'a istek ile birlikte gönderilen argümanları içeren düz bir JavaScript 
+                                    nesnesi ya da string veri.
+                                </span>
+                                <hr>
+                                <b>success</b><br>
+                                <span>Tip : Function( PlainObject data, String textStatus, jqXHR jqXHR )</span><br>
+                                <span>
+                                    İstek başarılı olursa çalışacak olan <b>callback</b> fonksiyon. Eğer <code>dataType</code>
+                                    verilmişse bunun da mutlaka verilmesi gerekir. Ama <code>null</code> kullanarak 
+                                    geçiştirebilirsiniz.
+                                </span>
+                                <hr>
+                                <b>dataType</b><br>
+                                <span>Tip : String</span><br>
+                                <span>
+                                    Server'dan beklenen verinin tipi. Default değeri yapılan istek adresine bağlı 
+                                    akıllı tahmin (xml, json, script, text, html).
+                                </span>
+                            </div>
+                        </div>
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <span>jQuery.get([settings])</span>
+                            </div>
+                            <div class="panel-body">
+                                <b>settings</b><br>
+                                <span>Tip : Düz Nesne</span><br>
+                                <span> 
+                                    Ajax isteğinin yapılandırmasını belirleyen bir set key/value verilerinden oluşan 
+                                    düz nesne değeri. <code>url</code> dışındaki tüm özellik değerleri opsiyoneldir. 
+
+                                </span>
+                            </div>
+                        </div>
+                        <p>
+                            Bu <code>.ajax()</code> fonksiyonunun kısaltılmış halidir ve aşağıda kod ile eşdeğerdir :
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #9cdcfe;">$</span>.<span style="color: #dcdcaa;">ajax</span>({</div><div>&nbsp; <span style="color: #9cdcfe;">url</span><span style="color: #9cdcfe;">:</span> <span style="color: #9cdcfe;">url</span>,</div><div>&nbsp; <span style="color: #9cdcfe;">data</span><span style="color: #9cdcfe;">:</span> <span style="color: #9cdcfe;">data</span>,</div><div>&nbsp; <span style="color: #9cdcfe;">success</span><span style="color: #9cdcfe;">:</span> <span style="color: #9cdcfe;">success</span>,</div><div>&nbsp; <span style="color: #9cdcfe;">dataType</span><span style="color: #9cdcfe;">:</span> <span style="color: #9cdcfe;">dataType</span></div><div>});</div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                        <br><p>
+                            <code>success</code> callback fonksiyonu geri dönen veriye geçirilir, bu cevabın MIME 
+                            tipine göre bir XML root 
+                            elemanı, text string, JavaScript dosya ya da JSON nesnesi olabilir.
+                        </p>
+                        <p>
+                            Birçok uyarlamada bu callback , isteğin başarıyla gerçekleştiğinde çalışacak bir olay 
+                            işleyici fonksiyon tanımıdır.
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #9cdcfe;">$</span>.<span style="color: #dcdcaa;">get</span>( <span style="color: #ce9178;">"ajax/test.html"</span>, <span style="color: #569cd6;">function</span>( <span style="color: #9cdcfe;">data</span> ) {</div><div>&nbsp; <span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">".result"</span> ).<span style="color: #dcdcaa;">html</span>( <span style="color: #9cdcfe;">data</span> );</div><div>&nbsp; <span style="color: #dcdcaa;">alert</span>( <span style="color: #ce9178;">"Yükleme gerçekleşti."</span> );</div><div>});</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                        <br><p>
+                            Bu örnek bir HTML kodu için istekte bulunur ve onu <code>.result</code> sınıfındaki 
+                            elemanın içeriğine yerleştirir. 
+                        </p>
+                        <br><br><h3>Örnekler :</h3>
+                        <p>
+                            <b>test.php</b> dosyasına istekte bulunur , ama dönen cevapla ilgilenmez :
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #9cdcfe;">$</span>.<span style="color: #dcdcaa;">get</span>(<span style="color: #ce9178;">"test.php"</span>);</div></div></div></div>
+                        <br><p>
+                            <b>test.php</b> dosyasına bazı parmetrelerle istekte bulunur (hala dönen cevapla 
+                            ilgilenilmiyor) :
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #9cdcfe;">$</span>.<span style="color: #dcdcaa;">get</span>(<span style="color: #ce9178;">"test.php"</span>, { <span style="color: #9cdcfe;">name</span><span style="color: #9cdcfe;">:</span> <span style="color: #ce9178;">"John"</span>, <span style="color: #9cdcfe;">time</span><span style="color: #9cdcfe;">:</span> <span style="color: #ce9178;">"2pm"</span> });</div></div></div></div></div>
+                        <br><p>
+                            Server'a array şeklinde veri gönderir (hala dönen cevapla ilgilenilmiyor) :
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #9cdcfe;">$</span>.<span style="color: #dcdcaa;">get</span>(<span style="color: #ce9178;">"test.php"</span>, {<span style="color: #ce9178;">"choices[]"</span><span style="color: #9cdcfe;">:</span> [<span style="color: #ce9178;">"Jon"</span>, <span style="color: #ce9178;">"Susan"</span>]});</div></div></div></div></div></div>
+                        <br><p>
+                            <b>test.php</b> dosyasına yapılan istekten geri dönen veriyi alarm popup ile kullanıcıya 
+                            bildirir (HTML ya da XML nasıl veri dönerse). 
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #9cdcfe;">$</span>.<span style="color: #dcdcaa;">get</span>(<span style="color: #ce9178;">"test.php"</span>, <span style="color: #569cd6;">function</span>(<span style="color: #9cdcfe;">data</span>) {</div><div>&nbsp; <span style="color: #dcdcaa;">alert</span>(<span style="color: #ce9178;">"Yüklenen veri: "</span> <span style="color: #d4d4d4;">+</span> <span style="color: #9cdcfe;">data</span> );</div><div>});</div></div></div></div></div></div></div></div>
+                        <br><p>
+                            <b>test.cgi</b> dosyasına bazı parametrelerle yapılan isteğin cevabını alarm popup ile 
+                            kullanıcıya bildirir.
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #9cdcfe;">$</span>.<span style="color: #dcdcaa;">get</span>(<span style="color: #ce9178;">"test.cgi"</span>, {<span style="color: #9cdcfe;">name</span><span style="color: #9cdcfe;">:</span> <span style="color: #ce9178;">"John"</span>, <span style="color: #9cdcfe;">time</span><span style="color: #9cdcfe;">:</span> <span style="color: #ce9178;">"2pm"</span>})</div><div>&nbsp; .<span style="color: #dcdcaa;">done</span>(<span style="color: #569cd6;">function</span>(<span style="color: #9cdcfe;">data</span>) {</div><div>&nbsp; &nbsp; <span style="color: #dcdcaa;">alert</span>(<span style="color: #ce9178;">"Yüklenen veri: "</span> <span style="color: #d4d4d4;">+</span> <span style="color: #9cdcfe;">data</span>);</div><div>&nbsp; });</div></div></div></div></div></div></div></div></div></div>
+                        <br><p>
+                            <b>test.php</b> dosyasına yapılan istekten dönen JSON şeklindeki verinin sayfa içeriğinde 
+                            kullanılması ( <code>&lt;?php echo json_encode(array("name"=&gt;"John", "time"=&gt"2pm")); ?&gt;</code> ):
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #9cdcfe;">$</span>.<span style="color: #dcdcaa;">get</span>(<span style="color: #ce9178;">"test.php"</span>, <span style="color: #569cd6;">function</span>(<span style="color: #9cdcfe;">data</span>) {</div><div>&nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"body"</span>)</div><div>&nbsp; &nbsp; .<span style="color: #dcdcaa;">append</span>( <span style="color: #ce9178;">"İsim: "</span> <span style="color: #d4d4d4;">+</span> <span style="color: #9cdcfe;">data</span>.<span style="color: #9cdcfe;">name</span> ) <span style="color: #7ca668;">// John</span></div><div>&nbsp; &nbsp; .<span style="color: #dcdcaa;">append</span>( <span style="color: #ce9178;">"Zaman: "</span> <span style="color: #d4d4d4;">+</span> <span style="color: #9cdcfe;">data</span>.<span style="color: #9cdcfe;">time</span> ); <span style="color: #7ca668;">// &nbsp;2pm</span></div><div>}, <span style="color: #ce9178;">"json"</span> );</div></div></div></div></div></div></div></div></div></div></div>
+
+                    </div>
+                </div>
+                <p>.</p><p>.</p>
+
+            </div>
+            <div class="col-md-2 hidden-xs">
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

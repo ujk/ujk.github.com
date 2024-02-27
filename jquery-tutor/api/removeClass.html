@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery .removeClass()</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        div .scroll{
+            height:300px;
+            width: 100%;
+            overflow:scroll;
+            scrollbar-color: dark;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: white;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: gray;
+            border-radius: 10px;
+        }
+
+        .cborder {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        .cpadding {
+            padding: 15px;
+        }
+
+        body {
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+    </nav>
+
+    <div class="container" style="padding-top: 70px;">
+        <div class="row">
+            <div class="col-md-2 hidden-xs">
+
+            </div>
+            <div class="col-md-8">
+                <h1>.removeClass()</h1>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <span>.removeClass(className)</span>
+                        <span class="pull-right"><i>Dönen Değer : JQuery Nesnesi</i></span>
+                    </div>
+                    <div class="panel-body">
+                        <b>Açıklama : </b><i>Seçilen eleman(lar)dan belirtilen bir ya da birçok sınıfı ya da 
+                            tüm sınıfları siler.</i>
+                        <br><br><div class="panel panel-info">
+                            <div class="panel-heading">
+                                <span>.removeClass(className)</span>
+                            </div>
+                            <div class="panel-body">
+                                <b>className</b><br>
+                                <span>Tip : String</span><br>
+                                <span> 
+                                    Seçilen elemanların her birinden bir ya da boşlukla ayrılmış şekilde yazılmış 
+                                    birden fazla sınıf adı silinir.
+                                </span>
+                            </div>
+                        </div>
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <span>.removeClass(classNames)</span>
+                            </div>
+                            <div class="panel-body">
+                                <b>classNames</b><br>
+                                <span>Tip : Array</span><br>
+                                <span> 
+                                    Seçilen elemanların her birinden bir array içinde verilen sınıf adları silinir.
+                                </span>
+                            </div>
+                        </div>
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <span>.removeClass(function)</span>
+                            </div>
+                            <div class="panel-body">
+                                <b>function</b><br>
+                                <span>Tip : Function( Integer index, String currentClassName ) => String</span><br>
+                                <span> 
+                                    Bir ya da boşlukla ayrılmış birden fazla sınıf adı içeren bir String değer dönen 
+                                    fonksiyondur. <code>index</code> değeri fonksiyon içinde seçilmiş elemanın index 
+                                    numarası olarak kullanılabilir, <code>currentClassName</code> ise seçilmiş 
+                                    elemanın o anki class değeri olarak fonksiyon içinde kullanılabilir. Ayrıca tabi 
+                                    ki <code>this</code> fonksiyon içinde o anda işlenmekte olan elemanı ifade eder.
+                                </span>
+                            </div>
+                        </div>
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <span>.removeClass(function)</span>
+                            </div>
+                            <div class="panel-body">
+                                <b>function</b><br>
+                                <span>Tip : Function( Integer index, String currentClassName ) => String | Array</span><br>
+                                <span> 
+                                    Bir ya da boşlukla ayrılmış birden fazla sınıf adı içeren bir String değer ya da 
+                                    class adlarının olduğu bir array dönen 
+                                    fonksiyondur. <code>index</code> değeri fonksiyon içinde seçilmiş elemanın index 
+                                    numarası olarak kullanılabilir, <code>currentClassName</code> ise seçilmiş 
+                                    elemanın o anki class değeri olarak fonksiyon içinde kullanılabilir. Ayrıca tabi 
+                                    ki <code>this</code> fonksiyon içinde o anda işlenmekte olan elemanı ifade eder.
+                                </span>
+                            </div>
+                        </div>
+
+                        <p>
+                            Birden fazla sınıf adı silmek için boşluklarla ayrılmış sınıf adları kullanılabilir.
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;">&nbsp;<span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"p"</span>).<span style="color: #dcdcaa;">removeClass</span>(<span style="color: #ce9178;">"myClass yourClass"</span>); &nbsp; &nbsp;</div></div></div></div></div>
+                        <br><p>
+                            Bu metod sıklıkla <code>addClass()</code> metodu ile birlikte elemanların sınıf 
+                            değerlerini bir değerden diğerine değiştirmek için kullanılır.
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"p"</span>).<span style="color: #dcdcaa;">removeClass</span>(<span style="color: #ce9178;">"myClass noClass"</span>).<span style="color: #dcdcaa;">addClass</span>(<span style="color: #ce9178;">"yourClass"</span>);</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div><div style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"></div></div></div>
+                        <br><p>
+                            Burada <code>myClass</code> ve <code>noClass</code> sınıf isimleri elemandan silinir ve 
+                            <code>yourClass</code> sınıfı elemana eklenir.
+                        </p>
+                        <p>
+                            Fonksiyon kullanan <code>removeClass()</code> metodu kullanımı da şöyle :
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"li"</span>).<span style="color: #dcdcaa;">last</span>().<span style="color: #dcdcaa;">removeClass</span>(<span style="color: #569cd6;">function</span>() {</div><div>&nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span style="color: #dcdcaa;">$</span>(<span style="color: #569cd6;">this</span>).<span style="color: #dcdcaa;">prev</span>().<span style="color: #dcdcaa;">attr</span>( <span style="color: #ce9178;">"class"</span> );</div></div><div style="line-height: 19px;">}); &nbsp; &nbsp;</div></div></div></div></div>
+                        <br><p>
+                            Bu örnek sondaki <code>&lt;li&gt;</code> elemanından , bir önceki <code>&lt;li&gt;</code> 
+                            elemanının sınıf değerini siler.
+                        </p>
+                        <br><br><h3>Örnekler :</h3>
+                        <p>
+                            Seçilen eleman(lar)dan <code>blue</code> sınıfını siler.
+                        </p>
+                        <div class="cpadding scroll" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">meta</span> <span style="color: #9cdcfe;">charset</span>=<span style="color: #ce9178;">"utf-8"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>JQuery Öğrenimi<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"jquery.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">p</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">margin</span>: <span style="color: #b5cea8;">4px</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">font-size</span>: <span style="color: #b5cea8;">16px</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">font-weight</span>: <span style="color: #ce9178;">bolder</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">.blue</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">color</span>: <span style="color: #ce9178;">blue</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">.under</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">text-decoration</span>: <span style="color: #ce9178;">underline</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">.highlight</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">background</span>: <span style="color: #ce9178;">yellow</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"blue under"</span><span style="color: grey;">&gt;</span>Merhaba<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"blue under highlight"</span><span style="color: grey;">&gt;</span>ve<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"blue under"</span><span style="color: grey;">&gt;</span>sonra<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"blue under"</span><span style="color: grey;">&gt;</span>Hoşçakal<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"p"</span>).<span style="color: #dcdcaa;">even</span>().<span style="color: #dcdcaa;">removeClass</span>(<span style="color: #ce9178;">"blue"</span>);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span> &nbsp;</div></div></div></div></div></div>
+                        <style>
+                            #test1 p {
+                                margin: 4px;
+                                font-size: 16px;
+                                font-weight: bolder;
+                            }
+                            #test1 .blue {
+                                color: blue;
+                            }
+                            #test1 .under {
+                                text-decoration: underline;
+                            }
+                            #test1 .highlight {
+                                background: yellow;
+                            }
+                        </style>
+                        <div class="cborder" id="test1">
+                            <p class="blue under">Merhaba</p>
+                            <p class="blue under highlight">ve</p>
+                            <p class="blue under">sonra</p>
+                            <p class="blue under">Hoşçakal</p>
+                        </div>
+                        <script>
+                            $("#test1 p").even().removeClass("blue");
+                        </script>
+                        <br><hr><p>
+                            Seçilen eleman(lar)dan <code>blue</code> ve <code>under</code> sınıflarını siler.
+                        </p>
+                        <div class="cpadding scroll" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">meta</span> <span style="color: #9cdcfe;">charset</span>=<span style="color: #ce9178;">"utf-8"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>JQuery Öğrenimi<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"jquery.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">p</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">margin</span>: <span style="color: #b5cea8;">4px</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">font-size</span>: <span style="color: #b5cea8;">16px</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">font-weight</span>: <span style="color: #ce9178;">bolder</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">.blue</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">color</span>: <span style="color: #ce9178;">blue</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">.under</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">text-decoration</span>: <span style="color: #ce9178;">underline</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">.highlight</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">background</span>: <span style="color: #ce9178;">yellow</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"blue under"</span><span style="color: grey;">&gt;</span>Merhaba<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"blue under highlight"</span><span style="color: grey;">&gt;</span>ve<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"blue under"</span><span style="color: grey;">&gt;</span>sonra<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"blue under"</span><span style="color: grey;">&gt;</span>Hoşçakal<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"p"</span>).<span style="color: #dcdcaa;">odd</span>().<span style="color: #dcdcaa;">removeClass</span>(<span style="color: #ce9178;">"blue under"</span>);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div>
+                        <style>
+                            #test2 p {
+                                margin: 4px;
+                                font-size: 16px;
+                                font-weight: bolder;
+                            }
+                            #test2 .blue {
+                                color: blue;
+                            }
+                            #test2 .under {
+                                text-decoration: underline;
+                            }
+                            #test2 .highlight {
+                                background: yellow;
+                            }
+                        </style>
+                        <div class="cborder" id="test2">
+                            <p class="blue under">Merhaba</p>
+                            <p class="blue under highlight">ve</p>
+                            <p class="blue under">sonra</p>
+                            <p class="blue under">Hoşçakal</p>
+                        </div>
+                        <script>
+                            $("#test2 p").odd().removeClass("blue under");
+                        </script>
+                        <br><hr><p>
+                            Seçilen eleman(lar)dan <code>blue</code> ve <code>under</code> sınıflarını array 
+                            olarak verilen parametre ile siler.
+                        </p>
+                        <div class="cpadding scroll" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">meta</span> <span style="color: #9cdcfe;">charset</span>=<span style="color: #ce9178;">"utf-8"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>JQuery Öğrenimi<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"jquery.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">p</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">margin</span>: <span style="color: #b5cea8;">4px</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">font-size</span>: <span style="color: #b5cea8;">16px</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">font-weight</span>: <span style="color: #ce9178;">bolder</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">.blue</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">color</span>: <span style="color: #ce9178;">blue</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">.under</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">text-decoration</span>: <span style="color: #ce9178;">underline</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">.highlight</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">background</span>: <span style="color: #ce9178;">yellow</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"blue under"</span><span style="color: grey;">&gt;</span>Merhaba<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"blue under highlight"</span><span style="color: grey;">&gt;</span>ve<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"blue under"</span><span style="color: grey;">&gt;</span>sonra<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"blue under"</span><span style="color: grey;">&gt;</span>Hoşçakal<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"p"</span>).<span style="color: #dcdcaa;">odd</span>().<span style="color: #dcdcaa;">removeClass</span>([<span style="color: #ce9178;">"blue"</span>, <span style="color: #ce9178;">"under"</span>]);</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div>
+                        <style>
+                            #test3 p {
+                                margin: 4px;
+                                font-size: 16px;
+                                font-weight: bolder;
+                            }
+                            #test3 .blue {
+                                color: blue;
+                            }
+                            #test3 .under {
+                                text-decoration: underline;
+                            }
+                            #test3 .highlight {
+                                background: yellow;
+                            }
+                        </style>
+                        <div class="cborder" id="test3">
+                            <p class="blue under">Merhaba</p>
+                            <p class="blue under highlight">ve</p>
+                            <p class="blue under">sonra</p>
+                            <p class="blue under">Hoşçakal</p>
+                        </div>
+                        <script>
+                            $("#test3 p").odd().removeClass(["blue", "under"]);
+                        </script>
+                    </div>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <span>.removeClass()</span>
+                        <span class="pull-right"><i>Dönen Değer : JQuery Nesnesi</i></span>
+                    </div>
+                    <div class="panel-body">
+                        <b>Açıklama : </b><i>Seçilen eleman(lar)dan tüm sınıfları siler.</i>
+                        <br><br><div class="panel panel-info">
+                            <div class="panel-heading">
+                                <span>.removeClass()</span>
+                            </div>
+                            <div class="panel-body">
+                                <span> 
+                                    Bu metod hiç bir parametre almaz.
+                                </span>
+                            </div>
+                        </div>
+
+                        <p>
+                            Versiyon 1.12/2.2 öncesinde <code>removeClass()</code> metodu verilen <code>className</code> 
+                            parametresi ile çalışıyordu. Sınıfların hepsi silince bile boş bir <code>class</code> 
+                            özelliği elemanda kalıyordu. Daha sonraki versiyonlarda metodun parametresiz kullanımında 
+                            tüm özelliğin silinmesi sağlandı.
+                        </p>
+
+                        <br><br><h3>Örnek :</h3>
+                        <p>
+                            Seçilen eleman(lar)dan tüm sınıf adlarını siler.
+                        </p>
+                        <div class="cpadding scroll"style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">meta</span> <span style="color: #9cdcfe;">charset</span>=<span style="color: #ce9178;">"utf-8"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>JQuery Öğrenimi<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"jquery.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">p</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">margin</span>: <span style="color: #b5cea8;">4px</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">font-size</span>: <span style="color: #b5cea8;">16px</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">font-weight</span>: <span style="color: #ce9178;">bolder</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">.blue</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">color</span>: <span style="color: #ce9178;">blue</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">.under</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">text-decoration</span>: <span style="color: #ce9178;">underline</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">.highlight</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">background</span>: <span style="color: #ce9178;">yellow</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"blue under"</span><span style="color: grey;">&gt;</span>Merhaba<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"blue under highlight"</span><span style="color: grey;">&gt;</span>ve<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"blue under"</span><span style="color: grey;">&gt;</span>sonra<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"blue under"</span><span style="color: grey;">&gt;</span>Hoşçakal<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>(<span style="color: #ce9178;">"p"</span>).<span style="color: #dcdcaa;">eq</span>(<span style="color: #b5cea8;">1</span>).<span style="color: #dcdcaa;">removeClass</span>();</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div>
+                        <style>
+                            #test4 p {
+                                margin: 4px;
+                                font-size: 16px;
+                                font-weight: bolder;
+                            }
+                            #test4 .blue {
+                                color: blue;
+                            }
+                            #test4 .under {
+                                text-decoration: underline;
+                            }
+                            #test4 .highlight {
+                                background: yellow;
+                            }
+                        </style>
+                        <div class="cborder" id="test4">
+                            <p class="blue under">Merhaba</p>
+                            <p class="blue under highlight">ve</p>
+                            <p class="blue under">sonra</p>
+                            <p class="blue under">Hoşçakal</p>
+                        </div>
+                        <script>
+                            $("#test4 p").eq(1).removeClass();
+                        </script>
+                    </div>
+                </div>                
+                <p>.</p><p>.</p>
+
+            </div>
+            <div class="col-md-2 hidden-xs">
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
