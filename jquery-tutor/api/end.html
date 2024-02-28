@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.end()</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        div .scroll{
+            height:300px;
+            width: 100%;
+            overflow:scroll;
+            scrollbar-color: dark;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: white;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: gray;
+            border-radius: 10px;
+        }
+
+        .cborder {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        .cpadding {
+            padding: 15px;
+        }
+
+        body {
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+    </nav>
+
+    <div class="container" style="padding-top: 70px;">
+        <div class="row">
+            <div class="col-md-2 hidden-xs">
+
+            </div>
+            <div class="col-md-8">
+                <h1>.end()</h1>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <span>.end()</span>
+                        <span class="pull-right"><i>Dönen Değer : jQuery Nesnesi</i></span>
+                    </div>
+                    <div class="panel-body">
+                        <b>Açıklama : </b><i>Son yapılan filtreleme işlemini sonlandırır ve bir önceki sete 
+                            geri döner. </i>
+                        <br><br><div class="panel panel-info">
+                            <div class="panel-heading">
+                                <span>.end()</span>
+                            </div>
+                            <div class="panel-body">
+                                <span> 
+                                    Bu metod herhangi bir parametre almaz.
+                                </span>
+                            </div>
+                        </div>
+
+                        <p>
+                            Birçok jQuery DOM işleme metodu bir jQuery nesnesi oluşumunu alır, elemanları işler ve yeni 
+                            bir nesne elde eder. Zincirleme metodlar kullanılırken her yapılan filtreleme işlemi hafıza 
+                            yığınına filtrelenmiş elemanlardan oluşan yeni bir set atar. Eğer bir önceki sete geri 
+                            dönmek istersek, <code>.end()</code> metodu ile yığındaki bir önceki sete geri dönebiliriz.
+                        </p>
+                        <p>
+                            Farzedelim sayfada bir çift küçük listemiz var. :
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">ul</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"first"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">li</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"foo"</span><span style="color: grey;">&gt;</span>liste elemanı 1<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">li</span><span style="color: grey;">&gt;</span></div><div>&nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">li</span><span style="color: grey;">&gt;</span>liste elemanı 2<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">li</span><span style="color: grey;">&gt;</span></div><div>&nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">li</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"bar"</span><span style="color: grey;">&gt;</span>liste elemanı 3<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">li</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">ul</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">ul</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"second"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">li</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"foo"</span><span style="color: grey;">&gt;</span>liste elemanı 1<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">li</span><span style="color: grey;">&gt;</span></div><div>&nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">li</span><span style="color: grey;">&gt;</span>liste elemanı 2<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">li</span><span style="color: grey;">&gt;</span></div><div>&nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">li</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"bar"</span><span style="color: grey;">&gt;</span>liste elemanı 3<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">li</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">ul</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                        <br><p>
+                            <code>.end()</code> metodu özellikle zincirleme metodlarda çok faydalıdır. Zincir metodlar 
+                            kullanılmayacaksa zaten önceki seti bir değişkene saklayıp sonraki satırda aynı seti 
+                            kullanabilirsiniz. Ama aşağıdaki örnek bizer <code>.end()</code> metodunun etkili 
+                            kullanımını gösteriyor.
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"ul.first"</span> )</div><div>&nbsp; .<span style="color: #dcdcaa;">find</span>( <span style="color: #ce9178;">".foo"</span> )</div><div>&nbsp; &nbsp; .<span style="color: #dcdcaa;">css</span>( <span style="color: #ce9178;">"background-color"</span>, <span style="color: #ce9178;">"red"</span> )</div><div>&nbsp; .<span style="color: #dcdcaa;">end</span>()</div><div>&nbsp; .<span style="color: #dcdcaa;">find</span>( <span style="color: #ce9178;">".bar"</span> )</div><div>&nbsp; &nbsp; .<span style="color: #dcdcaa;">css</span>( <span style="color: #ce9178;">"background-color"</span>, <span style="color: #ce9178;">"green"</span> );</div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                        <br><p>
+                            Bu kod ilk listedeki <code>foo</code> sınıf adına sahip elemanları buluyor ve arka rengini 
+                            kırmızı yapıyor. Sonra <code>.end()</code> metoduyla daha önce yapılan son filtreyi iptal 
+                            edip ilk listenizin tüm elemanlarına geri dönüyor ve <code>bar</code> sınıf değerine sahip 
+                            elemanları bulup onların da rka rengini yeşil yapıyor. Sonuçta ilk listedeki 1. ve 3. 
+                            elemanın arka rengi değişiyor, 2. listede rengi değişen olmaz.
+                        </p>
+
+                        <br><br><h3>Örnekler :</h3>
+                        <p>
+                            Tüm paragrafları seçer, onların içindeki <code>&lt;span&gt;</code> elemanlarını bulur ve işler, 
+                            sonra tekrar paragraflar seçimine geri döner :
+                        </p>
+                        <div class="cpadding scroll" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">meta</span> <span style="color: #9cdcfe;">charset</span>=<span style="color: #ce9178;">"utf-8"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>JQuery Öğrenimi<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"jquery.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">p</span>, <span style="color: #d7ba7d;">div</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">margin</span>: <span style="color: #b5cea8;">1px</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">padding</span>: <span style="color: #b5cea8;">1px</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">font-weight</span>: <span style="color: #ce9178;">bold</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">font-size</span>: <span style="color: #b5cea8;">16px</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">div</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">color</span>: <span style="color: #ce9178;">blue</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">b</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">color</span>: <span style="color: #ce9178;">red</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Merhaba <span style="color: grey;">&lt;</span><span style="color: #569cd6;">span</span><span style="color: grey;">&gt;</span>nasılsın<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">span</span><span style="color: grey;">&gt;</span> neler <span style="color: grey;">&lt;</span><span style="color: #569cd6;">span</span><span style="color: grey;">&gt;</span>yapıyorsun<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">span</span><span style="color: grey;">&gt;</span>?</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; </div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Bu <span style="color: grey;">&lt;</span><span style="color: #569cd6;">span</span><span style="color: grey;">&gt;</span>span<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">span</span><span style="color: grey;">&gt;</span> bu <span style="color: grey;">&lt;</span><span style="color: #569cd6;">span</span><span style="color: grey;">&gt;</span>cümledeki<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">span</span><span style="color: grey;">&gt;</span> </div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; birçok <span style="color: grey;">&lt;</span><span style="color: #569cd6;">span</span><span style="color: grey;">&gt;</span>span'dan<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">span</span><span style="color: grey;">&gt;</span> biri.</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; </div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Başlangıçtaki jQuery objesi içindeki Tag'ler: <span style="color: grey;">&lt;</span><span style="color: #569cd6;">b</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">b</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; </div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; find() sonrası jQuery objesi içindeki Tag'ler: <span style="color: grey;">&lt;</span><span style="color: #569cd6;">b</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">b</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; </div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; end() sonrası jQuery objesi içindeki Tag'ler: <span style="color: grey;">&lt;</span><span style="color: #569cd6;">b</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">b</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><br /><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #9cdcfe;">jQuery</span>.<span style="color: #9cdcfe;">fn</span>.<span style="color: #dcdcaa;">showTags</span> <span style="color: #d4d4d4;">=</span> <span style="color: #569cd6;">function</span>( <span style="color: #9cdcfe;">n</span> ) {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #569cd6;">var</span> <span style="color: #9cdcfe;">tags</span> <span style="color: #d4d4d4;">=</span> <span style="color: #569cd6;">this</span>.<span style="color: #dcdcaa;">map</span>(<span style="color: #569cd6;">function</span>() {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span style="color: #569cd6;">this</span>.<span style="color: #9cdcfe;">tagName</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }).<span style="color: #dcdcaa;">get</span>().<span style="color: #dcdcaa;">join</span>( <span style="color: #ce9178;">", "</span> );</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"b"</span> ).<span style="color: #dcdcaa;">eq</span>( <span style="color: #9cdcfe;">n</span> ).<span style="color: #dcdcaa;">text</span>( <span style="color: #9cdcfe;">tags</span> );</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span style="color: #569cd6;">this</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; };</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"p"</span> )</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .<span style="color: #dcdcaa;">showTags</span>( <span style="color: #b5cea8;">0</span> )</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .<span style="color: #dcdcaa;">find</span>( <span style="color: #ce9178;">"span"</span> )</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .<span style="color: #dcdcaa;">showTags</span>( <span style="color: #b5cea8;">1</span> )</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .<span style="color: #dcdcaa;">css</span>( <span style="color: #ce9178;">"background"</span>, <span style="color: #ce9178;">"yellow"</span> )</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .<span style="color: #dcdcaa;">end</span>()</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .<span style="color: #dcdcaa;">showTags</span>( <span style="color: #b5cea8;">2</span> )</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .<span style="color: #dcdcaa;">css</span>( <span style="color: #ce9178;">"font-style"</span>, <span style="color: #ce9178;">"italic"</span> );</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+
+                        <div class="cborder" id="test1">
+                            <style>
+                                #test1 p, #test1 div {
+                                    margin: 1px;
+                                    padding: 1px;
+                                    font-weight: bold;
+                                    font-size: 16px;
+                                }
+                                #test1 div {
+                                    color: blue;
+                                }
+                                #test1 b {
+                                    color: red;
+                                }
+                            </style>
+                            <p>
+                                Merhaba <span>nasılsın</span> neler <span>yapıyorsun</span>?
+                            </p>
+                            
+                            <p>
+                                Bu <span>span</span> bu <span>cümledeki</span> 
+                                birçok <span>span'dan</span> biri.
+                            </p>
+                            
+                            <div>
+                                Başlangıçtaki jQuery objesi içindeki Tag'ler: <b></b>
+                            </div>
+                            
+                            <div>
+                                find() sonrası jQuery objesi içindeki Tag'ler: <b></b>
+                            </div>
+                            
+                            <div>
+                                end() sonrası jQuery objesi içindeki Tag'ler: <b></b>
+                            </div>                            
+                            <script>
+                                jQuery.fn.showTags = function( n ) {
+                                    var tags = this.map(function() {
+                                            return this.tagName;
+                                        }).get().join( ", " );
+                                    $( "#test1 b" ).eq( n ).text( tags );
+                                    return this;
+                                };
+                                
+                                $( "#test1 p" )
+                                    .showTags( 0 )
+                                    .find( "span" )
+                                        .showTags( 1 )
+                                        .css( "background", "yellow" )
+                                    .end()
+                                    .showTags( 2 )
+                                    .css( "font-style", "italic" );
+                            </script>                            
+                        </div>
+
+                        <br><p>
+                            Tüm paragrafları seçer, onların içindeki span elemanları bulur ve sonra seçimi tekrar 
+                            paragraflara geri döndürür.
+                        </p>
+                        <div class="cpadding scroll" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">meta</span> <span style="color: #9cdcfe;">charset</span>=<span style="color: #ce9178;">"utf-8"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>JQuery Öğrenimi<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"jquery.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">p</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">margin</span>: <span style="color: #b5cea8;">10px</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">padding</span>: <span style="color: #b5cea8;">10px</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;&lt;</span><span style="color: #569cd6;">span</span><span style="color: grey;">&gt;</span>Merhaba<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">span</span><span style="color: grey;">&gt;</span>, nasılsın?<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><br /><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"p"</span> )</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .<span style="color: #dcdcaa;">find</span>( <span style="color: #ce9178;">"span"</span> )</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .<span style="color: #dcdcaa;">end</span>()</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .<span style="color: #dcdcaa;">css</span>( <span style="color: #ce9178;">"border"</span>, <span style="color: #ce9178;">"2px red solid"</span> );</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                        <div class="cborder" id="test2">
+                            <style>
+                                #test2 p {
+                                    margin: 10px;
+                                    padding: 10px;
+                                }
+                            </style>
+                            <p><span>Merhaba</span>, nasılsın?</p>                            
+                        </div>
+                        <script>
+                            $( "#test2 p" )
+                                .find( "span" )
+                                .end()
+                                .css( "border", "2px red solid" );
+                        </script>                        
+
+                    </div>
+                </div>
+                <p>.</p><p>.</p>
+
+            </div>
+            <div class="col-md-2 hidden-xs">
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -5,39 +5,20 @@
         <title>JQuery Öğrenimi</title>
         <script src="jquery.js"></script>
         <style>
-            div {
-                width: 50px;
-                height: 50px;
+            p {
                 margin: 10px;
-                float: left;
-                background: yellow;
-                border: 2px solid white;
-            }
-            .green {
-                background: #8f8;
-            }
-            .gray {
-                background: #ccc;
-            }
-            #blueone {
-                background: #99f;
+                padding: 10px;
             }
         </style>
     </head>
     <body>
-        <div></div>
-        <div id="blueone"></div>
-        <div></div>
-        <div class="green"></div>
-        <div class="green"></div>
-        <div class="gray"></div>
-        <div></div>
-        <p>p1</p>
-        <p id="selected">p2</p>
-        <p id="selected">p3</p>
+        <p><span>Merhaba</span>, nasılsın?</p>
+
         <script>
-            $( "div" ).not( ".green, #blueone" )
-                .css( "border-color", "red" );
+            $( "p" )
+                .find( "span" )
+                .end()
+                .css( "border", "2px red solid" );
         </script>
     </body>
 </html>
