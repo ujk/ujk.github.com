@@ -4,21 +4,15 @@
         <meta charset="utf-8">
         <title>JQuery Öğrenimi</title>
         <script src="jquery.js"></script>
-        <style>
-            p {
-                margin: 10px;
-                padding: 10px;
-            }
-        </style>
     </head>
     <body>
-        <p><span>Merhaba</span>, nasılsın?</p>
-
+        <p>Merhaba</p>
+        <span id="a">Yine merhaba</span>
         <script>
-            $( "p" )
-                .find( "span" )
-                .end()
-                .css( "border", "2px red solid" );
+            var kolleksiyon = $( "p" );
+            // yeni kolleksiyon oluştur
+            kolleksiyon = kolleksiyon.add( document.getElementById( "a" ) );
+            kolleksiyon.css( "background", "yellow" );
         </script>
     </body>
 </html>
