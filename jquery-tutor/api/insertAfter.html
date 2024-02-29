@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.insertAfter()</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        div .scroll{
+            height:300px;
+            width: 100%;
+            overflow:scroll;
+            scrollbar-color: dark;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: white;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: gray;
+            border-radius: 10px;
+        }
+
+        .cborder {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        .cpadding {
+            padding: 15px;
+        }
+
+        body {
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+    </nav>
+
+    <div class="container" style="padding-top: 70px;">
+        <div class="row">
+            <div class="col-md-2 hidden-xs">
+
+            </div>
+            <div class="col-md-8">
+                <h1>.insertAfter()</h1>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <span>.insertAfter(hedef)</span>
+                        <span class="pull-right"><i>Dönen Değer : jQuery Nesnesi</i></span>
+                    </div>
+                    <div class="panel-body">
+                        <b>Açıklama : </b><i>Setteki her elemanı verilen hedef sonrasına ekler. </i>
+                        <br><br><div class="panel panel-info">
+                            <div class="panel-heading">
+                                <span>.insertAfter(hedef)</span>
+                            </div>
+                            <div class="panel-body">
+                                <b>hedef</b><br>
+                                <span>Tip : Seçici değer veya html string veya eleman veya array veya jQuery nesnesi.</span><br>
+                                <span> 
+                                    Bulunulan set bu parametrede verilen hedef eleman(lar)a eklenir. 
+                                </span>
+                            </div>
+                        </div>
+
+                        <p>
+                            <a href="after.html">.after()</a> ve <code>.insertAfter()</code> metodu aynı görevi 
+                            yapar. Ana fark deyimin kullanılış şeklindedir. <code>.after()</code> kullanırken 
+                            seçili olan elemanlara parametrede verilen içerik eklenirken , <code>insertAfter()</code>
+                            metodunda seçili olan elemanlar parametrede verilen elemana eklenir. 
+                        </p>
+
+                        <p>
+                            Aşağıdaki HTML koda bakalım :
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"container"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">h2</span><span style="color: grey;">&gt;</span>Selamlaşma<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">h2</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"inner"</span><span style="color: grey;">&gt;</span>Merhaba<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"inner"</span><span style="color: grey;">&gt;</span>Hoşçakal<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div>
+                        <br><p>
+                            Bir içerik üretip onu bir seçimin tüm elemanlarına bir defada ekleyebiliriz:
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"&lt;p&gt;Test&lt;/p&gt;"</span> ).<span style="color: #dcdcaa;">insertAfter</span>( <span style="color: #ce9178;">".inner"</span> );</div></div></div></div></div></div></div>
+                        <br><p>
+                            Her <code>.inner</code> sınıfa sahip <code>&lt;div></code> elemanından sonra ürettiğimiz 
+                            <code>"&lt;p>Test&lt;/p>"</code> içeriği eklenir.  Sonuç HTML şöyle olacaktır:
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"container"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">h2</span><span style="color: grey;">&gt;</span>Selamlaşma<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">h2</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"inner"</span><span style="color: grey;">&gt;</span>Merhaba<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Test<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"inner"</span><span style="color: grey;">&gt;</span>Hoşçakal<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Test<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div>
+                        <br><p>
+                            Ayrıca sayfada bir elemanı seçip başka bir elemanın arkasına ekleyebiliriz. Yukarıdaki script'i şöyle 
+                            değiştirelim :
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"h2"</span> ).<span style="color: #dcdcaa;">insertAfter</span>( <span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">".container"</span> ) );</div></div></div></div></div></div></div></div></div>
+                        <br><p>
+                            Eğer arkasına eklemek için bir tek eleman varsa <code>&lt;h2></code> elemanı onun arkasına 
+                            taşınır (klonlanmaz). Yukardaki kod sonrası oluşan HTML kod şöyle olur:
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"container"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"inner"</span><span style="color: grey;">&gt;</span>Merhaba<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"inner"</span><span style="color: grey;">&gt;</span>Hoşçakal<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">h2</span><span style="color: grey;">&gt;</span>Selamlaşma<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">h2</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div>
+                        <br><p>
+                            Ama arkasına eklenecek birden fazla eleman varsa ilk eklenen yine seçilen elemanın taşınması 
+                            ile eklenir ve diğer eklenenler elemanın klonlanması ile yeni elemanlar oluşturularak eklenir.
+                            Yani script şöyle olsa :
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"h2"</span> ).<span style="color: #dcdcaa;">insertAfter</span>( <span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">".inner"</span> ) );</div></div></div></div></div></div></div></div></div></div></div>
+                        <br><p>
+                            Sonuçta oluşan HTML kod şöyle olur :
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"container"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"inner"</span><span style="color: grey;">&gt;</span>Merhaba<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">h2</span><span style="color: grey;">&gt;</span>Selamlaşma<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">h2</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"inner"</span><span style="color: grey;">&gt;</span>Hoşçakal<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">h2</span><span style="color: grey;">&gt;</span>Selamlaşma<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">h2</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div>
+
+                        <br><br><h3>İlave Notlar:</h3>
+                        <ul>
+                            <li>
+                                HTML string'den JQuery nesnesi üreten <code>jQuery()</code>, <code>.append()</code>, 
+                                <code>.after()</code> gibi metodları kullanırken verilen string içinde yazılmış 
+                                script'lerin çalıştırılma potansiyeli olduğundan cross-site-scripting (XSS) saldırılarından 
+                                korunmak için, bu ve benzeri metodlarda URL sorgu parametresi, cookie'ler ya da form 
+                                ile gönderilen verilerle üretilen stringleri kullanırken dikkat etmelisiniz. İçeriği 
+                                dökümana eklemeden önce olası bu kodları string'den ayıklamanız gerekir.
+                            </li>
+                            <li>
+                                JQuery resmi olarak SVG dökümanları desteklemez. Dökümantasyonda özellikle kullanımı 
+                                belirtilmiyorsa jQuery metodlarını SVG dökümanlarda kullanmak beklenmeyen sonuçlara 
+                                sebep olabilir. Versiyon 3.0'dan itibaren örneğin <code>.addClass()</code> ve 
+                                <code>.removeClass()</code> metodları SVG desteklemeye başlamıştır.
+                            </li>
+                        </ul>
+
+                        <br><br><h3>Örnekler :</h3>
+                        <p>
+                            Tüm paragrafları , <b>id</b> değeri <code>foo</code> olan elemanın arkasına ekle. Bu 
+                            kod <br><code>$( "#foo" ).after( "p" )</code> ile aynı işi yapar : 
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">meta</span> <span style="color: #9cdcfe;">charset</span>=<span style="color: #ce9178;">"utf-8"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>JQuery Öğrenimi<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"jquery.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">#foo</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">background</span>: <span style="color: #ce9178;">yellow</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span> &nbsp; &nbsp; &nbsp; &nbsp;</div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span> dedim sana... <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">id</span>=<span style="color: #ce9178;">"foo"</span><span style="color: grey;">&gt;</span>FOO!<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"p"</span> ).<span style="color: #dcdcaa;">insertAfter</span>( <span style="color: #ce9178;">"#foo"</span> );</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                        <br><p><b>Demo:</b></p>
+                        <div class="cborder" id="test1">
+                            <style>
+                                #test1 #foo {
+                                    background: yellow;
+                                }
+                            </style>    
+                            <p> dedim sana... </p>
+                            <div id="foo">FOO!</div>
+                            <script>
+                                $( "#test1 p" ).insertAfter( "#test1 #foo" );
+                            </script>
+                        </div>
+
+                    </div>
+                </div>
+                <p>.</p><p>.</p>
+
+            </div>
+            <div class="col-md-2 hidden-xs">
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

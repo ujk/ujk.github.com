@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.after()</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        div .scroll{
+            height:300px;
+            width: 100%;
+            overflow:scroll;
+            scrollbar-color: dark;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: white;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: gray;
+            border-radius: 10px;
+        }
+
+        .cborder {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        .cpadding {
+            padding: 15px;
+        }
+
+        body {
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+    </nav>
+
+    <div class="container" style="padding-top: 70px;">
+        <div class="row">
+            <div class="col-md-2 hidden-xs">
+
+            </div>
+            <div class="col-md-8">
+                <h1>.after()</h1>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <span>.after(içerik [,içerik])</span>
+                        <span class="pull-right"><i>Dönen Değer : jQuery Nesnesi</i></span>
+                    </div>
+                    <div class="panel-body">
+                        <b>Açıklama : </b><i>Parametrede verilen içeriği seçilen eleman(lar)ın her birine 
+                            ekler. </i>
+                        <br><br><div class="panel panel-info">
+                            <div class="panel-heading">
+                                <span>.after(içerik [,içerik])</span>
+                            </div>
+                            <div class="panel-body">
+                                <b>içerik</b><br>
+                                <span>Tip : html string veya eleman veya yazı veya array veya jQuery nesnesi.</span><br>
+                                <span> 
+                                    String olarak HTML kodu, DOM elemanı, bir yazı, yazılardan ya da elemanlardan bir 
+                                    array ya da jQuery nesnesi seçilen elemanların her birine eklenir.
+                                </span>
+                                <hr>
+                                <b>içerik</b><br>
+                                <span>Tip : html string veya eleman veya yazı veya array veya jQuery nesnesi.</span><br>
+                                <span> 
+                                    Üstteki ile aynı şekilde eklenecek olan bir ya da birden fazla içerik virgül ile 
+                                    ayrılmış parametreler olarak verilebilir.
+                                </span>
+                            </div>
+                        </div>
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <span>.after(fonksiyon)</span>
+                            </div>
+                            <div class="panel-body">
+                                <b>fonksiyon</b><br>
+                                <span>Tip : Function( Integer index )</span><br><span> => htmlString veya Eleman vaya Yazı veya 
+                                    jQuery nesnesi</span><br><br>
+                                <span> 
+                                    String olarak HTML kodu, DOM elemanı, bir yazı, yazılardan ya da elemanlardan bir 
+                                    array ya da jQuery nesnesi dönecek bir fonksiyon. Bu fonksiyon seçilen elemanların 
+                                    her birine uygulanır ve dönen değer o elemana eklenir. 
+                                    <code>index</code> değeri o sıradaki elemanın set içindeki 
+                                    index'idir. Fonksiyon içinde <code>this</code> kelimesi, o andaki elemanı verir.
+                                </span>
+                            </div>
+                        </div>
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <span>.after(fonksiyon-html)</span>
+                            </div>
+                            <div class="panel-body">
+                                <b>fonksiyon-html</b><br>
+                                <span>Tip : Function( Integer index, String html )</span><br>
+                                <span> => htmlString veya Eleman vaya Yazı veya jQuery nesnesi</span><br><br>
+                                <span> 
+                                    String olarak HTML kodu, DOM elemanı, bir yazı, yazılardan ya da elemanlardan bir 
+                                    array ya da jQuery nesnesi dönecek bir fonksiyon. Bu fonksiyon seçilen elemanların 
+                                    her birine uygulanır ve dönen değer o elemana eklenir. 
+                                    <code>index</code> değeri o sıradaki elemanın set içindeki index'idir ve
+                                    <code>html</code> değeri o sıradaki elemanın html değrinin string halidir. 
+                                    Fonksiyon içinde <code>this</code> kelimesi, o andaki elemanı verir.
+                                </span>
+                            </div>
+                        </div>
+
+                        <p>
+                            <code>.after()</code> ve <a href="insertAfter.html">insertAfter()</a> metodu aynı görevi 
+                            yapar.
+                        </p>
+
+                        <p>
+                            Farzedelim sayfada bir küçük listemiz var. :
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">ul</span><span style="color: grey;">&gt;</span></div><div>&nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">li</span><span style="color: grey;">&gt;</span>liste elemanı 1<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">li</span><span style="color: grey;">&gt;</span></div><div>&nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">li</span><span style="color: grey;">&gt;</span>liste elemanı 2<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">li</span><span style="color: grey;">&gt;</span></div><div>&nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">li</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"third-item"</span><span style="color: grey;">&gt;</span>liste elemanı 3<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">li</span><span style="color: grey;">&gt;</span></div><div>&nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">li</span><span style="color: grey;">&gt;</span>liste elemanı 4<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">li</span><span style="color: grey;">&gt;</span></div><div>&nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">li</span><span style="color: grey;">&gt;</span>liste elemanı 5<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">li</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">ul</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                        <br><p>
+                            Aşağıdaki kodun sonucu listedeki 3, 4 ve 5'inci elemanların arka rengi kırmızı olur.
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"li.third-item"</span> ).<span style="color: #dcdcaa;">nextAll</span>().<span style="color: #dcdcaa;">addBack</span>()</div><div>&nbsp; .<span style="color: #dcdcaa;">css</span>( <span style="color: #ce9178;">"background-color"</span>, <span style="color: #ce9178;">"red"</span> );</div></div></div></div></div>
+                        <br><p>
+                            İlk seçim 3. liste elemanını seçer ve yığına sadece bu elemanı atar. <code>nextAll()</code> 
+                            metodu ise ondan itibaren geri kalan elemanları bulur, yani 4. ve 5. liste elemanlarını bulur 
+                            ve yığına yeni bir nesne olarak atar. Son olarak <code>addBack()</code> metodu bu 4. ve 5. 
+                            elemanlardan oluşan seti , yığında bir önceki set olan 3. liste elemanına ekler. Böylece 
+                            listedeki 3, 4 ve 5'inci elemanlar seçilmiş olur. Sıralama dökümandaki sırayla olacaktır, 
+                            yani <br><code>{[&lt;li.third-item>,&lt;li&gt;,&lt;li&gt; ]}</code>.
+                        </p>
+
+                        <br><br><h3>Örnekler :</h3>
+                        <p>
+                            <code>.addBack()</code> metodu yığındaki bir önceki eleman setine şu anda bulunulan eleman setini 
+                            ekler. <code>//İlk Örnek</code> altındaki satır soldaki <code>&lt;div></code> elemanı içindeki 
+                            <code>&lt;p></code> elemanlarını bulur ve arka renklerini değiştirir. <code>//İkinci Örnek</code>
+                            altındaki satır ise sağdaki <code>&lt;div></code> içindeki <code>&lt;p></code> elemanları bulur, 
+                            sonra buna <code>&lt;div></code> elemanın kendisini de <code>addBack()</code> metodu ile ekleyerek
+                            tamamının arka rengini değiştirir. : 
+                        </p>
+                        <div class="cpadding scroll" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">meta</span> <span style="color: #9cdcfe;">charset</span>=<span style="color: #ce9178;">"utf-8"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>JQuery Öğrenimi<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"jquery.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">p</span>, <span style="color: #d7ba7d;">div</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">margin</span>: <span style="color: #b5cea8;">5px</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">padding</span>: <span style="color: #b5cea8;">5px</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">.border</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">border</span>: <span style="color: #b5cea8;">2px</span> <span style="color: #ce9178;">solid</span> <span style="color: #ce9178;">red</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">.background</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">background</span>: <span style="color: #ce9178;">yellow</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">.left</span>, <span style="color: #d7ba7d;">.right</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">width</span>: <span style="color: #b5cea8;">45%</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">float</span>: <span style="color: #ce9178;">left</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">.right</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">margin-left</span>: <span style="color: #b5cea8;">3%</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span> &nbsp; &nbsp; &nbsp; &nbsp;</div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"left"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;&lt;</span><span style="color: #569cd6;">strong</span><span style="color: grey;">&gt;&lt;</span><span style="color: #569cd6;">code</span><span style="color: grey;">&gt;</span>addBack()<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">code</span><span style="color: grey;">&gt;</span> öncesi<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">strong</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"before-addback"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>İlk Paragraf<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>İkinci Paragraf<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"right"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;&lt;</span><span style="color: #569cd6;">strong</span><span style="color: grey;">&gt;&lt;</span><span style="color: #569cd6;">code</span><span style="color: grey;">&gt;</span>addBack()<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">code</span><span style="color: grey;">&gt;</span> sonrası<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">strong</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"after-addback"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>İlk Paragraf<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>İkinci Paragraf<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"div.left, div.right"</span> ).<span style="color: #dcdcaa;">find</span>( <span style="color: #ce9178;">"div, div &gt; p"</span> )</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .<span style="color: #dcdcaa;">addClass</span>( <span style="color: #ce9178;">"border"</span> );</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #7ca668;">// İlk Örnek</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"div.before-addback"</span> ).<span style="color: #dcdcaa;">find</span>( <span style="color: #ce9178;">"p"</span> )</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .<span style="color: #dcdcaa;">addClass</span>( <span style="color: #ce9178;">"background"</span> );</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #7ca668;">// İkinci Örnek</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"div.after-addback"</span> ).<span style="color: #dcdcaa;">find</span>( <span style="color: #ce9178;">"p"</span> ).<span style="color: #dcdcaa;">addBack</span>()</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .<span style="color: #dcdcaa;">addClass</span>( <span style="color: #ce9178;">"background"</span> );</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div>
+                        <style>
+                        #test1 p, #test1 div {
+                            margin: 5px;
+                            padding: 5px;
+                        }
+                        #test1 .border {
+                            border: 2px solid red;
+                        }
+                        #test1 .background {
+                            background: yellow;
+                        }
+                        #test1 .left, #test1 .right {
+                            width: 45%;
+                            float: left;
+                        }
+                        #test1 .right {
+                            margin-left: 3%;
+                        }
+                        </style>  
+                        <div class="cborder" id="test1" style="height: 250px;">
+                            <div class="left">
+                                <p><strong><code>addBack()</code> öncesi</strong></p>
+                                <div class="before-addback">
+                                    <p>İlk Paragraf</p>
+                                    <p>İkinci Paragraf</p>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <p><strong><code>addBack()</code> sonrası</strong></p>
+                                <div class="after-addback">
+                                    <p>İlk Paragraf</p>
+                                    <p>İkinci Paragraf</p>
+                                </div>
+                            </div>
+                        </div>
+                        <script>
+                            $( "#test1 div.left, #test1 div.right" ).find( "div, div > p" )
+                                .addClass( "border" );
+                            // İlk Örnek
+                            $( "#test1 div.before-addback" ).find( "p" )
+                                .addClass( "background" );
+                            // İkinci Örnek
+                            $( "#test1 div.after-addback" ).find( "p" ).addBack()
+                                .addClass( "background" );
+                        </script>
+
+                    </div>
+                </div>
+                <p>.</p><p>.</p>
+
+            </div>
+            <div class="col-md-2 hidden-xs">
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
