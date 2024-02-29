@@ -4,15 +4,50 @@
         <meta charset="utf-8">
         <title>JQuery Öğrenimi</title>
         <script src="jquery.js"></script>
+        <style>
+        p, div {
+            margin: 5px;
+            padding: 5px;
+        }
+        .border {
+            border: 2px solid red;
+        }
+        .background {
+            background: yellow;
+        }
+        .left, .right {
+            width: 45%;
+            float: left;
+        }
+        .right {
+            margin-left: 3%;
+        }
+        </style>        
     </head>
     <body>
-        <p>Merhaba</p>
-        <span id="a">Yine merhaba</span>
+        <div class="left">
+            <p><strong><code>addBack()</code> öncesi</strong></p>
+            <div class="before-addback">
+                <p>İlk Paragraf</p>
+                <p>İkinci Paragraf</p>
+            </div>
+        </div>
+        <div class="right">
+            <p><strong><code>addBack()</code> sonrası</strong></p>
+            <div class="after-addback">
+                <p>İlk Paragraf</p>
+                <p>İkinci Paragraf</p>
+            </div>
+        </div>
         <script>
-            var kolleksiyon = $( "p" );
-            // yeni kolleksiyon oluştur
-            kolleksiyon = kolleksiyon.add( document.getElementById( "a" ) );
-            kolleksiyon.css( "background", "yellow" );
+            $( "div.left, div.right" ).find( "div, div > p" )
+                .addClass( "border" );
+            // İlk Örnek
+            $( "div.before-addback" ).find( "p" )
+                .addClass( "background" );
+            // İkinci Örnek
+            $( "div.after-addback" ).find( "p" ).addBack()
+                .addClass( "background" );
         </script>
     </body>
 </html>
