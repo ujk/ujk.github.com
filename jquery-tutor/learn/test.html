@@ -5,16 +5,16 @@
         <title>JQuery Öğrenimi</title>
         <script src="jquery.js"></script>
         <style>
-            #foo {
+            p {
                 background: yellow;
             }
         </style>        
     </head>
     <body>
-        <p> dedim sana... </p>
-        <div id="foo">FOO!</div>
+        <b>Hello</b>
+        <p>Şunu demek isterim ki: </p>
         <script>
-            $( "p" ).insertAfter( "#foo" );
+            $( "p" ).after( $( "b" ) );
         </script>
     </body>
 </html>
