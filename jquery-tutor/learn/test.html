@@ -11,10 +11,19 @@
         </style>        
     </head>
     <body>
-        <b>Hello</b>
-        <p>Şunu demek isterim ki: </p>
+<div class="trigger">Tetikleyici</div>
+<div class="result"></div>
+<div class="log"></div>
         <script>
-            $( "p" ).after( $( "b" ) );
+$( ".trigger" ).on( "click", function() {
+  $( ".result" ).load( "ajax/test.html" );
+} );
+$( document ).on( "ajaxComplete", function( event, xhr, settings ) {
+  if ( settings.url === "ajax/test.html" ) {
+    $( ".log" ).text( "Kısıtlanmış olay işleyici tetiklendi. Sonuç : " +
+      xhr.responseText );
+  }
+} );
         </script>
     </body>
 </html>

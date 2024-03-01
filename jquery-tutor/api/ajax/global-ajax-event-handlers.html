@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.ajaxComplete()</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        div .scroll{
+            height:300px;
+            width: 100%;
+            overflow:scroll;
+            scrollbar-color: dark;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: white;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: gray;
+            border-radius: 10px;
+        }
+
+        .cborder {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        .cpadding {
+            padding: 15px;
+        }
+
+        body {
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+    </nav>
+
+    <div class="container" style="padding-top: 70px;">
+        <div class="row">
+            <div class="col-md-2 hidden-xs">
+
+            </div>
+            <div class="col-md-8">
+                <h1>.ajaxComplete()</h1>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <span>.on( "ajaxComplete", handler )</span>
+                        <span class="pull-right"><i>Dönen Değer : jQuery Nesnesi</i></span>
+                    </div>
+                    <div class="panel-body">
+                        <b>Açıklama : </b><i>Bir AJAX isteği tamamlandığında çalışacak bir fonksiyon iliştirilen olay. Bu bir 
+                        AjaxRequest olayıdır. </i>
+                        <br><br><div class="panel panel-info">
+                            <div class="panel-heading">
+                                <span>.on( "ajaxComplete", handler )</span>
+                            </div>
+                            <div class="panel-body">
+                                <b>"ajaxComplete"</b><br>
+                                <span>Tip : String </span><br>
+                                <span> 
+                                    Sabit değer olarak <code>"ajaxComplete"</code> stringi.
+                                </span>
+                                <hr>
+                                <b>handler</b><br>
+                                <span>Tip : Function( Event event, jqXHR jqXHR, PlainObject ajaxOptions )</span><br>
+                                <span> 
+                                    Çalıştırılacak olan fonksiyon.
+                                </span>
+                            </div>
+                        </div>
+
+                        <p class="well">
+                            <b>Not : </b>bu sayfa <code>ajaxComplete</code> olayını anlatır, eski <code>.ajaxComplete()</code>
+                            metodu kullanımı bırakılmıştır.
+                        </p>
+                        <p>
+                            Bir Ajax isteği tamamlandığında jQuery <code>ajaxComplete</code> olayını tetikler. Bu olaya 
+                            bağlanan bir ya da birden çok olay işleme fonksiyonu bu anda çalışır.
+                        </p>
+                        <p>
+                            Bu metodun çalışmasını görmek için basit bir Ajax isteği ayarlayalım.
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"trigger"</span><span style="color: grey;">&gt;</span>Tetikleyici<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"result"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"log"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div></div></div></div></div>
+                        <br><p>
+                            Bir olay işleyiciyi dökümanın script kısmına ekleyelim.
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #dcdcaa;">$</span>( <span style="color: #9cdcfe;">document</span> ).<span style="color: #dcdcaa;">on</span>( <span style="color: #ce9178;">"ajaxComplete"</span>, <span style="color: #569cd6;">function</span>() {</div><div>&nbsp; <span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">".log"</span> ).<span style="color: #dcdcaa;">text</span>( <span style="color: #ce9178;">"Tetiklenen ajaxComplete olayı işleyici."</span> );</div><div>} );</div></div></div></div></div></div>
+                        <br><p>
+                            Şimdi herhangi bir jQuery metodu kullanarak bir Ajax isteği yapalım.
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">".trigger"</span> ).<span style="color: #dcdcaa;">on</span>( <span style="color: #ce9178;">"click"</span>, <span style="color: #569cd6;">function</span>() {</div><div>&nbsp; <span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">".result"</span> ).<span style="color: #dcdcaa;">load</span>( <span style="color: #ce9178;">"ajax/test.html"</span> );</div><div>} );</div></div></div></div></div></div></div>
+                        <br><p>
+                            Sayfamızla aynı klasörde <b>ajax</b> adında bir alt klasör ve içinde de <b>test.html</b> 
+                            dosyası olup , şu kodu içersin:
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>test.html içeriği<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div>
+                        <br><p>
+                            Kullanıcı <code>.trigger</code> sınıfa sahip elemana tıklayınca ve Ajax isteği tamamlanınca 
+                            server'dan okunan içerik <code>.result</code> sınıfı eleman içine yazılırken, olayın 
+                            gerçekleştiğine dair mesaj da <code>.log</code> sınıfı eleman içine yazılır. Eğer Ajax 
+                            isteği tamamlanamazsa sadece <b>log</b> içinde olay gerçekleştiği yazar ama <b>result</b> 
+                            kısmı gelemez.
+                        </p>
+                        <p>
+                            Yapılan Ajax isteğinin türünden bağımsız olarak tüm Ajax istekleri tamamlandığında 
+                            <code>ajaxComplete</code> olay işleyicisi çalışır. Eğer birden fazla istek var ve 
+                            hangisinin yapılmış olduğunu ayırt etmek isterseniz, fonksiyona verilen parametreleri 
+                            kullanırsınız. <code>ajaxComplete</code> olay işleyicisine parametrede olarak olay 
+                            nesnesi, <code>XMLHttpRequest </code>nesnesi ve ayarları veren bir nesne verilirse 
+                            fonksiyon içinde kullanılabilir. Örneğin bir olay işleme fonksiyonunu sadece yapılan 
+                            istek URL adresinde kısıtlayabilirsiniz. 
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #dcdcaa;">$</span>( <span style="color: #9cdcfe;">document</span> ).<span style="color: #dcdcaa;">on</span>( <span style="color: #ce9178;">"ajaxComplete"</span>, <span style="color: #569cd6;">function</span>( <span style="color: #9cdcfe;">event</span>, <span style="color: #9cdcfe;">xhr</span>, <span style="color: #9cdcfe;">settings</span> ) {</div><div>&nbsp; <span style="color: #c586c0;">if</span> ( <span style="color: #9cdcfe;">settings</span>.<span style="color: #9cdcfe;">url</span> <span style="color: #d4d4d4;">===</span> <span style="color: #ce9178;">"ajax/test.html"</span> ) {</div><div>&nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">".log"</span> ).<span style="color: #dcdcaa;">text</span>( <span style="color: #ce9178;">"Kısıtlanmış olay işleyici tetiklendi. Sonuç : "</span> <span style="color: #d4d4d4;">+</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #9cdcfe;">xhr</span>.<span style="color: #9cdcfe;">responseText</span> );</div><div>&nbsp; }</div><div>} );</div></div></div></div></div></div></div></div></div>
+                        <br><p class="well">
+                            <b>Not : </b>İsteğe dönen Ajax içeriğini <code>xhr.responseText</code> olarak okuyabilirsiniz.
+                        </p>
+
+                        <br><h3>İlave Notlar:</h3>
+                        <ul>
+                            <li>
+                                JQuery versiyon 1.9 itibarıyla <code>ajaxComplete</code> olayını da içeren tüm 
+                            </li>
+                        </ul>
+
+                        <br><br><h3>Örnekler :</h3>
+                        <p>
+                             Tüm paragrafların sonrasına bazı HTML eklenir.
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">meta</span> <span style="color: #9cdcfe;">charset</span>=<span style="color: #ce9178;">"utf-8"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>JQuery Öğrenimi<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"jquery.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">p</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">background</span>: <span style="color: #ce9178;">yellow</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span> &nbsp; &nbsp; &nbsp; &nbsp;</div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Şunu demek isterim ki: <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"p"</span> ).<span style="color: #dcdcaa;">after</span>( <span style="color: #ce9178;">"&lt;b&gt;Hello&lt;/b&gt;"</span> );</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                        <br><p><b>Demo:</b></p>
+                        <div class="cborder" id="test1">
+                            <style>
+                                #test1 p {
+                                    background: yellow;
+                                }
+                            </style>        
+                            <p>Şunu demek isterim ki: </p>
+                            <script>
+                                $( "#test1 p" ).after( "<b>Hello</b>" );
+                            </script>
+                        </div>
+                        <br><p>
+                             Tüm paragrafların sonrasına bir DOM elemanı eklenir.
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">meta</span> <span style="color: #9cdcfe;">charset</span>=<span style="color: #ce9178;">"utf-8"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>JQuery Öğrenimi<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"jquery.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">p</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">background</span>: <span style="color: #ce9178;">yellow</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span> &nbsp; &nbsp; &nbsp; &nbsp;</div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Şunu demek isterim ki: <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"p"</span> ).<span style="color: #dcdcaa;">after</span>( <span style="color: #9cdcfe;">document</span>.<span style="color: #dcdcaa;">createTextNode</span>( <span style="color: #ce9178;">"Hello"</span> ) );</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                        <br><div class="cborder" id="test2">
+                            <style>
+                                #test2 p {
+                                    background: yellow;
+                                }
+                            </style>   
+                            <p>Şunu demek isterim ki: </p>
+                            <script>
+                                $( "#test2 p" ).after( document.createTextNode( "Hello" ) );
+                            </script>
+                        </div>
+                        <br><p>
+                             Tüm paragrafların sonrasına bir jQuery nesne (DOM elemanlarından bir array'e benzer) eklenir.
+                        </p>
+                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">meta</span> <span style="color: #9cdcfe;">charset</span>=<span style="color: #ce9178;">"utf-8"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>JQuery Öğrenimi<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"jquery.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">p</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">background</span>: <span style="color: #ce9178;">yellow</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span> &nbsp; &nbsp; &nbsp; &nbsp;</div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">b</span><span style="color: grey;">&gt;</span>Hello<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">b</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Şunu demek isterim ki: <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"p"</span> ).<span style="color: #dcdcaa;">after</span>( <span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"b"</span> ) );</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                        <br><div class="cborder" id="test3">
+                            <style>
+                                #test3 p {
+                                    background: yellow;
+                                }
+                            </style>  
+                            <b>Hello</b> 
+                            <p>Şunu demek isterim ki: </p>
+                            <script>
+                                $( "#test3 p" ).after( $( "#test3 b" ) );
+                            </script>
+                        </div>
+
+                    </div>
+                </div>
+                <p>.</p><p>.</p>
+
+            </div>
+            <div class="col-md-2 hidden-xs">
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
