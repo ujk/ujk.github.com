@@ -96,7 +96,7 @@
                     aradığınız web sayfasına ulaşmak için internet'i kullanıyor.
                 </p>
                 <br><h3>Client - Server Yapısı</h3>
-                <br><img src="/images/tut001.png" alt="server client" class="full">
+                <br><img src="images/tut001.png" alt="server client" class="full">
                 <br><br><p>
                     Yukarıda basitçe resmedilmiş olarak bilgisayarların internette nasıl birbirine 
                     bağlandığı görülüyor. Elinizdeki bilgisayar , cep tel veya tabletler Chrome , Firefox 
@@ -213,9 +213,211 @@
                     cevap sayfası hazırlar.
                 </p>
 
-                <br><h2>Web Sayfanızı Planlamak</h2>
+                <br><h2 id="plan">Web Sayfanızı Planlamak</h2>
                 <p>
                     Web sitenizin kodlamasına başlamadan önce bazı fikirleri kafanızda toplamanız lazım.
+                    İleride çok karmaşık şeyler yapacağız ancak şimdilik basitten başlarsak daha iyi anlayacağız. 
+                    Ne kadar gelişirseniz gelişin, bir web sitesine başlarken şunları mümkünse yazarak 
+                    belirleyin:
+                </p>
+                <ul>
+                    <li>
+                        Web siteniz ne hakkında olacak? Evcil hayvanlar, oyunlar, gezi vs. 
+                    </li>
+                    <li>
+                        Bu konuda hangi bilgileri sunacaksınız. Bir başlık yazın, birkaç paragraf yazın ve
+                        sayfanızda olmasını istediğiniz resim ya da videolar gibi medyaları belirleyin.
+                    </li>
+                    <li>
+                        Web sayfanızın görüntüsü neye benzeyecek? Arka plan rengi ya da resmi , kullanacağınız 
+                        yazı fontları, yerleşim vs.
+                    </li>
+                </ul>
+
+                <br><h2>Web Sayfanızı Çizmek</h2>
+                <p>
+                    Her ne kadar bilgisayar kullanıyorsak da elinize bir kalem ve kağıt alın, sayfanın neye 
+                    benzemesini istediğinizin krokisini çizeceksiniz. Bunu en usta yazılımcılar bile yapıyormuş.
+                    Ben endüstriyel otomasyon işi yapıyorum ve ekranları tasarlamadan önce , eğer her zaman 
+                    benzerini yaptığım bir görsel değilse önce mutlaka defterimde karalarım. Bir de mutlaka 
+                    defter kullanırım, bir kağıda çizersem kesin kaybolur. 
+                </p>
+                <p>
+                    Ressam olmaya gerek yok , ilk sayfamız zaten çok basit olacak. Diyelim şöyle bir şey 
+                    karaladık:
+                </p>
+                <p>
+                    En üstte bir başlık yazısı var. Altında bir resim var. Resime tıklanınca değişecek. 
+                    Altında birkaç paragraf yazı ve bir numarasız liste ile bazı bilgiler listelenmiş. 
+                    Sonra içinde başka sayfalara bağlantılar da olan bir paragraf daha. En altta da 
+                    kullanıcı ismini değiştirmek için bir buton var. Şimdilik sadece bu kadar, yavaş yavaş 
+                    bunu elde etmeye çalışacağız.
+                </p>
+
+                <br><h2>Varlıklarınızın Seçimi</h2>
+                <p>
+                    Varlıklarınız (assets) , web sayfanızı oluştururken size lazım olacak bileşenlerdir. 
+                    Bunlar :
+                </p>
+                <ul>
+                    <li><b>yazılar : </b>başlıklar, paragraflar, listeler gibi yazıları belirlersiniz</li>
+                    <li><b>tema renkleri : </b>kullanacağınız renkleri belirlemek için Google'da "web 
+                        site colors" aratıp çıkan sitelerden birinden renk beğenebilirsiniz ya da 
+                        <a target="_blank" href="https://www.w3schools.com/colors/colors_picker.asp">W3Schools renk seçim aracı</a> 
+                        kullanarak bir renk belirlersiniz ya da beğendiğiniz bir sitede kullanılan renkleri 
+                        de sayfa kodlarından bulup kullanabilirsiniz. Ayrıca html kodd içinde direk isim vererek 
+                        kullanabileceğiniz <a target="_blank" href="https://www.w3schools.com/tags/ref_colornames.asp">renkler</a>
+                        de var. Renk kodu değer olarak hexadecimal sayı olarak ifade edilir, bunu da ilerledikçe göreceğiz.
+                    </li>
+                    <li><b>resimler : </b>
+                        Resimlerinizi seçerken en çok dikkat etmeniz gereken nokta telif hakkı olan bir 
+                        resim kullanmamanız. Kendi çektiğiniz resimlerde tabi ki telif hakkı olmaz ama 
+                        internetten bir yerlerden bulduğunuz resimlerde sıkıntı olabilir. Neyseki yine 
+                        internette sıkıntı olmadan resim indirebileceğiniz 
+                        <a href="https://unsplash.com" target="_blank">www.unsplash.com</a> gibi yerler 
+                        var. Fakat oradan bile resim edinseniz ya sosyal medyadan resmin sahibine bir 
+                        teşekkür etmeniz ya da link vererek sahibini bildirmeniz bekleniyor.
+                    </li>
+                    <li><b>fontlar : </b>
+                        Kullanacağınız yazı fontları standart fontlar dışında olacaksa 
+                        <a href="https://fonts.google.com" target="_blank">https://fonts.google.com</a> 
+                        adresinden bir yazı fontu seçip kullanabilirsiniz.
+                    </li>
+                </ul>
+
+                <br><h2>Dosyaların Yerleşimi</h2>
+                <p>
+                    Şimdi web sitemizde bulunacak dosyaları birbiri ile uyumlu şekilde nasıl yerleştireceğimizi
+                    inceleyelim. Bir web sitesi birçok dosyadan oluşur.
+                </p>
+                <ul>
+                    <li>Yazı içerikler</li>
+                    <li>Kodlar</li>
+                    <li>Stil dosyaları</li>
+                    <li>Medya dosyaları</li>
+                    <li>vesaire</li>
+                </ul>
+                <p>
+                    Web sitenizi tasarlarken bütün dosyaları bir düzene göre yerleştirip birbirlerine 
+                    kolayca erişebilir olmalarını sağlamak düzeni korumak için önemlidir. Herşeyin tek 
+                    bir klasör altında toplanması server'a yüklerken de hakimiyet için faydalıdır. Örnek 
+                    bir yerleşim şöyle :
+                </p>
+                <img src="images/tut003.png" alt="folder view" style="border: 3px solid gray; padding: 5px;">
+                <br><br><p>
+                    Herşeyi içine toplamak için "ilk-sayfam" adında bir klasör oluşturduk. Bu sitemizin 
+                    <b>root</b> klasörü ve server'da yayınlanacak olan dosyaların ikiz kopyası burası olacak. 
+                    Resimler için <i>images</i>, script kodlar için <i>scripts</i> ve stil dosyalarımızı 
+                    koymak için <i>stylesheets</i> adında 3 alt klasör ekledik. En son da sitemizin açılış 
+                    sayfasının kodunu içeren <i>index.html</i> dosyası ekledik. Şimdilik hepsinin içi boş. 
+                </p>
+                <p>
+                    <i>index.html</i> özel bir dosya , bir server'da siz sayfa adresi vermeden bir web sitesini 
+                    açarsanız, server gider root klasördeki <i>index.html</i> dosyasını size cevap olarak 
+                    gönderir. Bu yüzden sitenize ilk koyacağınız sayfa <i>index.html</i> olmalıdır.
+                </p>
+                <p>
+                    Bir önemli nokta daha. Dosya ve klasör isimlerini verirken arada boşluk kullanmayın. 
+                    Web sisteminde dosya ve klasör isimlerinde boşluk sıkıntı yapabilir. Ayrıca web 
+                    geliştiricilikte genel eğilim boşluk yerine kelimeleri "-" (tire işareti) ile 
+                    ayırmaktır. Ayrıca her ismi küçük harfle verme alışkanlığı edinin çünkü web'te 
+                    büyük harfle ve küçük harfle yazılan değerler farklı görülür. Hangi harfi büyüktü 
+                    diye hatırlamaya çalışmayın hepsini küçük harf yapın.
+                </p>
+
+                <br><h2>Editör Uygulaması</h2>
+                <p>
+                    Sırada kodlarınızı yazarken kullanacağınız bir text editörü uygulama seçmek var. 
+                    Aslında yazacağımız kodlar düz metin şeklinde olduğu için Windows Notepad uygulaması 
+                    ile kodlarımızı yazabiliriz. Ancak kod yazmak için özel tasarlanmış uygulamalar hem 
+                    yazılanı renklendirerek görsel olarak kodun anlaşılmasını kolaylaştırırken size 
+                    yazım esnasında da yardımcı olacaktır.
+                </p>
+                <p>
+                    En yaygın kullanılan kod editörlerinden bazıları:
+                </p>
+                <ul>
+                    <li>
+                        <a href="https://www.sublimetext.com" target="_blank">Sublime Text</a>
+                    </li>
+                    <li>
+                        <a href="https://code.visualstudio.com" target="_blank">Visual Studio Code</a> veya VSCode
+                    </li>
+                    <li>
+                        <a href="http://atom.io" target="_blank">Atom</a>
+                    </li>
+                    <li>
+                        <a href="https://brackets.io" target="_blank">Brackets</a>
+                    </li>
+                    <li>
+                        <a href="https://notepad-plus-plus.org/downloads/" target="_blank">Notepad++</a>
+                    </li>
+                </ul>
+                <p>
+                    Ben editörler içinde yıllardır VSCode kullanıyorum her türlü script programlama dili 
+                    için eklentileri var. Ayrıca html sayfaları lokal bilgisayarınızda test edebilmeniz için 
+                    "Live Server" eklentisi çok yardımcı oluyor. Gerçi benzer eklentiler tüm editörlerde 
+                    var ama ben VSCode editörünü renklendirilmiş kodları bloğuma kopyalarken sağladığı 
+                    avantajlar yüzünden de çok kullanıyorum. Notepad++ programını da oldukça yoğun kullanırım.
+                    Sanırım şu sıralar yazılım geliştiricilerin en popüler editörü VSCode. Bu öğretide 
+                    ben VSCode ile çalışacağım ancak siz istediğinizi kullanabilirsiniz.
+                </p>
+
+                <br><h2>HTML Temelleri</h2>
+                <p>
+                    Yavaş yavaş ilk kodumuzu yazmaya doğru geliyoruz. Son öğreneceğimiz şeylerden biri 
+                    HTML kodunun temelleri. Daha sonra ilk sayfamızın kodunu yazmaya girişebiliriz. Biliyorsunuz 
+                    root klasöre <i>index.html</i> adında bir dosya koymuşturk. Bu dosyanın içine 
+                    yazacağımız şey sitemizin ana giriş sayfasının HTML kodu olacak.
+                </p>
+                <p>
+                    HTML <b>H</b>yper <b>T</b>ext <b>M</b>arkup <b>L</b>anguage baş harflerinden oluşan 
+                    bir kısaltma. Bir web sayfasının yapılanmasını ve içeriğini belirleyen kodlama 
+                    şeklidir. İçerik başlıklar, paragraflar, resimler, listeler vs. bileşenlerden oluşan 
+                    ve sayfada duyularımıza hitap eden şeylerdir. 
+                </p>
+                <p>
+                    HTML adından anlaşılacağı üzere bir işaretleme dilidir, bir programlama dili değildir. 
+                    Belli işaretlemeler kullanarak sayfanızın yapısı ve içeriğini belirlerler. 
+                </p>
+                <p>
+                    HTML bir dizi elemandan oluşur. Eleman dediğimiz ise web sayfanızın parçalarıdır (ya da 
+                    bileşenleridir). Elemanlar içeriğin farklı parçalarını sarmalayarak onların davranışı 
+                    ya da görünümünü düzenlerler. HTML elemanlar web sayfalarının yapı taşlarıdır.
+                </p>
+                <p>
+                    Elemanlar <code>tag</code> adı verilen sınırlayıcılar sayesinde tanımlanır. İçeriğin 
+                    başında ve sonunda <code>&lt;isim></code> ve <code>&lt;/isim></code> şeklinde açma ve 
+                    kapatma parçalarından oluşur.
+                </p>
+                <p>
+                    HTML tag'ler web sayfasında duyularımıza hitap eden içerikleri barındırabilir. Ama 
+                    web tarayıcımız bize bu tag'leri göstermez, sadece tag ismine göre içeriği şekillendirerek 
+                    bize gösterir.
+                </p>
+
+                <br><h2>HTML Elemanların Anatomisi</h2>
+                <p>
+                    Anatomi falan biraz havalı oldu. Bir eleman web sayfasının bir parçasıdır. Bir yazı veya 
+                    bir resim içerebildiği gibi içi boş bile olabilir. Genellikle bir eleman bir açılış ve 
+                    bir kapanış tag'ine sahiptir. İçerik barındırmayan elemanlara <b>boş eleman</b> denir ve
+                    kapanış tag'leri olamz. 
+                </p>
+                <p>
+                    Bir HTML elemanın yapısına bakalım.
+                </p>
+                <img src="images/tut004.png" alt="eleman anatomisi" class="full">
+                <br><br><p>
+                    Temel HTML eleman yapısının parçaları bunlar. Bu bir paragraf (p) elemanı. Açılış 
+                    tag'i ve kapanış tag'i var. Elemanın sembol isminin "küçüktür" ve "büyüktür" işaretleri arasına 
+                    yazarak oluşmuşlar. Kapanış tag'inde eleman adından önce bir de "/" işareti konmuş. 
+                    Tag açılış ve kapanışı arasına da içerik geliyor, örnekte içerik düz bir metin. İçerik 
+                    , açılış tag ve kapanış tag hepsi birlikte elemanı oluşturuyorlar.
+                </p>
+
+                <br><h2>Bir HTML Dökümanın Temel Yapısı</h2>
+                <p>
+                    
                 </p>
 
                 <p>.</p><p>.</p>
