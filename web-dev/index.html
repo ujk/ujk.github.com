@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Geliştirme</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        div .scroll{
+            height:300px;
+            width: 100%;
+            overflow:scroll;
+            scrollbar-color: dark;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: white;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: gray;
+            border-radius: 10px;
+        }
+
+        .cborder {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        .cpadding {
+            padding: 15px;
+        }
+
+        body {
+            font-size: large;
+        }
+
+        img.full {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+    </nav>
+
+    <div class="container" style="padding-top: 70px;;">
+        
+        <div class="row">
+            <div class="col-md-2 hidden-xs">
+                <div style="position:fixed; left: 50px; top: 70px;" id="left-menu">
+                    <br>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <h1 id="home">Web Geliştirme Esasları</h1>
+                <p>
+                    Bu yazıda web yazılım geliştirmeyi öğreneceğiz ama çok çok başlangıçtan girmeyi 
+                    düşündüm. Mesela evren bir toz bulutuydu gibi.. Web geliştirme nasıl yapılır merak 
+                    ediyorsanız ve azcık bilgisayar kullanma ve internette gezinme tecrübeniz varsa 
+                    siz de başlayabilirsiniz.
+                </p>
+                <p>
+                    Baştan başlayacağız dedik ama az bir şey de görmeyeceğiz. Eğer yazıyı bitirmek nasip 
+                    olursa şunları göreceğiz:
+                </p>
+                <ul>
+                    <li>Web geliştirme araçlarının kurulumu</li>
+                    <li>Klasör yapısının oluşturulması</li>
+                    <li>HTML kodlama</li>
+                    <li>CSS stil kodları</li>
+                    <li>JavaScript kodlama</li>
+                    <li>JQuery kütüphanesi</li>
+                    <li>Ajax istekleri</li>
+                    <li>JSON veri yapıları</li>
+                    <li>Git repo kullanımı</li>
+                    <li>Bootstrap CSS kütüphanesi</li>
+                    <li>Ruby On Rails programlama</li>
+                </ul>
+
+                <br><h2>Web ve Internet Nedir?</h2>
+                <p>
+                    Birçok kişi <b>web</b> ve <b>internet</b> kelimelerinin aynı anlama geldiğini düşünür. 
+                    Aslında alakalı olmalarına rağmen farklı anlamları vardır. Web (yani World Wide Web) 
+                    internette gezerken karşımıza çıkan web sayfa ve sitelerinin oluşturduğu yapıdır. 
+                    Internet ise dünya genelinde bilgisayarların birbirine bağlandığı dev ağ'ın (network) 
+                    adıdır. Web , internete bağlı bilgisayarların paylaştığı veri oluyor. Tarayıcınız 
+                    aradığınız web sayfasına ulaşmak için internet'i kullanıyor.
+                </p>
+                <br><h3>Client - Server Yapısı</h3>
+                <br><img src="/images/tut001.png" alt="server client" class="full">
+                <br><br><p>
+                    Yukarıda basitçe resmedilmiş olarak bilgisayarların internette nasıl birbirine 
+                    bağlandığı görülüyor. Elinizdeki bilgisayar , cep tel veya tabletler Chrome , Firefox 
+                    vs tarayıcı programlar yardımıyla internet ağı üzerinden <b>Server</b> adı verilen 
+                    bilgisayralara bağlanıyor ve bilgi alış verişinde bulunuyor. 
+                </p>
+                <p>
+                    Burada bilgiyi talep eden sizin tarafınızdaki bilgisayarlara <b>Client</b> (müşteri) 
+                    denir. Bilgiyi hazırlayıp size cevap olarak gönderen bilgisayarlara da <b>Server</b> 
+                    (hizmet veren) denir.
+                </p>
+                <p>
+                    Aslında olayda karmaşık bir yan yok, basit düşünmek lazım. Bir ağ var ve buna bilgisayarlar 
+                    bağlı. Herkesin ağda bir adresi var. Sizin bilgisayraınızın internet ağında adresini öğrenmek 
+                    isterseniz Google'a "ip adresim ne" diye arayın ve kolayca öğrenin. Client-Server arasında 
+                    iletişim de 2 tane fiziksel adresi belli bilgisayarın belirlenen bir protokole göre 
+                    birbiriyle veri alışverişinde bulunmasından ibaret. 
+                </p>
+                <p>
+                    Peki tarayıcı adres kısmına isim yazıyoruz, o nasıl server adresini biliyor? derseniz,
+                    o iş için olan DNS (Domain Name Server) server'lar da var internete bağlı. Bilgisayarınızdaki
+                    tarayıcı onların adresini ezbere biliyor ve gidip onlara soruyor "www.bilmemne.com.tr" nerede 
+                    diye. Zaten ilk geliştirenler de internetin bu kadar geniş kitlelerin kullanacağı bir şey 
+                    olacağını düşünmemiştir, sanmam. Onlar sadece üniversiteler arası yazıları falan 
+                    paylaşmak üzerine belkide sadece düz yazı verisi kullanan bir yapı hazırladılar. 
+                </p>
+                <p>
+                    Tarayıcıdan bir adres girip gitmesini istediğimizde ya da zaten açık olan bir sayfada 
+                    bir bağlantıyı tıklayıp başka sayfaya geçmesini istediğimizde client olan bizim 
+                    tarayıcı programımız server'a bir bilgi gönerir. Client tarafından server'a yapılan bu 
+                    bilgi gönderme işine <b>istek</b> (request) denir. Server bu isteğe göre size sunulacak 
+                    bilgileri web sayfası kodu hazırlar ve <b>cevap</b> (response) olarak döner. İşte buna 
+                    <b>client-server</b> iletişimi denir. 
+                </p>
+
+                <br><h2>http Nedir?</h2>
+                <p>
+                    HTTP internette client-server haberleşmesinde kullanılan haberleşme protokolünün adı. 
+                    <b>H</b>ypex<b>T</b>ext <b>T</b>ransfer <b>P</b>rotocol cümlesinden üretilmiş. Aslında 
+                    Hypertext bağlantı (ya da köprü) metni gibi bir anlama geliyor. İşte bu yüzden ben başlangıçta 
+                    web sisteminin sadece yazıları paylaşmak üzere üretilmiş olduğunu düşündüm. 
+                </p>
+                <p>
+                    Web sayfaları bu protokole uygun yapıdaki HTML (Hypertext Markup Language) kodları ile 
+                    kodlanmıştır. Protokol kelimesi ağ haberleşmesinde uyulması gereken kuralları belirten 
+                    bir set. Bir ağ üzerinden bağlı bilgisayarların iletişimi için yüzlerce protokol yazılmıştır 
+                    ama http bunların en yayılmış olanlarından biri ve artık bütün dünya bunu kullanıyor. 
+                    Bilgisayarların haberleşmesi için TCP ve FTP (dosya transferi için kullanılır) gibi 
+                    diğer amaçlarla kullanılan yaygın protokoller de vardır. 
+                </p>
+                <p>
+                    Http protokolü başlangıcında web tarayıcınız bir istekte bulunarak işlemi başlatır. Server 
+                    bu isteğe uygun cevabı hazırlar ve cevap olarak gönderir. Bu yüzden http bir <b>request-response</b>
+                    client-server protokolü olarak bilinir. Tüm web sayfalarını gezerken böyle küçük küçük 
+                    istek-cevap işlemleri defalarca yapılarak o koca sayfalar önünüze gelir. 
+                </p>
+
+                <br><h2>Değişik Tarayıcılar Kurulması</h2>
+                <p>
+                    Web tarayıcıları bilgisayarınızdaki internet üzerinden web sitelerini görüntülemek 
+                    için kullandığınız programlar. Eğer web geliştirici olmayı düşünüyorsanız, yaptığınız 
+                    şeyleri test etmek için en azından bunların yaygın olan bir kaçını bilgisayarınıza 
+                    yükleyip yazdığınız kodların sonucunu değişik tarayıcılarda görmeniz gerekir.</p><p>
+                         En çok 
+                    kullanılan tarayıcılardan biri Google <a target="_blank" href="https://www.google.com/intl/tr/chrome">Chrome</a>
+                    . Bu tarayıcı aynı zamanda web geliştiriciler için bir çok yardımcı araç da sağladığı 
+                    için sisteminize yüklemenizi tavsiye ederim. Ben <a href="https://www.opera.com/tr"
+                    target="_blank">Opera</a> kullanıyorum, Chrome eklentileri de yüklenebildiği ve hafif 
+                    olduğu için tercihim. Bir diğer çok kullanılan tarayıcı Mozilla <a href="https://www.mozilla.org/tr/firefox/new/"
+                    target="_blank">Firefox</a>. Bunlar dışında işletim siteminizle beraber yüklenen 
+                    <b>Microsoft Edge</b>, <b>Internet Explorer</b> ve <b>Safari</b> de yaygın kullanılır.
+                </p>
+
+                <br><h2>API Nedir?</h2>
+                <p>
+                    API kelimesi Application Programming Interface kelimeleri baş harflarinden üretilmiş. 
+                    Web teknolojisi geliştikçe işler karmaşıklaşmaya başladı. Örneğin sosyal ağlar (Facebook, 
+                    X, Instagram vs) için artık cihazlarda ayrıca uygulamalar yükleniyor. Bunların server 
+                    ile iletişimlerinde karmaşıklık arttıkça ortaya yeni bir ihtiyaç çıkmış. Server'da bir 
+                    uygulama var, client'da bir uygulama var, bunların arasında veri taransferini kolaylaştırmak 
+                    için arayüz denilen kodlar hazırlanmış ve bunlara API adı verilmiş. 
+                    Kısacası API iki uygulama arasında iletişimi kolaylaştıran kodlar. 
+                </p>
+                <p>
+                    Örnek olarak :
+                </p>
+                <p>Sosyal API'lar:</p>
+                <ul>
+                    <li>Facebook</li>
+                    <li>X (ex Twitter)</li>
+                    <li>Google Talk</li>
+                    <li>Foursquare</li>
+                    <li>Soundcloud</li>
+                </ul>
+                <p>Görsel API'lar:</p>
+                <ul>
+                    <li>Google Maps</li>
+                    <li>YouTube</li>
+                    <li>AccuWeather</li>
+                    <li>Pinterest</li>
+                    <li>Flickr</li>
+                </ul>
+                <p>
+                    API bir ulak gibi düşünülebilir, bir kişiden aldığı mesajı diğer bir kişiye ulaştırıyor 
+                    ve onun cevabını geri getiriyor. Bir örnek olarak bir restorana giderseniz, siz 
+                    müşterisiniz ve isteğiniz mutfaktaki personel tarafından hazırlanıyor. API burada 
+                    garson olacaktır. Siz menüye bakıp garsondan istekte bulunursunuz. Garson gider isteğinizi 
+                    mutfağa bildirir. Mutfaktaki personel isteğinizi hazır ettiğinde garson siparişinizi 
+                    size getirir. Afiyet olsun..
+                </p>
+                <p>
+                    Bilet bulmak üzerine yapılmış bir sitede siz gideceğiniz yeri seçersiniz, API tüm 
+                    firmaları gezip olası bilet ihtimallerini toplar server'a getirir ve server size bir 
+                    cevap sayfası hazırlar.
+                </p>
+
+                <br><h2>Web Sayfanızı Planlamak</h2>
+                <p>
+                    Web sitenizin kodlamasına başlamadan önce bazı fikirleri kafanızda toplamanız lazım.
+                </p>
+
+                <p>.</p><p>.</p>
+            </div>
+            <div class="col-md-2 hidden-xs">.</div>
+        </div>
+    </div>
+
+<script>
+$(document).ready(function(){
+    $.get("menu.html", function(data){
+        $("#left-menu").append(data);
+    });
+});
+</script>
+    
+
+
+</body>

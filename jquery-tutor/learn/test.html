@@ -15,15 +15,12 @@
 <div class="result"></div>
 <div class="log"></div>
         <script>
-$( ".trigger" ).on( "click", function() {
-  $( ".result" ).load( "ajax/test.html" );
-} );
-$( document ).on( "ajaxComplete", function( event, xhr, settings ) {
-  if ( settings.url === "ajax/test.html" ) {
-    $( ".log" ).text( "Kısıtlanmış olay işleyici tetiklendi. Sonuç : " +
-      xhr.responseText );
-  }
-} );
+$.ajaxSetup({
+  url: "/xmlhttp/",
+  global: false,
+  type: "POST"
+});
+$.ajax({ data: myData });
         </script>
     </body>
 </html>
