@@ -105,7 +105,193 @@
                     Daha bir çok bağlı özellik var. Bunları ilerledikçe görmeye devam edeceğiz.
                 </p>
 
-                <h2 id="markText">Yazıları Şekillendirmek</h2>
+                <h2 id="markText" style="padding-top: 70px;">Yazıları Şekillendirmek</h2>
+                <p>
+                    Bu başlıkta sayfanızdaki yazıların görünümünü tayin eden elemanlardan bahsedeceğiz. 
+                    Başlık (heading) elemanlarından başlayalım. Başlık elemanları <code>&lt;h1></code> den 
+                    <code>&lt;h6></code> ya kadar olan elemanlardır. Hadi gelin <i>index.html</i> içindeki 
+                    <code>&lt;h1></code> elemanının altına 2 tane daha diğer başlıklardan ekleyelim.
+                </p>
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">h1</span><span style="color: grey;">&gt;</span>Merhaba Dünya!<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">h1</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">h2</span><span style="color: grey;">&gt;</span>Merhaba Dünya!<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">h2</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">h3</span><span style="color: grey;">&gt;</span>Merhaba Dünya!<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">h3</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div>
+                <br><div class="cborder">
+                    <h1>Merhaba Dünya!</h1>
+                    <h2>Merhaba Dünya!</h2>
+                    <h3>Merhaba Dünya!</h3>
+                </div>
+                <br><p>
+                    İlk 3 header elemanı genellikle çok kullanılır. Sonrakiler küçük olmaları sebebiyle 
+                    tercih edilmez.
+                </p>
+                <p>
+                    Örneğimizde bir de <b>paragraf</b> (<code>&lt;p></code>) elemanı kullanmıştık. Paragraflar 
+                    normal boyutta yazılardan oluşan bloklardır. Bu yazı da paragraflardan oluşuyor ancak ben 
+                    yazıların daha rahat okunması için tarayıcının standart paragraf yazı boyutunu biraz büyüttüm. 
+                    Daha önceki bölümde verdiğim çıktı resimlerine bakarsanız, paragrafın standart yazı boyutu 
+                    o kadardır. Şimdi <i>index.html</i> dosyamıza birkeç paragraf daha ekleyelim bakalım.
+                </p>
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div>....</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Aşağıda sevimli bir köpecik resmi var.<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Paragraf 2<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Paragraf 3<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">....</span></div></div></div></div></div></div></div></div></div></div>
+                <br>
+                <img src="images/tut012.png" alt="paragraf görünümü" class="img-thumbnail">
+                <br><br><p>
+                    Resimden göreceğiniz gibi paragraflar arasında otomatik olarak boşluklar bırakılıyor.
+                </p>
+                <p>
+                    Bir diğer yazı şekillendirme elemanı da listeler. Bir çok web içeriğinde listeler kullanılır. 
+                    2 çeşit liste var, ilki sıra numaralı liste olan <code>&lt;ol></code> elemanı (ordered list - 
+                    sıralı liste) ve numarasız liste olan <code>&lt;ul></code> elemanı (unordered list - 
+                    sırasız liste). Liste içindeki her liste elemanı da her iki eleman için <code>&lt;li></code> 
+                    (list item - liste elemanı) elemanıdır.
+                </p>
+                <p>
+                    Örneğin bir alınacaklar listesi yaparken sıra numaralarının önemi yok, burada numarasız 
+                    liste kullanılır.
+                </p>
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Alınacaklar :<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">ul</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">li</span><span style="color: grey;">&gt;</span>Et<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">li</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">li</span><span style="color: grey;">&gt;</span>Süt<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">li</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">li</span><span style="color: grey;">&gt;</span>Yumurta<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">li</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">ul</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div>
+                <br><div class="cborder">
+                    <p>Alınacaklar :</p>
+                    <ul>
+                        <li>Et</li>
+                        <li>Süt</li>
+                        <li>Yumurta</li>
+                    </ul>                    
+                </div>
+                <br><p>
+                    Sıralı bir şeyleri belirtmek için, örneğin bir yemek yapılışı tarif ederken sıralı 
+                    liste kullanılır. Tek farkı yukarıdaki kodda <code>&lt;ul></code> elemanı yerine 
+                    <code>&lt;ol></code> elemanı kullanmaktır. Hadi listemiz numaralı hale getirelim.
+                </p>
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Alınacaklar :<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">ol</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">li</span><span style="color: grey;">&gt;</span>Et<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">li</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">li</span><span style="color: grey;">&gt;</span>Süt<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">li</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">li</span><span style="color: grey;">&gt;</span>Yumurta<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">li</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">ol</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div>
+                <br><div class="cborder">
+                    <p>Alınacaklar :</p>
+                    <ol>
+                        <li>Et</li>
+                        <li>Süt</li>
+                        <li>Yumurta</li>
+                    </ol>
+                </div>
+                <br><p>
+                    Bu kadar yazı şekillendirme bilgisi yeterli şimdilik. Devam ettikçe bilgilerimiz 
+                    çoğalacak. İnterneti kullanmaya ilk başladığım yılları hatırlıyorum da bu öğrendiklerimiz 
+                    kadar bile içerik şekillendirme yoktu, birçok web sayfası dümdüz yazılardan oluşuyordu.
+                </p>
+
+                <h2 id="links" style="padding-top: 70px;">Sayfada Bağlantılar Oluşturmak</h2>
+                <p>
+                    Bağlantılar (link'ler) web'i web yapan en önemli elemanlardan biridir. Bu başlıkta 
+                    sayfanızdan diğer sayfa ya da web sitelerine nasıl bağlantı yapılacağını göreceğiz. 
+                    Hemen her web sayfasında bağlantılar bulunur. Bunlara tıklanınca tarayıcınız başka bir sayfa 
+                    yada siteye geçecektir. Bağlantılar bir yazı, bir resim ya da diğer herhangi bir HTML 
+                    eleman olabilir. 
+                </p>
+                <p>
+                    Bir bağlantıyı oluşturmak için <code>&lt;a></code> (anchor - çapa) elemanı ve onun 
+                    <code>href</code> bağlı özelliği kullanılır. <code>href</code> özelliğine değer olarak 
+                    kullanıcının tıkladığında gitmesini istediğimiz web sayfası adresi girilir. Hypertext 
+                    Reference kelimelerinden üretilmiştir, bağlantı yazısı referansı gibi bir anlamı vardır.
+                </p>
+                <p>
+                    Adım adım Google sayfasına bir link oluşturalım
+                </p>
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;">&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">a</span><span style="color: grey;">&gt;</span>Google<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">a</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div>
+                <br><div class="cborder">
+                    <a>Google</a>
+                </div>
+                <br><p>
+                    Bu bağlantı henüz tıklandığında bir yere gitmiyor, çünkü <code>href</code> özelliğine 
+                    değer girilmemiş. Şimdi hedef adres değerini de girelim.
+                </p>
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: grey;">&lt;</span><span style="color: #569cd6;">a</span> <span style="color: #9cdcfe;">href</span>=<span style="color: #ce9178;">"http://google.com"</span><span style="color: grey;">&gt;</span>Google<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">a</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                <br><div class="cborder">
+                    <a href="http://google.com">Google</a>
+                </div>
+                <br><p>
+                    Dikkat ederseniz kursörü üzerine getirince tıklanabilir olduğunu belirten parmak 
+                    şeklinde görünüyor. Artık bağlantıya tıkladığınızda tarayıcı Google sitesine gidecektir.
+                </p>
+                <p>
+                    <code>&lt;a></code> elemanı içeriğine ne koyarsanız onun üzerine tıklanınca bağlantıya 
+                    geçiş gerçekleşir. İçerikte bir ya da birden fazla HTML eleman olabilir. Mesela sayfadaki 
+                    resime tıklayınca sadece resmin olduğu dosyayı göstermesini sağlayalım.
+                </p>
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: grey;">&lt;</span><span style="color: #569cd6;">a</span> <span style="color: #9cdcfe;">href</span>=<span style="color: #ce9178;">"images/pupy.jpg"</span><span style="color: grey;">&gt;&lt;</span><span style="color: #569cd6;">img</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"images/pupy.jpg"</span> <span style="color: #9cdcfe;">alt</span>=<span style="color: #ce9178;">"Sevimli köpecik"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">a</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                <br><div class="cborder">
+                    <a href="images/pupy.jpg"><img src="images/pupy.jpg" alt="Sevimli köpecik"></a>
+                </div>
+                <br><p>
+                    Gördüğünüz gibi resmin kodunu bir <code>&lt;a></code> elemanının içine aldık ve 
+                    <code>href</code> özelliğine de resmin adresini girdik. Şimdi resme tıklarsanız tek 
+                    başına resim dosyası gösterilecektir. Buna benzer içiçe eleman kullanımları web 
+                    sayfası tasarımlarında çok sıklıkla kullanacağınız şeyler olacak. Ama bir şey daha , 
+                    yukarıdaki kodu tek satır yazmak yerine şöyle yazın:
+                </p>
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">a</span> <span style="color: #9cdcfe;">href</span>=<span style="color: #ce9178;">"images/pupy.jpg"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">img</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"images/pupy.jpg"</span> <span style="color: #9cdcfe;">alt</span>=<span style="color: #ce9178;">"Sevimli köpecik"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">a</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                <br><p>
+                    Böylece kodunuzda içiçe olan elemanlar daha anlaşılabilir bir şekilde görünecektir.
+                </p>
+                <p>
+                    Bağlantılar konusunda bir diğer önemli nokta da renkleri. Tarayıcılarda default olarak 
+                    bağlantılar ziyaret edilmeden önce yazıları mavi olacaktır, sayfayı daha önce ziyaret etmişseniz 
+                    rengi mor'a dönecektir. Bunu zaten Google aramalarınızda falan daha önce ziyaret ettiğiniz 
+                    bir sayfa denk geldiğinde görüyorsunuz.
+                </p>
+                <img src="images/tut013.png" alt="search result">
+                <br><br><p>
+                    gibi.
+                </p>
+
+                <h2 id="comments" style="padding-top: 70px;">Yorumlar</h2>
+                <p>
+                    Yorumlar yazılım geliştirirken size çok lazım olan şeyler. Kodun içinde neler yaptığınızı 
+                    ya da yapacağınızı daha sonraki bir zamanda rahat hatırlamak için kodun arasına yorum 
+                    eklersiniz. Bu yorumlar bir ya da birkaç satırdan oluşabilir.
+                     Ama bunların tarayıcınız tarafından dikkate alınmaması gerekir. Bu amaçla 
+                    yorumlar belirlenen bir formata göre yazılırlar. <i>index.html</i> dosyamızı şu hale getirelim :
+                </p>
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">DOCTYPE</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">meta</span> <span style="color: #9cdcfe;">charset</span>=<span style="color: #ce9178;">"utf-8"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>Örnek Web Sayfam<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">h1</span><span style="color: grey;">&gt;</span>Merhaba Dünya!<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">h1</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Aşağıda sevimli bir köpecik resmi var.<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">img</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"images/pupy.jpg"</span> <span style="color: #9cdcfe;">alt</span>=<span style="color: #ce9178;">"Sevimli köpecik"</span><span style="color: grey;">&gt;</span></div><br /><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #7ca668;">&lt;!-- Buraya bir buton gelecek --&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                <br><p>
+                    Yukarıda görünen yeşil renkteki satır bir yorum satırıdır. <code>&lt;!--</code> ile 
+                    başlar ve <code>--&gt;</code> ile biter. Bu elemanın içindekiler tarayıcı tarafından 
+                    sayfada gösterilmezler. İsterseniz sayfadaki herhangi eleman ya da elemanları da bu 
+                    şekilde çevreleyerek geçici olarak görünmez yapabilirsiniz. Kodunuzu silmediğiniz için 
+                    sonradan geri dönmesi kolay olur.
+                </p>
+
+                <h2 id="sourceCode" style="padding-top: 70px;">Kaynak Kodu</h2>
+                <p>
+                    Kaynak kodu denen şey bir web sitesi tasarlarken ya da bir program yazarken kullandığınız 
+                    herşey  demektir. Bununiçinde yazılar, resimler, script'ler, medya dosyaları vs hepsi 
+                    vardır. İlk web sayfamızı incelersek içinde index.html dosyası ve bir resim var. Eğer 
+                    birine sitemizin kaynak kodu lazım olursa ona sadece html dosyalarını vermemiz yetersiz olur. 
+                    Bizim sitemizin kaynak kodu aslında "ilk-sayfam" klasörünün tamamıdır. 
+                </p>
+                <p>
+                    Bir de internette baktığımız sayfanın kaynak kodunu görmek isteyebiliriz. Tüm tarayıcılarda 
+                    sayfa üzerinde bir yere sağ tıkladığımızda açılan menüde "View web page source" ya da Türkçesi 
+                    "Sayfa kaynağını göster" seçeneği vardır. Şimdi kendi yazdığımız web sayfasının kaynağına 
+                    bir bakalım.
+                </p>
+                <img src="images/tut014.png" alt="kaynak kodu açmak" class="img-thumbnail">
+                <br><br><p>
+                    Açılan yeni sekmede sayfamızın kaynak kodu görünür.
+                </p>
+                <img src="images/tut015.png" alt="kaynak kodu gösterimi" class="img-thumbnail">
+                <br><br><p>
+                    Gördüğünüz üzere <i>index.html</i> içine yazdığımız her kod burada görünüyor. 
+                    Aşağıdaki <code>&lt;script></code> elemanını ve onun kalabalık içeriğini dikkate 
+                    almayın, VSCode editör Live Server ile sayfamızı kodu değiştirip kaydettiğimizde 
+                    otomatik yenileme yapmak için o kodu oraya ilave etmiş. Zaten yorum satırında da 
+                    bunu belirtiyor.
+                </p>
+                <p>
+                    Şimdi gidin bir de gelişmiş bir web sayfasının kaynak kodunu açın ve görün elemanlar 
+                    ne kadar uğraşmış o sayfayı yapmaya. Ama merak etmeyin siz de oralara geleceksiniz 
+                    sabır gerekiyor birazcık.
+                </p>
+
+                <h2 id="forms" style="padding-top: 70px;">HTML Formlar</h2>
+                <p>
+                    
+                </p>
 
                 <p>.</p><p>.</p>
             </div>
