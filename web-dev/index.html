@@ -246,7 +246,8 @@
                     Ressam olmaya gerek yok , ilk sayfamız zaten çok basit olacak. Diyelim şöyle bir şey 
                     karaladık:
                 </p>
-                <p>
+                <img src="images/tut002.png" alt="kroki">
+                <br><br><p>
                     En üstte bir başlık yazısı var. Altında bir resim var. Resime tıklanınca değişecek. 
                     Altında birkaç paragraf yazı ve bir numarasız liste ile bazı bilgiler listelenmiş. 
                     Sonra içinde başka sayfalara bağlantılar da olan bir paragraf daha. En altta da 
@@ -416,9 +417,193 @@
                 </p>
 
                 <br><h2>Bir HTML Dökümanın Temel Yapısı</h2>
-                <p>
-                    
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">DOCTYPE</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><br /><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><br /><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><br /><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">meta</span> <span style="color: #9cdcfe;">charset</span>=<span style="color: #ce9178;">"utf-8"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>Örnek Web Sayfam<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><br /><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><br /><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; </div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">h1</span><span style="color: grey;">&gt;</span>Merhaba Dünya!<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">h1</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Aşağıda sevimli bir köpecik resmi var.<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">img</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"images/pupy.jpg"</span> <span style="color: #9cdcfe;">alt</span>=<span style="color: #ce9178;">"Sevimli köpecik"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; </div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><br /><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div>
+                <br><p>
+                    Editörünüzde <i>index.html</i> dosyasını açın ve yukarıdaki satırları aynen içine yazın. 
+                    İsterseniz yukarıdan kopyalayabilirsiniz. Renklerle ilgilenmeyin , aslında bu düz bir 
+                    metin. Notepad ile aynı kod şöyle görünür:
                 </p>
+                <img src="images/tut005.png" alt="notepad ekranı">
+                <br><br><p>
+                    O renklendirmeyi editörünüz yapıyor. HTML elemanlar ve içeriklerinin daha rahat 
+                    ayrıştırılması için otomatik olarak yazıları renklendiriyor. Text Editör kullanmanın 
+                    avantajlarından biri bu.
+                </p>
+                <p>
+                    Kodu biraz incelerseniz , daha önce gördüğümüz HTML eleman temel yapısında bir çok 
+                    eleman görürüz. Şimdi kodu satır satır inceleyelim.
+                </p>
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">DOCTYPE</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div>
+                <br><p>
+                    Bu satır aslında bir HTML elemanı değil bu her sayfa kodunun en başında bulunmsı 
+                    gereken bir direktif. Sayfayı size gösteren tarayıcı uygulamaya bu dökümanın HTML-5 
+                    standardı bir web sayfası olduğunu bildiriyor. Tarayıcınız bu yönergeyi gördüğünde 
+                    sayfanın size sunumunu o standarda göre yapacaktır.
+                </p><br>
+                <div class="cpadding" style="background-color: black; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="color: white;"><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><span style="color: white;"><br /></span><div><span style="color: white;">&nbsp; &nbsp; </span><span style="color: grey;">....</span><span style="color: white;"><br /></span></div><span style="color: white;"><br /></span><div style="color: white;"><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div>
+                <br><p>
+                    İlk elemanımız diğer bütün elemanları kapsayan <code>&lt;html></code> elemanı. Gördüğünüz 
+                    gibi bir açılış ve bir de kapanış tag'i var, kapanış tag'i eleman ismi olan "html" öncesine 
+                    "/" işareti ekleyerek oluşturulur, söylemiştik. <code>&lt;html></code> elemanı sayfanın 
+                    tüm kodunu kapsar (yani sayfanın tüm HTML elemanlarını). Bir diğer tanımlaması da 
+                    <b>root</b> eleman da derler.
+                </p>
+                <br><div class="cpadding" style="background-color: black; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="color: white;"><div style="line-height: 19px;"><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><br /><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">meta</span> <span style="color: #9cdcfe;">charset</span>=<span style="color: #ce9178;">"utf-8"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>Örnek Web Sayfam<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><br /><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div>
+                <br><p>
+                    <code>html</code> elemanının içeriği iki parçadan oluşuyor. Bunların ilki, sayfa hakkında 
+                    yapılandırmaları içeren <code>&lt;head></code> bölümü. Bu bölümde yer alan elemanlar 
+                    web sayfanızda kullanıcıların göreceği içeriklere sahip elemanlar değildir. Koda 
+                    bakınca da göreceğiniz üzere bir HTML elemanı içeriğine diğer HTML elemanlarını alabiliyor. 
+                    Hatta tüm sayfa kodu böyle, <code>&lt;html></code> elemanı tüm sayfa elemanlarını 
+                    kapsıyor, <code>&lt;head></code> elemanı içeriğinde yapılandırmada kullanılan diğer 
+                    elemanlar var vs.
+                </p>
+                <p>
+                    <code>&lt;head></code> elemanı içinde bulunan ilk eleman <code>&lt;meta></code> elemanı. 
+                    Bu elemanın kapanış tag'i yoktur ve içeriği de yoktur (yani boş eleman). <code>meta</code>
+                    elemanı tarayıcıya bazı yapılandırma bilgileri vermekte kullanılır. Burada kullanılacak 
+                    <b>karakter setini</b> ayarlamak için kullanılmış. Bunu yapmak için <b>charset</b> adındaki 
+                    <b>Bağlı Özellik</b> (Attribute) kullanılmış. Bağlı özellikler bulunulan elemana ait özellik 
+                    değerleridir ve tarayıcıya o elemanın nasıl değerlendirileceği hakkında bilgiler verir. 
+                    Bağlı özellik yukarıda görüldüğü gibi açılış tag içinde (yani büyüktür işareti konmadan) 
+                    yerleştirilir. <code>&lt;meta charset="utf-8"></code> elemanında bağlı özelliğin adı <code>charset</code>
+                    ve değeri <code>"utf-8"</code> dir. Gördüğünüz gibi eleman adı olan <code>meta</code> kelimesinden 
+                    sonra bir boşluk bırakılıp bağlı özellik adı olan <code>charset</code> yazılmış. Sonrasında 
+                    eşittir işareti ve arkasından tırnak içinde istenen değer girilmiş.
+                </p>
+                <p>
+                    Bağlı özellikler hep bu şekilde <code>&lt;tagAdı özellik1="değer" özellik2="değer2" ...></code> 
+                    notasyonunda yazılır. Değerlerin tırnak içinde yazılmasını lütfen unutmayın. Son olarak 
+                    <code>utf-8</code> değerine gelelim. <code>utf-8</code> karakter setinde dünyada 
+                    konuşulan dillerin çoğunda bulunan karakterler vardır. Türkçe'mizdeki ıİşĞüÖ gibi 
+                    harflerin de tamamı bu karakter setinde vardır. Bu yüzden Türkçe içerikli web sayfalarınızda 
+                    bu meta yönergesini eklemeyi unutmayın.
+                </p>
+                <p>
+                    <code>&lt;head></code> kısmındaki ikinci eleman ise <code>&lt;title></code> elemanı. 
+                    Bu elemanın içeriğinde bulunan yazı web sayfanızın etiketinde yer alacak yazıdır. Etiket 
+                    tarayıcınızın sekmesi üzerinde görünen başlık yazısıdır. Şöyle ki:
+                </p>
+                <img src="images/tut006.png" alt="title resmi" class="img-thumbnail">
+                <br><br><p>
+                    Gelelim <code>&lt;html></code> içindeki ikinci eleman olan <code>&lt;body></code> 
+                    elemanına. <code>&lt;body></code> elemanı içeriğinde bulunanlar sayfamızın kullanıcıya 
+                    göstereceği elemanlardır. Yani tam anlamıyla <code>body</code> tarayıcı pencenizin içinde 
+                    kalan alandır. <code>body</code> elemanının açılış ve kapanış tag'leri arasına konan 
+                    her şey sayfada gördüğümüz şeylerdir. Bunlar yazılar, resimler, videolar, müzikler vs. 
+                    internette gördüğünüz her türlü içerik.
+                </p>
+                <p>
+                    <code>body</code> içinde ilk elemanımız bir <code>&lt;h1></code> başlık-heading elemanı. 
+                    Başlıklar tüm yazılardan bildiğimiz gibi konuları bölümlendirmekte kullandığımız ve 
+                    paragraflara gör daha büyük puntolarla yazılmış yazılar. HTML elemanlarında 
+                    <code>&lt;h1></code> den <code>&lt;h6></code> ya kadar 6 çeşit başlık türü var. 
+                    <code>&lt;h1></code> bunların en büyük olanı , en küçüğü de <code>&lt;h6></code> 
+                    elemanı. Sayfanızda en başta bir tane <code>&lt;h1></code> elemanı olmasına özen 
+                    gösterin , d,ğer alt başlıkları daha küçük elemanlardan seçin. Çünkü arama motorları 
+                    sayfanızdaki <code>h1</code> elemanlarını dikkate alarak arama yapar.
+                </p>
+                <p>
+                    <code>body</code> içinde ikinci eleman <code>&lt;p></code> elemanı bir <b>paragraf</b> 
+                    ifade ediyor. Tarayıcınız bu elemanı normal boyutta bir yazı olarak size gösterecektir. 
+                    Altında ve üstünde bir kısım boşluk bırakılarak paragraflar diğer elemanlardan ayrılır. 
+                    Şu anda okuduğunuz yazıda da bir çok paragraf elemanı var (belki 100 tanedir).
+                </p>
+                <p>
+                    <code>body</code> içindeki üçüncü ve son elemanımız da resimleri göstermekte kullanılan 
+                    <code>&lt;img></code> elemanı. Dikkat ederseniz <code>&lt;img></code> elemanının da 
+                    kapanış tag'i yok, yani boş eleman. Çünkü bir resmi yazılardan oluşan bir içerikle 
+                    ifade etmeniz mümkün değil. Resim bir dosya ve sizin tarayıcınız bu dosyadan resmi 
+                    alıp o noktada göstermeli. Resim dosyasının yerini tayin etmek için <code>img</code> 
+                    elemanının bağlı özelliklerinden biri olan <code>src</code> (kaynak-source) özelliği 
+                    kullanılır. Burada <code>src="images/pupy.jpg"</code> değeri kullanılmış. Yani <b>images</b> 
+                    alt klasörü içindeki <b>puppy.jpg</b> dosyası resim olarak gösterilecek.
+                </p>
+                <p>
+                    Peki bu resmi nereden bulduk ta oraya koyduk? derseniz, daha önce bahsettiğim 
+                    <a href="http://unsplash.com" target="_blank">Unsplash</a> web siteisnde aradım buldum ve <b>images</b> 
+                    klasörü içine <b>pupy.jpg</b> adıyla indirdim. İndirmek yetmez , resim çok büyüktü , 
+                    Microsoft Paint uygulaması ile resmi düzenlemek için açıp boyutunu değiştirdim.
+                </p>
+                <img src="images/tut007.png" alt="mspaint boyutlandırma">
+                <br><br><ol>
+                    <li>"Yeniden boyutlandır" butonuna tıkalyın</li>
+                    <li>Ölçüt olarak "piksel" seçin</li>
+                    <li>Genişlik 350 piksel değerinde olsun</li>
+                    <li>"En boy oranını koru" seçili olsun ki yükseklik de genişlikle beraber otomatik 
+                        ayarlansın
+                    </li>
+                    <li>"Tamam" a tıklayın ve sonra dosyayı kaydedin</li>
+                </ol>
+                <p>
+                    Böylece resmimizi 350 piksel genişlikte olacak şekilde yeniden boyutlandırdık.
+                </p>
+                <p>
+                    <code>img</code> elemanının ikinci girdiğimiz bağlı özelliği <code>alt</code> değeri. 
+                    Bu değer herhengi bir sebeple resim dosyası taryıcıya yüklenemezse kullanıcıya gösterilecek 
+                    bir bilgilendirme yazısıdır. "Resim yüklenemedi" de yazabilirsiniz mesela. Diyelim 
+                    <code>&lt;img src="images/pup.jpg" alt="Sevimli köpecik"></code> şeklinde dosya adını 
+                    yanlış girdiniz tarayıcı da şu görünür:
+                </p>
+                <img src="images/tut008.png" alt="tut008" class="img-thumbnail">
+                <br><br><p>
+                    Kırık bir resim imajıyla da desteklenmiş olarak <code>alt</code> özelliğine girdiğimiz 
+                    yazı bize bildirim olarak veriliyor.
+                </p>
+
+                <br><h2>Sayfanızı Test Etmek</h2>
+                <p>
+                    Çok basit sayfa kodumuzda neler olduğunu tek tek inceledikten sonra bu sayfayı nasıl 
+                    çalıştırıp tarayıcıda test ederiz onu görelim. Öncelikle <i>index.html</i> dosyamız içine 
+                    yukarıda verdiğimiz kodları yazmıştınız değil mi? Yani şunları:
+                </p>
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">DOCTYPE</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><br /><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><br /><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><br /><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">meta</span> <span style="color: #9cdcfe;">charset</span>=<span style="color: #ce9178;">"utf-8"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>Örnek Web Sayfam<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><br /><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><br /><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; </div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">h1</span><span style="color: grey;">&gt;</span>Merhaba Dünya!<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">h1</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Aşağıda sevimli bir köpecik resmi var.<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">img</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"images/pupy.jpg"</span> <span style="color: #9cdcfe;">alt</span>=<span style="color: #ce9178;">"Sevimli köpecik"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; </div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><br /><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div>
+                <br><p>
+                    Burada gösterilen elemanlar arası boşluklar ve alt satıra geçmelerin HTML kod açısından hiç bir 
+                    anlamı yok aslında. Onların hepsi sizin kod yazarken elemanları ve içeriklerini çok daha kolay ayırt
+                    etmeniz için yapılır. Bu kodu tüm elemanlar arası boşluk ve alt satıra geçişleri iptal 
+                    ederek de yazsak aynı şekilde çalışır (yani web sayfası aynı görünür). 
+                </p>
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">DOCTYPE</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;&lt;</span><span style="color: #569cd6;">meta</span> <span style="color: #9cdcfe;">charset</span>=<span style="color: #ce9178;">"utf-8"</span><span style="color: grey;">&gt;.....</span><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span> </div></div></div></div></div></div>
+                <br><p>
+                    şeklinde de yazsak çalışır ama biz bir şey anlamayız. Bu yüzden elemanları yeni satırlarda 
+                    yazıp, içiçe yerleşen elemanlarda içeride kalanları soldan daha fazla girinti bırakarak 
+                    yazıyoruz ki , döküman üzerinde hakimiyetimiz kaybolmasın. Düzen yazılımcılığın temel 
+                    ilkesidir. Üşenmek yok , her şey asker gibi dizili olacak.
+                </p>
+                <p>
+                    Gelelim sayfanın tarayıcıda nasıl göründüğüne. Basit web sayfaları için direk gezginde 
+                    <i>index.html</i> dosyası üzerine çift tıklayarak sayfanın <code>file</code> olarak 
+                    default tarayıcınızda görünmesini sağlayabilirsiniz.
+                </p>
+                <img src="images/tut009.png" alt="file on browser" class="img-thumbnail">
+                <br><br><p>
+                    Ancak biz sayfamızın bir web server'dan yayınlandığında nasıl göründüğünü görmek istiyoruz. 
+                    Ben bu amacım için VSCode editörün 
+                    <a href="https://github.com/ritwickdey/vscode-live-server-plus-plus" target="_blank">Live Server</a> 
+                    eklentisini kullanıoyorum. VSCode editörü kullananlar "eklentiler" (extensions) sekmesinde 
+                    "Live Server" aratarak bu eklentiyi kurabilirler. Eklenti sayesinde <i>index.html</i> dosyam
+                    editörde açıkken boşlukta bir yere sağ tıkladığımda açılan menüde "Open with Live Server" 
+                    seçersem bir lokal server çalışıyor ve tarayıcıda otomatik olarak web sayfası açılıyor. 
+                    Hatta html dosyada değişiklik yapar ve kaydederseniz tarayıcı otomatik olarak sayfayı 
+                    tazeleyip en son halini gösteriyor.
+                </p>
+                <img src="images/tut010.png" alt="live server right click">
+                <br><br><p>
+                    Live Server ile aldığım görüntü ise şöyle :
+                </p>
+                <img src="images/tut011.png" alt="live server index.html" class="img-thumbnail">
+                <br>
+                <br><p>
+                    Adres kısmında lokal server'ın ip adresi ve port numarası var. Artık gerçek bir server'dan 
+                    yayınlanıyor gibi kodlarımızı test edebiliriz. VSCode kullanmayan okuyucular ise kendi 
+                    editör uygulamalarında büyük ihtimal benzer özellik vardır, onu araştırıp kullanabilirler.
+                </p>
+                <p>
+                    Bu sayfa oldukça uzun oldu. İlk sayfamızın görünütsünü elde ettiğimize göre yazıyı 
+                    burada kesip yeni bir bölüm ile devam edelim.
+                </p>
+                <a href="bolum2.html" class="btn btn-success pull-right">2. Bölüm ></a>
 
                 <p>.</p><p>.</p>
             </div>

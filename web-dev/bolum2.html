@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Geliştirme</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        div .scroll{
+            height:300px;
+            width: 100%;
+            overflow:scroll;
+            scrollbar-color: dark;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: white;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: gray;
+            border-radius: 10px;
+        }
+
+        .cborder {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        .cpadding {
+            padding: 15px;
+        }
+
+        body {
+            font-size: large;
+        }
+
+        img.full {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+    </nav>
+
+    <div class="container" style="padding-top: 70px;;">
+        
+        <div class="row">
+            <div class="col-md-2 hidden-xs">
+                <div style="position:fixed; left: 50px; top: 70px;" id="left-menu">
+                    <br>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <h1 id="attributes">Bölüm 2</h1>
+                <h2 style="padding-top: 70px;;">Bağlı Özellikler (Attributes)</h2>
+                <p>
+                    Bağlı özelliklerden kısaca bahsetmiştik. Ama üzerinden tekrar geçmekte fayda var. 
+                    Bağlı özellikler bir eleman hakkında tarayıcıya ilave bilgiler sağlamak için kullanılır. 
+                    Bu değerler eleman içeriğinde sayfada görünmezler. Tüm HTML elemanları bağlı özelliklere 
+                    sahip olabilir. 
+                </p>
+                <p>
+                    Bağlı özellikler yazılırken belirlenmiş kurallar vardır:
+                </p>
+                <ul>
+                    <li>Eleman adı ile aralarında boşluk olmalıdır. <code>&lt;meta charset="utf-8"></code> gibi.</li>
+                    <li>Bir bağlı özelliğin değerini girmek için "eşittir" işareti kullanılır.</li>
+                    <li>Özellik değeri her zaman tırnak içinde yazılır ("utf-8" gibi).</li>
+                    <li>Bağlı özellikler her zaman elemanın açılış tag'i içine yazılır.</li>
+                    <li><code>:isim="değer"</code> formatında bildirilmelidir.</li>
+                </ul>
+                <p>
+                    Daha önce <i>index.html</i> dosyamız içinde resim gösterirken <code>&lt;img></code> 
+                    elemanının <code>src</code> (kaynak-source) özelliğini kullanmıştık.
+                </p>
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: grey;">&lt;</span><span style="color: #569cd6;">img</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"images/pupy.jpg"</span> <span style="color: #9cdcfe;">alt</span>=<span style="color: #ce9178;">"Sevimli köpecik"</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div>
+                <br><p>
+                    Bir çok farklı bağlı özellikler olabilir. <code>src</code> özelliği bağlı olduğu 
+                    elemanın iliştirildiği dosyanın yerini gösterir. <code>&lt;img></code> elemanında 
+                    kullanıldığı bu yerde tarayıcıya resim dosyasının adını bildiriyor. Burada kullanılan 
+                    <code>images/pupy.jpg</code> değeri tarayıcıya resmin <i>index.html</i> dosyasının 
+                    bulunduğu klasörün bir alt klasörü olan <b>images</b> klasöründe <b>pupy.jpg</b> isimli 
+                    dosya olduğunu bildiriyor. Bu durumda tarayıcı kodda o <code>img</code> elemanının 
+                    tarif ettiği yerde bu dosyadaki resmi yayınlayacaktır.
+                </p>
+                <p>
+                    <code>alt</code> bağlı özelliği ise resim bir sebepten tarayıcıya yüklenemezse kullanıcıya 
+                    gösterilecek yazılı mesajı içerir. <code>alt</code> özelliğinin başka bir kullanım amacı 
+                    da "Screen Reader" (ekran okuyucu) uygulaması ile sayfayı inceleyen görme engelli 
+                    kullanıcılara resim hakkında bilgi vermektir. Bu yüzden sayfanızda görme engellilerin 
+                    de dikkatini çekecek bir şeyler olduğunu düşünüyorsanız <code>alt</code> özelliğinde 
+                    resmi anlatan daha açıklayıcı bilgiler veriniz.
+                </p>
+                <p>
+                    Daha bir çok bağlı özellik var. Bunları ilerledikçe görmeye devam edeceğiz.
+                </p>
+
+                <h2 id="markText">Yazıları Şekillendirmek</h2>
+
+                <p>.</p><p>.</p>
+            </div>
+            <div class="col-md-2 hidden-xs">.</div>
+        </div>
+    </div>
+
+<script>
+$(document).ready(function(){
+    $.get("menu.html", function(data){
+        $("#left-menu").append(data);
+    });
+});
+</script>
+    
+
+
+</body>
