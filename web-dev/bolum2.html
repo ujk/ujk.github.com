@@ -549,8 +549,615 @@ Formlar web sitenizi ziyaret eden kişilerden bilgi toplamak için kullanılırl
                     Sayfaya bir form ekleyerek başlayalım:
                 </p>
                 <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;!</span><span style="color: #ff5572;">DOCTYPE</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">html</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">html</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">head</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">link</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">rel</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">stylesheet</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">type</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">text/css</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">href</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">style.css</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">head</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">body</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">form</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">id</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">hesap</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">action</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">#</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">method</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">post</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">fieldset</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">fieldset</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">form</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">body</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">html</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div></div></div></div></div>
+                <br><p>
+                    Bu sefer <code>&lt;form></code> elemanına <code>id</code> bağlı özelliğini de ekledik.
+                    Bu özellik daha sonra scriptler ve CSS şekillendiricilerin sayfada o elemanı bulması 
+                    için kullanılır. Sayfanızda aynı <code>id</code> değerine sahip sadece bir tane eleman 
+                    olmasına özen gösterin. Çünkü <b>id</b> özelliği identification kelimesinden geliyor ve 
+                    veri tablolarında falan da kullanılır ve tek bir kayda ait işaretleme değeridir. Birden 
+                    fazla elemana aynı anda erişmek isterseniz <code>class</code> özelliğini kullanın. Gerçi 
+                    birden fazla elemana aynı <code>id</code> değeri verseniz, çalışmasında sıkıntı olmaz, 
+                    ama mesela bazı JavaScript kütüphaneleri <b>id</b> değeri ile eleman ararsanız sadece 
+                    ilk bulduğu elemanı işler.
+                </p>
+                <p>
+                    Şimdilik formda sadece bir <code>&lt;fieldset></code> elemanı var , o da görselde bir 
+                    boş çerçeve çizer o kadar. Formun içine kullanıcının sisteme giriş yapması için bir 
+                    e-mail ve bir şifre giriş kutusu ekleyelim.
+                </p>
+                <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="background-color: #3e313c; color: #f6f6f4; line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">form</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">id</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">hesap</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">action</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">#</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">method</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">post</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">fieldset</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">h2</span><span style="color: #89ddff;">&gt;</span>E-mail kullanarak giriş yapınız<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">h2</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">br</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">input</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">inp</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">type</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">text</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">name</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">E-mail</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">value</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">E-mail</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">br</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">br</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">input</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">inp</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">type</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">password</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">name</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Password</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">value</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Password</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">br</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">fieldset</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">form</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div>
+                <br><p>
+                    Her iki <code>&lt;input></code> elemanına da <code>class</code> değeri olarak <b>inp</b>
+                    değeri verildi. Biraz sonra stilleri belirlerken bu iki giriş kutusunun da aynı stilde görünmesi 
+                    için bir tek <b>inp</b> sınıfına stil yazınca ikisi de stil değiştirecek. <code>name</code>
+                    değeri daha önce bahsettiğimiz gibi form gönderilirken o elemandan girilen bilginin 
+                    hangi parametrede olacağını belirtir. Yukarıdaki e-mail girilmesi için konulan kutuda 
+                    <code>type</code> değeri <b>text</b>'dir, yani düz metin. İkinci kutuda şifre girilecek 
+                    olduğu için tipi <b>password</b> olarak veriliyor. Çünkü kullanıcı şirfe girerken 
+                    ekranda girilen karakterlerin görünmesini istemiyoruz. Her iki kutuda da olan <code>value</code>
+                    özelliği ise başlangıçta kutu içine yazılı olarak gelmesini istediğimiz default 
+                    değeri veriyor. Şu anda form görüntüsü şöyle:
+                </p>
+                <div class="cborder reset-style">
+                    <form>
+                        <fieldset>
+                            <h2>E-mail kullanarak giriş yapınız</h2>
+                            <br>
+                            <input class="inp" type="text" name="E-mail" value="E-mail">
+                            <br>
+                            <br>
+                            <input class="inp" type="password" name="Password" value="Password">
+                            <br>
+                        </fieldset>
+                    </form>
+                </div>
+                <br><p>
+                    Gördüğünüz üzere alttaki şifre alanına girilen karakterler nokta nokta olarak 
+                    görünüyor. Forma bir tane "Beni Hatırla" seçeneği ile cinsiyet seçimi de ekleyelim.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; white-space: pre;"><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">form</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">id</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">hesap</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">action</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">#</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">method</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">post</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; white-space: pre;">&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">fieldset</span><span style="color: #89ddff;">&gt;</span></div><div style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; white-space: pre;">&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">h2</span><span style="color: #89ddff;">&gt;</span>E-mail kullanarak giriş yapınız<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">h2</span><span style="color: #89ddff;">&gt;</span></div><div style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; white-space: pre;">&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">br</span><span style="color: #89ddff;">&gt;</span></div><div style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; white-space: pre;">&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">input</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">inp</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">type</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">text</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">name</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">E-mail</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">value</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">E-mail</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; white-space: pre;">&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">br</span><span style="color: #89ddff;">&gt;</span></div><div style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; white-space: pre;">&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">br</span><span style="color: #89ddff;">&gt;</span></div><div style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; white-space: pre;">&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">input</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">inp</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">type</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">password</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">name</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Password</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">value</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Password</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; white-space: pre;">&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">br</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">br</span><span style="color: #89ddff;">&gt;</span></div><div style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; white-space: pre;">&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">input</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">type</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">checkbox</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">name</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">remember</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">value</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">details</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span> </div><div style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; white-space: pre;">            İsim ve Şifreyi Hatırla <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">br</span><span style="color: #89ddff;">&gt;</span></div><div style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; white-space: pre;">&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">input</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">type</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">radio</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">name</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">cinsiyet</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">value</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">female</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">checked</span><span style="color: #89ddff;">&gt;</span> Kadın <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">br</span><span style="color: #89ddff;">&gt;</span></div><div style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; white-space: pre;">&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">input</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">type</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">radio</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">name</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">cinsiyet</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">value</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">male</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span> Erkek <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">br</span><span style="color: #89ddff;">&gt;</span></div><div style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; white-space: pre;">&nbsp; &nbsp; <span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">fieldset</span><span style="color: #89ddff;">&gt;</span></div><div style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; white-space: pre;"><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">form</span><span style="color: #89ddff;">&gt;</span></div>
+                <br><div class="cborder reset-style">
+                    <form>
+                        <fieldset>
+                            <h2>E-mail kullanarak giriş yapınız</h2>
+                            <br>
+                            <input class="inp" type="text" name="E-mail" value="E-mail">
+                            <br>
+                            <br>
+                            <input class="inp" type="password" name="Password" value="Password">
+                            <br>
+                            <input type="checkbox" name="remember" value="details"> İsim ve Şifreyi Hatırla <br>
+                            <input type="radio" name="cinsiyet" value="female" checked> Kadın
+                            <input type="radio" name="cinsiyet" value="male"> Erkek
+                        </fieldset>
+                    </form>
+                </div>
+                <br><p>
+                    Burada bilmediğimiz eleman olarak <code>type="checkbox"</code> olan bir <code>&lt;input></code>
+                    elemanı var. Checkbox da bir seçimi belirtmek içindir ama radio butonlar gibi sadece 
+                    bir tanesinin seçili olması zorunluluğu yoktur. Bir grubun içinde birden fazla checkbox 
+                    varsa birden fazlası seçilebileceği gibi hiç birinin seçili olmama imkanı da vardır. 
+                    Eğer kullanıcı bu checkbox'ı tıklayıp seçili yapmışsa form gönderilirken parametrelerinde 
+                    <code>remember=details</code> değeri de olacaktır. Eğer checkbox seçili değilse 
+                    parametrede <code>remember</code> isimli bir değer hiç olmadan form gönderilir. 
+                </p>
+                <p>
+                    Son olarak forma bir gönderme butonu ekleyelim.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; white-space: pre;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">form</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">id</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">hesap</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">action</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">#</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">method</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">post</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">    &lt;</span><span style="color: #ff5572;">fieldset</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">        &lt;</span><span style="color: #ff5572;">h2</span><span style="color: #89ddff;">&gt;</span>E-mail kullanarak giriş yapınız<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">h2</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">        &lt;</span><span style="color: #ff5572;">br</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">        &lt;</span><span style="color: #ff5572;">input</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">inp</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">type</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">text</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">name</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">E-mail</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">value</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">E-mail</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">        &lt;</span><span style="color: #ff5572;">br</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">        &lt;</span><span style="color: #ff5572;">br</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">        &lt;</span><span style="color: #ff5572;">input</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">inp</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">type</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">password</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">name</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Password</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">value</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Password</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">        &lt;</span><span style="color: #ff5572;">br</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">br</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">        &lt;</span><span style="color: #ff5572;">input</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">type</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">checkbox</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">name</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">remember</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">value</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">details</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span> </div><div>            İsim ve Şifreyi Hatırla <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">br</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">        &lt;</span><span style="color: #ff5572;">input</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">type</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">radio</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">name</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">cinsiyet</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">value</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">female</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">checked</span><span style="color: #89ddff;">&gt;</span> Kadın <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">br</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">        &lt;</span><span style="color: #ff5572;">input</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">type</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">radio</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">name</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">cinsiyet</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">value</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">male</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span> Erkek <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">br</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">        &lt;</span><span style="color: #ff5572;">input</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">id</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">login</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">type</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">submit</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">value</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Giriş Yap</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">    &lt;/</span><span style="color: #ff5572;">fieldset</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">form</span><span style="color: #89ddff;">&gt;</span></div></div></div>
+                <br><div class="cborder reset-style">
+                    <form>
+                        <fieldset>
+                            <h2>E-mail kullanarak giriş yapınız</h2>
+                            <br>
+                            <input class="inp" type="text" name="E-mail" value="E-mail">
+                            <br>
+                            <br>
+                            <input class="inp" type="password" name="Password" value="Password">
+                            <br><br>
+                            <input type="checkbox" name="remember" value="details"> 
+                                İsim ve Şifreyi Hatırla <br>
+                            <input type="radio" name="cinsiyet" value="female" checked> Kadın <br>
+                            <input type="radio" name="cinsiyet" value="male"> Erkek <br>
+                            <input id="login" type="submit" value="Giriş Yap">
+                        </fieldset>
+                    </form>
+                </div>
+                <br><p>
+                    Gönderme butonuna da <code>id</code> değeri olarak <code>login</code> değerini verdik. 
+                    Onun da stilini belirtirken bu <b>id</b> değerini kullanacağız. <b>id</b> ve <b>class</b>
+                    değerlerini eleman bağlı özelliklerinde ilk sırada vermeye özen gösterin. Aslında sıralamanın 
+                    bir önemi yok, ama kodunuzu incelerken bu değerlerin en başta olması özellikle stilleri 
+                    belirlerken rahatça görmeniz bakımından çok lazım olacak.
+                </p>
 
+                <br><h2>Formun CSS Stil Kodlarının Yazılması</h2>
+                <p>
+                    <i>style.css</i> dosyamız şu anda boş. İçine yazacağımız kodlarla form elemanlarının 
+                    görünümünde değişiklikler yapacağız. Öncelikle formdaki <code>&lt;fieldset></code> 
+                    elemanını bulup onun stilini değiştireceğiz. <i>style.css</i> dosyamızın içine şu kodu 
+                    yazalım:
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #ff5572;">fieldset</span> {</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">background-color</span>: <span style="color: #f78c6c;">#</span><span style="color: #ffeb95;">35a1c4</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">border</span>: <span style="color: #89ddff;">none</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">border-radius</span>: <span style="color: #f78c6c;">10</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">margin</span>: <span style="color: #f78c6c;">55</span><span style="color: #ffeb95;">px</span> <span style="color: #f78c6c;">0</span> <span style="color: #f78c6c;">0</span> <span style="color: #f78c6c;">250</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">width</span>: <span style="color: #f78c6c;">450</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">height</span>: <span style="color: #f78c6c;">350</span><span style="color: #ffeb95;">px</span>;</div><div>}</div></div></div></div>
+                <br><p>
+                    CSS stil dosyası içinde kod yazarken önce aradığımız eleman(lar)ı bulmak için bir 
+                    <b>seçici</b> (selector) değer yazarız. Bir eleman türündeki tüm elemanları bulmak 
+                    için o elemanın ismi yazılır. Burada biz sayfadaki <code>&lt;fieldset></code> elemanını 
+                    bulmak istediğimiz için onun adını yani <code>fieldset</code> yazdık. Seçicinin arkasından 
+                    bir boşluk bırakıp süslü parantez içinde olacak şekilde stil kodları yazılır.
+                </p>
+                <p>
+                    Stil kodu yazarken de alt satıra geçme ve soldan girintilerin kod olarak anlamı yok, sadece 
+                    görünümü kolaylaştırmak için böyle yapılıyor. Ömemli olan her stil deyiminin sonuna 
+                    bir noktalı-virgül ( ; ) karakteri eklemek. Şimdi satır satır yazdığımız stil kodlarının 
+                    <b>fieldset</b> elemanının görünümünü nasıl değiştirdiğine bakalım.
+                </p>
+                <ul>
+                    <li>
+                        <code>background-color: #35a1c4;</code> deyiminde <code>background-color</code> değiştirmek 
+                        istediğimiz stil öğesinin adı. Bu isimden kolayca anlaşıldığı üzere elemanın arka 
+                        plan rengini değiştiriyor. Stil öğesinin adını girdikten sonra iki nokta üsüste 
+                        karakteri koyup istediğimiz değeri giriyoruz. Burada değer <code>#</code> işareti 
+                        ile başladığına göre hexadesimal bir renk kodu. Kırmızı Yeşil ve Mavi bileşenleri var.
+                        İlk 2 rakamın gösterdiği sayı kırmızı sonraki iki yeşil, son iki rakam da mavi bileşen 
+                        miktarı. Bu değerler desimal 0-255, hexadesimal 0-ff arası olurlar. Değere bakarsak 
+                        yeşile çalan bir mavi arkaplan olacak. Zaten VSCode kullanıyorsanız kursörü değerin 
+                        üzerine getirince size rengi göstererek yardımcı olacaktır.
+                        <div class="cborder reset-style">
+                            <style>
+                            #test1 {
+                                background-color: #35a1c4;
+                            }                            
+                            </style>
+                            <form>
+                                <fieldset id="test1">
+                                    <h2>E-mail kullanarak giriş yapınız</h2>
+                                    <br>
+                                    <input class="inp" type="text" name="E-mail" value="E-mail">
+                                    <br>
+                                    <br>
+                                    <input class="inp" type="password" name="Password" value="Password">
+                                    <br><br>
+                                    <input type="checkbox" name="remember" value="details"> 
+                                        İsim ve Şifreyi Hatırla <br>
+                                    <input type="radio" name="cinsiyet" value="female" checked> Kadın <br>
+                                    <input type="radio" name="cinsiyet" value="male"> Erkek <br>
+                                    <input id="login" type="submit" value="Giriş Yap">
+                                </fieldset>
+                            </form>
+                        </div><br>
+                    </li>
+                    <li>
+                        <code>border: none;</code> - Bu stil elemanın çerçeve çizgisini belirlemek için kullanılır 
+                        ve <code>none</code> değeri verildiyse elemanda çerçeve çizgisi olmayacak demektir.
+                        <div class="cborder reset-style">
+                            <style>
+                            #test2 {
+                                background-color: #35a1c4;
+                                border: none;
+                            }                            
+                            </style>
+                            <form>
+                                <fieldset id="test2">
+                                    <h2>E-mail kullanarak giriş yapınız</h2>
+                                    <br>
+                                    <input class="inp" type="text" name="E-mail" value="E-mail">
+                                    <br>
+                                    <br>
+                                    <input class="inp" type="password" name="Password" value="Password">
+                                    <br><br>
+                                    <input type="checkbox" name="remember" value="details"> 
+                                        İsim ve Şifreyi Hatırla <br>
+                                    <input type="radio" name="cinsiyet" value="female" checked> Kadın <br>
+                                    <input type="radio" name="cinsiyet" value="male"> Erkek <br>
+                                    <input id="login" type="submit" value="Giriş Yap">
+                                </fieldset>
+                            </form>
+                        </div>
+                        Artık o ince çerçeve çizgisi yok. <br><br>
+                    </li>
+                    <li>
+                        <code>border-radius: 10px;</code> - Elemanın köşelerinde 10 piksel çapında bir 
+                        yuvarlatma yapılacağını bidiriyor.
+                        <div class="cborder reset-style">
+                            <style>
+                            #test3 {
+                                background-color: #35a1c4;
+                                border: none;
+                                border-radius: 10px;
+                            }                            
+                            </style>
+                            <form>
+                                <fieldset id="test3">
+                                    <h2>E-mail kullanarak giriş yapınız</h2>
+                                    <br>
+                                    <input class="inp" type="text" name="E-mail" value="E-mail">
+                                    <br>
+                                    <br>
+                                    <input class="inp" type="password" name="Password" value="Password">
+                                    <br><br>
+                                    <input type="checkbox" name="remember" value="details"> 
+                                        İsim ve Şifreyi Hatırla <br>
+                                    <input type="radio" name="cinsiyet" value="female" checked> Kadın <br>
+                                    <input type="radio" name="cinsiyet" value="male"> Erkek <br>
+                                    <input id="login" type="submit" value="Giriş Yap">
+                                </fieldset>
+                            </form>
+                        </div><br>
+                    </li>
+                    <li>
+                        <code>width: 450px;</code> ve <code>height: 350px;</code> - Sırasıyla elemanın 
+                        genişliğini 450 piksel olarak ve yüksekliğini 350 piksel olarak belirliyor.
+                        <div class="cborder reset-style">
+                            <style>
+                            #test4 {
+                                background-color: #35a1c4;
+                                border: none;
+                                border-radius: 10px;
+                                width: 450px;
+                                height: 350px;
+                            }                            
+                            </style>
+                            <form>
+                                <fieldset id="test4">
+                                    <h2>E-mail kullanarak giriş yapınız</h2>
+                                    <br>
+                                    <input class="inp" type="text" name="E-mail" value="E-mail">
+                                    <br>
+                                    <br>
+                                    <input class="inp" type="password" name="Password" value="Password">
+                                    <br><br>
+                                    <input type="checkbox" name="remember" value="details"> 
+                                        İsim ve Şifreyi Hatırla <br>
+                                    <input type="radio" name="cinsiyet" value="female" checked> Kadın <br>
+                                    <input type="radio" name="cinsiyet" value="male"> Erkek <br>
+                                    <input id="login" type="submit" value="Giriş Yap">
+                                </fieldset>
+                            </form>
+                        </div><br>
+                    </li>
+                    <li>
+                        <code>margin: 55px 0 0 250px;</code> - Margin demek elemanın dışında bırakılacak 
+                        boşluklar demek. Burada boşluklarla ayrılmış 4 tane değer verilmiş. Sıfırlar için 
+                        yanında birimin piksel olduğunu belirtmeye gerek yok. Hangi birim kullanılırsa 
+                        kullanılsın , sıfır sonuçta. Bu 4 değer sırasıyla üst-sağ-alt-sol taraflardaki 
+                        boşluk bırakma değerleri. Margin o yöndeki elemana göre ölçülür. Bu örnekte 
+                        <code>&lt;fieldset></code> elemanının sağında solunda başka eleman olmadığına göre 
+                        direk görsel alanın sınırlarına olan mesafeler belirtilmiş olur. Yani 
+                        <code>&lt;fieldset></code> elemanı üstten 55 piksel aşağıda ve soldan 250 piksel 
+                        içeride olacak.
+                    </li>
+                </ul>
+                <p>
+                    Formun şu andaki görünümü şöyle olmalı:
+                </p>
+                <img src="images/tut018.png" alt="form margin resmi" class="img-thumbnail">
+                <br><br><p>
+                    Devam edelim. Formdaki <code>&lt;h2></code> başlık yazısının stilini de şöyle girelim:
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #ff5572;">h2</span> {</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">background-color</span>: <span style="color: #f78c6c;">#</span><span style="color: #ffeb95;">0066ff</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">color</span>: <span style="color: #f78c6c;">#</span><span style="color: #ffeb95;">fff</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">margin</span>: <span style="color: #f78c6c;">0</span> <span style="color: #f78c6c;">-11</span><span style="color: #ffeb95;">px</span> <span style="color: #f78c6c;">0</span> <span style="color: #f78c6c;">-11</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">padding</span>: <span style="color: #f78c6c;">15</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">position</span>: <span style="color: #89ddff;">relative</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">bottom</span>: <span style="color: #f78c6c;">4.5</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">border-radius</span>: <span style="color: #f78c6c;">10</span><span style="color: #ffeb95;">px</span>;</div><div>}</div></div></div></div></div>
+                <br><p>
+                    Burada ben tek tek her satır sonrası örnek vermeyeceğim , siz isterseniz satırları tek tek
+                    girerek etkisini görün. Bir konu daha bu yazdığımız blok sayfadaki tüm <code>&lt;h2></code>
+                    elemanların stillerini değiştirir. Bu örnekte sadece bir tane <code>h2</code> olduğu için 
+                    seçiciyi böyle yazdık. Birden fazla aynı isimde elemandan varsa <code>id</code> ya da 
+                    <code>class</code> özelliği girerek sadece istediğiniz elemanları seçmeniz gerekir. Hadi 
+                    stil satırlarını tek tek inceleyelim. Amacımız Başlık yazısını formun en üstünde bir bant 
+                    şeklinde göstermek.
+                </p>
+                <ul>
+                    <li>
+                        <code>background-color: #0066ff;</code> başlığın arka renginin biraz daha koyu bir mavi 
+                        olmasını sağlıyor.
+                    </li><br>
+                    <li>
+                        <code>color: #fff;</code> başlık yazı rengini beyaz yapıyor. Burada değer olarak 
+                        3 rakamlı <code>#fff</code> girilmiş. 3 rakamlı değerler aslında her rakamdan 
+                        ikişer ikişer kulanarak yapılanla aynı, yani <code>#ffffff</code> ile ve bu da 
+                        "beyaz" renk demek.
+                    </li><br>
+                    <li>
+                        <code>margin: 0 -11px 0 -11px;</code> - Normalde bir çok diğer eleman gibi başlık 
+                        elemanlarının da altında ve üstünde default olarak boşluk yapsın diye <i>margin</i> 
+                        değerleri vardır. Biz başlık bantını en üste yapıştırmak için üst ve altındaki 
+                        <i>margin</i> değerlerini sıfırlıyoruz. Başlığın sağında ve solunda da içinde bulunduğu 
+                        <code>&lt;fieldset></code> elemanının iç boşlukları (padding) yüzünden 11 piksellik 
+                        default boşluklar oluşuyor. Bunları yok etmek ve başlık bantının sağa ve sola tam 
+                        sıfır dayalı olmasını sağlamak için sağ ve sola da -11 piksel <i>margin</i> vererek 
+                        başlığı genişletiyoruz.
+                    </li><br>
+                    <li>
+                        <code>padding: 15px;</code> stili bir elemanın iç boşluklarını belirler yani 
+                        içindeki elemanlarla kenarlar arasında ne kadar boşluk olacak? Burada <code>&lt;h2></code>
+                        elemanı içerisinde sadece yazı var ve biz bu yazının etrafında boşluklar olmasını 
+                        istediğimiz için <i>padding</i> değeri giriyoruz. Değeri aynı <i>margin</i> gibi 
+                        4 tane verirsek her kenara ayrı boşluk girbiliriz, ama biz tüm kenarlardan 15 
+                        piksel içeride olsun dersek tek bir değer yazmamız yeterli. Tüm kenarlara aynı 
+                        değer uygulanacaktır.
+                    </li><br>
+                    <li>
+                        <code>position: relative;</code> ve <code>bottom: 4.5px;</code> - Şu ana kadar 
+                        olan stilleri yükleyip denerseniz, başlık üzerinde küçük bir boşluk olduğu ve 
+                        başlığın formun üst kenarına tam yapışmadığını görürsünüz. Bunun sebebi içinde 
+                        bulunduğu <code>&lt;fieldset></code> elemanının <i>padding</i> değeri. Aslında 
+                        daha önce sağ ve sol kenar için yaptığımız gibi üste de -11 <i>margin</i> verebilirdik.
+                        Fakat burada başka bir şey yapıyoruz. İlk satır olan <code>position: relative;</code> 
+                        tarayıcıya elemanın olması gereken yere göre başka bir yere kaydırılacağını 
+                        bildiriyor. <code>bottom: 4.5px;</code> deyimi de elemanın olması gereken pozisyondan 
+                        4.5 piksel yukarı kaydırılacağını bildiriyor. Bu değerler denem yoluyla bulunmuş 
+                        olmalı bence.
+                    </li><br>
+                    <li>
+                        <code>border-radius: 10px;</code> - Başlık yukarı kaydı ama arkaplanı transparan 
+                        olmadığı için köşeleri formun üst köşelerinin yuvarlak görünümünü kapattı. Bu yüzden 
+                        başlığın da köşelerini 10 piksel yuvarlatılmış yapıyoruz.
+                    </li><br>
+                </ul>
+                <div class="cborder reset-style" id="test5">
+                    <style>
+                    #test5 fieldset {
+                        background-color: #35a1c4;
+                        border: none;
+                        border-radius: 10px;
+                        width: 450px;
+                        height: 350px;
+                    }                            
+                    #test5 h2 {
+                        background-color: #0066ff;
+                        color: #fff;
+                        margin: 0 -11px 0 -11px;
+                        padding: 15px;
+                        position: relative;
+                        bottom: 4.5px;
+                        border-radius: 10px;
+                    }
+                    </style>
+                    <form>
+                        <fieldset>
+                            <h2>E-mail kullanarak giriş yapınız</h2>
+                            <br>
+                            <input class="inp" type="text" name="E-mail" value="E-mail">
+                            <br>
+                            <br>
+                            <input class="inp" type="password" name="Password" value="Password">
+                            <br><br>
+                            <input type="checkbox" name="remember" value="details"> 
+                                İsim ve Şifreyi Hatırla <br>
+                            <input type="radio" name="cinsiyet" value="female" checked> Kadın <br>
+                            <input type="radio" name="cinsiyet" value="male"> Erkek <br>
+                            <input id="login" type="submit" value="Giriş Yap">
+                        </fieldset>
+                    </form>
+                </div><br>
 
+                <p>
+                    Geldik bilgi giriş kutularının stillerine. Hatırlarsak ikisine de <code>class</code>
+                    değeri olarak <b>inp</b> vermiştik. Bir <code>class</code> değerine sahip elemanları 
+                    bulmak için seçici kelime olarak nokta ve arkasından değeri yazarız.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #ffcb6b;">.inp</span> {</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">width</span>: <span style="color: #f78c6c;">330</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">height</span>: <span style="color: #f78c6c;">40</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">border</span>: <span style="color: #89ddff;">none</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">border-radius</span>: <span style="color: #f78c6c;">10</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">text-align</span>: <span style="color: #89ddff;">center</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">margin-left</span>: <span style="color: #f78c6c;">50</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">font-size</span>: <span style="color: #f78c6c;">15</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">font-weight</span>: <span style="color: #89ddff;">bold</span>;</div><div>}</div></div></div></div></div></div>
+                <br><p>
+                    Daha önce görmediğimiz stillere odaklanalım. Bildiklerimiz şöyle genişlik-330 piksel, 
+                    yükseklik-40 piksel, sınır çizgisi yok, köşeler 10 piksel yuvarlatılmış. Diğerlerine 
+                    bakalım:
+                </p>
+                <ul>
+                    <li>
+                        <code>text-align: center;</code> - İçinde yazı olan elemanlarda yazının ne yana 
+                        dayanacağını belirtir. <code>center</code> değeri yazının kutunun yatay olarak 
+                        ortasına yerleştirileceğini bildirir.
+                    </li><br>
+                    <li>
+                        <code>margin-left: 50px;</code> - Daha önce tüm <i>margin</i> değerlerini tek 
+                        satırda vermeyi görmüştük. Bu da sadece soldaki <i>margin</i> değerini değiştiriyor. 
+                        Yani kutular soldan 50 piksel içeriden başlayacak. Diğer <i>margin</i> seçenekleri 
+                        <code>margin-top , margin-right</code> ve <code>margin-bottom</code>.
+                    </li><br>
+                    <li>
+                        <code>font-size: 15px;</code> - Kutu içindeki yazının boyutunu 15 piksel olarak 
+                        belirliyor. 
+                    </li><br>
+                    <li>
+                        <code>font-weight: bold;</code> - Kutu içindeki yazının kalın yazı olacağını 
+                        bildiriyor.
+                    </li>
+                </ul>
+                <div class="cborder reset-style" id="test6">
+                    <style>
+                    #test6 fieldset {
+                        background-color: #35a1c4;
+                        border: none;
+                        border-radius: 10px;
+                        width: 450px;
+                        height: 350px;
+                    }                            
+                    #test6 h2 {
+                        background-color: #0066ff;
+                        color: #fff;
+                        margin: 0 -11px 0 -11px;
+                        padding: 15px;
+                        position: relative;
+                        bottom: 4.5px;
+                        border-radius: 10px;
+                    }
+                    #test6 .inp {
+                        width: 330px;
+                        height: 40px;
+                        border: none;
+                        border-radius: 10px;
+                        text-align: center;
+                        margin-left: 50px;
+                        font-size: 15px;
+                        font-weight: bold;
+                    }
+                    </style>
+                    <form>
+                        <fieldset>
+                            <h2>E-mail kullanarak giriş yapınız</h2>
+                            <br>
+                            <input class="inp" type="text" name="E-mail" value="E-mail">
+                            <br>
+                            <br>
+                            <input class="inp" type="password" name="Password" value="Password">
+                            <br><br>
+                            <input type="checkbox" name="remember" value="details"> 
+                                İsim ve Şifreyi Hatırla <br>
+                            <input type="radio" name="cinsiyet" value="female" checked> Kadın <br>
+                            <input type="radio" name="cinsiyet" value="male"> Erkek <br>
+                            <input id="login" type="submit" value="Giriş Yap">
+                        </fieldset>
+                    </form>
+                </div><br>
+
+                <p>
+                    Son elemanımız da gönderme butonu. Biliyorsunuz on da <code>id</code> değeri 
+                    olarak <b>login</b> değeri vermiştik. <code>id</code> değerine göre eleman bulmak için 
+                    seçici olarak önce bir diyez işareti (#) arkasından <code>id</code> değeri yazılır.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #fad430;">#login</span> {</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">width</span>: <span style="color: #f78c6c;">150</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">height</span>: <span style="color: #f78c6c;">45</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">border-radius</span>: <span style="color: #f78c6c;">10</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">border</span>: <span style="color: #89ddff;">none</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">margin-top</span>: <span style="color: #f78c6c;">-7</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">background-color</span>: <span style="color: #f78c6c;">#</span><span style="color: #ffeb95;">f50f41</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">color</span>: <span style="color: #89ddff;">white</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">margin-left</span>: <span style="color: #f78c6c;">145</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">font-size</span>: <span style="color: #f78c6c;">20</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">font-weight</span>: <span style="color: #89ddff;">bold</span>;</div><div>}</div></div></div></div></div></div></div>
+                <br><div class="cborder reset-style" id="test7">
+                    <style>
+                    #test7 fieldset {
+                        background-color: #35a1c4;
+                        border: none;
+                        border-radius: 10px;
+                        width: 450px;
+                        height: 350px;
+                    }                            
+                    #test7 h2 {
+                        background-color: #0066ff;
+                        color: #fff;
+                        margin: 0 -11px 0 -11px;
+                        padding: 15px;
+                        position: relative;
+                        bottom: 4.5px;
+                        border-radius: 10px;
+                    }
+                    #test7 .inp {
+                        width: 330px;
+                        height: 40px;
+                        border: none;
+                        border-radius: 10px;
+                        text-align: center;
+                        margin-left: 50px;
+                        font-size: 15px;
+                        font-weight: bold;
+                    }
+                    #test7 #login {
+                        width: 150px;
+                        height: 45px;
+                        border-radius: 10px;
+                        border: none;
+                        margin-top: -7px;
+                        background-color: #f50f41;
+                        color: white;
+                        margin-left: 145px;
+                        font-size: 20px;
+                        font-weight: bold;
+                    }
+                    </style>
+                    <form>
+                        <fieldset>
+                            <h2>E-mail kullanarak giriş yapınız</h2>
+                            <br>
+                            <input class="inp" type="text" name="E-mail" value="E-mail">
+                            <br>
+                            <br>
+                            <input class="inp" type="password" name="Password" value="Password">
+                            <br><br>
+                            <input type="checkbox" name="remember" value="details"> 
+                                İsim ve Şifreyi Hatırla <br>
+                            <input type="radio" name="cinsiyet" value="female" checked> Kadın <br>
+                            <input type="radio" name="cinsiyet" value="male"> Erkek <br>
+                            <input id="login" type="submit" value="Giriş Yap">
+                        </fieldset>
+                    </form>
+                </div><br>
+                <p>
+                    Buton büyütülüyor, yazıları büyütülüyor, buton formun yatay olarak ortalarına alınıyor. 
+                    Dikkat ederseniz bu sefer <code>color</code> değerini <b>white</b> olarak isim verdik. 
+                    Olası renk isimleri <a href="https://www.w3schools.com/tags/ref_colornames.asp" target="_blank">W3School</a>
+                    sitesinde gösteriliyor.
+                </p>
+
+                <h2 id="clientSave" style="padding-top: 70px;">Client Tarafta Form Girdilerini Saklamak</h2>
+                <p>
+                    Burada çok basit bir işlemle formdan girilen bir bilginin kullanıcının bilgisayarında 
+                    tarayıcı tarafından nasıl saklanabileceği konusunda bilgi vereceğiz. Bu örnek projemizde 
+                    JavaScript programlama kullanacağız. JavaScript programlama dilini ileride ayrıntılı 
+                    işleyeceğiz, ama burada formları işlerken en azından böyle bir şeyin yapılabileceğine 
+                    dair ön bilgi verelim. Çok anlamasanızda yönlendirmeleri takip edin. İleride JavaScript 
+                    kodlara çok daha hakim olacaksınız ve bu kısımda anlatılanları da anlayacaksınız.
+                </p>
+                <p>
+                    Öncelikle <i>yerel-sakla.html</i> adıyla yeni bir sayfa dosyası üretin ve içine şunları 
+                    aynen kopyalayın.
+                </p>
+                <div class="cpadding scroll" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;!</span><span style="color: #ff5572;">DOCTYPE</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">html</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">html</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">head</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">title</span><span style="color: #89ddff;">&gt;</span>Yerele Kaydetmek<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">title</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #c792ea;">function</span> <span style="color: #82aaff;">save</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">isim</span> <span style="color: #c792ea;">=</span> <span style="color: #bfc7d5;">document</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">getElementById</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">firstname</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">value</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #bfc7d5;">localStorage</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">setItem</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">text</span><span style="color: #d9f5dd;">"</span><span style="color: #eeffff;">,</span> <span style="color: #bfc7d5;">isim)</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #c792ea;">function</span> <span style="color: #82aaff;">retrieve</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">retrieveData</span> <span style="color: #c792ea;">=</span> <span style="color: #bfc7d5;">localStorage</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">getItem</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">text</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #c792ea;">if</span><span style="color: #bfc7d5;">(retrieveData)</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #bfc7d5;">document</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">getElementById</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">firstname</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">value</span> <span style="color: #c792ea;">=</span> <span style="color: #bfc7d5;">retrieveData</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #c792ea;">function</span> <span style="color: #82aaff;">removed</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #bfc7d5;">document</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">getElementById</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">firstname</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">value</span> <span style="color: #c792ea;">=</span> <span style="color: #d9f5dd;">""</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #bfc7d5;">localStorage</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">removeItem</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">text</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">head</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">body</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">onload</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #82aaff;">retrieve</span><span style="color: #bfc7d5;">()</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">h1</span><span style="color: #89ddff;">&gt;</span>Adınızı Giriniz<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">h1</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">form</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">input</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">type</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">text</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">id</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">firstname</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">input</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">type</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">button</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">value</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Kaydet</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">onclick</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #82aaff;">save</span><span style="color: #bfc7d5;">()</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">input</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">type</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">button</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">value</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Sil</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">onclick</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #82aaff;">removed</span><span style="color: #bfc7d5;">()</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">form</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">body</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">html</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div></div></div></div>
+                <script>
+                    function save() {
+                        var isim = document.getElementById("test8firstname").value;
+                        localStorage.setItem("text", isim);
+                    }
+                    function retrieve() {
+                        var retrieveData = localStorage.getItem("text");
+                        if(retrieveData) {
+                            document.getElementById("test8firstname").value = retrieveData;
+                        }
+                    }
+                    function removed() {
+                        document.getElementById("test8firstname").value = "";
+                        localStorage.removeItem("text");
+                    }
+                </script>
+                <br><div class="cborder" id="test8">
+                    <h1>Adınızı Giriniz</h1>
+                    <form>
+                        <input type="text" id="test8firstname">
+                        <input type="button" value="Kaydet" onclick="save()">
+                        <input type="button" value="Sil" onclick="removed()">
+                    </form>
+                </div>
+                <script>retrieve();</script>
+                <br><p>
+                    HTML kodumuzun <code>&lt;head></code> bölümünde JavaScript kodumuzu girdiğimiz 
+                    <code>&lt;script></code> elemanı var. Bu eleman içine yazılanlar tarayıcınız 
+                    tarafından JavaScript program kodu olarak algılanır ve çalıştırılır. Bu kısmı 
+                    incelerseniz 3 bloktan oluşuyor. Her bir blokta bir fonksiyon tanımlanıyor. 
+                    Bunlar sayfamızı işlerken kullanacağımız fonksiyonlar. Bunların ne iş yapacağını 
+                    kısaca anlatayım. 
+                </p>
+                <ul>
+                    <li>
+                        <code>save()</code> fonksiyonu üzerinde <b>Kaydet</b> yazan butona tıklandığında 
+                        çalışacak olan fonksiyon. Form içinde <i>Kaydet</i> butonu koduna bakarsanız 
+                        <code>onclick="save()"</code> özelliği verilmiş. Bu butona tıklanınca 
+                        <code>save()</code> fonksiyonunun çalışmasını istiyoruz demişiz. <code>save()</code>
+                        fonksiyonu <code>var isim = document.getElementById("firstname").value;</code> 
+                        satırında <i>isim</i> değişkenine id değeri "firstname" olan kutunun içindeki 
+                        yazıyı alıyor. Notasyonu şimdilik dert etmeyin, ayrıntılarını göreceğiz. Daha sonra 
+                        <code>localStorage.setItem("text", isim);</code> satırı tarayıcının kendisi için 
+                        kullandığı yerel saklama alanına okunan bu <i>isim</i> değerini <code>text</code> 
+                        anahtar kelimesi ile kaydediyor.
+                    </li>
+                    <li>
+                        <code>retrieve()</code> fonksiyonu <code>&lt;body></code> elemanının <code>onload</code>
+                        olayına bağlanmış. Bu fonksiyon da sayfayı ilk yüklediğinizde ya da refresh (yenile) 
+                        ettiğinizde çalışacak demektir. Burada ilk önce tarayıcının yerel hafızasındaki 
+                        <code>text</code> anahtar değerine sahip vberinin değeri okunuyor. Altındaki 
+                        <code>if(retrieveData)</code> deyimi okunan değer varsa arkasından gelen bloğun 
+                        içindeki kodun çalışmasına izin verecek. Eğer yerel hafızada bilgi bulunamamışsa 
+                        blok çalışmaz ve bu fonksiyon da bir şey yapmaz. Ama değer okunması başarılıysa 
+                        (yani daha önce <i>save</i> butonu ile hafızaya bir değer kaydedilmişse) id 
+                        değeri <i>firstname</i> olan kutumuzun içine hafızadaki değer yazılır.
+                    </li>
+                    <li>
+                        <code>removed()</code> fonksiyonu ise yerel hafızadan ve kutunun içinden önceden 
+                        girilmiş olan değerleri siliyor. Bu fonksiyon da üzerinde <b>Sil</b> yazan 
+                        butonun <code>onclick</code> özelliğine bağlanmış, yani o tıklanınca çalışacak.
+                    </li>
+                </ul>
+                <p>
+                    Tarayıcının yerel hafızasında ne olduğunu görmek için o tarayıcıya ait <b>Geliştirici 
+                        Araçları</b> (ya da Developer Tools) penceresini açmak gerekiyor. Menüden bu 
+                        pencereyi açabilirsiniz. Ben Opera web browser kullanıyorum ve onda şuna benzer 
+                        bir görüntü oluyor:
+                </p>
+                <img src="images/tut019.png" alt="dev tools local storage">
+                <br><br><p>
+                    Geliştirici Araçlarını ileride çok kullanacağız. Gördüğünüz gibi <i>text</i> anahtarına 
+                    sahip değer bizim girdiğimiz değer. Bu değer tarayıcı kapansa da hafızada kalır, daha 
+                    sonra tarayıcı tekrar açıldığında bu değer kullanılabilir. Örnek olarak altında 
+                    gördüğünüz Session storage de aynı saklama işini yapar ancak tarayıcıyı kapatıp 
+                    açınca değerler silinir. Session storage genellikle web siteleri tarafından sizin 
+                    o anda yapmakta olduğunuz seçimleri falan geçici kaydetmek için kullanılır.
+                </p>
+                <p>
+                    Formlarla ilgili şimdilik bu kadar. Sayfa da baya bir uzadı. Burada bir ara verip 3. 
+                    bölüm sayfasıyla devam edelim.
+                </p>
+                <a href="index.html" class="btn btn-warning pull-left">< 1. Bölüm </a>
+                <a href="bolum3.html" class="btn btn-success pull-right">3. Bölüm ></a>
                 <p>.</p><p>.</p>
             </div>
             <div class="col-md-2 hidden-xs">.</div>
