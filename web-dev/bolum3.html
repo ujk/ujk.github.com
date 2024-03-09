@@ -122,6 +122,170 @@
                     girintilemeyi kullanmanız iyi olacaktır.
                 </p>
 
+                <h2 id="css-apply" style="padding-top: 70px;">CSS'i Sayfanıza Ekleme Yöntemleri</h2>
+                <p>
+                    Bir HTML sayfasına CSS stillleri eklemenin 3 değişik yolu var.
+                </p>
+                <ul>
+                    <li>Harici CSS kodlarını kullanmak.</li>
+                    <li>Dahili CSS kodlarını kullanmak.</li>
+                    <li>Satır içi CSS kodları kullanmak.</li>
+                </ul>
+                <p>
+                    Bunları test için <a href="index.html#plan">ilk-sayfam</a> projemizin <i>index.html</i> 
+                    dosyasına geri dönelim.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;!</span><span style="color: #ff5572;">DOCTYPE</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">html</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">html</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">head</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">meta</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">charset</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">utf-8</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">title</span><span style="color: #89ddff;">&gt;</span>Örnek Web Sayfam<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">title</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">head</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">body</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">h1</span><span style="color: #89ddff;">&gt;</span>Merhaba Dünya!<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">h1</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span>Aşağıda sevimli bir köpecik resmi var.<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">img</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">src</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">images/pupy.jpg</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">alt</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Sevimli köpecik</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span>Alınacaklar:<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>Et<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>Süt<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>Yumurta<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Abdülmuttalip Uzunkavaklaraltındayataruyumazoğlu</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">body</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">html</span><span style="color: #89ddff;">&gt;</span></div></div></div>
+                <br><div class="cborder reset-style">
+                    <h1>Merhaba Dünya!</h1>
+                    <p>Aşağıda sevimli bir köpecik resmi var.</p>
+                    <img src="images/pupy.jpg" alt="Sevimli köpecik">
+                    <p>Alınacaklar:</p>
+                    <ul>
+                        <li>Et</li><li>Süt</li><li>Yumurta</li>
+                    </ul>
+                    <p>
+                        Abdülmuttalip Uzunkavaklaraltındayataruyumazoğlu
+                    </p>
+                </div>
+
+                <br><h3>Harici Dosyadan CSS Kullanmak</h3>
+                <p>
+                    Proje root klasörü altında <i>stylesheets</i> adlı bir alt klasörümüz vardı. 
+                    Buraya <code>stilim.css</code> isimli bir yeni dosya ekleyelim, bu dosyayı daha 
+                    sonra web sayfamızın HTML kodunda stil dosyası başvurusu olarak bildireceğiz. Buraya 
+                    paragraflarımızın yazı rengini değiştirmek için bir CSS kuralı yazalım.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #ff5572;">p</span> {</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">color</span>: <span style="color: #89ddff;">blue</span>;</div><div>}</div></div></div></div>
+                <br><p>
+                    Seçici deyim olarak <code>p</code> kullanırsak sayfadaki tüm <code>&lt;p></code> elemanları 
+                    seçer. CSS kural seti bloğunda sadece tek satır var o da <code>color</code> özelliğini 
+                    yani elemanın yazı rengini mavi yapan <b>blue</b> değerine sahip. Şimdi <i>index.html</i>
+                    sayfamızda bu CSS dosyasına başvuru için <code>&lt;head></code> kısmına bir bağlantı
+                     elemanı ekleyelim.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">head</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">meta</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">charset</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">utf-8</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">title</span><span style="color: #89ddff;">&gt;</span>Örnek Web Sayfam<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">title</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">link</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">rel</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">stylesheet</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">href</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">stylesheets/stilim.css</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span></div><div><span style="color: #89ddff;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="color: #ffcb6b;">type</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">text/css</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">head</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div>
+                <br><p>
+                    <code>&lt;link></code> elemanı HTML sayfalardan dışarıdaki bir dosyaya bağlantı 
+                    yapılırken kullanılıyor. <code>rel</code> özelliği ile dosyanın hangi amaçla 
+                    bağlandığı bildiriliyor, <b>stylesheet</b> değeri bağlantının bir stil dosyası 
+                    olacağını bildiriyor. <code>href</code> özelliği ise dosyanın adresini veriyor, 
+                    <code>stylesheets/stilim.css</code> değeri dosyanın sayfamız olan <i>index.html</i> 
+                    dosyasının bulunduğu klasördeki <code>stylesheets</code> alt klasörü içindeki 
+                    <code>stilim.css</code> dosyası olduğunu bildiriyor. <code>type="text/css"</code> 
+                    özelliği ise dosyanın düz metin olarak css tipi bir dosya olarak işlenmesi gerektiğini 
+                    tarayıcıya bildiriyor. 
+                </p>
+                <p>
+                    Dosyaları kaydedip sayfamızı tarayıcıda açarsak tüm <code>&lt;p></code> elemanlarının 
+                    (paragrafların) yazı renginin maviye dönmüş olduğunu göreceğiz.
+                </p>
+                <img src="images/tut021.png" alt="mavi paragraflar" class="img-thumbnail">
+                <br><br><p>
+                    Harici dosyada CSS kullanmak en yaygın kullanmanız gereken yöntem. Düşünün, çok büyük 
+                    bir web sitesi yaptığınızı ve bir sürü web sayfanız olduğunu. CSS kodlarınız tek bir 
+                    dosyada toplanırsa , sadece o dosyada yaptığınız değişiklikler tüm sitedeki sayfaları
+                    aynı anda değiştirecektir. Tüm projenize ortak olan stillleri böyle ayrı dosyada saklamalısınız.
+                </p>
+
+                <br><h3>Dahili CSS kodları</h3>
+                <p>
+                    Dahili CSS kodları kullanım şeklinde ise sadece bulunduğunuz HTML sayfaya etki edecek 
+                    stil kurallarını sayfanın HTML kodunda <code>&lt;head></code> kısmına toplarsınız. 
+                    Öncelikle daha önceki dış dosya başvurusunu yapan <code>&lt;link></code> elemanını 
+                    yoruma çıkartalım.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">head</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">meta</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">charset</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">utf-8</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">title</span><span style="color: #89ddff;">&gt;</span>Örnek Web Sayfam<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">title</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #00aa00;">&lt;!--</span><span style="color: #00aa00; font-style: italic;">link rel="stylesheet" href="stylesheets/stilim.css" </span></div><div><span style="color: #00aa00; font-style: italic;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="text/css"</span><span style="color: #00aa00;">--&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">head</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div></div>
+                <br><p>
+                    Dahili CSS tanımlamaları <code>&lt;style></code> elemanı içerisinde yapılır.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">head</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">meta</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">charset</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">utf-8</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">title</span><span style="color: #89ddff;">&gt;</span>Örnek Web Sayfam<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">title</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #00aa00;">&lt;!--</span><span style="color: #00aa00; font-style: italic;">link rel="stylesheet" href="stylesheets/stilim.css" </span></div><div><span style="color: #00aa00; font-style: italic;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type="text/css"</span><span style="color: #00aa00;">--&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #ff5572;">p</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">color</span>: <span style="color: #89ddff;">red</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">head</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div></div></div>
+                <br><p>
+                    Gördüğünüz gibi <code>&lt;style></code> elemanı içinde CSS kuralımızı aynen dış 
+                    dosyada yazdığımız gibi yazdık. Sadece farkı görelim diye burada rengi kırmızı seçtim. 
+                </p>
+                <img src="images/tut022.png" alt="kırmızı paragraflar" class="img-thumbnail">
+                <br><br><p>
+                    Paragraf yazıları kırmızı oldu. Her iki tekniği de kullanırsak ne olacak? diye insanın 
+                    aklına takılıyor. Yukarıdaki <code>&lt;link></code> elemanını yorumdan çıkarıp aktif 
+                    edersek yazıların hala daha kırmızı olduğunu görürüz. Çünkü HTML kod içinde önce 
+                    dış dosyadan stil okunuyor, sonra içerdeki <code>&lt;style></code> elemanından stil 
+                    okunuyor. İkinci olan geçerli olacaktır.
+                </p>
+
+                <br><h3>Satır içi CSS Kullanımı</h3>
+                <p>
+                    Satır içi kullanım demek direk elemanın kodunda stil belirtmek demektir. Satır içi 
+                    kullanımda stil kuralları o elemanın <code>style</code> bağlı özelliğine değer olarak 
+                    yazılır. Başlığın rengini parlak yeşil yapalım.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">body</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">h1</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">style</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">color: lime;</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span>Merhaba Dünya!<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">h1</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span>Aşağıda sevimli bir köpecik resmi var.<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">....</span></div></div></div></div></div></div></div></div>
+                <br><div class="cborder">
+                    <h1 style="color: lime;">Merhaba Dünya!</h1>
+                </div>
+                <br><p>
+                    Birden fazla kural yazacaksanız aynı satırda yazmaya devam edebilirsiniz, iki nokta 
+                    üstüste ve noktalı virgüller kodunuzu açıkça belirliyor zaten.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">h1</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">style</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">color: lime; margin-left: 100px;</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span>Merhaba Dünya!<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">h1</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div></div></div></div>
+                <br><p>
+                    gibi. Satır için CSS stillleri yazılırken seçici deyim yok, zaten direk elemanın 
+                    özelliğine yazılıyor. Ayrıca süslü parantezle blok yapmaya da gerek yok. Direk 
+                    kurallar yazılıyor. Satır içi stiller kendisinden önce yazılmış veya çağrılmış tüm 
+                    stillerin üzerine yazar. Fakat sadece o elemana özel yazınca , eğer sayfada ya da 
+                    sitemizde başka sayfada aynı şekilde görünmesini istediğimiz elemanlar varsa onlara 
+                    da aynı stili tekrar tekrar yazmamız gerekir. Hem HTML kodun görünümünü de gereksiz 
+                    karmaşık yapıyorlar. Bu yüzden sadece bir tek elemanın bir yada iki stilini değiştirecekseniz 
+                    ve bir daha da lazım olmayacağını düşünüyorsanız satır içi stil düşünün.
+                </p>
+                <p>
+                    Devam etmeden önce <i>index.html</i> kodlarından dosya içi stil olan <code>&lt;style></code>
+                    elemanını ve başlığa yazdığımız satır içi <code>style</code> özelliğini silelim ve 
+                    dış dosya olan <i>stilim.css</i> dosyası üzerinden stilleri denemeye devam edelim.
+                </p>
+
+                <h2 id="css-multiprop" style="padding-top: 70px;">Birden Fazla CSS Kuralı Kullanmak</h2>
+                <p>
+                    Şu anda <i>stilim.css</i> dosyamızda paragraflar için sadece bir kural verilmiş 
+                    durumda o da <code>color: blue;</code> satırı. Paragraf elemanlarına daha fazla 
+                    stil kuralı eklemek için sadece kuralları ard arda eklememiz yeterli.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #ff5572;">p</span> {</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">color</span>: <span style="color: #89ddff;">blue</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">font-size</span>: <span style="color: #f78c6c;">30</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">border</span>: <span style="color: #f78c6c;">1</span><span style="color: #ffeb95;">px</span> <span style="color: #89ddff;">solid</span> <span style="color: #89ddff;">red</span>;</div><div>}</div></div></div></div></div></div></div></div></div></div>
+                <br><div class="cborder" id="test1">
+                    <style>
+                        #test1 p {
+                            color: blue;
+                            font-size: 30px;
+                            border: 1px solid red;
+                        }
+                    </style>
+                    <h1>Merhaba Dünya!</h1>
+                    <p>Aşağıda sevimli bir köpecik resmi var.</p>
+                    <img src="images/pupy.jpg" alt="Sevimli köpecik">
+                    <p>Alınacaklar:</p>
+                    <ul>
+                        <li>Et</li><li>Süt</li><li>Yumurta</li>
+                    </ul>
+                    <p>
+                        Abdülmuttalip Uzunkavaklaraltındayataruyumazoğlu
+                    </p>
+                </div>
+                <br><p>
+                    <code>font-size</code> özelliğine verdiğimiz değerle paragraf yazı boyutunu 30 piksel
+                    yapıyoruz, yani bir başlık kadar büyümüş oluyor. <code>border: 1px solid red;</code> 
+                    kuralı ise elemanın çerçeve çizgilerini bildiriyor ve 3 tane değer girilmiş. 
+                    <code>1px</code> çizgi kalınlığının bir piksel olduğunu bildirir. <code>solid</code> 
+                    çizginin tipini bildiriyor, burada solid düz çizgi demek. Mesela <code>dotted</code> 
+                    nokta nokta, <code>dashed</code> kesikli çizgi gibi değişik olasılıklar var. <code>red</code> 
+                    de tabiki çizgi renk adı "#xxxxxx" şeklinde renk kodu da olabilir tabi ki.
+                </p>
+
+                <h2 id="css-multiel" style="padding-top: 70px;">Birden Fazla Elemana CSS Kuralı Yazmak</h2>
+                <p>
+                    Seçici deyimde sadece bir tek eleman kullandık. Peki birden fazla seçicimiz olup , 
+                    sayfadaki değişik değişik elemanlara aynı stili uygulamak istersek nasıl yapacağız?
+                </p>
+
                 <p>.</p><p>.</p>
                 <br><a href="bolum2.html" class="btn btn-warning pull-left">< 2. Bölüm </a>
             </div>
