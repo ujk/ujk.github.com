@@ -67,9 +67,63 @@
             </div>
             <div class="col-md-8">
                 <h1 id="attributes">Bölüm 3</h1>
- 
-                <a href="bolum2.html" class="btn btn-warning pull-left">< 2. Bölüm </a>
+
+                <h2 id="cssintro" style="padding-top: 70px;">CSS Nedir?</h2>
+                <p>
+                    CSS (Cascading Style Sheets - Basamaklı Stil Şablonu) kelimelerinin kısaltmasıdır. CSS 
+                    sayfadaki HTML elemanlarının nasıl gösterileceğini belirtir. CSS bir stil yapılandırma dilidir ve 
+                    bir programlama dili değildir. CSS web sayfanızın stilini belirtmek için kullandığınız 
+                    kod'dur. Nasıl bir kuaför saçlarınızı şekillendiriyorsa CSS de HTML elemanlarını 
+                    şekillendirir. 
+                </p>
+                <p>
+                    Örneğin bir web sayfasında tüm paragrafların yazı renginin kırmızı olmasını isterseniz 
+                    CSS kodunuz şöyle olur:
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div><span style="color: #ff5572;">p</span> {</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">color</span>: <span style="color: #89ddff;">red</span>;</div><div>}</div></div>
+                <br><p>
+                    Bu stil kodu sayfadaki tüm <code>&lt;p></code> elemanlarının yazı rengini kırmızı 
+                    yapacaktır. Bu kodun nereye yazılacağını birazdan göreceğiz. Şimdi biraz kodun 
+                    parçalarına bakalım. Üstteki <b>p</b> harfi seçici deyim olarak bilinir ve sayfada 
+                    aradığımız elemanları bulmak için kullandığımız kriterdir. Arkasından stil kuralları 
+                    dediğimiz satırlar gelir. Bu örnekte bir tane kural var o da <code>color: red;</code> 
+                    satırı. Burada <code>color</code> kelimesi stil kodunun özellik kısmıdır, burada 
+                    değiştirmek istediğimiz stilin adını gireriz. <code>red</code> ise stil kuralının değer 
+                    kısmı, yazının kırmızı olacağını bildiriyor. Yukarıdaki örnekteki gibi seçici, blok ve
+                    içindeki stil kurallarından oluşan sete CSS Kural Seti (CSS Rule Set) adı verilir. Şimdi
+                    bu seti biraz inceleyelim.
+                </p>
+                <img src="images/tut020.png" alt="CSS kural seti">
+                <br><br><p>
+                    Tüm bu yapıya CSS kural seti denir. Bir HTML elemana stil uygularken ilk yapmanız gereken 
+                    o elemanı bulup göstermek. Bu örnekte eleman(lar)ı gösterme işini <code>seçici deyim</code>
+                    denen <b>p</b> yapıyor. Örnekte çok basit bir seçici deyim kullanıldı, biraz sonra değişik 
+                    seçici deyim örnekleri göreceğiz.
+                </p>
+                <p>
+                    Seçici deyim ardından o elemana ait CSS stil kurallarının listesini içeren bloğu belirten 
+                    süslü parantez <code>{ }</code> geliyor. Bir çok kodlama dilinde süslü parantezlerle bloklar belirlendiği 
+                    gibi CSS kural setlerinde de aynı yapı kullanılmış, biz de mecbur böyle kullanacağız.
+                </p>
+                <p>
+                    Normalde kural seti içinde bir çok kural tanımlaması olur ama burada örnek için sadece 
+                    bir kural tanımlanmış. <code>color</code> kelimesi stil kuralının özellik adı ve eleman yazı 
+                    rengini belirtmek için kullanılır. Özellik adından sonra mutlaka iki nokta üsütüste konur.
+                    Bunun anlamı <i>"adı bitti, artık değer girmeye geçiyorum"</i> demek. <code>purple</code>
+                    kelimesi ise özelliğe verilen değer. Değeri girdikten sonra mutlaka bir <b>noktalı virgül</b>
+                    (<code>;</code>) koymalısınız. Noktalı virgül kural tanımlamanın bittiğini bildirir, 
+                    eğer koymazsanız stil kodunuzun yanlış algılanmasına sebep olur.
+                </p>
+                <p>
+                    CSS kodlarında da alt satıra geçmeler ve satırlara soldan yapılan girintilerin 
+                    zorunluluğu yok. Yukarıdaki 3 satır hepsi yan yana yazılabilirdi, yeterki süslü parantezler,
+                    iki nokta üstüsteler ve noktalı virgüller unutulmasın. Önemli olan onların hatasız 
+                    girilmesi. Ama görsel olarak sizin kodu kolay anlamanız için yardımıcı olarak bu 
+                    girintilemeyi kullanmanız iyi olacaktır.
+                </p>
+
                 <p>.</p><p>.</p>
+                <br><a href="bolum2.html" class="btn btn-warning pull-left">< 2. Bölüm </a>
             </div>
             <div class="col-md-2 hidden-xs">.</div>
         </div>
