@@ -284,6 +284,291 @@
                 <p>
                     Seçici deyimde sadece bir tek eleman kullandık. Peki birden fazla seçicimiz olup , 
                     sayfadaki değişik değişik elemanlara aynı stili uygulamak istersek nasıl yapacağız?
+                    Söz gelimi sayafamızdaki <code>&lt;p></code>, <code>&lt;h1></code> ve <code>&lt;li></code>
+                    elemanlarının hepsine ortak bir CSS kuralı tanımlayacağız. Stil dosyamızı şöyle değiştirelim:
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div><span style="color: #ff5572;">p</span><span style="color: #c792ea;">, </span><span style="color: #ff5572;">h1</span><span style="color: #c792ea;">, </span><span style="color: #ff5572;">li</span> {</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">color</span>: <span style="color: #f78c6c;">#</span><span style="color: #ffeb95;">f00</span>;</div><div>}</div></div></div>
+                <br><p>
+                    Birden fazla seçici deyimi aynı kural setinde kullanacaksak, bu seçici deyimler arasına 
+                    virgül ile ayırarak yan yana yazarız. Burada sayfamızdaki p, h1 ve li elemanların hepsinin 
+                    yazı rengini <code>#f00</code> yapıyoruz, bu RGB formatında kırmızı renk değeri.
+                </p>
+                <div class="cborder" id="test2">
+                    <style>#test2 p, #test2 h1, #test2 li {color: red;}</style>
+                    <h1>Merhaba Dünya!</h1>
+                    <p>Aşağıda sevimli bir köpecik resmi var.</p>
+                    <img src="images/pupy.jpg" alt="Sevimli köpecik">
+                    <p>Alınacaklar:</p>
+                    <ul>
+                        <li>Et</li><li>Süt</li><li>Yumurta</li>
+                    </ul>
+                    <p>
+                        Abdülmuttalip Uzunkavaklaraltındayataruyumazoğlu
+                    </p>
+                </div>
+
+                <h2 id="selectors" style="padding-top: 70px;">Seçici Deyimler</h2>
+                <p>
+                    Bazı basit seçici deyimleri tablomuzda görebilirsiniz.
+                </p>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Seçici Deyim</th>
+                            <th>Neyi Seçer?</th>
+                            <th style="width: 250px;">Örnek</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="active">
+                            <td>Eleman Seçici</td>
+                            <td>Blirtilen HTML elemanı</td>
+                            <td>p { color: blue; }</td>
+                        </tr>
+                        <tr>
+                            <td>ID Seçici</td>
+                            <td>Belirtilen <code>id</code> değerine sahip HTML elemanı. 
+                                Sayfada aynı <code>id</code> değerinde bir tek eleman olmalı.</td>
+                            <td>#h-big { font-size: 60px; }</td>
+                        </tr>
+                        <tr class="active">
+                            <td>Class Seçici</td>
+                            <td>Belirtilen <code>class</code> değerine sahip HTML elemanı. 
+                                Sayfada aynı <code>class</code> değerinde birden çok eleman olabilir.</td>
+                            <td>.para { font-size: 17px; }</td>
+                        </tr>
+                        <tr>
+                            <td>Seçicileri Birleştirmek</td>
+                            <td>Birden fazla seçici deyimin seçtiği elemanların hepsini birlikte.</td>
+                            <td>p, h1 { margin: 30px; }</td>
+                        </tr>
+                        <tr class="active">
+                            <td>*</td>
+                            <td>Tüm elemanlar.</td>
+                            <td>* { background: yellow }</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br><p>
+                    Eleman seçici deyimle daha önce bir çok örnek yaptık. <code>id</code> seçici ise 
+                    <code>id="değer"</code> özelliğindeki <b>id</b> değeri başına <code>#</code> işareti 
+                    eklenerek seçici deyim oluşturulur. Sayfadaki birden çok elemanı aynı kurala bağlamak 
+                    isterseniz bu elemanlara <code>class</code> değeri verebilirsiniz. <code>class="değer"</code>
+                    şeklinde özellik verdiğiniz elemanları seçmek için <code>#değer</code> şeklinde sınıf 
+                    değeri başına <code>#</code> karakteri ekleyerek seçici deyimi oluşturursunuz. Sayfada 
+                    biden fazla seçici deyime aynı kural setini uygulamak içinse, az önce gösterdiğimiz gibi 
+                    seçici deyimler arasına virgül koyarak yan yana yazarsınız. Son olarak da sayfadaki 
+                    tüm HTML elemanları seçen <code>*</code> seçici deyimi var. <code>*</code> kullanarak 
+                    verdiğiniz kural seti sayfadaki tüm HTML elemanlarına uygulanır.
+                </p>
+
+                <h2 id="comments" style="padding-top: 70px;">CSS Koduna Yorum Eklemek</h2>
+                <p>
+                    Yorumlar kodlarınıza eklediğiniz kod olmayan ama kendinize ve başkalarına yardımıcı 
+                    olacak yorum yazılarıdır. Kod işlenirken tarayıcınız yorumları değerlendirmeye almaz. 
+                    Ancak ileride kendiniz bile kodunuzu değiştirmek istediğinizde kodun o kısmına ait 
+                    açıklayıcı bilgileri içinde barındırmanız çok faydalı olacaktır. Sonuçta burada 
+                    verilen örnekler gibi kısa kod parçalarınız olmayacak. Binlere varan satırda kod 
+                    içinde nerede ne yaptığınızı not almak size bile faydalı olacaktır.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #00aa00;">/*</span><span style="color: #00aa00; font-style: italic;"> Tüm h1, p, li eleman yazılarını kırmızı yap </span><span style="color: #00aa00;">*/</span></div><div><span style="color: #ff5572;">p</span><span style="color: #c792ea;">, </span><span style="color: #ff5572;">h1</span><span style="color: #c792ea;">, </span><span style="color: #ff5572;">li</span> {</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">color</span>: <span style="color: #f78c6c;">#</span><span style="color: #ffeb95;">f00</span>;</div><div>}</div></div></div></div>
+                <br><p>
+                    Yukarıda CSS kodu içinde bir yorum satırı eklenmiş. CSS kodunda yorumlar <code>/*</code>
+                    ile başlar ve <code>*/</code> ile biter. Bu ikisi arasına yazılan yazılar tarayıcı 
+                    tarafından dikkate alınmaz. Kod satırlarının sonuna da yorum ekleyebilirsiniz.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #00aa00;">/*</span><span style="color: #00aa00; font-style: italic;"> Tüm h1, p, li elemanları </span><span style="color: #00aa00;">*/</span></div><div><span style="color: #ff5572;">p</span><span style="color: #c792ea;">, </span><span style="color: #ff5572;">h1</span><span style="color: #c792ea;">, </span><span style="color: #ff5572;">li</span> {</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">color</span>: <span style="color: #f78c6c;">#</span><span style="color: #ffeb95;">f00</span>; <span style="color: #00aa00;">/*</span><span style="color: #00aa00; font-style: italic;"> yazı rengi kırmızı</span><span style="color: #00aa00;">*/</span></div><div>}</div></div></div></div></div>
+                <br><p>
+                    "Kodu yoruma atmak" diye bir tabir vardır. Bir şeyleri denemek için kodun bir kısmını 
+                    <code>/*</code> ve <code>*/</code> arasına alıp tarayıcı tarafından işlenmeden atlanmasını 
+                    sağlayabilirsiniz.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #ff5572;">p</span><span style="color: #c792ea;">, </span><span style="color: #ff5572;">h1</span><span style="color: #c792ea;">, </span><span style="color: #ff5572;">li</span> {</div><div>&nbsp; &nbsp; <span style="color: #00aa00;">/*</span><span style="color: #00aa00; font-style: italic;"> color: #f00; </span><span style="color: #00aa00;">*/</span></div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">font-style</span>: <span style="color: #89ddff;">italic</span>;</div><div>}</div></div></div></div></div></div>
+                <br><p>
+                    Örnekte <code>color: #f00;</code> satırı yoruma atılmış ve renk kırmızı olmadan sayfa 
+                    nasıl görünüyor diye bakabilirsiniz. Beğenmezseniz yorum işaretçilerini silerek kod 
+                    satırının tekrar aktif olması sağlanabilir. İhtiyaç duyarsanız birden çok satırdan oluşan 
+                    yorumları da kodunuza ekleyebilirsiniz.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #00aa00;">/*</span></div><div><span style="color: #00aa00; font-style: italic;">&nbsp; &nbsp; TEST Stilleri </span></div><div><span style="color: #00aa00; font-style: italic;">&nbsp; &nbsp; Bu dosyada CSS kod denemeleri yapıyorum</span></div><div><span style="color: #00aa00;">*/</span></div><div><span style="color: #ff5572;">p</span><span style="color: #c792ea;">, </span><span style="color: #ff5572;">h1</span><span style="color: #c792ea;">, </span><span style="color: #ff5572;">li</span> {</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">color</span>: <span style="color: #f78c6c;">#</span><span style="color: #ffeb95;">f00</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">font-style</span>: <span style="color: #89ddff;">italic</span>;</div><div>}</div><div><span style="color: #00aa00;">/*</span><span style="color: #00aa00; font-style: italic;"> CSS kodları sonu </span><span style="color: #00aa00;">*/</span></div></div></div></div></div></div></div>
+                <br><p>
+                    Yorumları kodlarınız arasında gerekli olduğu yerlerde kullanmaya özen gösterin. "Gerekli" 
+                    diyorum, çünkü burada örnek verdiğimiz çok basit kodlar için de yorum yazıp durmaya 
+                    gerek yok. Ama yüzlerce satır kod yazıp, içinde kendinize tek satır yorum koymadıysanız 
+                    da , yakın zamanda koda bakıp "ben burada ne yapmıştım yaa" diye kara kara düşüneceğinizi 
+                    garanti edebilirim.
+                </p>
+
+                <h2 id="css-box" style="padding-top: 70px;">CSS Kutu Modeli</h2>
+                <p>
+                    Tüm HTML elemanlar aslında görmediğimiz bir çerçeve içindedirler. Daha önce <code>border</code> 
+                    CSS özelliğine değer verdiğimizde paragrafların etrafında dikdörtgen şeklinde sınır 
+                    çizgileri oluşmuştu. İşte bu çerçeve o elemanın içinde olduğu <b>kutuyu</b> gösteriyor. 
+                    Elemanların sayfada yerleştirmeleri yapılırken bu kutuya göre işlem yapılır. 
+                </p>
+                <p>
+                    CSS kutu modelinin parçaları şunlardır:
+                </p>
+                <ul>
+                    <li><b>margin : </b>Eleman kutusu dışında kalan boş alandır. O yönde bir sonraki 
+                        elemana ya da yoksa görsel alan kenarına kadar olan boşluktur.</li>
+                    <li><b>border : </b>Eleman kutusunun sınırıdır, istenirse çizgi olarak gösterilebilir.</li>
+                    <li><b>padding : </b>Eleman kutusu sınır çizgisi ile eleman içeriğindeki yazı ya da 
+                        diğer elemanları yerleştirmeden önce eleman kenarlarından bırakılacak boşluktur.</li>
+                    <li><b>İçerik : </b>Eleman içerisindeki yazılar ve başka HTML elemanlarının toplamı 
+                        o elemanın içeriğini oluşturur.</li>
+                </ul>
+                <div class="cborder" id="test3">
+                    <style>
+                        #test3 div {
+                            background-color: cyan;
+                            padding: 1px;
+                        }
+                        #test3 div p {
+                            margin: 20px;
+                            border: solid 2px red;
+                            padding: 20px;
+                            color: blue;
+                            background-color: yellow;
+                        }
+                    </style>
+                    <div>
+                        <p>Aşağıda sevimli bir köpecik resmi var.</p>
+                    </div>
+                </div>
+                <br><p>
+                    Burada açık mavi alan paragrafın <b>margin</b> alanıdır. <b>margin</b> alanı ileride 
+                    başınıza en bela olacak alan. Bir sonraki elemanın kenarına kadar olan mesafedir. Ama 
+                    mesafe o elemanın sınır çizgisine göre ölçülür. Bu durumda karşı elemanın da bir margin 
+                    değeri varsa , hangisi daha büyükse o kadar mesafe olur arada. İçiçe elemanlar varsa 
+                    ve kapsayan dıştaki eleman bir <b>padding</b> değerine sahipse içteki elemanın <b>margin</b>
+                    değeri dıştaki elemanın sınırından ölçülür. Ama dıştaki elemanda <b>padding</b> yoksa 
+                    o elemanın da dışındaki komşu elemana göre mesafe ayarlanır. Buna benzer bir sürü 
+                    anlaması zor kurallar yüzünden <b>margin</b> kullanmak web geliştirmeye yeni başlayanlar 
+                    için hep sorun olmuştur.
+                </p>
+                <p>
+                    <b>border</b> ise kırmızı ince çizgi olarak görünen çerçeve. Elemanın kutu sınırları 
+                    burasıdır aslında. <b>padding</b> ise paragraf içindeki yazı ile çerçeve arasında 
+                    bırakılan sarı renkli iç boşluktur. Sayfanızdaki eleman kutularını görmek için şöyle 
+                    bir stil girebilirisiniz:
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #ff5572;">*</span> {</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">border</span>: <span style="color: #f78c6c;">1</span><span style="color: #ffeb95;">px</span> <span style="color: #89ddff;">solid</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">margin</span>: <span style="color: #f78c6c;">0</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">padding</span>: <span style="color: #f78c6c;">5</span><span style="color: #ffeb95;">px</span>;</div><div>}</div></div></div></div></div></div></div></div>
+                <br><p>
+                    Bir web sayfasındaki herhangi bir elemanın kutu modelini görmek için tarayıcınızın 
+                    <b>Geliştirici Araçları</b> (Developer Tools) penceresini kullanabilirsiniz. Ayrıntısını 
+                    görmek istediğiniz elemana web sayfasında sağ tıklayıp <b>Öğeyi Denetle</b> (Inspect 
+                    Element) seçerseniz geliştirici araçları penceresi açılır ve sağ tıkladığınız eleman 
+                    özellikleri gösterilir. <b>Styles</b> kısmında elemanın CSS stillerini hem sizin girdiğiniz
+                    hem tarayıcı default değerleri ile gösterir ve en sonunda da grafik olarak elemanın 
+                    CSS kutu modeli gösterilir.
+                </p>
+                <img src="images/tut023.png" alt="css kutu modeli">
+                <br>
+
+                <h2 id="margin" style="padding-top: 70px;">Margin Değerini Ayarlamak</h2>
+                <p>
+                    <b>margin</b> stili elemanın dışındaki boşluğu belirler demiştik. Margin değeri 
+                    tüm yönler için tek verilebildiği gibi <code>margin-top</code>, <code>margin-right</code>, 
+                    <code>margin-bottom</code> ve <code>margin-left</code> olarak her yöne ayrı değer de 
+                    verilebilir. <b>margin</b> değerleri girilirken bir, iki, üç ya da dört değerli 
+                    olarak girilebilir. Değerler arasında boşluk verilir, <code>margin: 2px 4px 3px;</code>
+                    gibi. Aşağıda bu değer girişlerine göre elemana nasıl uygulanacağı bir tabloda 
+                    gösteriliyor.
+                </p>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Girilen Değer Sayısı</th>
+                            <th>Elemana Nasıl Uygulanır</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="active">
+                            <td>Bir</td>
+                            <td>Tüm dört kenara aynı değer uygulanır.</td>
+                        </tr>
+                        <tr>
+                            <td>İki</td>
+                            <td>İlk değer <b>üst ve alta</b> uygulanır, ikinci değer <b>sol ve sağa</b> 
+                                uygulanır.</td>
+                        </tr>
+                        <tr class="active">
+                            <td>Üç</td>
+                            <td>İlk değer <b>üste</b>, ikinci değer <b>sol ve sağa</b>, üçüncü değer 
+                                <b>alta</b> uygulanır.</td>
+                        </tr>
+                        <tr>
+                            <td>Dört</td>
+                            <td>Değerler sırasıyla <b>üst</b>, <b>sağ</b>, <b>alt</b>, ve <b>sol</b> taraflara
+                                uygulanır.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>
+                    Genelde böyle yönler söz konusu olan değerler çoklu verildiğinde <b>üstten</b> başlayarak 
+                    saat yönünde dönülür. Bir sonraki nesil saat ne yöne dönüyor onu da bilmez tahminim. 
+                    Her şey dijital oldu. 
+                </p>
+                <p>
+                    Margin değerleri girilirken <b>uzunluk</b> birimi, <b>yüzde</b> oranı, <b>inherit</b>
+                    kelimesi ya da <b>auto</b> kelimesi olarak girilebilir. 
+                </p>
+                <ul>
+                    <li><b>Uzunluk birimi :</b> Bu şekilde değer girilince margin sabit bir mesafe olarak 
+                        ayarlanır. Daha önce örneklerde piksel olarak mesafe olan <code>px</code> birimi 
+                        ile verilen değerler görmüştük. <code>cm</code>, <code>mm</code>, <code>pt</code> gibi
+                        başka birimler de kullanılır. Google'a "CSS units" diyerek aratabilirsiniz.</li>
+                    <li><b>Yüzde oranı : </b>Elemanın margin değerini onu çevreleyen elemanın genişliği 
+                        ile orantılı bir değere ayarlar. Çevreleyen elemanın boyutları değiştikçe içteki 
+                        elemanın da margin değeri orantılı olarak otomatik değişir.</li>
+                    <li><b>inherit kelimesi : </b> Elemanın margin değeri içinde bulunduğu elemanın margin 
+                        değerinden kalıtım yoluyla aynısı olur.</li>
+                    <li><b>auto kelimesi : </b>Tarayıcı elemanı kendine göre otomatik bir yere koyar. Mesela 
+                        genişliği sayfa genişliği olan bir elemanın genişliğini daraltıp sayfada yatay olarak 
+                        ortalamak için 
+                        <code>margin: auto;</code> yazarsanız sayfada yatay olarak ortaya gelir.</li>
+                </ul>
+                <p>
+                    Örnek sayfamızdaki resmi ortalamak için bir <code>&lt;div></code> elemanı içine alıp 
+                    yatay olarak sayfada ortalayabiliriz.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">img</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">src</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">images/pupy.jpg</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">alt</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Sevimli köpecik</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div></div></div></div>
+                <br><p>ve stil dosyası</p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #ff5572;">div</span> {</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">width</span>: <span style="color: #89ddff;">fit-content</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">margin</span>: <span style="color: #89ddff;">auto</span>;</div><div>}</div></div></div></div></div></div></div></div></div></div>
+                <br><div class="cborder" id="test4">
+                    <style>
+                        #test4 div {
+                            width: fit-content;
+                            margin: auto;
+                        }
+                    </style>
+                    <div><img src="images/pupy.jpg" alt="Sevimli köpecik"></div>
+                </div><br>
+                <p>
+                    Önce <code>&lt;div></code> elemanın genişliğini resimin genişliğine düşürüyoruz. Sonra 
+                    margin değerini <b>auto</b> girerek tarayıcının yatay olarak ortalamasını sağlıyoruz. 
+                    Bunu bir kenara not edin , ileride çok lazım olacak.
+                </p>
+                <p>
+                    Margin değerleri uzunluk olarak verilirse pozitif, sıfır ya da negatif değer olabilir.
+                </p>
+
+                <h2 id="css-padding" style="padding-top: 70px;">CSS Padding Değeri</h2>
+                <p>
+                    Padding değeri margin'e benzer ana farkı elemanın içeriği ile dış sınırı arasındaki 
+                    boşluk olmasıdır. Ayrıca padding değeri <b>negatif olamaz</b> ve <b>auto</b> kelimesi 
+                    kullanılamaz. Örnek sayfamızda elemanların kenarlara çok yakın olduğunu düşünürsek 
+                    stil dosyasına <b>padding</b> ekleyerek sayfa içeriğini kenarlardan boşluk kalacak 
+                    hale getirebiliriz. 
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #ff5572;">body</span> {</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">padding</span>: <span style="color: #f78c6c;">50</span><span style="color: #ffeb95;">px</span>;</div><div>}</div></div></div></div></div></div></div></div></div></div></div>
+                <br><p>
+                    Bu görsel alanın tüm kenarlarından içeriye 50 piksel boşluk bırakacaktır. Aynı <b>margin</b>
+                    benzeri olarak dört yön için <code>padding-top</code>, <code>padding-right</code>, 
+                    <code>padding-bottom</code> ve <code>padding-left</code> kullanılabildiği gibi 1, 2, 
+                    3 veya 4 değerli <code>padding</code> özelliği de aynı margin gibi kullanılabilir. 
+                    
                 </p>
 
                 <p>.</p><p>.</p>
