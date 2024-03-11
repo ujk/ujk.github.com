@@ -568,8 +568,251 @@
                     benzeri olarak dört yön için <code>padding-top</code>, <code>padding-right</code>, 
                     <code>padding-bottom</code> ve <code>padding-left</code> kullanılabildiği gibi 1, 2, 
                     3 veya 4 değerli <code>padding</code> özelliği de aynı margin gibi kullanılabilir. 
-                    
                 </p>
+                <p>
+                    Uzunluk birimi olarak değer kullanıldığında <b>sıfır</b> değer verirken yanında birim 
+                    yazmaya gerek yoktur. Hangi birim olursa olsun sıfır hiç boşluk verilmeyecek demektir.
+                </p>
+
+                <h2 id="css-display" style="padding-top: 70px;">Display Özelliği</h2>
+                <p>
+                    CSS <code>display</code> özelliği elemanın nasıl gösterileceğini belirler. Display 
+                    özelliği yerleşimi kontrol etmek için kullanılabilir. Her HTML elemanın ne tür bir 
+                    eleman olduğuna göre değişen bir default <code>display</code> değeri vardır. Birçok 
+                    elemanın default <code>display</code> değeri <b>block</b> veya <b>inline</b>'dır.
+                </p>
+                <p>
+                    <code>block</code> stil elemanlar konulduğunda yeni bir satıra yerleşirler ve bulundukları 
+                    alanın tüm genişliğini işgal ederler. Paragraflar <code>block</code> türünde elemanlardır.
+                </p>
+                <div class="cborder">
+                    <p style="border: 1px solid blue;"><code>&lt;p></code> elemanı <code>display= block;</code> default özelliğinde bir 
+                    elemandır.</p>
+                    <p style="border: 1px solid blue;">Paragraf - 2</p>
+                </div>
+                <br><p>
+                    Örnekte <code>&lt;p></code> elemanı çerçeve çizgisini mavi çizdirerek tüm içinde 
+                    bulunduğu alana yayılmış olduğunu gösterdik. <code>&ltdiv></code> elemanı da 
+                    sayfalarımızda belli kısımlarını belirtmek için kullandığımız bir elemandır ve 
+                    <code>display: block;</code> default değerine sahiptir. Çok kullanılan diğer blok 
+                    elemanlar da <code>&lt;h1> - &lt;h6></code> arası elemanlar olan başlıklar ve alt 
+                    başlıklardır.
+                </p>
+                <p>
+                    <code>inline</code> değere sahip elemanlar ise satır içinde kullanılan elemanlardır. 
+                    <code>display: inline;</code> default özelliğine sahip elemanlar yerleşimde yeni bir
+                    satıra geçmeden yerleştirildiği gibi genişlikleri de içeriklerini tam kavrayacak 
+                    kadar olur. 
+                </p>
+                <div class="cborder">
+                    Buraya tıklayarak <a href="http://github.com" target="_blank" style="border: 1px solid red;">Github</a> 
+                    ana sayfasına gidebilirsiniz.
+                </div>
+                <br><p>
+                    Örnekte görülen link elemanı <code>&lt;a></code> bunlara bir örnek. Gördüğünüz gibi yeni 
+                    satıra geçmeden bulunulan yerden devam ediyor ve genişliği ancak içeriğini kapsayacak kadar. 
+                    Çerçevesini kırmızı çizerek bunu simüle ettik. Daha önce gördüğümüz resim ekleme elemanı 
+                    <code>&lt;img></code> elemanı da <b>inline</b> değere sahip bir elemandır. 
+                </p>
+                <div class="cborder">
+                    <img src="images/pupy.jpg" alt="puppy inline" style="border: 2px dashed blue;">
+                </div><br>
+                <p>
+                    Yeri gelmişken bir noktadan daha bahsedelim. Daha önce bir örnekte , sayfamızdaki resmi
+                    yatay olarak ortalamak için bir <code>&lt;div></code> elemanı içine koymuştuk. Sebebi 
+                    aslında <code>display: block;</code> olan elemanlara <code>margin: auto;</code> dediğinizde 
+                    tarayıcı elemanı sayfa ortasına getirir. Bu durumda <code>&lt;div></code> elemanı içine 
+                    koymadan da resmi ortalayabiliriz. Resim için şöyle bir stil seti yazalım:
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div><span style="color: #ff5572;">img</span> {</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">display</span>: <span style="color: #89ddff;">block</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">margin</span>: <span style="color: #89ddff;">auto</span>;</div><div>}</div></div></div>
+                <div class="cborder">
+                    <img src="images/pupy.jpg" alt="centered picture" style="display: block; margin: auto;">
+                </div>
+                <br><p>
+                    Önce <code>&lt;img></code> elemanının default <code>display: inline;</code> olan CSS 
+                    özelliğine <code>block</code> değeri veriyoruz. Sonra <code>margin: auto;</code> ile 
+                    resmin tarayıcı tarafından ortalanmasını sağlıyoruz. bunu da bir kenara yazın. Bu ortalma 
+                    işi çok lazım oluyor. 
+                </p>
+
+                <h2 id="h1-style" style="padding-top: 70px;">Sayfa Başlığı Stillendirme</h2>
+                <p>
+                    <i>stilim.css</i> dosyamıza şu stil setlerini girerek sayfamızı biraz renklendirelim.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #ff5572;">html</span> {</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">background-color</span>: <span style="color: #89ddff;">aqua</span>;</div><div>}</div><br /><div><span style="color: #ff5572;">body</span> {</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">background-color</span>: <span style="color: #89ddff;">yellow</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">margin</span>: <span style="color: #89ddff;">auto</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">padding</span>: <span style="color: #f78c6c;">0</span> <span style="color: #f78c6c;">20</span><span style="color: #ffeb95;">px</span> <span style="color: #f78c6c;">20</span><span style="color: #ffeb95;">px</span> <span style="color: #f78c6c;">20</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">width</span>: <span style="color: #f78c6c;">600</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">border</span>: <span style="color: #f78c6c;">4</span><span style="color: #ffeb95;">px</span> <span style="color: #89ddff;">solid</span> <span style="color: #89ddff;">black</span>;</div><div>}</div><br /><div><span style="color: #ff5572;">p</span><span style="color: #c792ea;">, </span><span style="color: #ff5572;">li</span> {</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">font-size</span>: <span style="color: #f78c6c;">25</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">letter-spacing</span>: <span style="color: #f78c6c;">1</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">color</span>: <span style="color: #89ddff;">blue</span>;</div><div>}</div></div></div></div>
+                <div class="cborder" id="test5">
+                    <div>
+                        <h1>Merhaba Dünya!</h1>
+                        <p>Aşağıda sevimli bir köpecik resmi var.</p>
+                        <img src="images/pupy.jpg" alt="Sevimli köpecik">
+                        <p>Alınacaklar:</p>
+                    </div>
+                    <style>
+                        #test5 {
+                            background-color: aqua;
+                        }
+
+                        #test5 div {
+                            background-color: yellow;
+                            margin: auto;
+                            padding: 0 20px 20px 20px;
+                            width: 600px;
+                            border: 4px solid black;
+                        }
+
+                        #test5 p, #text5 li {
+                            font-size: 25px;
+                            letter-spacing: 1px;
+                            color: blue;
+                        }
+                    </style>
+                </div>
+                <br><p>
+                    CSS kurallarında yeni olan birtek <code>letter-spacing: 1px;</code> var herhalde. 
+                    Yazı harfleri arasında bir boşluk bırakıyoruz ve azıcık ayrık olsunlar, okuması 
+                    kolay olur.
+                </p>
+                <p>
+                    Gelelim başlık için yapacaklarımıza. Önce biraz büyütelim ve yazısını ortalayalım. 
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #ff5572;">h1</span> {</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">font-size</span>: <span style="color: #f78c6c;">65</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">text-align</span>: <span style="color: #89ddff;">center</span>;</div><div>}</div></div></div></div></div>
+                <div class="cborder" id="test6">
+                    <div>
+                        <h1>Merhaba Dünya!</h1>
+                        <p>Aşağıda sevimli bir köpecik resmi var.</p>
+                        <img src="images/pupy.jpg" alt="Sevimli köpecik">
+                        <p>Alınacaklar:</p>
+                    </div>
+                    <style>
+                        #test6 {
+                            background-color: aqua;
+                        }
+
+                        #test6 div {
+                            background-color: yellow;
+                            margin: auto;
+                            padding: 0 20px 20px 20px;
+                            width: 600px;
+                            border: 4px solid black;
+                        }
+
+                        #test6 p, #text6 li {
+                            font-size: 25px;
+                            letter-spacing: 1px;
+                            color: blue;
+                        }
+                        #test6 h1 {
+                            font-size: 65px;
+                            text-align: center;
+                        }
+                    </style>
+                </div>
+                <br><p>
+                    <code>text-align: center;</code> CSS kuralı ile <code>&lt;h1></code> elemanı içindeki
+                    yazı ortalanıyor. Bildiğiniz gibi <code>&lt;h1></code> elemanı <code>display: block;</code>
+                    elemanlardan biri, bu yüzden genişliği tüm alana yayılıyor. Böyle blok elemanlarda 
+                    içerik tüm genişliği kaplamamışsa <code>text-align</code> stil kuralı ile içeriği sağa, 
+                    sola, ortaya çekebilirsiniz.
+                </p>
+                <p>
+                    Başlığın üzerinde üst kenara kadar bir boşluk var. Bunun sebebi tarayıcılarda her HTML 
+                    eleman türü için default bazı stiller olması. <code>h1</code> elemanı üzerindeki boşluk
+                    da default <code>margin</code> değerleri yüzünden oluşuyor. Bunları da sıfırlayalım.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #ff5572;">h1</span> {</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">font-size</span>: <span style="color: #f78c6c;">65</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">text-align</span>: <span style="color: #89ddff;">center</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">margin</span>: <span style="color: #f78c6c;">0</span>;</div><div>}</div></div></div></div></div></div>
+                <div class="cborder" id="test7">
+                    <div>
+                        <h1>Merhaba Dünya!</h1>
+                        <p>Aşağıda sevimli bir köpecik resmi var.</p>
+                        <img src="images/pupy.jpg" alt="Sevimli köpecik">
+                        <p>Alınacaklar:</p>
+                    </div>
+                    <style>
+                        #test7 {
+                            background-color: aqua;
+                        }
+
+                        #test7 div {
+                            background-color: yellow;
+                            margin: auto;
+                            padding: 0 20px 20px 20px;
+                            width: 600px;
+                            border: 4px solid black;
+                        }
+
+                        #test7 p, #text7 li {
+                            font-size: 25px;
+                            letter-spacing: 1px;
+                            color: blue;
+                        }
+                        #test7 h1 {
+                            font-size: 65px;
+                            text-align: center;
+                            margin: 0;
+                        }
+                    </style>
+                </div>
+                <br><p>
+                    Şimdide başlığı renklendirip biraz gölge verelim.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #ff5572;">h1</span> {</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">font-size</span>: <span style="color: #f78c6c;">65</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">text-align</span>: <span style="color: #89ddff;">center</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">margin</span>: <span style="color: #f78c6c;">0</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">color</span>: <span style="color: #89ddff;">deepskyblue</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">text-shadow</span>: <span style="color: #f78c6c;">3</span><span style="color: #ffeb95;">px</span> <span style="color: #f78c6c;">3</span><span style="color: #ffeb95;">px</span> <span style="color: #f78c6c;">1</span><span style="color: #ffeb95;">px</span> <span style="color: #89ddff;">black</span>;</div><div>}</div></div></div></div></div></div></div>
+                <div class="cborder" id="test8">
+                    <div>
+                        <h1>Merhaba Dünya!</h1>
+                        <p>Aşağıda sevimli bir köpecik resmi var.</p>
+                        <img src="images/pupy.jpg" alt="Sevimli köpecik">
+                        <p>Alınacaklar:</p>
+                    </div>
+                    <style>
+                        #test8 {
+                            background-color: aqua;
+                        }
+
+                        #test8 div {
+                            background-color: yellow;
+                            margin: auto;
+                            padding: 0 20px 20px 20px;
+                            width: 600px;
+                            border: 4px solid black;
+                        }
+
+                        #test8 p, #text8 li {
+                            font-size: 25px;
+                            letter-spacing: 1px;
+                            color: blue;
+                        }
+                        #test8 h1 {
+                            font-size: 65px;
+                            text-align: center;
+                            margin: 0;
+                            color: deepskyblue;
+                            text-shadow: 3px 3px 1px black;
+                        }
+                    </style>
+                </div>
+                <br><p>
+                    <code>text-shadow</code> özelliği yazının arkasına aynısından bir tane daha kopya 
+                    koyarak 3 boyutlu gibi görünüm sağlar. Parametrelerini inceleyelim.
+                </p>
+                <ul>
+                    <li>İlk parametre (3px) gölge yazının esas yazının ne kadar sağına konacağı 
+                        bilgisi. Yani gölge orjinal yazıdan 3 piksel sağda olacak. İlk değere negatif 
+                        ölçü verilirse orjinal yazının solunda gölge konacaktır.
+                    </li>
+                    <li>İkinci değer (3px) gölge yazının esas yazının ne kadar altına konacağı 
+                        bilgisi. Yani gölge orjinal yazıdan 3 piksel aşağıda olacak. İkinci değere negatif 
+                        ölçü verilirse orjinal yazının üzerine doğru gölge konacaktır.</li>
+                    <li>Üçüncü değer ise blur denilen buğulandırma değeri. Burada verilen değer ne kadar 
+                        büyükse gölge o kadar dağıtılarak bulanık bir görünüm oluşturulur. Burada 1 piksel 
+                        değer verilerek gölgenin sadece birazcık bulanık olması sağlanmış. Değişik değerler 
+                        deneyerek etkisini görebilirsiniz. 
+                    </li>
+                    <li>
+                        Dördüncü değer ise gölgenin rengi. Burada siyah seçtik.
+                    </li>
+                </ul>
+
+                <h2 id="css-font" style="padding-top: 70px;">CSS Font Özellikleri</h2>
 
                 <p>.</p><p>.</p>
                 <br><a href="bolum2.html" class="btn btn-warning pull-left">< 2. Bölüm </a>
