@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans">
     <style>
         div .scroll{
             height:300px;
@@ -813,7 +815,259 @@
                 </ul>
 
                 <h2 id="css-font" style="padding-top: 70px;">CSS Font Özellikleri</h2>
+                <p>
+                    CSS <code>font</code> özellikleri ile yazı tipi ailesi, boyutu, yazı koyuluğu ve 
+                    yazı stili belirlenir. Yazı tip adını belirtmek için <code>font-family</code> özelliği 
+                    kullanılır. Örnek web sayfamızda paragrafın birinin <code>font</code> özellikleri ile 
+                    örnekler yapalım. Öncelikle paragrafın birine <code>class</code> değeri vererek sadece 
+                    onu seçelim.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;!</span><span style="color: #ff5572;">DOCTYPE</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">html</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">html</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">head</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">meta</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">charset</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">utf-8</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">title</span><span style="color: #89ddff;">&gt;</span>Örnek Web Sayfam<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">title</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">link</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">rel</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">stylesheet</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">href</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">stylesheets/stilim.css</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span></div><div><span style="color: #89ddff;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="color: #ffcb6b;">type</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">text/css</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">head</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">body</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">h1</span><span style="color: #89ddff;">&gt;</span>Merhaba Dünya!<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">h1</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span>Aşağıda sevimli bir köpecik resmi var.<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">img</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">src</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">images/pupy.jpg</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">alt</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Sevimli köpecik</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">para</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span>Alınacaklar:<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>Et<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>Süt<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>Yumurta<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Abdülmuttalip Uzunkavaklaraltındayataruyumazoğlu</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">body</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">html</span><span style="color: #89ddff;">&gt;</span></div></div></div>
+                <br><p>
+                    Listenin üzerindeki paragrafa <code>class="para"</code> değeri vererek diğerlerinden 
+                    ayrılmasını sağlıyoruz. Şimdi <i>stilim.css</i> dosyamızı da değiştirelim.
+                </p>
+                <div class="cpadding scroll" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #ffcb6b;">.para</span> {</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">color</span>: <span style="color: #89ddff;">blue</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">font-size</span>: <span style="color: #f78c6c;">25</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">font-family</span>: <span style="color: #89ddff;">Arial</span>, <span style="color: #89ddff;">Helvetica</span>, <span style="color: #89ddff;">Times</span>;</div><div>}</div><br /><div><span style="color: #ff5572;">html</span> {</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">background-color</span>: <span style="color: #89ddff;">aqua</span>;</div><div>}</div><br /><div><span style="color: #ff5572;">body</span> {</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">background-color</span>: <span style="color: #89ddff;">yellow</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">margin</span>: <span style="color: #89ddff;">auto</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">padding</span>: <span style="color: #f78c6c;">0</span> <span style="color: #f78c6c;">20</span><span style="color: #ffeb95;">px</span> <span style="color: #f78c6c;">20</span><span style="color: #ffeb95;">px</span> <span style="color: #f78c6c;">20</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">width</span>: <span style="color: #f78c6c;">600</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">border</span>: <span style="color: #f78c6c;">4</span><span style="color: #ffeb95;">px</span> <span style="color: #89ddff;">solid</span> <span style="color: #89ddff;">black</span>;</div><div>}</div><br /><div><span style="color: #ff5572;">p</span><span style="color: #c792ea;">, </span><span style="color: #ff5572;">li</span> {</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">letter-spacing</span>: <span style="color: #f78c6c;">1</span><span style="color: #ffeb95;">px</span>;</div><div>}</div><br /><div><span style="color: #ff5572;">h1</span> {</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">font-size</span>: <span style="color: #f78c6c;">65</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">text-align</span>: <span style="color: #89ddff;">center</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">margin</span>: <span style="color: #f78c6c;">0</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">color</span>: <span style="color: #89ddff;">deepskyblue</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">text-shadow</span>: <span style="color: #f78c6c;">3</span><span style="color: #ffeb95;">px</span> <span style="color: #f78c6c;">3</span><span style="color: #ffeb95;">px</span> <span style="color: #f78c6c;">1</span><span style="color: #ffeb95;">px</span> <span style="color: #89ddff;">black</span>;</div><div>}</div></div></div></div>
+                <div class="cborder" id="test9">
+                    <div>
+                        <p class="para">Alınacaklar:</p>
+                        <ul>
+                            <li>Et</li><li>Süt</li><li>Yumurta</li>
+                        </ul>
+                        <p>
+                            Abdülmuttalip Uzunkavaklaraltındayataruyumazoğlu
+                        </p>
+                    </div>
+                    <style>
+                        #test9 .para {
+                            color: blue;
+                            font-size: 25px;
+                            font-family: Arial, Helvetica, Times;
+                        }
+                        #test9 {
+                            background-color: aqua;
+                        }
+                        #test9 div {
+                            background-color: yellow;
+                            margin: auto;
+                            padding: 0 20px 20px 20px;
+                            width: 600px;
+                            border: 4px solid black;
+                        }
 
+                        #test9 p, #test9 li {
+                            letter-spacing: 1px;
+                        }
+                    </style>
+                </div>
+                <br><p>
+                    Stil dosyasını da yukarıda gösterilen hale getirin ki aynı şeyleri konuşuyor olalım. 
+                    Burada <code>.para</code> sınıf değerine sahip paragrafta 2 tane <code>font</code> 
+                    özelliği kullanılıyor. <code>font-family: Arial, Helvetica, Times;</code> özelliği 
+                    yazı tipi ailesini belirtiyor. Burada verilen 3 değer aralarında virgül konarak 
+                    ayrılmış. Bunun sebebi yazı tip aile isimleri birden fazla kelimeden oluşup aralarında 
+                    boşluk olabiliyor. Bu nedenle şimdiye kadar gördüğümüz diğer CSS özelliğine çoklu 
+                    değer girme tekniği dışında <code>font-family</code> için, değerler virgül ile ayrışır.
+                </p>
+                <p>
+                    <code>font-family</code> özelliğinde 3 tane yazı ailesi adı verilmiş - <code>Arial</code>,
+                    <code>Helvetica</code> ve <code>Times</code>. Tarayıcı bu yazıyı gösterirken ilk 
+                    verilenden itibaren hangi yazı ailesi elinde varsa onunla yazıyı kullanıcıya gösterir. 
+                    Yani önce sisteminde varsa <code>Arial</code>, yoksa <code>Helvetice</code>, o da yoksa 
+                    <code>Times</code> tipi yazı olarak gösterilecektir. Yazıların görünümü ve ekranda 
+                    kapladıkları alan yazının ailesine çok bağlı olduğu için bu şekilde o olmazsa bu olsun 
+                    şeklinde değer girme imkanı verilmiş. Burada örnekte verilen yazı aileleri görsel ve 
+                    boyutsal olarak birbirlerine oldukça benzerdir mesela.
+                </p>
+                <p>
+                    Eğer yazınızın <b>eğik</b> olmasını istiyorsanız <code>font-style</code> özelliği 
+                    kullanırsınız. Aşağıdaki paragrafa bir <code>id</code> verip onu da eğik yazı yapalım.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div>....</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>Et<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>Süt<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>Yumurta<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">id</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">yazar</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Abdülmuttalip Uzunkavaklaraltındayataruyumazoğlu</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">....</span></div></div></div></div></div>
+                <br><div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #fad430;">....</span></div><div><span style="color: #fad430;"><br /></span></div><div><span style="color: #fad430;">#yazar</span> {</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">font-style</span>: <span style="color: #89ddff;">italic</span>;</div><div>}</div></div></div></div></div></div>
+                <div class="cborder" id="test10">
+                    <div>
+                        <p class="para">Alınacaklar:</p>
+                        <ul>
+                            <li>Et</li><li>Süt</li><li>Yumurta</li>
+                        </ul>
+                        <p id="yazar">
+                            Abdülmuttalip Uzunkavaklaraltındayataruyumazoğlu
+                        </p>
+                    </div>
+                    <style>
+                        #test10 .para {
+                            color: blue;
+                            font-size: 25px;
+                            font-family: Arial, Helvetica, Times;
+                        }
+                        #test10 #yazar {
+                            font-style: italic;
+                        }
+                        #test10 {
+                            background-color: aqua;
+                        }
+                        #test10 div {
+                            background-color: yellow;
+                            margin: auto;
+                            padding: 0 20px 20px 20px;
+                            width: 600px;
+                            border: 4px solid black;
+                        }
+
+                        #test10 p, #test10 li {
+                            letter-spacing: 1px;
+                        }
+                    </style>
+                </div>
+                <br><p>
+                    Eğer yazınızın koyuluk miktarını değiştirmek isterseniz <code>font-weight</code> 
+                    özelliğini kullanırsınız. 
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #ffcb6b;">.para</span> {</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">color</span>: <span style="color: #89ddff;">blue</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">font-size</span>: <span style="color: #f78c6c;">25</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">font-family</span>: <span style="color: #89ddff;">Arial</span>, <span style="color: #89ddff;">Helvetica</span>, <span style="color: #89ddff;">Times</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">font-weight</span>: <span style="color: #89ddff;">bold</span>;</div><div>}</div></div></div></div></div></div></div>
+                <div class="cborder" id="test11">
+                    <div>
+                        <p class="para">Alınacaklar:</p>
+                        <ul>
+                            <li>Et</li><li>Süt</li><li>Yumurta</li>
+                        </ul>
+                        <p id="yazar">
+                            Abdülmuttalip Uzunkavaklaraltındayataruyumazoğlu
+                        </p>
+                    </div>
+                    <style>
+                        #test11 .para {
+                            color: blue;
+                            font-size: 25px;
+                            font-family: Arial, Helvetica, Times;
+                            font-weight:;
+                        }
+                        #test11 #yazar {
+                            font-style: italic;
+                        }
+                        #test11 {
+                            background-color: aqua;
+                        }
+                        #test11 div {
+                            background-color: yellow;
+                            margin: auto;
+                            padding: 0 20px 20px 20px;
+                            width: 600px;
+                            border: 4px solid black;
+                        }
+
+                        #test11 p, #test11 li {
+                            letter-spacing: 1px;
+                        }
+                    </style>
+                </div>
+                <br><p>
+                    <code>font-weight</code> özelliğine değer olarak 100-900 arası yüzer artan değerlerden 
+                    birini verebilirsiniz. Değer arttıkça resim koyulaşır. Örnek gerekirse 400 değeri normal 
+                    yazıdır, 700 ise bizim <b>bold</b> dediğimiz koyu yazıdır. İsim olarak değerlerde ise 
+                    lighter, normal, bolder, bold gibi değerleri var. Buarada verilen özelliklerin olası 
+                    değerleri için internet araması yapmanızı tavsiye ederim. Çünkü olasılıklar o kadar fazla 
+                    ki, burada hepsini görmeye kalksak konumuzdan koparız. Mesela bu özellik için internette 
+                    "font-weight values" diye arama yaparak olası değerler ve örnekler bulabilirsiniz.
+                </p>
+
+                <h2 id="google-fonts" style="padding-top: 70px;">Google Fonts</h2>
+                <p>
+                    Google font tipleri son zamanlarda web tasarımcıları tarafından sık kullanılmaya 
+                    başladı. <a href="http://fonts.google.com" target="_blank">http://fonts.google.com</a>
+                    adresinde bunları görebilirsiniz. Sitede birçok font örnekleri var , bunlara bir göz 
+                    atın. Yukarıda <b>search</b> kutusunda daha önceden bildiğiniz bir font da arayabilirsiniz.
+                    Mesela "Open Sans" font tipini arayalım. Bulunan yazı tipinin üzerine tıklayınca ona 
+                    ait açıklama sayfasına gidilir. Bu sayfada söz konusu font için <i>italic, bold</i> vs 
+                    her stilde nasıl göründüğüne dair örnekler var. Size tavsiyen yukarıda "Type here to preview text"
+                    kısmına Türkçe karakterler yazıp o font'un Türkçe'ye uyumlu olmasını mutlaka test edin.
+                </p>
+                <p>
+                    Burada bulduğunuz font'u web sayfanızda nasıl kullanacağınızı <a href="https://developers.google.com/fonts/docs/getting_started?hl=tr">https://developers.google.com/fonts/docs/getting_started</a> 
+                    sayfası açıklıyor. Sayfada biraz aşağıya inersek bize HTML sayfa kodumuzun <code>&lt;head></code> kısmına 
+                    şöyle bir bağlantı eklememizi söylüyor:
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">link</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">rel</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">stylesheet</span><span style="color: #d9f5dd;">"</span></div><div><span style="color: #89ddff;">&nbsp; &nbsp; </span><span style="color: #ffcb6b;">href</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">https://fonts.googleapis.com/css?family=Font+Name</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div></div></div></div>
+                <br><p>
+                    Bizim font adımız "Open Sans" olduğuna göre sayfamızın <code>&lt;head></code> kısmına 
+                    şunu yazacağız:
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">head</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">meta</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">charset</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">utf-8</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">title</span><span style="color: #89ddff;">&gt;</span>Örnek Web Sayfam<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">title</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">link</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">rel</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">stylesheet</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">href</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">stylesheets/stilim.css</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span></div><div><span style="color: #89ddff;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="color: #ffcb6b;">type</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">text/css</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">link</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">rel</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">stylesheet</span><span style="color: #d9f5dd;">"</span></div><div><span style="color: #89ddff;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="color: #ffcb6b;">href</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">https://fonts.googleapis.com/css?family=Open+Sans</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">head</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div></div></div></div></div>
+                <br><p>
+                    Birden fazla kelimeden oluşan font ismimiz varsa kelimeler arasında boşluk vermeyip 
+                    (+) artı işareti koyuyoruz. Web adreslerinde boşluk karakteri kullanılmaz. Şimdi tüm 
+                    HTML sayfamızda bu font kullanılsın diye <i>stilim.css</i> dosyamızda <code>html</code> 
+                    elemanı kural setine ilave yapalım.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #ff5572;">html</span> {</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">background-color</span>: <span style="color: #89ddff;">aqua</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">font-family</span>: <span style="color: #89ddff;">Open</span> Sans;</div><div>}</div></div></div></div></div></div></div></div></div></div>
+                <div class="cborder" id="test12">
+                    <div>
+                        <h1>Merhaba Dünya!</h1>
+                        <p>Aşağıda sevimli bir köpecik resmi var.</p>
+                        <img src="images/pupy.jpg" alt="Sevimli köpecik">
+                        <p class="para">Alınacaklar:</p>
+                        <ul>
+                            <li>Et</li><li>Süt</li><li>Yumurta</li>
+                        </ul>
+                        <p id="yazar">
+                            Abdülmuttalip Uzunkavaklaraltındayataruyumazoğlu
+                        </p>
+                    </div>
+                    <style>
+                        #test12 .para {
+                            color: blue;
+                            font-size: 25px;
+                            font-family: Arial, Helvetica, Times;
+                            font-weight: bold;
+                        }
+
+                        #test12 #yazar {
+                            font-style: italic;
+                        }
+
+                        #test12  {
+                            background-color: aqua;
+                            font-family: Open Sans;
+                        }
+
+                        #test12 div {
+                            background-color: yellow;
+                            margin: auto;
+                            padding: 0 20px 20px 20px;
+                            width: 600px;
+                            border: 4px solid black;
+                        }
+
+                        #test12 p, #test12 li {
+                            letter-spacing: 1px;
+                        }
+
+                        #test12 h1 {
+                            font-size: 65px;
+                            text-align: center;
+                            margin: 0;
+                            color: deepskyblue;
+                            text-shadow: 3px 3px 1px black;
+                        }
+                    </style>
+                </div>
+                <br><p>
+                    Evet. Bu yazı oldukça berrak bir yazı, sevdim kendisini. Dikkat ettiyseniz font adımız 
+                    2 kelimeden oluşuyor ve değeri verirken içinde boşluk var. İşte bu sebeple 
+                    <code>font-family</code> özelliğine birden fazla değer girilirken , değerler arasında 
+                    boşluk değil virgül konması istenmiş. İkinici bir font adı ekleyelim.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #ff5572;">html</span> {</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">background-color</span>: <span style="color: #89ddff;">aqua</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">font-family</span>: <span style="color: #89ddff;">Open</span> Sans, <span style="color: #89ddff;">sans-serif</span>;</div><div>}</div></div></div></div></div></div></div></div></div></div></div>
+                <br><p>
+                    Kodumuz daha düzenli görünsün diye şöyle de yazılabilir:
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #ff5572;">html</span> {</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">background-color</span>: <span style="color: #89ddff;">aqua</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">font-family</span>: <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Open Sans</span><span style="color: #d9f5dd;">"</span>, <span style="color: #89ddff;">sans-serif</span>;</div><div>}</div></div></div></div></div></div></div></div></div></div></div></div>
+                <br><p>
+                    Tercih sizin. 
+                </p>
+
+                <h2 id="pos-syntax" style="padding-top: 70px;">Yerleşim Deyimleri</h2>
+ 
                 <p>.</p><p>.</p>
                 <br><a href="bolum2.html" class="btn btn-warning pull-left">< 2. Bölüm </a>
             </div>
