@@ -1283,6 +1283,249 @@
                     alanın aldığı kadarı gösteriliyor.Default değer <code>overflow: visible;</code> ve 
                     böyle bırakılırsa yazılar eleman dışına taşar.
                 </p>
+                <p>
+                    Bir HTML eleman için <code>position</code> bilgisi verilmemişse aslında o eleman 
+                    <code>position: static;</code> değerine sahiptir. Tüm elemanlar başlangıçta 
+                    <b>Statik Pozisyon</b> değerine sahiptir.
+                </p>
+
+                <br><br><h2>Relative Pozisyon Hakkında Biraz Daha</h2>
+                <p>
+                    <b>Relative</b> pozisyonlama HTML elemanın normalde olması gereken konuma göre 
+                    kaydırılmasıdır. <code>position: relative;</code> olan bir eleman bunun yanında 
+                    <code>top</code>, <code>right</code>, <code>bottom</code> ya da <code>left</code> 
+                    özelliklerinden en az biri verilmeden bir anlam ifade etmez. 
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">d-blue</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">d-green</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">d-blue</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">d-blue</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #ff5572;">div</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">display</span>: <span style="color: #89ddff;">inline-block</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">width</span>: <span style="color: #f78c6c;">100</span><span style="color: #ffeb95;">px</span>; <span style="color: #80cbc4;">height</span>: <span style="color: #f78c6c;">100</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">margin</span>: <span style="color: #f78c6c;">20</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; }</div><div>&nbsp; &nbsp; <span style="color: #ffcb6b;">.d-blue</span> { <span style="color: #80cbc4;">background-color</span>: <span style="color: #89ddff;">deepskyblue</span>; }</div><div>&nbsp; &nbsp; <span style="color: #ffcb6b;">.d-green</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">background-color</span>: <span style="color: #89ddff;">chartreuse</span>;</div><div>&nbsp; &nbsp; }</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div></div></div>
+                <div class="cborder" id="test19">
+                    <div class="d-blue"></div>
+                    <div class="d-green"></div>
+                    <div class="d-blue"></div>
+                    <div class="d-blue"></div>
+                    <style>
+                        #test19 div {
+                            display: inline-block;
+                            width: 100px; height: 100px;
+                            margin: 20px;
+                        }
+                        #test19 .d-blue { background-color: deepskyblue; }
+                        #test19 .d-green {
+                            background-color: chartreuse;
+                            /*position: relative;
+                            top: 30px; left: 30px;*/
+                        }
+                    </style>
+                </div>
+                <br><p>
+                    Yukarıda örnekte verilen 4 kutudan yeşil olana <b>reletive</b> pozisyon verelim.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">d-blue</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">d-green</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">d-blue</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">d-blue</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #fad430;">#test20</span><span style="color: #c792ea;"> </span><span style="color: #ff5572;">div</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">display</span>: <span style="color: #89ddff;">inline-block</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">width</span>: <span style="color: #f78c6c;">100</span><span style="color: #ffeb95;">px</span>; <span style="color: #80cbc4;">height</span>: <span style="color: #f78c6c;">100</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">margin</span>: <span style="color: #f78c6c;">20</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; }</div><div>&nbsp; &nbsp; <span style="color: #fad430;">#test20</span><span style="color: #c792ea;"> </span><span style="color: #ffcb6b;">.d-blue</span> { <span style="color: #80cbc4;">background-color</span>: <span style="color: #89ddff;">deepskyblue</span>; }</div><div>&nbsp; &nbsp; <span style="color: #fad430;">#test20</span><span style="color: #c792ea;"> </span><span style="color: #ffcb6b;">.d-green</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">background-color</span>: <span style="color: #89ddff;">chartreuse</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">position</span>: <span style="color: #89ddff;">relative</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">top</span>: <span style="color: #f78c6c;">35</span><span style="color: #ffeb95;">px</span>; <span style="color: #80cbc4;">left</span>: <span style="color: #f78c6c;">35</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; }</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div></div></div></div>
+                <div class="cborder" id="test20">
+                    <div class="d-blue"></div>
+                    <div class="d-green"></div>
+                    <div class="d-blue"></div>
+                    <div class="d-blue"></div>
+                    <style>
+                        #test20 div {
+                            display: inline-block;
+                            width: 100px; height: 100px;
+                            margin: 20px;
+                        }
+                        #test20 .d-blue { background-color: deepskyblue; }
+                        #test20 .d-green {
+                            background-color: chartreuse;
+                            position: relative;
+                            top: 35px; left: 35px;
+                        }
+                    </style>
+                </div>
+                <br><p>
+                    Görüldüğü gibi yeşil kutu olması gereken yere göre kaydırılarak <code>top: 35px;</code> 
+                    ile yukarıdan ve <code>left: 35px;</code> ile soldan 35'er piksel içeriye konumlanmış. 
+                    Bir diğer dikkatinizi çekmek istediğimi nokta , görünen elemanların <i>margin</i> ve 
+                    <i>padding</i> değerleri hala yeşil kutunun orjinalde olması gereken konuma göre 
+                    çalışıyor. Diğer elemanlar yeşil kutuyu kaydırmamız sonucu oluşan boşluğa doğru 
+                    kaymıyor ya da "bu yeşil benim çok üzerime geldi" deyip ondan uzaklaşmıyor, daha önceki
+                    pozisyonlarını koruyorlar.
+                </p>
+                <p>
+                    Relative pozisyonlamayı diğer elemanların konumunu etkilemeden sadece bir elemanı 
+                    sağa, sola, yukarı veya aşağı kaydırmak gerektiğinde öncelikle hatırlayınız lütfen.
+                </p>
+
+                <br><br><h2>Display Özelliği İncelemesi</h2>
+                <p>
+                    <code>display</code> özelliği elemanın nasıl gösterileceği hakkında bilgi verir. Her 
+                    HTML eleman default olarak <code>block</code> ya da <code>inline</code> elemandır. 
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">a</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">href</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">images/lale.jpg</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">img</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">src</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">images/lale.jpg</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">width</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">230</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">height</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">150</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">a</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">a</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">href</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">images/denizana.jpg</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">img</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">src</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">images/denizana.jpg</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">width</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">230</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">height</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">150</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">a</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">a</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">href</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">images/penguen.jpg</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">img</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">src</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">images/penguen.jpg</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">width</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">230</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">height</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">150</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">a</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">h1</span><span style="color: #89ddff;">&gt;</span>Meyveler<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">h1</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span>Sebzeler<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span></div></div></div>
+                <div class="cborder">
+                    <a href="images/lale.jpg">
+                        <img src="images/lale.jpg" width="230" height="150">
+                    </a>
+                    <a href="images/denizana.jpg">
+                        <img src="images/denizana.jpg" width="230" height="150">
+                    </a>
+                    <a href="images/penguen.jpg">
+                        <img src="images/penguen.jpg" width="230" height="150">
+                    </a>
+                    <h1>Meyveler</h1>
+                    <p>Sebzeler</p>
+                </div>
+                <br><p>
+                    Örnekte gördüğünüz <code>&lt;img></code> elemanları <code>display: inline;</code>
+                    olan elemanlar. <code>&lt;h1></code> ve <code>&lt;p></code> elemanları ise 
+                    <code>display: block;</code> olan elemanlar. <code>block</code> değerli elemanlar 
+                    her zaman yeni bir satıra yerleşirler. <code>&lt;div></code>'ler, <code>&lt;h1></code>'den 
+                    <code>&lt;h6></code>'ya başlıklar ve <code>&lt;p></code> paragraflar en yaygın kullanılan 
+                    <code>block</code> değerli elemanlar. 
+                </p>
+                <p>
+                    <code>inline</code> elemanlar ise yeni bir satır başlatmazlar ve yan yana dizilirler. 
+                    En yaygın <code>inline</code> elemanlara örnek olarak <code>&lt;img></code>, <code>&lt;a></code>
+                    ve <code>&lt;span></code> elemanları gösterilebilir. Blok elemanlar içerikleri çok 
+                    küçük olsa bile tüm genişliği kaplar. Bunu görmek için örneğimizdeki başlık ve  
+                    paragrafın arka rengini değiştirelim.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">a</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">href</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">images/lale.jpg</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">img</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">src</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">images/lale.jpg</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">width</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">230</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">height</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">150</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">a</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">a</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">href</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">images/denizana.jpg</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">img</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">src</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">images/denizana.jpg</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">width</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">230</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">height</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">150</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">a</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">a</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">href</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">images/penguen.jpg</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">img</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">src</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">images/penguen.jpg</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">width</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">230</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">height</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">150</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">a</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">h1</span><span style="color: #89ddff;">&gt;</span>Meyveler<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">h1</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span>Sebzeler<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #ff5572;">h1</span><span style="color: #c792ea;">, </span><span style="color: #ff5572;">p</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">background-color</span>: <span style="color: #89ddff;">yellow</span>;</div><div>&nbsp; &nbsp; }</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div></div></div></div>
+                <div class="cborder" id="test21">
+                    <a href="images/lale.jpg">
+                        <img src="images/lale.jpg" width="230" height="150">
+                    </a>
+                    <a href="images/denizana.jpg">
+                        <img src="images/denizana.jpg" width="230" height="150">
+                    </a>
+                    <a href="images/penguen.jpg">
+                        <img src="images/penguen.jpg" width="230" height="150">
+                    </a>
+                    <h1>Meyveler</h1>
+                    <p>Sebzeler</p>
+                    <style>
+                        #test21 h1, #test21 p {
+                            background-color: yellow;
+                        }
+                    </style>
+                </div>
+                <br><p>
+                    Gördüğünüz gibi içerikleri çok az yer kaplamasına rağmen tüm yatay alana yayılıyorlar. 
+                    Genişlikleri kısıtlanmış olsa bile yan yana yerleşmezler.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #ff5572;">h1</span><span style="color: #c792ea;">, </span><span style="color: #ff5572;">p</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">background-color</span>: <span style="color: #89ddff;">yellow</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">width</span>: <span style="color: #f78c6c;">250</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; }</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div>
+                <div class="cborder" id="test22">
+                    <a href="images/lale.jpg">
+                        <img src="images/lale.jpg" width="230" height="150">
+                    </a>
+                    <a href="images/denizana.jpg">
+                        <img src="images/denizana.jpg" width="230" height="150">
+                    </a>
+                    <a href="images/penguen.jpg">
+                        <img src="images/penguen.jpg" width="230" height="150">
+                    </a>
+                    <h1>Meyveler</h1>
+                    <p>Sebzeler</p>
+                    <style>
+                        #test22 h1, #test22 p {
+                            background-color: yellow;
+                            width: 250px;
+                        }
+                    </style>
+                </div>
+                <br><p>
+                    Hala tüm satırı kaplıyormuş gibi alt alta yerleşiyorlar. Yan yana koyabilmenin tek 
+                    yolu onlara <code>display: inline;</code> stil vermektir.
+                </p>
+
+                <br><br><h2>Overflow İncelemesi</h2>
+                <p>
+                    Büyüklüğü sınırlı elemanların içerikleri boyutlarını aşrsa nasıl gösterileceğini 
+                    <code>overflow</code> özelliği belirler. Bir örnekle başlayalım.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">temizlenecek</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">img</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">src</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">images/lale.jpg</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">width</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">250</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; Bu yazı CSS float ve clear özellikleri göstermek içindir. <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">br</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; Bu yazı CSS float ve clear özellikleri göstermek içindir. <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">br</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; Bu yazı CSS float ve clear özellikleri göstermek içindir.</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #ff5572;">img</span> { <span style="color: #80cbc4;">float</span>: <span style="color: #89ddff;">right</span>; }</div><div>&nbsp; &nbsp; <span style="color: #ff5572;">div</span> { <span style="color: #80cbc4;">border</span>: <span style="color: #f78c6c;">5</span><span style="color: #ffeb95;">px</span> <span style="color: #89ddff;">solid</span> <span style="color: #89ddff;">blue</span>; }</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div></div>
+                <div class="cborder" id="test23" style="height: 200px;">
+                    <div class="temizlenecek">
+                        <img src="images/lale.jpg" width="250">
+                        Bu yazı CSS float ve clear özellikleri göstermek içindir. <br>
+                        Bu yazı CSS float ve clear özellikleri göstermek içindir. <br>
+                        Bu yazı CSS float ve clear özellikleri göstermek içindir.
+                    </div>
+                    <style>
+                        #test23 img { float: right; }
+                        #test23 div { border: 5px solid blue; }
+                    </style>
+                </div>
+                <br><p>
+                    <code>&lt;div></code> elemanın yüksekliğini içeriğindeki yazılar belirliyor. Ama 
+                    yine aynı elemanın içinde olması gereken resim eleman sınırları dışına taşmış. Bu 
+                    taşmaları düzenlemek için <code>overflow</code> özelliği kullanılarak bu taşan 
+                    elemanın nasıl gösterileceği belirlenir. Olası değerler şöyle:
+                </p>
+                <ul>
+                    <li><b>visible : </b> Bu default eleman <code>overflow</code> değeridir. Taşma 
+                        olursa eleman görünmeye devam edecek demektir. Örneğimiz zaten şu anda 
+                        bu default değer sayesinde taşmış olarak görünüyor.</li>
+                    <li><b>hidden : </b> Elemanın dışarı taşan içeriği kırpılıp gösterilmez. Ama 
+                        script yoluyla programsal olarak kaydırma yapılarak geri kalan kısım 
+                        gösterilebilir.</li>
+                    <li><b>clip : </b> Elemanın dışarı taşan içeriği kırpılıp gösterilmez. Programsal 
+                        olarak da görünmesi sağlanamaz.</li>
+                    <li><b>scroll : </b> Taşan kısım kırpılır ama eleman kenarına konan kaydırma 
+                        çubuğu ile taşan kısıma görüntü kaydırılabilir.</li>
+                    <li><b>auto : </b> Taşan kısıma göre mümkünse eleman boyutu değişir, mümkün değilse 
+                        kenarı kaydırma çubuğu gelir.</li>
+                </ul>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">temizlenecek</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">img</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">src</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">images/lale.jpg</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">width</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">250</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; Bu yazı CSS float ve clear özellikleri göstermek içindir. <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">br</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; Bu yazı CSS float ve clear özellikleri göstermek içindir. <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">br</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; Bu yazı CSS float ve clear özellikleri göstermek içindir.</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #ff5572;">img</span> { <span style="color: #80cbc4;">float</span>: <span style="color: #89ddff;">right</span>; }</div><div>&nbsp; &nbsp; <span style="color: #ff5572;">div</span> { <span style="color: #80cbc4;">border</span>: <span style="color: #f78c6c;">5</span><span style="color: #ffeb95;">px</span> <span style="color: #89ddff;">solid</span> <span style="color: #89ddff;">blue</span>; }</div><div>&nbsp; &nbsp; <span style="color: #ffcb6b;">.temizlenecek</span> { <span style="color: #80cbc4;">overflow</span>: <span style="color: #89ddff;">auto</span>; }</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div></div></div>
+                <div class="cborder" id="test24" style="height: 200px;">
+                    <div class="temizlenecek">
+                        <img src="images/lale.jpg" width="250">
+                        Bu yazı CSS float ve clear özellikleri göstermek içindir. <br>
+                        Bu yazı CSS float ve clear özellikleri göstermek içindir. <br>
+                        Bu yazı CSS float ve clear özellikleri göstermek içindir.
+                    </div>
+                    <style>
+                        #test24 img { float: right; }
+                        #test24 div { border: 5px solid blue; }
+                        #test24 .temizlenecek { overflow: auto; }
+                    </style>
+                </div>
+                <br><p>Ama boyut uzatılamazsa:</p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">temizlenecek</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">img</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">src</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">images/lale.jpg</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">width</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">250</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; Bu yazı CSS float ve clear özellikleri göstermek içindir. <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">br</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; Bu yazı CSS float ve clear özellikleri göstermek içindir. <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">br</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; Bu yazı CSS float ve clear özellikleri göstermek içindir.</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #fad430;">#test25</span><span style="color: #c792ea;"> </span><span style="color: #ff5572;">img</span> { <span style="color: #80cbc4;">float</span>: <span style="color: #89ddff;">right</span>; }</div><div>&nbsp; &nbsp; <span style="color: #fad430;">#test25</span><span style="color: #c792ea;"> </span><span style="color: #ff5572;">div</span> { <span style="color: #80cbc4;">border</span>: <span style="color: #f78c6c;">5</span><span style="color: #ffeb95;">px</span> <span style="color: #89ddff;">solid</span> <span style="color: #89ddff;">blue</span>; }</div><div>&nbsp; &nbsp; <span style="color: #fad430;">#test25</span><span style="color: #c792ea;"> </span><span style="color: #ffcb6b;">.temizlenecek</span> { <span style="color: #80cbc4;">height</span>: <span style="color: #f78c6c;">100</span><span style="color: #ffeb95;">px</span>; <span style="color: #80cbc4;">overflow</span>: <span style="color: #89ddff;">auto</span>; }</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div></div></div></div>
+                <div class="cborder" id="test25" style="height: 200px;">
+                    <div class="temizlenecek">
+                        <img src="images/lale.jpg" width="250">
+                        Bu yazı CSS float ve clear özellikleri göstermek içindir. <br>
+                        Bu yazı CSS float ve clear özellikleri göstermek içindir. <br>
+                        Bu yazı CSS float ve clear özellikleri göstermek içindir.
+                    </div>
+                    <style>
+                        #test25 img { float: right; }
+                        #test25 div { border: 5px solid blue; }
+                        #test25 .temizlenecek { height: 100px; overflow: auto; }
+                    </style>
+                </div>
+
+                <br><br><h2>Fixed Pozisyon</h2>
+                <p>
+                    Bazı web sayfalarında sayfada aşağı yukarı gezinirken bazı içeriklerin görsel 
+                    alandaki yerlerini koruduklarını görürsünüz. Bu sayfanın en üstündeki özlü sözü 
+                    gösteren bant ve solda sabit duran menüler gibi. Bu elemanlar <code>position: fixed;</code>
+                    değerine sahipler. 
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #fad430;">#fixed-elm</span> {</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">position</span>: <span style="color: #89ddff;">fixed</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">left</span>: <span style="color: #f78c6c;">20</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">top</span>: <span style="color: #f78c6c;">150</span><span style="color: #ffeb95;">px</span>;</div><div>}</div></div></div></div></div></div></div></div></div>
+                <br><p>
+                    Örnekte verilen stile göre <code>id="fixed-elm"</code> özelliğine sahip eleman görsel 
+                    alanın sol kenarından 20 piksel, üst kenarından 150 piksel içeriye sol üst köşesi 
+                    gelecek şekilde konumlanacaktır ve sayfada aşağı doğru kaydıkça sürekli görünmeye 
+                    devam edecektir.
+                </p>
+
+                <h2 id="css-z-index" style="padding-top: 70px;">Z-Index Değeri</h2>
+                <p>
+                    Web sayfasında elemanlar bir sebeple üst üste çakışırsa hangisinin öne gelip 
+                    görünür olacağını <code>z-index</code> özelliği belirler. Bu değere pozitif ya da negatif 
+                    değer verilebilir. Çakışmalarda <code>z-index</code> değeri daha büyük olan görünümde 
+                    öne gelecektir. Değer verilmezse ya da aynı olursa HTML kod içinde daha sonra girilen  
+                    eleman öne gelecektir.
+                </p>
 
                 <p>.</p><p>.</p>
                 <br><a href="bolum2.html" class="btn btn-warning pull-left">< 2. Bölüm </a>
