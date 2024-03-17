@@ -1526,9 +1526,55 @@
                     öne gelecektir. Değer verilmezse ya da aynı olursa HTML kod içinde daha sonra girilen  
                     eleman öne gelecektir.
                 </p>
+                <p>
+                    Koordinat sistemini düşündüğünüzde <b>X</b> sağa-sola yönde, <b>Y</b> yukarı-aşağı 
+                    yöndeyse <b>Z</b> sayfadan bize doğru gelen eksen olacaktır. Z-Index denme sebebi budur.
+                    Z-Index özelliği <b>absolute</b>, <b>relative</b> ve <b>fixed</b> pozisyonlu elemanlara 
+                    uygulanır. Bir örnek verelim.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">h1</span><span style="color: #89ddff;">&gt;</span>Resime z-index verilecek<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">h1</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">img</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">src</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">images/lale.jpg</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">width</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">200</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span>Örnek bir paragraf yazısı.<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span>Örnek bir başka paragraf yazısı.<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #ff5572;">img</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">position</span>: <span style="color: #89ddff;">absolute</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">top</span>: <span style="color: #f78c6c;">10</span><span style="color: #ffeb95;">px</span>; <span style="color: #80cbc4;">left</span>: <span style="color: #f78c6c;">50</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; }</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div></div></div>
+                <div class="cborder" id="test26" style="position: relative;">
+                    <h1>Resime z-index verilecek</h1>
+                    <img src="images/lale.jpg" width="200">
+                    <p>Örnek bir paragraf yazısı.</p>
+                    <p>Örnek bir başka paragraf yazısı.</p>
+                    <style>
+                        #test26 img {
+                            position: absolute;
+                            top: 10px; left: 50px;
+                        }
+                    </style>
+                </div>
+                <br><p>
+                    Resim konumlanınca diğer yazıların üzerine geliyor. Ben yazıların altında kalsın 
+                    istersem negatif bir <code>z-index</code> değeri vererek sağlarım.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">h1</span><span style="color: #89ddff;">&gt;</span>Resime z-index verilecek<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">h1</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">img</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">src</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">images/lale.jpg</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">width</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">200</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span>Örnek bir paragraf yazısı.<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span>Örnek bir başka paragraf yazısı.<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #fad430;">#test27</span><span style="color: #c792ea;"> </span><span style="color: #ff5572;">img</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">position</span>: <span style="color: #89ddff;">absolute</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">top</span>: <span style="color: #f78c6c;">10</span><span style="color: #ffeb95;">px</span>; <span style="color: #80cbc4;">left</span>: <span style="color: #f78c6c;">50</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">z-index</span>: <span style="color: #f78c6c;">-1</span>;</div><div>&nbsp; &nbsp; }</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div></div></div></div>
+                <div class="cborder" id="test27" style="position: relative;">
+                    <h1>Resime z-index verilecek</h1>
+                    <img src="images/lale.jpg" width="200">
+                    <p>Örnek bir paragraf yazısı.</p>
+                    <p>Örnek bir başka paragraf yazısı.</p>
+                    <style>
+                        #test27 img {
+                            position: absolute;
+                            top: 10px; left: 50px;
+                            z-index: -1;
+                        }
+                    </style>
+                </div>
+                <br><p>
+                    Buraya kadar CSS şekillendirmeler üzerinde oldukça kapsamlı bir inceleme yaptık. 
+                    Bütün bunları öğrenmeniz , anlamanız , test edip sindirmeniz çok önemli. Bu 
+                    noktadan sonra böyle elemanları tek tek şekillendirmek yerine hazır CSS kütüphanelerinden 
+                    en yaygını olan <b>Bootstrap</b> ile stil verme işlemini nasıl hızlandıracağımızı 
+                    göreceğiz. Bu sayfayı burada bitirip sonraki sayfada devam edelim.
+                </p>
 
-                <p>.</p><p>.</p>
+                
                 <br><a href="bolum2.html" class="btn btn-warning pull-left">< 2. Bölüm </a>
+                <a href="bolum4.html" class="btn btn-success pull-right">4. Bölüm ></a>
+                <p>.</p><p>.</p>
             </div>
             <div class="col-md-2 hidden-xs">.</div>
         </div>

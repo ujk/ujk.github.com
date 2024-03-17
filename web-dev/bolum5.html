@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7">
+    <title>Web Geliştirme 5</title>
+    <link rel="stylesheet" 
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">
+        </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js">
+        </script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans">
+    <style>
+        div .scroll{
+            height:300px;
+            width: 100%;
+            overflow:scroll;
+            scrollbar-color: dark;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: white;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: gray;
+            border-radius: 10px;
+        }
+
+        .cborder {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        .cpadding {
+            padding: 15px;
+        }
+
+        body {
+            font-size: large;
+        }
+
+        img.full {
+            width: 100%;
+        }
+
+        /* Revert CSS style of target element and its children */                       
+        .reset-style * {
+            all: revert ;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+    </nav>
+
+    <div class="container" style="padding-top: 70px;;">
+        
+        <div class="row">
+            <div class="col-md-2 hidden-xs">
+                <div style="position:fixed; left: 50px; top: 70px;" id="left-menu">
+                    <br>
+                </div>
+            </div>
+            <div class="col-md-8"> 
+                <h1 id="attributes">Bölüm 5</h1>
+
+                <h2 id="js-intro" style="padding-top: 70px;">JavaScript Nedir?</h2>
+                <p>
+                    JavaScript bir web geliştiricinin öğrenmesi gereken 3 dilin sonuncusu. Daha önce HTML 
+                    ve CSS'i gördük. JavaScript web sayfanıza kullanıcı ile etkileşim ekleyen programlama 
+                    dilidir. Bu etkileşim bir butona tıklanması, bir forma değer girilmesi veya bir 
+                    animasyon olabilir. Bir HTML dökümana JavaScript uygulandığında o döküman artık 
+                    <b>dinamik</b> bir web sayfası olur.
+                </p>
+                <p>
+                    JavaScript tarayıcılarda çalışmak üzere tasarlanmış bir programlama dilidir. Script 
+                    olarak yani yazı şeklinde program olarak girilir. Tarayıcınız bu script'i (betik de 
+                    derler) okur ve çalıştırır. JavaScript'i diğer bir programlama dili olan Java ile 
+                    karıştırmayın, birbirleri ile en ufak alakaları yoktur. 
+                </p>
+                <p>
+                    Bir diğer JavaScript temel özelliği ise büyük-küçük harf duyarlı olması. Yani 
+                    <code>isim</code> ve <code>İsim</code> değişkenleri kullanılırsa ikisi birbirinden 
+                    farklı değerleri ifade eder. Bu yüzden kod yazarken büyük-küçük harflere dikkat ediniz. 
+                </p>
+
+                <h2 id="js-console" style="padding-top: 70px;">Konsola Erişmek</h2>
+                <p>
+                    Daha önce hatırlarsanız <b>Geliştirici Araçları</b> (Developer Tools) penceresini açmış 
+                    ve sayfadaki HTML elemanların kutu modelini incelemiştik. <i>Geliştirici Araçları</i>
+                    penceresinin önemli yardımlarından biri de bize bir JavaScript konsolu sunması. 
+                </p>
+                <p>
+                    Sayfada herhangi bir elemana sağ tıklayıp "Öğeyi Denetle" (ya da Inspect Element) seçtiğinizde 
+                    <i>Geliştirici Araçları</i> penceresi açılır ve o eleman HTML kodu içinde gösterilir. 
+                    Pencereyi incelediğimizde bir de <b>Console</b> sekmesi olduğunu görürüz. 
+                </p>
+                <img src="images/tut024.png" alt="Konsol" class="img-thumbnail">
+                <br><br><p>
+                    Yazacağınız programda bir hata olduğunda buna programcılıkta <b>bug</b> (böcek) denir. 
+                    Bu hatayı tesbit edip giderme işine ise <b>debugging</b> denir. Geliştirici Araçları 
+                    penceresi hatalarınızı bulmakta çok işinize yarayacaktır. Konsol ise size JavaScript 
+                    kod testleri yapabileceğiniz bir alan verir. Ayrıca konsolda sayfanıza eklediğiniz 
+                    JavaScript kodun ürettiği hata mesajları da tarayıcı tarafından yazılacaktır. 
+                </p>
+                <p>
+                    Hemen tüm tarayıcılarda Geliştirici Araçları vardır. Ama farklı erişim şekilleri 
+                    olabilir, bunu tarayıcınızın yardım dökümanlarına bakınız. Konsolda direk kod denemesi 
+                    de yapılabilir.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">&gt;</span> <span style="color: #f78c6c;">5</span> <span style="color: #89ddff;">+</span> <span style="color: #f78c6c;">3</span></div><div><span style="color: #c792ea;">&lt;=</span> <span style="color: #f78c6c;">8</span></div><div><span style="color: #c792ea;">&gt;</span> <span style="color: #f78c6c;">2</span> <span style="color: #89ddff;">*</span> <span style="color: #f78c6c;">11</span></div><div><span style="color: #c792ea;">&lt;=</span> <span style="color: #f78c6c;">22</span></div></div></div></div></div></div></div></div></div></div>
+                <p>
+                    gibi.
+                </p>
+
+                <h2 id="js-syntax" style="padding-top: 70px;">JavaScript Deyim Yapısı</h2>
+                <p>
+                    <code>Syntax</code> bir programlama dilinin sözlüğü ve dilbilgisi gibidir. Nasıl bir 
+                    konuşma dilinde anlamlı cümleler kurmak için belli kelimeleri belli kurallara göre 
+                    bir araya getirdiğiniz gibi, programlama dillerinde de anlaşılabilir bir program 
+                    parçası oluşması için o dilin <b>syntax</b>'ına (deyim yapısına) uygun davranmanız 
+                    gerekir. JavaScript program deyim yapısına bir örnek:
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">ilkSayı</span> <span style="color: #c792ea;">=</span> <span style="color: #f78c6c;">5</span>;</div><div><span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">ikinciSayı</span> <span style="color: #c792ea;">=</span> <span style="color: #f78c6c;">9</span>;</div><div><span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">toplam</span> <span style="color: #c792ea;">=</span> <span style="color: #bfc7d5;">ilkSayı</span> <span style="color: #89ddff;">+</span> <span style="color: #bfc7d5;">ikinciSayı</span>;</div></div></div></div></div></div></div></div></div></div></div>
+                <br><p>
+                    <code>var</code> kelimesi değişken (variable) tanımlarken kullanılan başlangıç kelimesi.
+                    Daha sonra değişken için vereceğimiz isimi yazıyoruz. İsimin arkasından gelen <code>=</code>
+                    işareti <b>atama</b> (assignment) işareti olarak bilinir, kendisinden sonra deyim satırı 
+                    sonuna kadar gelen işlemlerin sonucunu kendisinden önce belirtilen değişkene kaydeder.
+                    <code>var ilkSayı = 5;</code> demek <b>5</b> sayısını <b>ilkSayı</b> isimli değişkene 
+                    kaydet demektir. 
+                </p>
+                <p>
+                    Noktalı virgül işareti deyim satırının sonuna gelindiğini belirtir. Her deyim satırının 
+                    sonunda noktalı virgül olur. Alt satıra geçmek o andaki deyim satırını bitirmez, ama 
+                    aynı satırda birden fazla deyim satırı noktalı virgül ile sonlandırılarak yazılabilir 
+                    istenirse. 
+                </p>
+                <p>
+                    <code>var ilkSayı = 5;</code> deyim satırında bir konu daha var, atlamayalım. 
+                    <code>var</code> kelimesi <code>ilkSayı</code> değişkeni ilk defa o satırda kullanıldığı 
+                    için orada. Daha sonra burada tanımlanan <code>ilkSayı</code> değişkenini kullanırken 
+                    tekrar <code>var</code> yazılmaz, değişkenin ilk tanımlandığı yerde olur. 
+                </p>
+                <p>
+                    3'üncü satırda <code>=</code> işaretinden sonra noktalı virgüle varana kadar 2 adet 
+                    değişkenin toplanması işlemi var. Önce toplama işlemi yapılır (yani 5 ve 9 toplanır), 
+                    sonra <code>toplam</code> değişkenine 14 sonucu kaydedilir.
+                </p>
+                <p>
+                    Bu örnek satırlar her biri JavaScript deyim yapısı kurallarına göre yazılmış satırlar 
+                    oldukları için geçerli bir program parçası oluşturuyorlar. Statement
+                </p>
+
+                <p>.</p><p>.</p>
+                <br><a href="bolum4.html" class="btn btn-warning pull-left">< 4. Bölüm </a>
+                <a href="bolum5.html" class="btn btn-success pull-right">5. Bölüm ></a>
+            </div>
+            <div class="col-md-2 hidden-xs">.</div>
+        </div>
+    </div>
+
+<script>
+$(document).ready(function(){
+    $.get("menu.html", function(data){
+        $("#left-menu").append(data);
+    });
+});
+</script>
+    
+
+
+</body>
