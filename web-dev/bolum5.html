@@ -158,8 +158,206 @@
                 </p>
                 <p>
                     Bu örnek satırlar her biri JavaScript deyim yapısı kurallarına göre yazılmış satırlar 
-                    oldukları için geçerli bir program parçası oluşturuyorlar. Statement
+                    oldukları için geçerli bir program parçası oluşturuyorlar. 
                 </p>
+
+                <h2 id="js-statements" style="padding-top: 70px;">JavaScipt İfadeler (Statements)</h2>
+                <p>
+                    <b>Syntax</b> programın nasıl yazılacağını belirleyen kurallar ve kullanılan kelimeler 
+                    topluluğuydu, biz buna <b>Deyim Yapısı</b> diyoruz. <b>İfadeler</b> (statements) ise 
+                    bu kurallara uyarak yazılan ve herhangi bir iş yapan program parçalarıdır. İfadeler 
+                    bir işi gerçekleştirmek için yazılmış kelimeler , sayılar , noktalama işaretlerinden 
+                    oluşan bir kod parçasıdır. Örnek yapmak için tarayıcınızın geliştirici araçları penceresinde 
+                    konsolu az önce gösterdiğimiz şekilde açın ve şu satırları girin:
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">a</span> <span style="color: #c792ea;">=</span> <span style="color: #f78c6c;">7</span>;</div><div><span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">b</span> <span style="color: #c792ea;">=</span> <span style="color: #bfc7d5;">a</span> <span style="color: #89ddff;">*</span> <span style="color: #f78c6c;">4</span>;</div><div><span style="color: #bfc7d5;">a</span>;</div><div><span style="color: #bfc7d5;">b</span>;</div></div></div>
+                <br><p>
+                    Bu satırların ilk ikisi geçerli JavaScript ifadeleri. Syntax'a uygun yazılmışlar ve bir 
+                    iş yapıyorlar. İlk satır <code>var a = 7;</code> <b>a</b> adında yeni bir değişken 
+                    tanımlıyor ve ona <b>7</b> sayısını saklıyor. <code>var b = a * 4;</code> ise <b>b</b>
+                    isimli yeni bir değişken tanımlayarak ona <b>a</b> içindeki değeri <b>4</b> ile çarparak 
+                    elde ettiği değeri koyuyor. <code>*</code> işareti burada çarpma operatörü oluyor. 
+                    Hatırlarsanız klavyenizin nümerik pad'inde de aynı işaret çarpma yapmak için kullanılıyor.
+                    Operatörler bir işlem yaparlar, bu ifadede <code>=</code> bir atama işlemi yapıyor, 
+                    <code>*</code> da çarpma işlemi yapıyor, her ikisi de birer operatör.
+                    İfadeler bir programlama dilinde işte bu şekil bir iş yapan kod parçalarına verilen addır.
+                </p>
+                <p>
+                    Son iki satırı ise konsolda <b>a</b> ve <b>b</b> değişkenlerinin değerini bize göstersin 
+                    diye yazıyoruz. Bu satırları girdiğinizde konsolda şöyle bir görüntü oluşur:
+                </p>
+                <img src="images/tut025.png" alt="konsol ifadeler">
+                <br><br><p>
+                    Gördüğümüz gibi <b>a</b> değişkeninde <b>7</b> değeri , <b>b</b> değişkeninde ise 
+                    onun 4 katı olan <b>28</b> değeri saklanıyor.
+                </p>
+                <p>
+                    Bir program yazdığınızda yüzlerce, bazen binlerce ifade yazarsınız. Bilgisayar bunları 
+                    çalıştırırken soldan sağa, yukarıdan aşağıya yönde giderek sırayla çalıştırır - aynı 
+                    kitap okur gibi. 
+                </p>
+
+                <h2 id="js-expressions" style="padding-top: 70px;">Eşitlikler (Expressions)</h2>
+                <p>
+                    Eşitlikler sadece bir değişken ile ifade edilebilirken bir çok değerin operatörlerle 
+                    işlenmesi sonucunda elde edilen değerler de olabilir. Basit bir eşitlik örneği vermek gerekirse:
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #bfc7d5;">b</span> <span style="color: #c792ea;">=</span> <span style="color: #bfc7d5;">a</span> <span style="color: #89ddff;">*</span> <span style="color: #f78c6c;">4</span>;</div></div></div>
+                <br><p>
+                    Bu basit bir eşitlik. Atama işaretinin (=) sağ tarafında bir değişken değeri (a) , bir 
+                    operatör (*) ve bir sabit değer (4) var. Yeri gelmişken belirteyim <b>4</b> gibi sabit 
+                    değer verildiğinde bunun adına <b>literal value</b> derler, yani bizde anlık sabit değer 
+                    gibi bir karşılığı var. Bu örnek bir matematik eşitlik oluyor , programlarımızda buna 
+                    benzer birçok eşitlikler yardımıyla değer hesaplamaları yaparız.
+                </p>
+
+                <h2 id="js-run" style="padding-top: 70px;">JavaScript Programı Çalıştırmak</h2>
+                <p>
+                    Bir programı çalıştırmak (executing ya da running) nedir? Yazdığınız programın 
+                    tarayıcı tarafından görülüp içinde yazdığınız kodlara uygun olarak işlemleri yapmasına 
+                    programın çalışması denir. Daha önce konsolda yazdığımız program satırlarının çalışmasını 
+                    ve sonuçlarını gördük. Örneğin şu satırları konsola girdiğimizi düşünelim:
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">ilkSayı</span> <span style="color: #c792ea;">=</span> <span style="color: #f78c6c;">27</span>;</div><div><span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">ikinciSayı</span> <span style="color: #c792ea;">=</span> <span style="color: #f78c6c;">47</span>;</div><div><span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">toplam</span> <span style="color: #c792ea;">=</span> <span style="color: #bfc7d5;">ilkSayı</span> <span style="color: #89ddff;">+</span> <span style="color: #bfc7d5;">ikinciSayı</span>;</div></div></div></div></div>
+                <br><p>
+                    Bu program iki değişkene sayı koyuyor ve ikisinin toplamını da başka bir değişkene 
+                    saklıyor. Saklıyor da biz sayıyı bilmiyoruz. Kullanıcıya bir mesaj vermek amacıyla 
+                    JavaScript <code>alert</code> metodu adı verilen bir yardımcı fonksiyonu kullanabiliriz. 
+                    Prgorama şu satırı da ekleyelim.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div><span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">ilkSayı</span> <span style="color: #c792ea;">=</span> <span style="color: #f78c6c;">27</span>;</div><div><span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">ikinciSayı</span> <span style="color: #c792ea;">=</span> <span style="color: #f78c6c;">47</span>;</div><div><span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">toplam</span> <span style="color: #c792ea;">=</span> <span style="color: #bfc7d5;">ilkSayı</span> <span style="color: #89ddff;">+</span> <span style="color: #bfc7d5;">ikinciSayı</span>;</div><div><span style="color: #82aaff;">alert</span><span style="color: #bfc7d5;">(toplam)</span>;</div></div></div></div></div></div>
+                <br><p>
+                    <code>alert(toplam);</code> ifadesi bir metod çağırıyor. Metodlar kendilerine verilen 
+                    parametrelerle bir işler yapan fonksiyon bloklarıdır. <code>alert()</code> metodu JavaScript 
+                    programlama dili için küçük bir popup pencere açıp kullanıcıya parametresinde verilen 
+                    mesajı göstermesi anlamını taşıyor. Metodlar mutlaka isimlerinden sonra gelen <code>()</code> 
+                    parantezler ile ifade edilir. Eğer metoda bir parametre verilecekse bu parantez içinde 
+                    verilir. Bu <code>alert()</code> metoduna parantez içinde vereceğiniz parametre , 
+                    açılacak popup üzerinde yazılı olması istenen mesajdır. Parametrede bir değişken adı 
+                    verilirse de o değişkenin sakladığı değer mesajda gösterilir. <code>alert(toplam);</code> 
+                    demek , bir popu aç ve orada toplam değerini göster demektir. Satırı girip deneyelim.
+                </p>
+                <img src="images/tut026.png" alt="alert window" class="img-thumbnail">
+                <br><br><p>
+                    Bir popup pencere açıldı ve toplam değeri olan 74 sayısını yazıyor. Sadece konsolda 
+                    değeri görmek için bir başka metod olan <code>console.log()</code> metodunu da 
+                    kullanabiliriz.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><span style="color: #bfc7d5;">console</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(toplam)</span>;</div></div></div></div></div></div>
+                <br><p>
+                    Bu metod değeri konsolda yazacaktır. İleride prgramlarınızda deneme yaparken ve hataları 
+                    bulmaya çalışırken (debug yaparken) çok kullanacağınız bir metod. 
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">&gt;</span> <span style="color: #bfc7d5;">console</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(toplam)</span>;</div><div>&nbsp; &nbsp; <span style="color: #f78c6c;">74</span></div></div></div></div></div></div></div></div>
+                <br><p>
+                    Bu anlattıklarımız bir JavaScript programın tarayıcının konsolunda nasıl çalıştırıldığını 
+                    gösteriyor.
+                </p>
+
+                <h2 id="js-output" style="padding-top: 70px;">Çıktı Nedir?</h2>
+                <p>
+                    <b>Çıktı</b> kelimesi programlama söz konusu olduğunda işlenen verilerin oluşan sonuçlarının 
+                    bir yerlere gönderilmesidir. En tipik örneği kullandığınız ekrandır. Ekranınız bir 
+                    <b>çıktı aygıtı</b> ve değerler ona gönderilerek kullanıcıya gösteriliyor. Daha önce 
+                    denemeler yaptığımız konsolda JavaScript deyim setinde önceden tanımlı olan bazı çıktı
+                    alma metodlarını deneyebiliriz. Sayfaya bir şey yazmayı görelim. Öncelikle içi boş bir 
+                    sayfa HTML kodunu <i>jsdnm.html</i> dosyasına girelim:
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;!</span><span style="color: #ff5572;">DOCTYPE</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">html</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">html</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">lang</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">en</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">head</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">meta</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">charset</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">UTF-8</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">title</span><span style="color: #89ddff;">&gt;</span>JavaScript Deneme<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">title</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">head</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">body</span><span style="color: #89ddff;">&gt;</span></div><div><br /></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">body</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">html</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div></div></div></div></div>
+                <br><p>
+                    Şimdi konsolu açıp şu JavaScript kodu girelim:
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #bfc7d5;">document</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">write</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">&lt;h1&gt;Merhaba Dünya!&lt;/h1&gt;</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div></div>
+                <br><p>
+                    <code>document</code> denilen şey aslında bir JavaScript nesnesi ve şu anda tarayıcıda 
+                    gösterilmekte olan sayfanın özel adı. <code>write()</code> ise o <b>document</b> nesnesinin 
+                    bir metodu, yani <b>document</b> nesnesi içinde tanımlanmış. Hatırlarsanız az evvel 
+                    konsola değer yazmak için <code>console.log()</code> metodu kullanmıştık, bu da 
+                    <code>console</code> nesnesinin <code>log()</code> metodudur. Neyse bunları daha çok 
+                    göreceğiz. <code>document.write()</code> metodu parametresinde verilen değeri sayfanın 
+                    HTML kodunda <code>&lt;body></code> elemanının içine yazar, yani gördüğümüz alana. 
+                </p>
+                <p>
+                    Parametrede verilen değer ise sayfa koduna eklenecek değer ve burada bir <b>string</b> 
+                    (yazı dizisi) sabit değer (literal) girilmiş. <b>string</b> sabit değerler yazılırken 
+                    çift (" ") ya da tek (' ') tırnak içinde verilir. Genelde tüm programlama dillerinde 
+                    yazı değerleri içinde boşluklar olabileceği için tırnak içinde ifade edilir. Sayılar sa 
+                    direk yazılır. Örnekler:
+                </p>
+                <div  style="background-color: #3e313c; line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #bfc7d5;">document</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">write</span><span style="color: #bfc7d5;">(</span><span style="color: #f78c6c;">17</span><span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #bfc7d5;">document</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">write</span><span style="color: #bfc7d5;">(toplam)</span>;</div><div><span style="color: #bfc7d5;">document</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">write</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">toplam</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div></div></div></div>
+                <br><p>
+                    İlk satır sayfaya <b>17</b> sayısını eklerken , ikinci satır <b>toplam</b> değişkeni 
+                    içinde saklanan değeri, üçüncü ise <b>toplam</b> kelimesini sayfaya yazar. Tırnak içinde 
+                    yazıldıysa JavaScript artık onu bir değişken adı değil düz bir yazı olarak algılayacaktır.
+                </p>
+                <p>
+                    <code>document.write('&lt;h1>Merhaba Dünya&lt;/h1>');</code> satırı sayfanın HTML koduna 
+                    <code>body</code> kısmı içine bir <code>&lt;h1></code> başlık kodu ekliyor. Böylece 
+                    sayfada kocaman bir "Merhaba Dünya!" yazısı görürüz. 
+                </p>
+                <p>
+                    Bir diğer çıktı metodu da önceki bölümden hatırladığımız <code>alert()</code> metodu.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #82aaff;">alert</span><span style="color: #bfc7d5;">(</span><span style="color: #f78c6c;">7</span> <span style="color: #89ddff;">+</span> <span style="color: #f78c6c;">8</span><span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div></div></div></div>
+                <br><p>
+                    yazarsak bize bir popup açıp <b>15</b> değerini yazacaktır. Dikkat ederseniz önce parantez
+                    içindeki işlemi yapıp sonucunu hesapladı, sonra işlem sonucunu mesaj olarak bildirdi.
+                </p>
+                <p>
+                    <code>console.log()</code> metodu da bir çıktı metodu tabi ki. O da bir değeri konsola 
+                    yazıp bize gösteriyor. 
+                </p>
+
+                <h2 id="js-input" style="padding-top: 70px;">Girdi Nedir?</h2>
+                <p>
+                    <b>Çıktı</b> kelimesi programın bize verdiği değerleri ifade ederken , <b>girdi</b> 
+                    kelimesi de programcılıkta bizim programa verdiğimiz değerleri ifade eder. Çünkü 
+                    onlar programa <b>giriyor</b>. Daha önce bir web sitesinde giriş yapmak için ya da 
+                    kayıt olmak için form doldurmuşsunuzdur. İşte bu formlar JavaScript programlar 
+                    tarafından <b>girdi</b> verileri olarak okunur ve program içinde işlenirler. 
+                </p>
+                <p>
+                    Girdi metodlarına örnek olarak <code>prompt()</code> metodunu verebiliriz. <code>prompt()</code> 
+                    metodu kullanıcıya bir popup açarak bir soru sorar ve cevabınızı girmeniz için size 
+                    bir yazı kutusu (input box - girdi kutusu) sunar. Kullanımı şöyledir:
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #82aaff;">prompt</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Adınızı giriniz :</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div></div></div></div></div>
+                <br><p>
+                    Aynı <code>alert()</code> metodu gibi bir popup açar ve parametresinde verilen yazıyı 
+                    siza soru olarak gösterir. Ama bir farkla , sorunun altında cevabınızı girmeniz için bir 
+                    kutu olacaktır. 
+                </p>
+                <img src="images/tut027.png" alt="prompt popup" class="img-thumbnail">
+                <br><br><p>
+                    <b>Tamam</b> (ya da OK, sizde ne görünüyorsa) butonuna tıkladığınızda konsolda 
+                    girmiş olduğunuz isim de yazılacaktır.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">&gt;</span> <span style="color: #82aaff;">prompt</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Adınızı giriniz :</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp; <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Ümit</span><span style="color: #d9f5dd;">"</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                <br><p>
+                    "Ümit" değeri burada konsola yazılmasının sebebi, bu değerin <code>prompt()</code> metodunun 
+                    geri döndürdüğü değer olmasıdır. Nasıl basit bir toplama işlemi sonucunda bir yeni 
+                    değer oluşuyorsa metodların sonucunda da değerler oluşturulabilir. JavaScript programlama 
+                    dilini tasarlayanlar <code>prompt()</code> metodunu kullanıcının kutuya girdiği yazıyı 
+                    geri döndürecek şekilde tasarlamışlar. İstersek bu değeri bir değişkene kaydederek 
+                    program içerisinde daha sonra kullanabiliriz. Örnek:
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">&gt;</span> &nbsp; <span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">isim</span> <span style="color: #c792ea;">=</span> <span style="color: #82aaff;">prompt</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Adınızı giriniz :</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp; <span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">selam</span> <span style="color: #c792ea;">=</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Merhaba </span><span style="color: #d9f5dd;">"</span> <span style="color: #89ddff;">+</span> <span style="color: #bfc7d5;">isim</span>;</div><div>&nbsp; &nbsp; <span style="color: #82aaff;">alert</span><span style="color: #bfc7d5;">(selam)</span>;</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                <br><p>
+                    Satırları konsola girerken her satırda o satırı çalıştırmasın diye alt satıra geçmek 
+                    için <kbd>Shift+Enter</kbd> ile geçebilirsiniz. Bu program önce size soruyu soruyor ve 
+                    girdiğiniz cevabı <b>isim</b> değişkenine saklıyor. Sonra <b>selam</b> adında bir değişken 
+                    içinde "Merhaba " ve girdiğiniz değeri yan yana birleştiriyor. Dikkat ediniz "Merhaba " 
+                    yazarken kelimeler yapışık olmasın diye sonuna boşluk koydum. En son da <code>alert()</code>
+                    metodu kullanarak kullanıcıya merhaba deniyor.
+                </p>
+                <p>
+                    Web sitelerinde genellikle girdi almak için <code>&lt;form></code> elemanları 
+                    kullanılır, ama formlar kapsamlı bir konu ve ileride göreceğiz inşallah. Şimdilik 
+                    burada <b>girdi</b> kelimesinin anlamını açıklamak için daha basit olan <code>prompt()</code>
+                    metodunu örnekledik. 
+                </p>
+
+                <h2 id="js-comments" style="padding-top: 70px;">JavaScript Kod Yorumları</h2>
 
                 <p>.</p><p>.</p>
                 <br><a href="bolum4.html" class="btn btn-warning pull-left">< 4. Bölüm </a>
