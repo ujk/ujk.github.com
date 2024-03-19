@@ -358,6 +358,183 @@
                 </p>
 
                 <h2 id="js-comments" style="padding-top: 70px;">JavaScript Kod Yorumları</h2>
+                <p>
+                    Kod yorumları kodunuz içine yazdığınız kodunuzu açıklayıcı yazılardır. Yorumlar 
+                    bilgisayar tarafından dikkate alınmayan ama siz ya da başka bir geliştirici ileride 
+                    kodu incelerken kod hakkında açıklamalar içeren yazılardır. Yorumlarda o bölümdeki 
+                    kodun ne iş yaptığını açıklayan yazılar yazabileceğiniz gibi, ileride kodunuza 
+                    yapılması gerektiğini düşündüğünüz ilaveler hakkında da olabilir. Yorum yapısı bazen 
+                    de kodunuza test edebilmek amacıyla yaptığınız deneme kod parçalarını silmeden 
+                    çalışmasını engellemek amacıyla da kullanılır. Kod parçasını bir yorum içine alarak 
+                    çalışmasını engellersiniz ama kod hala orada yazılı durmaktadır. Buna kodu yoruma 
+                    atmak denir. 
+                </p>
+                <p>
+                    JavaScript dilinde yorumlar iki şekilde yapılabilir tek satır yorumlar ve birden 
+                    fazla satırdan oluşan yorumlar. Tek satır yorumlar <code>//</code> işaretlerinden 
+                    sonra yazılır ve satırın sonuna kadar yorum olarak değerlendirilir. Birden fazla 
+                    satırdan oluşan yorumların başına <code>/*</code> işaretleri konur, sonuna da 
+                    <code>*/</code> işaretleri konur. Bilgisayar bu ikisi arasında yazılan her şeyi 
+                    yorum olarak görür ve dikkate almaz. Konsolda örneklerle açıklayalım. Geliştirici 
+                    araçları penceresinde <b>Console</b> sekmesini açalım ve şu kodları girelim. Daha önce de 
+                    dediğimiz gibi konsola birden fazla satır kod girerken <kbd>Shift+Enter</kbd> tuş 
+                    kombinasyonu ile alt satıra geçebilirsiniz.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">&gt;</span> &nbsp; <span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">isim</span> <span style="color: #c792ea;">=</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Ümit</span><span style="color: #d9f5dd;">"</span>; <span style="color: #697098;">//</span><span style="color: #697098; font-style: italic;">isim değerini kaydeder</span></div><div>&nbsp; &nbsp; <span style="color: #697098;">//</span><span style="color: #697098; font-style: italic;"> Bir değişekn değerini değiştirebilirsiniz</span></div><br /><div>&nbsp; &nbsp; <span style="color: #bfc7d5;">isim</span> <span style="color: #c792ea;">=</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Hasan</span><span style="color: #d9f5dd;">"</span>;</div><br /><div>&nbsp; &nbsp; <span style="color: #00aa00;">/*</span><span style="color: #00aa00; font-style: italic;"> alert() metodu bir pop-up </span></div><div><span style="color: #00aa00; font-style: italic;">&nbsp; &nbsp; &nbsp; &nbsp;mesaj penceresi açmak için</span></div><div><span style="color: #00aa00; font-style: italic;">&nbsp; &nbsp; &nbsp; &nbsp;kullnılır </span><span style="color: #00aa00;">*/</span></div><div>&nbsp; &nbsp; <span style="color: #82aaff;">alert</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Merhaba </span><span style="color: #d9f5dd;">"</span> <span style="color: #89ddff;">+</span> <span style="color: #bfc7d5;">isim)</span>;</div></div></div>
+                <br><p>
+                    İlk satırda yorum çalışan bir ifadenin arkasından eklenmiş. Bunu genellikle o satırda 
+                    ne yapıldığını anlatmak için yaparız. <code>//</code> işareti sonrasında satır 
+                    sonuna kadar yazılan herşey JavaScript tarafından yorum olarak kabul edilir. Editörümüz 
+                    de zaten bu yorumun yazı rengini bize değişik göstererek koddan ayrı görünmesine 
+                    yardımcı oluyor. Sizin tarayıcınızın konsolunda renkler farklı olabilir, bu renkler kullandığınız 
+                    web tarayıcıya ve kullandığınız temaya göre değişir. <code>//</code> işaretinden sonra 
+                    alt satıra geçmeden yorum dışına çıkılamaz, yani çalışan bir kod yazılamaz. Alt satıra 
+                    geçildiği anda JavaScript otomatik olarak yorumun bittiğini kabul eder.
+                </p>
+                <p>
+                    İkinci satırda yine tek satırlık bir yorum var, ama bu sefer öncesinde bir kod yok, böyle 
+                    de yorum yazılabilir. Mesela:
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;">&nbsp; &nbsp; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> ********** FORM KISMI ********</span></div></div></div>
+                <br><p>
+                    bu şekil bir başlık gibi yazılabilir.
+                </p>
+                <p>
+                    <code>/*</code> ve <code>*/</code> arasında yazılanlar ise istendiği kadar uzun ve 
+                    bir çok satıra yayılmış yazılabilir. JavaScript <code>/*</code> karakterlerini görünce 
+                    yorumun başladığını algılar, ama alt satıra geçerken yorumu otomatik bitirmez. Ne zamanki 
+                    <code>*/</code> karakterlerini görür, o zaman yorumun bitmiş olduğunu algılar.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div>&nbsp; &nbsp; <span style="color: #00aa00;">/*</span><span style="color: #00aa00; font-style: italic;"> </span></div><div><span style="color: #00aa00; font-style: italic;">&nbsp; &nbsp; &nbsp; &nbsp; prompt(text, defaultText) metodu soru sorar ve cevap alır</span></div><div><span style="color: #00aa00; font-style: italic;">&nbsp; &nbsp; &nbsp; &nbsp; </span></div><div><span style="color: #00aa00; font-style: italic;">&nbsp; &nbsp; &nbsp; &nbsp; text: &nbsp; &nbsp; &nbsp; &nbsp;açılır pencerede yazılacak soru cümlesi</span></div><div><span style="color: #00aa00; font-style: italic;">&nbsp; &nbsp; &nbsp; &nbsp; defaultText: girdi kutusunda başlangıçta hazır yazılı </span></div><div><span style="color: #00aa00; font-style: italic;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; olarak verilen yazı.</span></div><div><span style="color: #00aa00; font-style: italic;">&nbsp; &nbsp; </span><span style="color: #00aa00;">*/</span></div></div></div></div></div>
+                <br><p>
+                    Bu şekilde açıklayıcı bilgiler de koyabilirsiniz. Bir kullanım amacı da deneme için 
+                    yazdığınız bir kodu yoruma atmak. 
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div>&nbsp; &nbsp; <span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">isim</span> <span style="color: #c792ea;">=</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Ümit</span><span style="color: #d9f5dd;">"</span>; </div><div>&nbsp; &nbsp; <span style="color: #bfc7d5;">console</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(isim)</span>;</div><div>&nbsp; &nbsp; <span style="color: #bfc7d5;">isim</span> <span style="color: #c792ea;">=</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Hasan</span><span style="color: #d9f5dd;">"</span>;</div><div>&nbsp; &nbsp; <span style="color: #bfc7d5;">console</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(isim)</span>;</div></div></div></div></div></div>
+                <br><p>
+                    Bu örnekte <b>isim</b> değişken değerini görmek için iki defa <code>console.log()</code> 
+                    metodu ile konsola yazdırmışız. Daha sonra bu satırları kullanmayacaksak, ama o 
+                    satırları silmek de istemiyorsak şu şekilde yoruma atabiliriz:
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div>&nbsp; &nbsp; <span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">isim</span> <span style="color: #c792ea;">=</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Ümit</span><span style="color: #d9f5dd;">"</span>; </div><div>&nbsp; &nbsp; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;">console.log(isim);</span></div><div>&nbsp; &nbsp; <span style="color: #bfc7d5;">isim</span> <span style="color: #c792ea;">=</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Hasan</span><span style="color: #d9f5dd;">"</span>;</div><div>&nbsp; &nbsp; <span style="color: #00aa00;">/*</span><span style="color: #00aa00; font-style: italic;">console.log(isim);</span><span style="color: #00aa00;">*/</span></div></div></div></div></div></div></div>
+                <br><p>
+                    JavaScript artık o iki satırı dikkate almayacaktır. Örnek olsun diye satırların birinde 
+                    <code>//</code> kullanırken diğerinde <code>/*  */</code> kullanarak yoruma attım.
+                </p>
+
+                <h2 id="js-variables" style="padding-top: 70px;">JavaScript Değişkenler</h2>
+                <p>
+                    <b>Değişken</b> ya da <b>variable</b> kelimesi programcılıkta veri değerlerini 
+                    saklamak için ayrılan birimlere verilen addır. Değişkenler bilgisayar hafızasında 
+                    bir değeri saklamak için ayrılmış bölgeleri temsil eder. Bunu bir depoda değişik 
+                    cisimleri saklamak için kullandığınız kutulara benzetebilirsiniz. Nasıl her kutunun 
+                    üzerinde içindekinin ne olduğunu belirten bir kod etiketi olursa değişkenlerin de hafızada 
+                    ayrılan yeri temsil eden bir <b>ismi</b> olur. 
+                </p>
+                <p>
+                    JavaScript'de bir değişken ilk tanımlanırken (yani deklare edilirken) <code>var</code>
+                    kelimesi kullanılır, daha önceki örneklerde görmüştük. Değişken tanımlanırken adından sonra 
+                    bir eşittir <code>=</code> atama operatörü kullanılarak ilk değeri verilir. 
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;">&nbsp; &nbsp; <span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">x</span> <span style="color: #c792ea;">=</span> <span style="color: #f78c6c;">7</span>;</div></div></div></div></div></div></div>
+                <br><p>
+                    Yukarıdaki örnekte <b>x</b> isimli değişkene (ki "x değişkeni" diye söylenir) <b>7</b> 
+                    sayı değeri verilerek tanımlaması yapılıyor. Depodaki kutuları düşünürsek bir kutunun 
+                    üzerinde <b>x</b> yazılı bir etiket var ve kutunun içinde <b>7</b> sayısı var. Tanımlama 
+                    yapılması ise o kutunun oraya ilk konduğu zaman demektir, daha sonra aynı kutunun içine 
+                    başka şeyler koyarken tekrar <code>var</code> kelimesini kullanmamıza gerek yoktur. 
+                </p>
+                <p>
+                    Değişken isimlerini siz seçersiniz , bunu yaparken içeriğindeki verinin ne olduğunu
+                    özetleyen bir şeyler tercih etmelisiniz. Örneğin:
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;">&nbsp; &nbsp; <span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">arabam</span> <span style="color: #c792ea;">=</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Dacia</span><span style="color: #d9f5dd;">"</span>;</div></div></div></div></div></div></div></div>
+                <br><p>
+                    güzel bir örnek. String değerler verilirken tırnak içinde olması gerektiğinden bahsetmiştik,
+                    sayıları ise direk değerini yazabiliriz. Değişik değişken tiplerine nasıl değer girileceğine
+                    dair ileride incelemelerimiz olacak. Ayrıca her ifadenin sonunda noktalı virgül koymayı 
+                    unutmayınız, noktalı virgül JavaScript'e ifadenin burada bittiğini anlatır. 
+                </p>
+                <p>
+                    Değişkene tanımlama yaptıktan sonra değerini <code>var</code> kelimesi kullanmadan 
+                    değiştirirsiniz demiştik. Örneğin <b>arabam</b> değişkenine daha sonra başka bir değer 
+                    verilirse:
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div>&nbsp; &nbsp; <span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">arabam</span> <span style="color: #c792ea;">=</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Dacia</span><span style="color: #d9f5dd;">"</span>;</div><div>&nbsp; &nbsp; <span style="color: #bfc7d5;">arabam</span> <span style="color: #c792ea;">=</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Tofaş</span><span style="color: #d9f5dd;">"</span>;</div></div></div></div></div></div></div></div></div></div>
+                <br><p>
+                    <b>arabam</b> değişkeni ilk satırda tanımlanmış olduğu için ikinci satırda yeni değer 
+                    verilirken artık <code>var</code> kelimesi kullanılmaz.
+                </p>
+                <p>
+                    Değişken tanım satırında değer vermeden tanımlanırsa ona <b>undefined</b> yani belirtilmemiş 
+                    değişken denir. Konsolda deneyelim. 
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">&gt;</span> &nbsp; <span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">a</span> <span style="color: #c792ea;">=</span> <span style="color: #f78c6c;">5</span>;</div><div>&nbsp; &nbsp; <span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">b</span>;</div><div>&nbsp; &nbsp; <span style="color: #bfc7d5;">a</span></div><div>&nbsp; &nbsp; <span style="color: #bfc7d5;">b</span></div></div></div></div></div></div></div></div></div></div></div>
+                <br><p>
+                    Konsol bize <b>a</b> yazıp enter bastığımızda <b>5</b> değerini verirken, <b>b</b> 
+                    yazıp enter bastığımızda <b>undefined</b> diyecektir. Yani değeri verilmemiş. Bir de 
+                    hiç tanımlanmamış <b>c</b> yazıp entere basalım, bu sefer "c is not defined" hata 
+                    mesajı verilerek konsol bize <b>c</b> isimli bir değişkenin hafızaya tanımlanmamış 
+                    olduğunu bildirir. Bu <b>defined</b> kelimesi kafanızı karıştırmasın, <b>b</b> değişkeni 
+                    için konsol bize değerinin tanımsız olduğunu belirtirken, <b>c</b> değişkeninin ise hiç 
+                    tanımlanmadığını söylüyor. Yani depoda üzerinde <b>b</b> yazan bir kutu var ama içinde 
+                    bir şey yok, buna karşın üzerinde <b>c</b> yazan kutuyu hiç bulamadım , o yok diyor.
+                </p>
+                <p>
+                    JavaScript programlama dili büyük-küçük harf duyarlı bir dildir. Bu durumda değişken 
+                    isimlerini verirken harflerin büyük ya da küçük olmalarına dikkat etmeliyiz. Yani 
+                    <b>arabam</b> isimli değişkenle <b>Arabam</b> isimli değişkenler JavaScript açısından 
+                    farklı değişkenleri gösterir. (ya da ARABAM ya da araBam vs).
+                </p>
+
+                <br><br><h2>Değişken İsimlendirme Esasları</h2>
+                <p>
+                    Değişkenlere isim verirken açıklayıcı ve mantıklı isimler vermek gerekir. Bunun dışında 
+                    JavaScript dilinde kullanılacak değişken isimlerinin programsal olarak sıkıntı üretmemesi 
+                    için belli kuralları dikkate alarak verilmesi gerekir. Aşağıda bunları anlatan bir tablo 
+                    görülüyor.
+                </p>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Kural</th><th>Örnek</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="active">
+                            <td>Değişken isimleri sayı ile başlayamaz</td>
+                            <td>
+                                <b>3x</b> veya <b>4araba</b> geçersiz değişken isimleridir. 
+                                Fakat <b>araba4</b> veya <b>go4it</b> geçerlidir.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Operatörleri isim içinde kullanamazsınız</td>
+                            <td><b>ar+br</b> veya <b>ts-r</b> veya <b>a*b</b> gibi isimler olamaz.</td>
+                        </tr>
+                        <tr class="active">
+                            <td>Noktalama işaretleri isim içinde kullanılamaz</td>
+                            <td><b>isim:</b> vaya <b>isim#</b> olamaz. Ama altçizgi olabilir, 
+                            mesela <b>_isim</b> vaya <b>bir_şey</b>.</td>
+                        </tr>
+                        <tr>
+                            <td>Değişken ismi içinde boşluk olamaz</td>
+                            <td><b>benim arabam</b> geçersizdir ama <b>benimArabam</b> yazabilirsiniz.</td>
+                        </tr>
+                        <tr class="active">
+                            <td>Değişken isimleri büyük-küçük harf duyarlıdır</td>
+                            <td><b>arabam</b>, <b>Arabam</b> ve <b>araBam</b> hepsi farklı değişkenlerdir.</td>
+                        </tr>
+                        <tr>
+                            <td>JavaScript programlama dilinde anlamı olan kelimeleri kullanamazsınız</td>
+                            <td>Örnek <b>Window</b>, <b>open</b>, <b>location</b>, <b>string</b>, 
+                            <b>document</b> değişken ismi olamaz. Ama örneğin <b>myWindow</b> veya 
+                            <b>myDocument</b> yazabilirsiniz.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h2 id="js-types" style="padding-top: 70px;">JavaScript Değişken Tipleri</h2>
 
                 <p>.</p><p>.</p>
                 <br><a href="bolum4.html" class="btn btn-warning pull-left">< 4. Bölüm </a>
