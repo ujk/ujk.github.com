@@ -534,7 +534,203 @@
                     </tbody>
                 </table>
                 
-                <h2 id="js-types" style="padding-top: 70px;">JavaScript Değişken Tipleri</h2>
+                <h2 id="js-types" style="padding-top: 70px;">JavaScript Veri Tipleri</h2>
+                <p>
+                    Herhangi bir programlama dilinde <b>veri tipleri</b> denince aklımıza değişkenlerin 
+                    saklayabileceğiz verilerin türleri gelir. JavaScript'de birçok değişik veri tipi vardır.
+                    En temel veri tiplerini anlatan bir tablo aşağıda görülüyor.
+                </p>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="info">
+                            <th>Veri Tipi</th><th>Ne Olduğu</th><th>Örnek</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>String</b></td>
+                            <td>Yazıdan oluşan bir karakter dizisi. Tırnak içinde verilmelidir.</td>
+                            <td style="width: 350px;"><code>konu = "Arabalar";</code></td>
+                        </tr>
+                        <tr class="active">
+                            <td><b>Sayı</b></td>
+                            <td>Rakamlardan oluşan bir sayı değeri. Tırnak içinde verilmez.</td>
+                            <td><code>sayaç = 18;</code></td>
+                        </tr>
+                        <tr>
+                            <td><b>Boolean</b></td>
+                            <td><b>true</b> ya da <b>false</b> (doğru - yanlış) şeklinde sadece iki 
+                                olasılıklı değer. Tırnak içinde verilmez.</td>
+                            <td><code>büyükMü = true;</code></td>
+                        </tr>
+                        <tr class="active">
+                            <td><b>Array</b></td>
+                            <td>birden çok değer girmek için bir yapı</td>
+                            <td><code>arabalar = ["Dacia", "Tofaş"];</code></td>
+                        </tr>
+                        <tr>
+                            <td><b>Nesne</b></td>
+                            <td>JavaScript'de herşey bir <b>nesnedir</b>.</td>
+                            <td><code>kişi = { adı: "Ümit", <br>&nbsp;&nbsp;&nbsp;soyadı: "Kayacık" };</code></td>
+                        </tr>
+                        <tr class="active">
+                            <td><b>Null</b></td>
+                            <td>Olmayan bir şey</td>
+                            <td><code>isim = null;</code></td>
+                        </tr>
+                        <tr>
+                            <td><b>undefined</b></td>
+                            <td>Tanımlanmış ama değer girilmemiş değişkenin değeri</td>
+                            <td><code>var isim;</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>
+                    <code>String</code> alfa nümerik karakterler, noktalama işaretleri vs klavyenizden 
+                    yazdırabildiğiniz herşeyin çift ya da tek tırnak içinde yazılmasıyla oluşan düz yazı 
+                    değerlerin veri tipidir. Konsolda şu satırları deneyelim :
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">&gt;</span> &nbsp; <span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">renk</span> <span style="color: #c792ea;">=</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">kırmızı</span><span style="color: #d9f5dd;">"</span>;</div><div>&nbsp; &nbsp; <span style="color: #bfc7d5;">renk</span></div><div><span style="color: #89ddff;">-------------------------</span></div><div><span style="color: #c792ea;">&lt;</span> &nbsp; <span style="color: #d9f5dd;">'</span><span style="color: #c3e88d;">kırmızı</span><span style="color: #d9f5dd;">'</span></div></div></div>
+                <br><p>
+                    String değerin içinde de tırnak işareti kullanmak istersek de:
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">yazı</span> <span style="color: #c792ea;">=</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">İçinde (') olan bir yazı</span><span style="color: #d9f5dd;">"</span>;</div><div><span style="color: #bfc7d5;">yazı</span> <span style="color: #c792ea;">=</span> <span style="color: #d9f5dd;">'</span><span style="color: #c3e88d;">İçinde (") olan bir yazı</span><span style="color: #d9f5dd;">'</span>;</div></div></div></div>
+                <br><p>
+                    Bir de mecburen aynı tırnağı string değer içinde de kullanmak zorunda kalırsak <code>\</code>
+                    (ters slash) işareti ile özel karakter olduğunu belirtiriz
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">yazı</span> <span style="color: #c792ea;">=</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">İçinde (' ve </span><span style="color: #f78c6c;">\"</span><span style="color: #c3e88d;">) olan bir yazı</span><span style="color: #d9f5dd;">"</span>;</div></div></div></div>
+                <br><p>
+                    Ters slash ile başka girilebilen özel karakterler de var , aşağıda bir tablosu var.
+                </p>
+                <table class="table table-bordered table-condensed">
+                    <thead>
+                        <tr><th>Yazılışı</th><th>İşlevi</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="active"><td>\'</td><td>Tek tırnak yazar</td></tr>
+                        <tr><td>\"</td><td>Çift tırnak yazar</td></tr>
+                        <tr class="active"><td>\\</td><td>Bir tane ters slash yazar</td></tr>
+                        <tr><td>\b</td><td>Silme tuşu (backspace) ile aynı işi yapar</td></tr>
+                        <tr class="active"><td>\f</td><td>Form Feed</td></tr>
+                        <tr><td>\n</td><td>Yeni satır (enter ile aynı)</td></tr>
+                        <tr class="active"><td>\r</td><td>Carriage Return</td></tr>
+                        <tr><td>\t</td><td>Tab tuşu ile aynı</td></tr>
+                        <tr class="active"><td>\v</td><td>Vertical Tab</td></tr>
+                    </tbody>
+                </table>
+                <br><p>
+                    <code>Sayı</code> veri tipi her türlü sayısal değer için kullanılır. Dikkat edilmesi 
+                    gereken nokta ise virgüllü sayıların yazılması Türkçe'mizde bir'den küçük sayıları 
+                    ifade ederken virgül kullanırız (17,4) gibi. Ancak tüm programlama dillerinde bu sayılar 
+                    nokta ile ifade edilir. Örnekler:
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #bfc7d5;">yaşı</span> <span style="color: #c792ea;">=</span> <span style="color: #f78c6c;">58</span>;</div><div><span style="color: #bfc7d5;">boyu</span> <span style="color: #c792ea;">=</span> <span style="color: #f78c6c;">1.74</span>;</div></div></div></div></div></div>
+                <br><p>
+                    <code>Boolean</code> veri tipi sadece iki değer alabilir <code>true</code> ya da 
+                    <code>false</code> bir işlemin sonucu doğru ise boolean bir değerle ifade edilebilir. 
+                    Karşılaştırma işlemleri sonuçları da boolean değer olur. 
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">evli</span> <span style="color: #c792ea;">=</span> <span style="color: #ff5874;">true</span>;</div><div><span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">birlik</span> <span style="color: #c792ea;">=</span> <span style="color: #ff5874;">false</span>;</div><div><span style="color: #f78c6c;">4</span><span style="color: #c792ea;">&gt;</span><span style="color: #f78c6c;">3</span> &nbsp;<span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> true </span></div><div><span style="color: #f78c6c;">3</span><span style="color: #c792ea;">&lt;</span><span style="color: #f78c6c;">1</span> &nbsp;<span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> false</span></div></div></div></div></div></div></div>
+                <br><p>
+                    <code>Array</code> veri tipi ise birden çok verinin bir tek isim altında saklanabilmesi 
+                    için kullanılır. Değerler köşeli parantez <code>[  ]</code> içinde virgül ile ayrılmış 
+                    olarak yazılır. Değerlerin bir tanesine erişmek için ilk eleman sıfır olmak üzere sıralı 
+                    olarak kullanılabilir. Konsolda bir örnek:
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">arabalarım</span> <span style="color: #c792ea;">=</span><span style="color: #bfc7d5;"> [</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Dacia</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;"> , </span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Tofaş</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">, </span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Ford</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">]</span>;</div><div><span style="color: #bfc7d5;">console</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(arabalarım)</span>;</div><div><span style="color: #bfc7d5;">console</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(arabalarım[</span><span style="color: #f78c6c;">0</span><span style="color: #bfc7d5;">])</span>;</div><div><span style="color: #bfc7d5;">console</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(arabalarım[</span><span style="color: #f78c6c;">1</span><span style="color: #bfc7d5;">])</span>;</div><div><span style="color: #bfc7d5;">console</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(arabalarım[</span><span style="color: #f78c6c;">2</span><span style="color: #bfc7d5;">])</span>;</div></div></div></div></div></div></div></div>
+                <br><p>
+                    <code>arabalarım[0]</code> şeklindeki notasyona dikkat ediniz. Array içindeki bir elemanın
+                    değerine erişmek için değişken ismi yanına köşeli parantez içinde eleman numarası 
+                    yazılıyor. İlk eleman da <b>sıfır</b> numarasıyla ifade edilir (1-bir değil). Bu köşeli 
+                    parantez içine girilen sıra numarasına o değerin <b>index</b>'i denir. Array içindeki 
+                    tüm değerler aynı veri tipinde olmasına gerek yoktur. Yukarıdaki örnekte bir kısmını 
+                    string , bir kısmını sayı ya da başka bir tip de verebiliriz.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">arabalarım</span> <span style="color: #c792ea;">=</span><span style="color: #bfc7d5;"> [</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Dacia</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;"> , </span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Tofaş</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">, </span><span style="color: #f78c6c;">3</span><span style="color: #bfc7d5;">]</span>;</div></div></div></div></div></div></div></div>
+                <br><p>
+                    gibi. <code>Nesne</code> veri tipi ise en önemli veri tiplerinden. Aslında JavaScript'de 
+                    her şey bir nesnedir, bunu JavaScript dilini kullandıkça göreceksiniz. Nesneler key-value 
+                    çiftleri şeklinde ifade edilirler ve süslü parantez <code>{  }</code> içinde yine 
+                    değer çiftleri arasında virgül kullanarak ifade edilir. 
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">kişi</span> <span style="color: #c792ea;">=</span> { isim: <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Ümit</span><span style="color: #d9f5dd;">"</span>, soyad: <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Kayacık</span><span style="color: #d9f5dd;">"</span>};</div><div><span style="color: #bfc7d5;">console</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(kişi</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">isim</span><span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #bfc7d5;">console</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(kişi</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">soyad</span><span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div></div></div>
+                <br><p>
+                    <b>Key</b> adının arkasından iki nokta üstüste koyarak arkasından <b>value</b> değeri 
+                    girilir. Değerleri daha sonra kullanırken de değişken adı <code>.</code> ve <code>key</code>
+                    adı yazılır. Görüldüğü gibi nesnelerin çoklu verileri işlemekte kullanılması çok 
+                    daha anlamlı geliyor.
+                </p>
+                <p>
+                    <Code>null</Code> tipi değişkenler bir çeşit değeri olmayan değişkenlerdir. <b>Null</b> 
+                    değer daha önce sözü geçen <b>undefined</b> değerden farklı. <b>null</b> değer genellikle 
+                    programsal olarak verilir. Yani <code>a = null;</code> gibi ve özellikle bir değişkeni 
+                    tanımlarken bir ilk değer vermemek ama <b>undefined</b> de değer vermemek için verilir. 
+                    <b>Undefined</b> değer verilmemiş anlamına gelirken <b>null</b> ise programcılıkta değeri 
+                    null demektir, yani "olmayan değer" değerine sahip gibi.
+                </p>
+
+                <h2 id="js-operators" style="padding-top: 70px;">JavaScript Operatörler</h2>
+                <p>
+                    Operatörler değişkenler üzerinde işlemler yapan JavaScript öeleridir. En çok bilinenleri 
+                    matemetik operatörleridir. 
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #f78c6c;">3</span> <span style="color: #89ddff;">+</span> <span style="color: #f78c6c;">4</span>; &nbsp;<span style="color: #f78c6c;">2</span> <span style="color: #89ddff;">*</span> <span style="color: #f78c6c;">5</span>; &nbsp; <span style="color: #f78c6c;">18</span> <span style="color: #89ddff;">-</span> <span style="color: #f78c6c;">7</span>; &nbsp; <span style="color: #f78c6c;">8</span> <span style="color: #89ddff;">/</span> <span style="color: #f78c6c;">4</span>;</div></div></div></div></div></div></div></div></div></div>
+                <br><p>
+                    gibi. Buradaki <code>+ - * /</code> sembolleri birer aritmetik operatördür. Değişkenlere 
+                    işlem yapmak için kullanılan operatörler görevlerine göre şöyle gruplanır:
+                </p>
+                <ul>
+                    <li>Aritmetik operatörler</li>
+                    <li>Atama Operatörleri</li>
+                    <li>String Operatörleri (concatenation)</li>
+                    <li>Karşılaştırma operatörleri</li>
+                    <li>Mantıksal operatörler</li>
+                    <li>Veri tipi operatörleri</li>
+                </ul>
+
+                <br><br><h2>Aritmetik Operatörler</h2>
+                <p>
+                    Aritmetik operatörler sayısal değerleri kullanıp sayısal sonuçlar elde eden operatörleridr. 
+                    Aşağıdaki tabloda aritmetik operatörler ve anlamları veriliyor.
+                </p>
+                <table class="table table-bordered table-condensed">
+                    <thead>
+                        <tr class="info">
+                            <th>Operatör</th><th>Ne yapar?</th><th>Örnek</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Toplama <kbd><b>+</b></kbd></td><td>İki değeri toplar</td><td>2 <b>+</b> 2;</td>
+                        </tr>
+                        <tr class="active">
+                            <td>Çıkarma <kbd><b>-</b></kbd></td><td>İkinci değeri ilkinden çıkarır</td><td>4 <b>-</b> 2;</td>
+                        </tr>
+                        <tr>
+                            <td>Çarpma <kbd><b>*</b></kbd></td><td>İki değeri çarpar</td><td>7 <b>*</b> 3;</td>
+                        </tr>
+                        <tr class="active">
+                            <td>Bölme <kbd><b>/</b></kbd></td><td>Birinci değeri ikinciye böler</td><td>8 <b>/</b> 4;</td>
+                        </tr>
+                        <tr>
+                            <td>Modül <kbd><b>%</b></kbd></td><td>Bölme işleminden kalanı bulur</td><td>5 <b>%</b> 2;</td>
+                        </tr>
+                        <tr class="active">
+                            <td>Arttırma <kbd><b>++</b></kbd></td><td>Değeri +1 arttırır</td>
+                            <td>var x = 7; x<b>++</b>;</td>
+                        </tr>
+                        <tr>
+                            <td>Azaltma <kbd><b>--</b></kbd></td><td>Değeri 1 eksiltir</td>
+                            <td>var y = 5; y<b>--</b>;</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <br><br><h2>Atama Operatörleri</h2>
+                <p>
+                    
+                </p>
 
                 <p>.</p><p>.</p>
                 <br><a href="bolum4.html" class="btn btn-warning pull-left">< 4. Bölüm </a>
