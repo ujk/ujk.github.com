@@ -2,7 +2,7 @@
 <html><head>
   
   <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
-  <title>Sinatra &#304;le Sudoku ��z�m Yard&#305;mc&#305; Program&#305;</title>
+  <title>Sinatra İle Sudoku Çözöm Yardımcı Programı</title>
 
   
   
@@ -943,241 +943,303 @@ pre {
 }
 
   </style>
-</head><body>
-<h1>Sinatra - Sinatra Zor ama G�zel Ne Yapay&#305;m</h1>
+    <link rel="stylesheet" 
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">
+        </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js">
+        </script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans">
+    <style>
+        div .scroll{
+            height:300px;
+            width: 100%;
+            overflow:scroll;
+            scrollbar-color: dark;
+        }
 
-Sinatra �&#287;reneyim derken kendimi bir anda bir uygulama i�inde buldum.
-Ad&#305;m ad&#305;m anlatmak isterim. �nce uygulama klas�r�n� �retip i�inde
-"su.rb" ad&#305;nda bir dosya �rettim. <br>
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
 
-<pre style="color: rgb(24, 22, 21); background-color: rgb(255, 255, 255);"><span style="color: rgb(0, 0, 128);">require</span> <span style="color: rgb(191, 3, 3);">"rubygems"</span><br><span style="color: rgb(0, 0, 128);">require</span> <span style="color: rgb(191, 3, 3);">"sinatra"</span><br><br>get <span style="color: rgb(191, 3, 3);">"/"</span> <b>do</b><br> haml <span style="color: rgb(212, 0, 0);">:index</span><br><b>end</b>
-</pre>
+        ::-webkit-scrollbar-track {
+            background: white;
+        }
 
-Bunu �al&#305;&#351;t&#305;rmaya kalkarsan&#305;z ilk �nce "sinatra" gem sisteminizde y�kl�
-olmal&#305;d&#305;r. Ayr&#305;ca bu &#351;ekliyle �al&#305;&#351;maz ��nk� giri&#351; sayfas&#305; olarak
-"views" klas�r� i�inde "index.haml" ad&#305;na bir dosyay&#305; yay&#305;nlamas&#305;n&#305;
-istedik ama b�yle bir dosya yok ki.<br>
+        ::-webkit-scrollbar-thumb {
+            background: gray;
+            border-radius: 10px;
+        }
 
-Uygulama klas�r�ne "views" ad&#305;nda bir alt klas�r olu&#351;turdum ve i�ine
-"index.haml" ad&#305;nda&nbsp; bir dosya �retip i�ine tek sat&#305;rda &#351;unu
-yazd&#305;m.<br>
+        .cborder {
+            border: 1px solid black;
+            padding: 5px;
+        }
 
-<pre>%h1 Sinatradan merhaba<br></pre>
+        .cpadding {
+            padding: 15px;
+        }
 
-Bu dosyay&#305; da haz&#305;rlad&#305;ktan sonra "su.rb" dosyas&#305;n&#305; �al&#305;&#351;t&#305;rd&#305;&#287;&#305;n&#305;zda
-server'&#305;n �al&#305;&#351;t&#305;&#287;&#305;n&#305; g�r�rs�n�z ve taray&#305;c&#305;n&#305;zda "localhost:4567"
-adresine giderseniz ve kocaman bir "Sinatradan Merhaba" yaz&#305;s&#305;
-g�r�rseniz art&#305;k emeklemeye ba&#351;lad&#305;k demektir.<br>
+        body {
+            font-size: large;
+        }
 
-<br>
+        img.full {
+            width: 100%;
+        }
 
-<img style="width: 618px; height: 423px;" alt="susohe_1.png" src="susohe_1.png"><br>
+        /* Revert CSS style of target element and its children */                       
+        .reset-style * {
+            all: revert ;
+        }
 
-Bir zamanlar yak&#305;&#351;&#305;kl&#305; bir Sudoku ��z�m yard&#305;mc&#305;s&#305; program g�rm�&#351;t�m
-ona benzetmeye �al&#305;&#351;aca&#287;&#305;z. �nce g�rsel d�zenlemeler. Sudoku tahtas&#305;nda
-ka� h�cre var ? 81 tane. Ekrana 81 tane kutu koyaca&#287;&#305;z. "index.haml"
-dosyas&#305;nda olan sat&#305;r&#305; silip &#351;unlar&#305; yazal&#305;m:<br>
+        #top-jumbo {
+          background-color: rgb(170, 0, 0);
+          color: yellow;
+          border: medium solid;
+        }
+    </style>
 
-<pre style="color: rgb(24, 22, 21); background-color: rgb(255, 255, 255);"><span style="color: rgb(255, 159, 236);">-</span> (<span style="color: rgb(176, 128, 0);">1</span><span style="color: rgb(255, 159, 236);">..</span><span style="color: rgb(176, 128, 0);">81</span>)<span style="color: rgb(64, 0, 167);">.each</span> <b>do</b> <span style="color: rgb(255, 159, 236);">|</span>x<span style="color: rgb(255, 159, 236);">|</span><br><span style="color: rgb(0, 110, 40);"> %</span>div<span style="color: rgb(0, 110, 40);">.</span><span style="color: rgb(191, 3, 3);">b </span><br><span style="color: rgb(191, 3, 3);">  %h1 1</span>
-</pre>
+</head>
+<body>
+  <div class="container">
 
-<br>
+    <h1>Sinatra - Sinatra Zor ama Güzel Ne Yapayım</h1>
 
-Ana dosya olmay&#305;p �a&#287;r&#305;ld&#305;&#287;&#305; i�in "index.haml" dosyas&#305;nda de&#287;i&#351;iklik
-yapt&#305;ktan sonra server'&#305; tekrar ba&#351;latmak gerekmez. &#304;lk sat&#305;r&#305;n
-ba&#351;&#305;ndaki "-" ile haml dosyas&#305;nda �&#305;kt&#305;s&#305; olmayan bir Ruby kodu
-�al&#305;&#351;t&#305;r&#305;yoruz. Burada 1 den 81 e kadar d�ng� ile ekrana 81 tane div
-koyup i�lerine kocaman "1" yaz&#305;yoruz. Haml dosyas&#305;nda "end" komutlar&#305;
-kullan&#305;lmaz (yapanlar Python'dan m&#305; �zendi ki?). Eee , diyeceksiniz
-nerede kutular ? Kodlamaya devam edelim, taray&#305;c&#305;ya gelen sayfan&#305;n
-kodunu incelerseniz 81 tane - class="b" - olan div g�r�rs�n�z. <br>
+    Sinatra öğreneyim derken kendimi bir anda bir uygulama içinde buldum.
+    Adım adım anlatmak isterim. Önce uygulama klasörünü üretip içinde
+    "su.rb" adında bir dosya ürettim. <br>
 
-&#350;imdi
-bu divleri �nce kutu olarak �er�eve i�ine alaca&#287;&#305;z sonra da sudoku
-tahatas&#305; gibi yerle&#351;tirece&#287;iz. Nas&#305;l m&#305; ? Tabii ki CSS kullanarak.
-"index.haml" dosyas&#305;n&#305;n sonuna a&#351;a&#287;&#305;daki sat&#305;rlar&#305; ekleyelim.<br>
+    <pre style="color: rgb(24, 22, 21); background-color: rgb(255, 255, 255);"><span style="color: rgb(0, 0, 128);">require</span> <span style="color: rgb(191, 3, 3);">"rubygems"</span><br><span style="color: rgb(0, 0, 128);">require</span> <span style="color: rgb(191, 3, 3);">"sinatra"</span><br><br>get <span style="color: rgb(191, 3, 3);">"/"</span> <b>do</b><br> haml <span style="color: rgb(212, 0, 0);">:index</span><br><b>end</b>
+    </pre>
 
-<br>
+    Bunu çalıştırmaya kalkarsanız ilk önce "sinatra" gem sisteminizde yüklü
+    olmalıdır. Ayrıca bu şekliyle çalışmaz Çünkü giriş sayfası olarak
+    "views" klasörü içinde "index.haml" adına bir dosyayı yayınlamasını
+    istedik ama böyle bir dosya yok ki.<br>
 
-<pre><span class="style_10"></span><span class="style_14">:css</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">div</span><span class="style_10">.</span><span class="style_11">b&nbsp;</span><span class="style_10">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">position</span><span class="style_14">:&nbsp;</span><span class="style_11">absolute</span><span class="style_10">;&nbsp;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">border</span><span class="style_14">:&nbsp;</span><span class="style_4">2px&nbsp;</span><span class="style_11">solid</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">width</span><span class="style_14">:&nbsp;</span><span class="style_4">51px</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">height</span><span class="style_14">:&nbsp;</span><span class="style_4">51px</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">text</span><span class="style_10">-</span><span class="style_11">align</span><span class="style_14">:&nbsp;</span><span class="style_11">center</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">}</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">h1&nbsp;</span><span class="style_10">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">margin</span><span class="style_14">:&nbsp;</span><span class="style_4">0</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">}</span><br><br></pre>
+    Uygulama klasörüne "views" adında bir alt klasör oluşturdum ve içine
+    "index.haml" adında&nbsp; bir dosya üretip içine tek satırda şunu
+    yazdım.<br>
 
-Ba&#351;tan itibaren bakarsak , ":css" ile arkas&#305;ndaki girintideki
-sat&#305;rlar&#305;n css stylesheets oldu&#287;unu belirtiyoruz. Bundan sonras&#305;
-standart css komutlar&#305;. �nce&nbsp;<span style="font-weight: bold;">class="b"</span>
-olan div'leri &#351;ekillendiriyoruz. "position: absolute;" ��nk� sayfada
-kutular&#305; sabit yerlere koymak istiyoruz. 2 pixel kal&#305;nl&#305;&#287;&#305;nda bir �izgi
-ile div'lerimize s&#305;n&#305;r �iziyoruz. Geni&#351;lik ve y�ksekli&#287;ini de 51 pixel
-olarak ayarl&#305;yoruz. En son da i�ine koyaca&#287;&#305;m&#305;z yaz&#305;n&#305;n yani say&#305;n&#305;n
-tam ortada olmas&#305;n&#305; istiyoruz. Bu kadar&#305; asl&#305;nda yeterli ancak firefox
-gibi baz&#305; taray&#305;c&#305;lar �zellik belirtilmeyince &lt;h1&gt;
-tag'lerine
-otomatik olarak marjin tan&#305;ml&#305;yor ve bu da h�cre i�inde say&#305;m&#305;z&#305;n
-ortada �&#305;kmas&#305;n&#305; engelledi&#287;i i�in &lt;h1&gt; leri de "margin:
-0;"
-olarak belirttik. &#350;imdi haml dosyas&#305;n&#305; kaydedip taray&#305;c&#305;y&#305; refresh
-etti&#287;imizde bizim 81 tane div 1 tane div olarak g�r�necek. <br>
+    <pre>%h1 Sinatradan merhaba<br></pre>
 
-<img style="width: 548px; height: 333px;" alt="susohe_2.png" src="susohe_2.png"><br>
+    Bu dosyayı da hazırladıktan sonra "su.rb" dosyasını çalıştırdığınızda
+    server'ın çalıştığını görürsünüz ve tarayıcınızda "localhost:4567"
+    adresine giderseniz ve kocaman bir "Sinatradan Merhaba" yazısı
+    görürseniz artık emeklemeye başladık demektir.<br>
 
-Ne oldu?
-Pozisyonlar&#305;n&#305; absolute belirttik ama yerlerini belirtmedi&#287;imiz i�in
-hepsi geldi sol �st k�&#351;eye kondu. Sayfa kayna&#287;&#305;n&#305; incelersek b�t�n
-divlerin sayfada halen mevcutoldu&#287;unu g�r�r�z. <br>
+    <br>
 
-<br>
+    <img style="width: 618px; height: 423px;" alt="susohe_1.png" src="susohe_1.png"><br>
 
-Bu durumda d�ng�m�ze bir kod ekleyip 81 h�crenin yerlerine da&#287;&#305;lmas&#305;n&#305;
-sa&#287;l&#305;yaca&#287;&#305;z.
-<pre><span class="style_10">-&nbsp;(</span><span class="style_4">1.</span><span class="style_10">.</span><span class="style_4">81</span><span class="style_10">).</span><span class="style_11">each&nbsp;</span><span class="style_5">do&nbsp;</span><span class="style_10">|</span><span class="style_11">x</span><span class="style_10">|</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">%</span><span class="style_11">div</span><span class="style_10">.</span><span class="style_11">b</span><span class="style_10">{</span><span class="style_14">:id</span><span class="style_10">=&gt;&nbsp;</span><span class="style_11">x</span><span class="style_10">.</span><span class="style_11">to_s</span><span class="style_10">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_14">:style</span><span class="style_10">=&gt;</span><span class="style_6">"left:&nbsp;</span><span class="style_10">#{((</span><span class="style_11">x</span><span class="style_10">-</span><span class="style_4">1</span><span class="style_10">)%</span><span class="style_4">9</span><span class="style_10">)*</span><span class="style_4">52</span><span class="style_10">+</span><span class="style_4">50</span><span class="style_10">}</span><span class="style_6">px;&nbsp;&nbsp;top:&nbsp;</span><span class="style_10">#{((</span><span class="style_11">x</span><span class="style_10">-</span><span class="style_4">1</span><span class="style_10">)/</span><span class="style_4">9</span><span class="style_10">)*</span><span class="style_4">52</span><span class="style_10">+</span><span class="style_4">50</span><span class="style_10">}</span><span class="style_6">px;"</span><span class="style_10">}</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">%</span><span class="style_11">h1</span><span class="style_10">=&nbsp;</span><span class="style_11">x&nbsp;</span><br></pre>
+    Bir zamanlar yakışıklı bir Sudoku çözüm yardımcısı program görmüştüm
+    ona benzetmeye çalışacağız. Önce görsel düzenlemeler. Sudoku tahtasında
+    kaç hücre var ? 81 tane. Ekrana 81 tane kutu koyacağız. "index.haml"
+    dosyasında olan satırı silip şunları yazalım:<br>
 
-Bunun i�in her koydu&#287;umuz div i�in ayr&#305; bir style uyduruyoruz ve
-kutular&#305;m&#305;z&#305;n yerlerini net olarak belirtiyoruz. De&#287;i&#351;ikli&#287;i yap&#305;p
-sayfay&#305; yenileyin ve sayfa g�r�nt�s� ve kayna&#287;&#305;nda yat&#305;&#287;&#305;m&#305;z kodun
-etkisini g�relim.<br>
+    <pre style="color: rgb(24, 22, 21); background-color: rgb(255, 255, 255);"><span style="color: rgb(255, 159, 236);">-</span> (<span style="color: rgb(176, 128, 0);">1</span><span style="color: rgb(255, 159, 236);">..</span><span style="color: rgb(176, 128, 0);">81</span>)<span style="color: rgb(64, 0, 167);">.each</span> <b>do</b> <span style="color: rgb(255, 159, 236);">|</span>x<span style="color: rgb(255, 159, 236);">|</span><br><span style="color: rgb(0, 110, 40);"> %</span>div<span style="color: rgb(0, 110, 40);">.</span><span style="color: rgb(191, 3, 3);">b </span><br><span style="color: rgb(191, 3, 3);">  %h1 1</span>
+    </pre>
 
-<br>
+    <br>
 
-<img style="width: 553px; height: 471px;" alt="susohe_3.png" src="susohe_3.png"><br>
+    Ana dosya olmayıp çağrıldığı için "index.haml" dosyasında değişiklik
+    yaptıktan sonra server'ı tekrar başlatmak gerekmez. İlk satırın
+    başındaki "-" ile haml dosyasında çıktısı olmayan bir Ruby kodu
+    çalıştırıyoruz. Burada 1 den 81 e kadar döngü ile ekrana 81 tane div
+    koyup içlerine kocaman "1" yazıyoruz. Haml dosyasında "end" komutları
+    kullanılmaz (yapanlar Python'dan mı özendi ki?). Eee , diyeceksiniz
+    nerede kutular ? Kodlamaya devam edelim, tarayıcıya gelen sayfanın
+    kodunu incelerseniz 81 tane - class="b" - olan div görürsünüz. <br>
 
-<br>
+    Şimdi
+    bu divleri önce kutu olarak çerçeve içine alacağız sonra da sudoku
+    tahatası gibi yerleştireceğiz. Nasıl mı ? Tabii ki CSS kullanarak.
+    "index.haml" dosyasının sonuna aşağıdaki satırları ekleyelim.<br>
 
-Art&#305;k tahta ortaya �&#305;kt&#305; &#351;imdi yava&#351; yava&#351; g�rselden kontrol kodlar&#305;na
-do&#287;ru kayaca&#287;&#305;z. &#304;stiyorumki h�crelerin i�inde k���k say&#305;lar ile olas&#305;
-t�m say&#305;lar yaz&#305;ls&#305;n. Bu k���k say&#305;lardan hangisi t&#305;klan&#305;rsa o say&#305; tek
-olas&#305;l&#305;k olarak kals&#305;n ve di&#287;er olas&#305;l&#305;klar listeden silinsin.
-Sonras&#305;nda bu tek kalan say&#305; en son elde etti&#287;imiz g�r�nt�deki gibi
-b�y�k olarak g�sterilsin. Bunun i�in ilk �nce her h�crede olas&#305; t�m
-de&#287;erleri i�ermesi i�in 81 elemanl&#305;k bir matris olu&#351;turuyoruz. Server'&#305;
-durdurup <span style="font-weight: bold; font-style: italic;">su.rb</span>
-dosyam&#305;z&#305; &#351;�yle d�zenliyoruz:
-<pre><span class="style_5">require&nbsp;</span><span class="style_6">"rubygems"</span><br><span class="style_5">require&nbsp;</span><span class="style_6">"sinatra"</span><br><br><span class="style_11">mat&nbsp;</span><span class="style_10">=&nbsp;[]</span><br><span class="style_10">(</span><span class="style_4">1.</span><span class="style_10">.</span><span class="style_4">81</span><span class="style_10">).</span><span class="style_11">each&nbsp;</span><span class="style_5">do</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">mat&nbsp;</span><span class="style_10">&lt;&lt;&nbsp;</span><span class="style_6">"123456789"&nbsp;</span><br><span class="style_5">end</span><br><br><span class="style_11">get&nbsp;</span><span class="style_6">"/"&nbsp;</span><span class="style_5">do</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">haml&nbsp;</span><span class="style_14">:index</span><span class="style_10">,&nbsp;</span><span class="style_14">:locals</span><span class="style_10">=&gt;{</span><span class="style_14">:mat</span><span class="style_10">=&gt;</span><span class="style_11">mat</span><span class="style_10">}</span><br><span class="style_5">end</span><br></pre>
+    <br>
 
-En ba&#351;ta t�m h�creler i�in 1'den 9'a kadar t�m say&#305;lar olas&#305;d&#305;r.
-Bunlar&#305; g�rselimizde k���k say&#305;lar olarak �&#305;karmak i�in bu matrisi
-"index.haml" dosyas&#305;na g�ndermemiz gerekiyor. Bu g�nderimi
-ger�ekle&#351;tirme i�in matrisimizi "locals" i�inde ayn&#305; isimle haml
-dosyas&#305;na aktar&#305;yoruz. S&#305;rada haml dosyam&#305;z var:<br>
+    <pre><span class="style_10"></span><span class="style_14">:css</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">div</span><span class="style_10">.</span><span class="style_11">b&nbsp;</span><span class="style_10">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">position</span><span class="style_14">:&nbsp;</span><span class="style_11">absolute</span><span class="style_10">;&nbsp;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">border</span><span class="style_14">:&nbsp;</span><span class="style_4">2px&nbsp;</span><span class="style_11">solid</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">width</span><span class="style_14">:&nbsp;</span><span class="style_4">51px</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">height</span><span class="style_14">:&nbsp;</span><span class="style_4">51px</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">text</span><span class="style_10">-</span><span class="style_11">align</span><span class="style_14">:&nbsp;</span><span class="style_11">center</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">}</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">h1&nbsp;</span><span class="style_10">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">margin</span><span class="style_14">:&nbsp;</span><span class="style_4">0</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">}</span><br><br></pre>
 
-<pre><span class="style_10">-&nbsp;</span><span class="style_11">mat</span><span class="style_10">[</span><span class="style_4">0</span><span class="style_10">]=</span><span class="style_6">"1"</span><br><span class="style_10">-&nbsp;</span><span class="style_11">mat</span><span class="style_10">[</span><span class="style_4">1</span><span class="style_10">]=</span><span class="style_6">"28"</span><br><br><span class="style_10">-&nbsp;(</span><span class="style_4">1.</span><span class="style_10">.</span><span class="style_4">81</span><span class="style_10">).</span><span class="style_11">each&nbsp;</span><span class="style_5">do&nbsp;</span><span class="style_10">|</span><span class="style_11">x</span><span class="style_10">|</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">%</span><span class="style_11">div</span><span class="style_10">.</span><span class="style_11">b</span><span class="style_10">{</span><span class="style_14">:id</span><span class="style_10">=&gt;&nbsp;</span><span class="style_11">x</span><span class="style_10">.</span><span class="style_11">to_s</span><span class="style_10">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_14">:style</span><span class="style_10">=&gt;</span><span class="style_6">"left:&nbsp;</span><span class="style_10">#{((</span><span class="style_11">x</span><span class="style_10">-</span><span class="style_4">1</span><span class="style_10">)%</span><span class="style_4">9</span><span class="style_10">)*</span><span class="style_4">52</span><span class="style_10">+</span><span class="style_4">50</span><span class="style_10">}</span><span class="style_6">px;&nbsp;&nbsp;top:&nbsp;</span><span class="style_10">#{((</span><span class="style_11">x</span><span class="style_10">-</span><span class="style_4">1</span><span class="style_10">)/</span><span class="style_4">9</span><span class="style_10">)*</span><span class="style_4">52</span><span class="style_10">+</span><span class="style_4">50</span><span class="style_10">}</span><span class="style_6">px;"</span><span class="style_10">}</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">-&nbsp;</span><span class="style_5">if&nbsp;</span><span class="style_11">mat</span><span class="style_10">[</span><span class="style_11">x</span><span class="style_10">-</span><span class="style_4">1</span><span class="style_10">].</span><span class="style_11">length</span><span class="style_10">==</span><span class="style_4">1</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">%</span><span class="style_11">h1</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">=&nbsp;</span><span class="style_11">mat</span><span class="style_10">[</span><span class="style_11">x</span><span class="style_10">-</span><span class="style_4">1</span><span class="style_10">]</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">-&nbsp;</span><span class="style_5">else</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">-&nbsp;(</span><span class="style_4">1.</span><span class="style_10">.</span><span class="style_4">9</span><span class="style_10">).</span><span class="style_11">each&nbsp;</span><span class="style_5">do&nbsp;</span><span class="style_10">|</span><span class="style_11">xx</span><span class="style_10">|</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">-&nbsp;</span><span class="style_5">if&nbsp;</span><span class="style_11">mat</span><span class="style_10">[</span><span class="style_11">x</span><span class="style_10">-</span><span class="style_4">1</span><span class="style_10">].</span><span class="style_11">include?</span><span class="style_10">(</span><span class="style_11">xx</span><span class="style_10">.</span><span class="style_11">to_s</span><span class="style_10">)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">%</span><span class="style_11">div</span><span class="style_10">.</span><span class="style_11">l</span><span class="style_10">{</span><span class="style_14">:style</span><span class="style_10">=&gt;</span><span class="style_6">"left:&nbsp;</span><span class="style_10">#{((</span><span class="style_11">xx</span><span class="style_10">-</span><span class="style_4">1</span><span class="style_10">)%</span><span class="style_4">3</span><span class="style_10">)*</span><span class="style_4">17</span><span class="style_10">+</span><span class="style_4">0</span><span class="style_10">}</span><span class="style_6">px;&nbsp;&nbsp;top:&nbsp;</span><span class="style_10">#{((</span><span class="style_11">xx</span><span class="style_10">-</span><span class="style_4">1</span><span class="style_10">)/</span><span class="style_4">3</span><span class="style_10">)*</span><span class="style_4">17</span><span class="style_10">+</span><span class="style_4">0</span><span class="style_10">}</span><span class="style_6">px;&nbsp;"</span><span class="style_10">}</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">=</span><span class="style_11">xx&nbsp;</span><br><br><span class="style_14">:css</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">div</span><span class="style_10">.</span><span class="style_11">b&nbsp;</span><span class="style_10">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">position</span><span class="style_14">:&nbsp;</span><span class="style_11">absolute</span><span class="style_10">;&nbsp;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">border</span><span class="style_14">:&nbsp;</span><span class="style_4">2px&nbsp;</span><span class="style_11">solid</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">width</span><span class="style_14">:&nbsp;</span><span class="style_4">51px</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">height</span><span class="style_14">:&nbsp;</span><span class="style_4">51px</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">text</span><span class="style_10">-</span><span class="style_11">align</span><span class="style_14">:&nbsp;</span><span class="style_11">center</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">}</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">div</span><span class="style_10">.</span><span class="style_11">l&nbsp;</span><span class="style_10">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">position</span><span class="style_14">:&nbsp;</span><span class="style_11">absolute</span><span class="style_10">;&nbsp;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">border</span><span class="style_14">:&nbsp;</span><span class="style_4">1px&nbsp;</span><span class="style_11">solid</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">width</span><span class="style_14">:&nbsp;</span><span class="style_4">16px</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">height</span><span class="style_14">:&nbsp;</span><span class="style_4">16px</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">text</span><span class="style_10">-</span><span class="style_11">align</span><span class="style_14">:&nbsp;</span><span class="style_11">center</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">font</span><span class="style_10">-</span><span class="style_11">size</span><span class="style_14">:&nbsp;</span><span class="style_4">10px</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">z</span><span class="style_10">-</span><span class="style_11">index</span><span class="style_14">:&nbsp;</span><span class="style_4">1</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">}</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">h1&nbsp;</span><span class="style_10">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">margin</span><span class="style_14">:&nbsp;</span><span class="style_4">0</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">}</span><br></pre>
+    Baştan itibaren bakarsak , ":css" ile arkasındaki girintideki
+    satırların css stylesheets olduğunu belirtiyoruz. Bundan sonrası
+    standart css komutları. Önce <span style="font-weight: bold;">class="b"</span>
+    olan div'leri şekillendiriyoruz. "position: absolute;" çünkü sayfada
+    kutuları sabit yerlere koymak istiyoruz. 2 pixel kalınlığında bir çizgi
+    ile div'lerimize sınır çiziyoruz. Genişlik ve yüksekliğini de 51 pixel
+    olarak ayarlıyoruz. En son da içine koyacağımız yazının yani sayının
+    tam ortada olmasını istiyoruz. Bu kadarı aslında yeterli ancak firefox
+    gibi bazı tarayıcılar özellik belirtilmeyince &lt;h1&gt;
+    tag'lerine
+    otomatik olarak marjin tanımlıyor ve bu da hücre içinde sayımızın
+    ortada çıkmasını engellediği için &lt;h1&gt; leri de "margin:
+    0;"
+    olarak belirttik. Şimdi haml dosyasını kaydedip tarayıcıyı refresh
+    ettiğimizde bizim 81 tane div 1 tane div olarak görünecek. <br>
 
-en ba&#351; iki sat&#305;rda denme i�in matris de&#287;erlerinden baz&#305;lar&#305;n&#305;
-de&#287;i&#351;tiriyoruz ki sonucun istedi&#287;imiz gibi olmas&#305;n&#305; test edelim. Daha
-sonra bu iki sat&#305;r&#305; kald&#305;raca&#287;&#305;z. &#350;imdi sayfam&#305;z&#305; bir test edelim.
-<br>
+    <img style="width: 548px; height: 333px;" alt="susohe_2.png" src="susohe_2.png"><br>
 
-<img style="width: 549px; height: 374px;" alt="susohe_4.png" src="susohe_4.png"><br>
+    Ne oldu?
+    Pozisyonlarını absolute belirttik ama yerlerini belirtmediğimiz için
+    hepsi geldi sol üst köşeye kondu. Sayfa kaynağını incelersek bütün
+    divlerin sayfada halen mevcutolduğunu görürüz. <br>
 
-<br>
+    <br>
 
-Art&#305;k uygulama &#351;ekillenmeye ba&#351;lad&#305;. Bu noktada bir&#351;ey dikkatimi �ekti
-ve deneme yapt&#305;m. Ayn&#305; uygulamay&#305; wxRuby ile ve StaticText'ler ile
-yapmaya �al&#305;&#351;t&#305;m. Bu uygulama �ok daha seri cevap veriyor. Sinatra hem
-masa�st� hem web uygulamalar&#305; geli&#351;tirmek i�in kullan&#305;&#351;l&#305; ve ba&#351;ar&#305;l&#305;
-bir ortam. Burada geli&#351;tiricilerinden masa�st� uygulamas&#305; geli&#351;tirmek
-i�in bir "SinatraViewer" talep etmeye karar verdim. &#304;kinci bir grup
-div'imiz oldu "class=l" bunlar b�y�k div'lerin i�inde olas&#305; say&#305;lar&#305;
-yazan k���k kutular. Bunlar&#305; da �zelliklerini css i�inde belirttik ve
-e&#287;er h�cre i�in tek bir olas&#305;l&#305;k varsa h�crenin i�inde &lt;h1&gt;
-olarak b�y�k yaz&#305;yla bu tek olas&#305;l&#305;&#287;&#305; yaz&#305;yoruz. Birden fazla olas&#305;l&#305;k
-varsa k���k kutular olarak t�m olas&#305;l&#305;klar&#305; b�y�k kutu i�inde
-g�steriyoruz. &#304;&#351;in arkas&#305;nda &#351;�yle bir mant&#305;k olacak: ��zece&#287;imiz
-sudokunun verilen de&#287;erlerini h�crelerde t&#305;klad&#305;&#287;&#305;m&#305;zda o t&#305;klanan
-de&#287;er o h�cre i�in olas&#305; tek de&#287;er yap&#305;lacak ve bu sayede h�cre tek ve
-b�y�k bir rakam&#305; g�sterecek. Ayn&#305; sat&#305;r ve s�tunda bulunan e&#351;it
-de&#287;erleri otomatikman silece&#287;iz. Ayn&#305; dokuzlu grupta bulunan e&#351;it
-say&#305;lar&#305; da silece&#287;iz. Tam tersini de yapmam&#305;z gerekiyor , yani tek
-kalm&#305;&#351; ve b�y�k olmu&#351; bir say&#305;y&#305; t&#305;klayarak geri alabilmeliyiz. Bu
-durumda h�cre i�ine olas&#305; t�m de&#287;erleri k���k olarak yazmal&#305;y&#305;z.<br>
+    Bu durumda döngümüze bir kod ekleyip 81 hücrenin yerlerine dağılmasını
+    sağlıyacağız.
+    <pre><span class="style_10">-&nbsp;(</span><span class="style_4">1.</span><span class="style_10">.</span><span class="style_4">81</span><span class="style_10">).</span><span class="style_11">each&nbsp;</span><span class="style_5">do&nbsp;</span><span class="style_10">|</span><span class="style_11">x</span><span class="style_10">|</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">%</span><span class="style_11">div</span><span class="style_10">.</span><span class="style_11">b</span><span class="style_10">{</span><span class="style_14">:id</span><span class="style_10">=&gt;&nbsp;</span><span class="style_11">x</span><span class="style_10">.</span><span class="style_11">to_s</span><span class="style_10">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_14">:style</span><span class="style_10">=&gt;</span><span class="style_6">"left:&nbsp;</span><span class="style_10">#{((</span><span class="style_11">x</span><span class="style_10">-</span><span class="style_4">1</span><span class="style_10">)%</span><span class="style_4">9</span><span class="style_10">)*</span><span class="style_4">52</span><span class="style_10">+</span><span class="style_4">50</span><span class="style_10">}</span><span class="style_6">px;&nbsp;&nbsp;top:&nbsp;</span><span class="style_10">#{((</span><span class="style_11">x</span><span class="style_10">-</span><span class="style_4">1</span><span class="style_10">)/</span><span class="style_4">9</span><span class="style_10">)*</span><span class="style_4">52</span><span class="style_10">+</span><span class="style_4">50</span><span class="style_10">}</span><span class="style_6">px;"</span><span class="style_10">}</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">%</span><span class="style_11">h1</span><span class="style_10">=&nbsp;</span><span class="style_11">x&nbsp;</span><br></pre>
 
-Bunu sa&#287;lamak i�in su.rb dosyas&#305;nda iki yeni metod tan&#305;ml&#305;yoruz.
-<pre style="color: rgb(24, 22, 21); background-color: rgb(255, 255, 255);"><span style="color: rgb(0, 0, 128);"></span><br>get <span style="color: rgb(191, 3, 3);">"/set/:x/:xx"</span> <b>do</b><br>    x <span style="color: rgb(255, 159, 236);">=</span> params<span style="color: rgb(255, 159, 236);">[</span><span style="color: rgb(212, 0, 0);">:x</span><span style="color: rgb(255, 159, 236);">]</span><span style="color: rgb(64, 0, 167);">.to_i</span><br>    xx <span style="color: rgb(255, 159, 236);">=</span> params<span style="color: rgb(255, 159, 236);">[</span><span style="color: rgb(212, 0, 0);">:xx</span><span style="color: rgb(255, 159, 236);">]</span><span style="color: rgb(64, 0, 167);"></span><br>    mat<span style="color: rgb(255, 159, 236);">[</span>x<span style="color: rgb(176, 128, 0);">-1</span><span style="color: rgb(255, 159, 236);">]</span><span style="color: rgb(255, 159, 236);">=</span>xx<span style="color: rgb(64, 0, 167);"></span><br>    redirect(<span style="color: rgb(191, 3, 3);">"/"</span>)<br><b>end</b><br>  <br>get <span style="color: rgb(191, 3, 3);">"/reset/:x"</span> <b>do</b><br>    x <span style="color: rgb(255, 159, 236);">=</span> params<span style="color: rgb(255, 159, 236);">[</span><span style="color: rgb(212, 0, 0);">:x</span><span style="color: rgb(255, 159, 236);">]</span><span style="color: rgb(64, 0, 167);">.to_i</span><br>    mat<span style="color: rgb(255, 159, 236);">[</span>x<span style="color: rgb(176, 128, 0);">-1</span><span style="color: rgb(255, 159, 236);">]</span><span style="color: rgb(255, 159, 236);">=</span><span style="color: rgb(191, 3, 3);">"123456789"</span><br>    redirect <span style="color: rgb(191, 3, 3);">"/"</span><br><b>end</b>
-</pre>
+    Bunun için her koyduğumuz div için ayrı bir style uyduruyoruz ve
+    kutularımızın yerlerini net olarak belirtiyoruz. Değişikliği yapıp
+    sayfayı yenileyin ve sayfa görüntüsü ve kaynağında yatığımız kodun
+    etkisini görelim.<br>
 
-&#304;lk metod "localhost:4567/set/3/5" gibi adresleri alg&#305;l&#305;yor. �rnekteki
-3 say&#305;s&#305; :x parametresine 5 say&#305;s&#305; da :xx parametresine aktar&#305;l&#305;yor.
-Burada matrisimizin bir h�cresini yani ekrandaki kutunun bir tanesini
-tek de&#287;er yap&#305;yoruz ve tekrar index sayfas&#305;na d�n�yoruz bu durumda ne
-olur? O h�cre (:x nolu h�cre) art&#305;k :xx de&#287;erine setlenmi&#351; olur. &#304;kinci
-metod ise �nceden setlenmi&#351; bir h�creyi resetlemek i�in. Nas&#305;l yap&#305;yor?
-Matristeki s&#305;ras&#305; verilen h�crenin i�eri&#287;ine 1'den, 9'a t�m de&#287;erleri
-yaz&#305;yor.<br>
+    <br>
 
-&#350;imdi g�rsel dosyam&#305;z&#305;, bu metodlar&#305; do&#287;ru �a&#287;&#305;racak &#351;ekilde
-d�zenleyelim:<br>
+    <img style="width: 553px; height: 471px;" alt="susohe_3.png" src="susohe_3.png"><br>
 
-<pre style="color: rgb(24, 22, 21); background-color: rgb(255, 255, 255);"><br><br><span style="color: rgb(255, 159, 236);">-</span> (<span style="color: rgb(176, 128, 0);">1</span><span style="color: rgb(255, 159, 236);">..</span><span style="color: rgb(176, 128, 0);">81</span>)<span style="color: rgb(64, 0, 167);">.each</span> <b>do</b> <span style="color: rgb(255, 159, 236);">|</span>x<span style="color: rgb(255, 159, 236);">|</span><br><span style="color: rgb(0, 110, 40);">    %</span>div<span style="color: rgb(0, 110, 40);">.</span><span style="color: rgb(191, 3, 3);">b{:id=&gt; x</span><span style="color: rgb(0, 110, 40);">.</span>to_s,<br>    <span style="color: rgb(212, 0, 0);">:style=</span><span style="color: rgb(255, 159, 236);">&gt;</span><span style="color: rgb(191, 3, 3);">"left: </span><span style="color: rgb(0, 110, 40);">#{</span>((x<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">%</span><span style="color: rgb(176, 128, 0);">9</span>)<span style="color: rgb(255, 159, 236);">*</span><span style="color: rgb(176, 128, 0);">52</span><span style="color: rgb(255, 159, 236);">+</span><span style="color: rgb(176, 128, 0);">50</span><span style="color: rgb(0, 110, 40);">}</span><span style="color: rgb(191, 3, 3);">px;  top: </span><span style="color: rgb(0, 110, 40);">#{</span>((x<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">/</span><span style="color: rgb(176, 128, 0);">9</span>)<span style="color: rgb(255, 159, 236);">*</span><span style="color: rgb(176, 128, 0);">52</span><span style="color: rgb(255, 159, 236);">+</span><span style="color: rgb(176, 128, 0);">50</span><span style="color: rgb(0, 110, 40);">}</span><span style="color: rgb(191, 3, 3);">px;"</span><span style="color: rgb(255, 159, 236);">}</span><br>        <span style="color: rgb(255, 159, 236);">-</span> <b>if</b> mat<span style="color: rgb(255, 159, 236);">[</span>x<span style="color: rgb(176, 128, 0);">-1</span><span style="color: rgb(255, 159, 236);">]</span><span style="color: rgb(64, 0, 167);">.length</span><span style="color: rgb(255, 159, 236);">==</span><span style="color: rgb(176, 128, 0);">1</span><br><span style="color: rgb(0, 110, 40);">            %</span>h1<span style="color: rgb(0, 110, 40);">{</span><span style="color: rgb(191, 3, 3);">:onclick=&gt;"window.location = '/reset/</span><span style="color: rgb(0, 110, 40);">#{</span>x<span style="color: rgb(0, 110, 40);">}</span><span style="color: rgb(191, 3, 3);">'"</span><span style="color: rgb(0, 110, 40);">}</span><br>                <span style="color: rgb(255, 159, 236);">=</span> mat<span style="color: rgb(255, 159, 236);">[</span>x<span style="color: rgb(176, 128, 0);">-1</span><span style="color: rgb(255, 159, 236);">]</span><br>        <span style="color: rgb(255, 159, 236);">-</span> <b>else</b><br>            <span style="color: rgb(255, 159, 236);">-</span> (<span style="color: rgb(176, 128, 0);">1</span><span style="color: rgb(255, 159, 236);">..</span><span style="color: rgb(176, 128, 0);">9</span>)<span style="color: rgb(64, 0, 167);">.each</span> <b>do</b> <span style="color: rgb(255, 159, 236);">|</span>xx<span style="color: rgb(255, 159, 236);">|</span><br>                <span style="color: rgb(255, 159, 236);">-</span> <b>if</b> mat<span style="color: rgb(255, 159, 236);">[</span>x<span style="color: rgb(176, 128, 0);">-1</span><span style="color: rgb(255, 159, 236);">]</span><span style="color: rgb(64, 0, 167);">.include?</span>(xx<span style="color: rgb(64, 0, 167);">.to_s</span>)<br><span style="color: rgb(0, 110, 40);">                    %</span>div<span style="color: rgb(0, 110, 40);">.</span><span style="color: rgb(191, 3, 3);">l{:style=&gt;"left: </span><span style="color: rgb(0, 110, 40);">#{</span>((xx<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">%</span><span style="color: rgb(176, 128, 0);">3</span>)<span style="color: rgb(255, 159, 236);">*</span><span style="color: rgb(176, 128, 0);">17</span><span style="color: rgb(255, 159, 236);">+</span><span style="color: rgb(176, 128, 0);">0</span><span style="color: rgb(0, 110, 40);">}</span><span style="color: rgb(191, 3, 3);">px;  top: </span><span style="color: rgb(0, 110, 40);">#{</span>((xx<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">/</span><span style="color: rgb(176, 128, 0);">3</span>)<span style="color: rgb(255, 159, 236);">*</span><span style="color: rgb(176, 128, 0);">17</span><span style="color: rgb(255, 159, 236);">+</span><span style="color: rgb(176, 128, 0);">0</span><span style="color: rgb(0, 110, 40);">}</span><span style="color: rgb(191, 3, 3);">px; ",</span><br><span style="color: rgb(191, 3, 3);">                    :onclick=&gt;"window</span><span style="color: rgb(0, 110, 40);">.</span>location <span style="color: rgb(255, 159, 236);">=</span> <span style="color: rgb(221, 74, 74);">'/set/#{x}/#{xx}'</span><span style="color: rgb(191, 3, 3);">"}</span><br><span style="color: rgb(191, 3, 3);">                        =xx </span><br><br><span style="color: rgb(191, 3, 3);"></span><span style="color: rgb(191, 3, 3);"><br></span><br></pre>
+    <br>
 
-�ok az&#305;c&#305;k JavaScript'i g�rselde �retti&#287;imiz div'lere ekleyip,
-t&#305;kland&#305;klar&#305;nda yeni tan&#305;mlad&#305;&#287;&#305;m&#305;z metodlar&#305; �a&#287;&#305;rmas&#305;n&#305; sa&#287;l&#305;yoruz. <br>
+    Artık tahta ortaya çıktı şimdi yavaş yavaş görselden kontrol kodlarına
+    doğru kayacağız. İstiyorumki hücrelerin içinde küçük sayılar ile olası
+    tüm sayılar yazılsın. Bu küçük sayılardan hangisi tıklanırsa o sayı tek
+    olasılık olarak kalsın ve diğer olasılıklar listeden silinsin.
+    Sonrasında bu tek kalan sayı en son elde ettiğimiz görüntüdeki gibi
+    büyük olarak gösterilsin. Bunun için ilk önce her hücrede olası tüm
+    değerleri içermesi için 81 elemanlık bir matris oluşturuyoruz. Server'ı
+    durdurup <span style="font-weight: bold; font-style: italic;">su.rb</span>
+    dosyamızı şöyle düzenliyoruz:
+    <pre><span class="style_5">require&nbsp;</span><span class="style_6">"rubygems"</span><br><span class="style_5">require&nbsp;</span><span class="style_6">"sinatra"</span><br><br><span class="style_11">mat&nbsp;</span><span class="style_10">=&nbsp;[]</span><br><span class="style_10">(</span><span class="style_4">1.</span><span class="style_10">.</span><span class="style_4">81</span><span class="style_10">).</span><span class="style_11">each&nbsp;</span><span class="style_5">do</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">mat&nbsp;</span><span class="style_10">&lt;&lt;&nbsp;</span><span class="style_6">"123456789"&nbsp;</span><br><span class="style_5">end</span><br><br><span class="style_11">get&nbsp;</span><span class="style_6">"/"&nbsp;</span><span class="style_5">do</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">haml&nbsp;</span><span class="style_14">:index</span><span class="style_10">,&nbsp;</span><span class="style_14">:locals</span><span class="style_10">=&gt;{</span><span class="style_14">:mat</span><span class="style_10">=&gt;</span><span class="style_11">mat</span><span class="style_10">}</span><br><span class="style_5">end</span><br></pre>
 
-E hadi, y�kleyin ve de t&#305;klay&#305;n biraz. Nas&#305;l ? G�zel oldu mu ? Bu bile
-i&#351; g�rmeye ba&#351;lad&#305;. <br>
+    En başta tüm hücreler için 1'den 9'a kadar tüm sayılar olasıdır.
+    Bunları görselimizde küçük sayılar olarak çıkarmak için bu matrisi
+    "index.haml" dosyasına göndermemiz gerekiyor. Bu gönderimi
+    gerçekleştirme için matrisimizi "locals" içinde aynı isimle haml
+    dosyasına aktarıyoruz. Sırada haml dosyamız var:<br>
 
-Art&#305;k g�rselle yapaca&#287;&#305;m&#305;z bir&#351;ey kalmad&#305;. Array i�inde �al&#305;&#351;aca&#287;&#305;z.
-�nce sat&#305;rlardan ba&#351;layal&#305;m ayn&#305; sat&#305;rda benzer say&#305; olamayaca&#287;&#305; i�in,
-bir tanesi setlenince sat&#305;rdan di&#287;er h�crelerdekileri silelim. &#304;lk �nce
-set ve reset i&#351;lemleri sonras&#305; arrayi toparlayacak bir "check" metodu
-�a&#287;&#305;ral&#305;m ve o metodun i�inde array �zerinde bu i&#351;leri yapal&#305;m:<br>
+    <pre><span class="style_10">-&nbsp;</span><span class="style_11">mat</span><span class="style_10">[</span><span class="style_4">0</span><span class="style_10">]=</span><span class="style_6">"1"</span><br><span class="style_10">-&nbsp;</span><span class="style_11">mat</span><span class="style_10">[</span><span class="style_4">1</span><span class="style_10">]=</span><span class="style_6">"28"</span><br><br><span class="style_10">-&nbsp;(</span><span class="style_4">1.</span><span class="style_10">.</span><span class="style_4">81</span><span class="style_10">).</span><span class="style_11">each&nbsp;</span><span class="style_5">do&nbsp;</span><span class="style_10">|</span><span class="style_11">x</span><span class="style_10">|</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">%</span><span class="style_11">div</span><span class="style_10">.</span><span class="style_11">b</span><span class="style_10">{</span><span class="style_14">:id</span><span class="style_10">=&gt;&nbsp;</span><span class="style_11">x</span><span class="style_10">.</span><span class="style_11">to_s</span><span class="style_10">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_14">:style</span><span class="style_10">=&gt;</span><span class="style_6">"left:&nbsp;</span><span class="style_10">#{((</span><span class="style_11">x</span><span class="style_10">-</span><span class="style_4">1</span><span class="style_10">)%</span><span class="style_4">9</span><span class="style_10">)*</span><span class="style_4">52</span><span class="style_10">+</span><span class="style_4">50</span><span class="style_10">}</span><span class="style_6">px;&nbsp;&nbsp;top:&nbsp;</span><span class="style_10">#{((</span><span class="style_11">x</span><span class="style_10">-</span><span class="style_4">1</span><span class="style_10">)/</span><span class="style_4">9</span><span class="style_10">)*</span><span class="style_4">52</span><span class="style_10">+</span><span class="style_4">50</span><span class="style_10">}</span><span class="style_6">px;"</span><span class="style_10">}</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">-&nbsp;</span><span class="style_5">if&nbsp;</span><span class="style_11">mat</span><span class="style_10">[</span><span class="style_11">x</span><span class="style_10">-</span><span class="style_4">1</span><span class="style_10">].</span><span class="style_11">length</span><span class="style_10">==</span><span class="style_4">1</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">%</span><span class="style_11">h1</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">=&nbsp;</span><span class="style_11">mat</span><span class="style_10">[</span><span class="style_11">x</span><span class="style_10">-</span><span class="style_4">1</span><span class="style_10">]</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">-&nbsp;</span><span class="style_5">else</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">-&nbsp;(</span><span class="style_4">1.</span><span class="style_10">.</span><span class="style_4">9</span><span class="style_10">).</span><span class="style_11">each&nbsp;</span><span class="style_5">do&nbsp;</span><span class="style_10">|</span><span class="style_11">xx</span><span class="style_10">|</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">-&nbsp;</span><span class="style_5">if&nbsp;</span><span class="style_11">mat</span><span class="style_10">[</span><span class="style_11">x</span><span class="style_10">-</span><span class="style_4">1</span><span class="style_10">].</span><span class="style_11">include?</span><span class="style_10">(</span><span class="style_11">xx</span><span class="style_10">.</span><span class="style_11">to_s</span><span class="style_10">)</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">%</span><span class="style_11">div</span><span class="style_10">.</span><span class="style_11">l</span><span class="style_10">{</span><span class="style_14">:style</span><span class="style_10">=&gt;</span><span class="style_6">"left:&nbsp;</span><span class="style_10">#{((</span><span class="style_11">xx</span><span class="style_10">-</span><span class="style_4">1</span><span class="style_10">)%</span><span class="style_4">3</span><span class="style_10">)*</span><span class="style_4">17</span><span class="style_10">+</span><span class="style_4">0</span><span class="style_10">}</span><span class="style_6">px;&nbsp;&nbsp;top:&nbsp;</span><span class="style_10">#{((</span><span class="style_11">xx</span><span class="style_10">-</span><span class="style_4">1</span><span class="style_10">)/</span><span class="style_4">3</span><span class="style_10">)*</span><span class="style_4">17</span><span class="style_10">+</span><span class="style_4">0</span><span class="style_10">}</span><span class="style_6">px;&nbsp;"</span><span class="style_10">}</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">=</span><span class="style_11">xx&nbsp;</span><br><br><span class="style_14">:css</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">div</span><span class="style_10">.</span><span class="style_11">b&nbsp;</span><span class="style_10">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">position</span><span class="style_14">:&nbsp;</span><span class="style_11">absolute</span><span class="style_10">;&nbsp;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">border</span><span class="style_14">:&nbsp;</span><span class="style_4">2px&nbsp;</span><span class="style_11">solid</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">width</span><span class="style_14">:&nbsp;</span><span class="style_4">51px</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">height</span><span class="style_14">:&nbsp;</span><span class="style_4">51px</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">text</span><span class="style_10">-</span><span class="style_11">align</span><span class="style_14">:&nbsp;</span><span class="style_11">center</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">}</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">div</span><span class="style_10">.</span><span class="style_11">l&nbsp;</span><span class="style_10">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">position</span><span class="style_14">:&nbsp;</span><span class="style_11">absolute</span><span class="style_10">;&nbsp;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">border</span><span class="style_14">:&nbsp;</span><span class="style_4">1px&nbsp;</span><span class="style_11">solid</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">width</span><span class="style_14">:&nbsp;</span><span class="style_4">16px</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">height</span><span class="style_14">:&nbsp;</span><span class="style_4">16px</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">text</span><span class="style_10">-</span><span class="style_11">align</span><span class="style_14">:&nbsp;</span><span class="style_11">center</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">font</span><span class="style_10">-</span><span class="style_11">size</span><span class="style_14">:&nbsp;</span><span class="style_4">10px</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">z</span><span class="style_10">-</span><span class="style_11">index</span><span class="style_14">:&nbsp;</span><span class="style_4">1</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">}</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">h1&nbsp;</span><span class="style_10">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_11">margin</span><span class="style_14">:&nbsp;</span><span class="style_4">0</span><span class="style_10">;</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="style_10">}</span><br></pre>
 
-<pre style="color: rgb(24, 22, 21); background-color: rgb(255, 255, 255);"><span style="color: rgb(0, 0, 128);">require</span> <span style="color: rgb(191, 3, 3);">"rubygems"</span><br><span style="color: rgb(0, 0, 128);">require</span> <span style="color: rgb(191, 3, 3);">"sinatra"</span><br><br>mat <span style="color: rgb(255, 159, 236);">=</span> <span style="color: rgb(255, 159, 236);">[]</span><br>(<span style="color: rgb(176, 128, 0);">1</span><span style="color: rgb(255, 159, 236);">..</span><span style="color: rgb(176, 128, 0);">81</span>)<span style="color: rgb(64, 0, 167);">.each</span> <b>do</b><br>    mat <span style="color: rgb(255, 159, 236);">&lt;&lt;</span> <span style="color: rgb(191, 3, 3);">"123456789"</span> <br><b>end</b><br><br><b>def</b> check mat<br>    <i><span style="color: rgb(137, 136, 135);">#tekleri bul</span></i><br>    singles<span style="color: rgb(255, 159, 236);">=</span><span style="color: rgb(255, 159, 236);">[]</span><br>    <b>for</b> row <b>in</b> <span style="color: rgb(176, 128, 0);">1</span><span style="color: rgb(255, 159, 236);">..</span><span style="color: rgb(176, 128, 0);">9</span><br>        <b>for</b> col <b>in</b> <span style="color: rgb(176, 128, 0);">1</span><span style="color: rgb(255, 159, 236);">..</span><span style="color: rgb(176, 128, 0);">9</span><br>            v <span style="color: rgb(255, 159, 236);">=</span> mat<span style="color: rgb(255, 159, 236);">[</span>(row<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">*</span><span style="color: rgb(176, 128, 0);">9</span><span style="color: rgb(255, 159, 236);">+</span>(col<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">]</span><br>            <b>if</b> v<span style="color: rgb(64, 0, 167);">.length</span><span style="color: rgb(255, 159, 236);">==</span><span style="color: rgb(176, 128, 0);">1</span><br>                singles <span style="color: rgb(255, 159, 236);">&lt;&lt;</span> (row<span style="color: rgb(64, 0, 167);">.to_s</span> <span style="color: rgb(255, 159, 236);">+</span> col<span style="color: rgb(64, 0, 167);">.to_s</span> <span style="color: rgb(255, 159, 236);">+</span> v)<br>            <b>end</b><br>        <b>end</b><br>    <b>end</b><br>    <i><span style="color: rgb(137, 136, 135);">#tek olanlar&#305; gruplardan ay&#305;kla</span></i><br>    <b>for</b> row <b>in</b> <span style="color: rgb(176, 128, 0);">1</span><span style="color: rgb(255, 159, 236);">..</span><span style="color: rgb(176, 128, 0);">9</span><br>        <b>for</b> col <b>in</b> <span style="color: rgb(176, 128, 0);">1</span><span style="color: rgb(255, 159, 236);">..</span><span style="color: rgb(176, 128, 0);">9</span><br>            <b>if</b> mat<span style="color: rgb(255, 159, 236);">[</span>(row<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">*</span><span style="color: rgb(176, 128, 0);">9</span><span style="color: rgb(255, 159, 236);">+</span>(col<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">]</span><span style="color: rgb(64, 0, 167);">.length</span> !<span style="color: rgb(255, 159, 236);">=</span> <span style="color: rgb(176, 128, 0);">1</span>       <i><span style="color: rgb(137, 136, 135);">#e&#287;er h�crede 1 den fazla say&#305; varsa</span></i><br>                <span style="color: rgb(191, 3, 3);">"123456789"</span><span style="color: rgb(64, 0, 167);">.each_char</span> <b>do</b> <span style="color: rgb(255, 159, 236);">|</span>x<span style="color: rgb(255, 159, 236);">|</span>          	<i><span style="color: rgb(137, 136, 135);"># olas&#305; t�m say&#305;lar i�in </span></i><br>					<i><span style="color: rgb(137, 136, 135);"># e&#287;er sat&#305;rda o say&#305;dan varsa</span></i><br>                    <b>if</b> singles<span style="color: rgb(64, 0, 167);">.detect</span> <span style="color: rgb(255, 159, 236);">{|</span>v<span style="color: rgb(255, 159, 236);">|</span> v <span style="color: rgb(255, 159, 236);">=~</span> (<span style="color: rgb(0, 87, 174);">Regexp</span><span style="color: rgb(64, 0, 167);">.new</span>(row<span style="color: rgb(64, 0, 167);">.to_s</span> <span style="color: rgb(255, 159, 236);">+</span> <span style="color: rgb(191, 3, 3);">"[1-9]"</span> <span style="color: rgb(255, 159, 236);">+</span> x))<span style="color: rgb(255, 159, 236);">}</span> <br>                        mat<span style="color: rgb(255, 159, 236);">[</span>(row<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">*</span><span style="color: rgb(176, 128, 0);">9</span><span style="color: rgb(255, 159, 236);">+</span>(col<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">]</span><span style="color: rgb(64, 0, 167);">.delete!</span> x        <i><span style="color: rgb(137, 136, 135);"># o say&#305;y&#305; sil</span></i><br>                    <i><span style="color: rgb(137, 136, 135);"># tersi durumda da e&#287;er yoksa o say&#305;y&#305; ekle</span></i><br>                    <b>else</b><span style="color: rgb(255, 159, 236);"></span><span style="color: rgb(255, 159, 236);"></span><span style="color: rgb(176, 128, 0);"></span><span style="color: rgb(255, 159, 236);"></span><span style="color: rgb(176, 128, 0);"></span><span style="color: rgb(255, 159, 236);"></span><span style="color: rgb(176, 128, 0);"></span><span style="color: rgb(255, 159, 236);"></span><span style="color: rgb(64, 0, 167);"></span>	<br>                        mat<span style="color: rgb(255, 159, 236);">[</span>(row<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">*</span><span style="color: rgb(176, 128, 0);">9</span><span style="color: rgb(255, 159, 236);">+</span>(col<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">]</span> <span style="color: rgb(255, 159, 236);">+=</span> x	<br>                    <b>end</b><br>                <b>end</b><br>            <b>end</b><br>        <b>end</b><br>    <b>end</b><br><b>end</b><br><br>get <span style="color: rgb(191, 3, 3);">"/"</span> <b>do</b><br>    haml <span style="color: rgb(212, 0, 0);">:index</span>, <span style="color: rgb(212, 0, 0);">:locals=</span><span style="color: rgb(255, 159, 236);">&gt;{</span><span style="color: rgb(212, 0, 0);">:mat</span> <span style="color: rgb(255, 159, 236);">=&gt;</span> mat<span style="color: rgb(255, 159, 236);">}</span><br><b>end</b><br><br>get <span style="color: rgb(191, 3, 3);">"/set/:x/:xx"</span> <b>do</b><br>    x <span style="color: rgb(255, 159, 236);">=</span> params<span style="color: rgb(255, 159, 236);">[</span><span style="color: rgb(212, 0, 0);">:x</span><span style="color: rgb(255, 159, 236);">]</span><span style="color: rgb(64, 0, 167);">.to_i</span><br>    xx <span style="color: rgb(255, 159, 236);">=</span> params<span style="color: rgb(255, 159, 236);">[</span><span style="color: rgb(212, 0, 0);">:xx</span><span style="color: rgb(255, 159, 236);">]</span><br>    mat<span style="color: rgb(255, 159, 236);">[</span>x<span style="color: rgb(176, 128, 0);">-1</span><span style="color: rgb(255, 159, 236);">]</span><span style="color: rgb(255, 159, 236);">=</span>xx<br>    check mat<br>    redirect(<span style="color: rgb(191, 3, 3);">"/"</span>)<br><b>end</b><br>  <br>get <span style="color: rgb(191, 3, 3);">"/reset/:x"</span> <b>do</b><br>    x <span style="color: rgb(255, 159, 236);">=</span> params<span style="color: rgb(255, 159, 236);">[</span><span style="color: rgb(212, 0, 0);">:x</span><span style="color: rgb(255, 159, 236);">]</span><span style="color: rgb(64, 0, 167);">.to_i</span><br>    mat<span style="color: rgb(255, 159, 236);">[</span>x<span style="color: rgb(176, 128, 0);">-1</span><span style="color: rgb(255, 159, 236);">]</span><span style="color: rgb(255, 159, 236);">=</span><span style="color: rgb(191, 3, 3);">"123456789"</span><br>    check mat<br>    redirect <span style="color: rgb(191, 3, 3);">"/"</span><br><b>end</b>
-</pre>
+    en baş iki satırda denme için matris değerlerinden bazılarını
+    değiştiriyoruz ki sonucun istediğimiz gibi olmasını test edelim. Daha
+    sonra bu iki satırı kaldıracağız. Şimdi sayfamızı bir test edelim.
+    <br>
 
-<br>
+    <img style="width: 549px; height: 374px;" alt="susohe_4.png" src="susohe_4.png"><br>
 
-&#304;lk �nce tek de&#287;er olan h�crelerden bir liste �retiyoruz. Bu listede
-sat&#305;r numaras&#305; sonra s�tun numaras&#305; en son da de&#287;erin oldu&#287;u
-stringlerden olu&#351;an bir array daha �retiyoruz. Mesela 5. s&#305;ran&#305;n 3.
-h�cresinde sadece 4 de&#287;eri varsa bu "singles" listesinde "534" olarak
-yer alacakt&#305;r. Daha sonra i�inde birden fazla de&#287;er olan her h�crede
-olas&#305; t�m de&#287;erler i�in ayn&#305; sat&#305;rda singles listesinden de&#287;er varsa
-siliyoruz. E&#287;er yoksa s�z konusu say&#305; acaba h�crede varm&#305;. Yoksa
-h�credeki olas&#305; say&#305;lara ekliyoruz. Buradaki "singles.detect {|v| v =~
-(Regexp.new(row.to_s + "[1-9]" + x))}" komut sat&#305;r&#305; ile o sat&#305;rdaki
-tekleri avl&#305;yoruz. <br>
+    <br>
 
-<img style="width: 547px; height: 193px;" alt="susohe_5.png" src="susohe_5.png"><br>
+    Artık uygulama şekillenmeye başladı. Bu noktada birşey dikkatimi çekti
+    ve deneme yaptım. Aynı uygulamayı wxRuby ile ve StaticText'ler ile
+    yapmaya çalıştım. Bu uygulama çok daha seri cevap veriyor. Sinatra hem
+    masaüstü hem web uygulamaları geliştirmek için kullanışlı ve başarılı
+    bir ortam. Burada geliştiricilerinden masaüstü uygulaması geliştirmek
+    için bir "SinatraViewer" talep etmeye karar verdim. İkinci bir grup
+    div'imiz oldu "class=l" bunlar büyük div'lerin içinde olası sayıları
+    yazan küçük kutular. Bunları da özelliklerini css içinde belirttik ve
+    eğer hücre için tek bir olasılık varsa hücrenin içinde &lt;h1&gt;
+    olarak büyük yazıyla bu tek olasılığı yazıyoruz. Birden fazla olasılık
+    varsa küçük kutular olarak tüm olasılıkları büyük kutu içinde
+    gösteriyoruz. İşin arkasında şöyle bir mantık olacak: Çözeceğimiz
+    sudokunun verilen değerlerini hücrelerde tıkladığımızda o tıklanan
+    değer o hücre için olası tek değer yapılacak ve bu sayede hücre tek ve
+    büyük bir rakamı gösterecek. Aynı satır ve sütunda bulunan eşit
+    değerleri otomatikman sileceğiz. Aynı dokuzlu grupta bulunan eşit
+    sayıları da sileceğiz. Tam tersini de yapmamız gerekiyor , yani tek
+    kalmış ve büyük olmuş bir sayıyı tıklayarak geri alabilmeliyiz. Bu
+    durumda hücre içine olası tüm değerleri küçük olarak yazmalıyız.<br>
 
-<br>
+    Bunu sağlamak için su.rb dosyasında iki yeni metod tanımlıyoruz.
+    <pre style="color: rgb(24, 22, 21); background-color: rgb(255, 255, 255);"><span style="color: rgb(0, 0, 128);"></span><br>get <span style="color: rgb(191, 3, 3);">"/set/:x/:xx"</span> <b>do</b><br>    x <span style="color: rgb(255, 159, 236);">=</span> params<span style="color: rgb(255, 159, 236);">[</span><span style="color: rgb(212, 0, 0);">:x</span><span style="color: rgb(255, 159, 236);">]</span><span style="color: rgb(64, 0, 167);">.to_i</span><br>    xx <span style="color: rgb(255, 159, 236);">=</span> params<span style="color: rgb(255, 159, 236);">[</span><span style="color: rgb(212, 0, 0);">:xx</span><span style="color: rgb(255, 159, 236);">]</span><span style="color: rgb(64, 0, 167);"></span><br>    mat<span style="color: rgb(255, 159, 236);">[</span>x<span style="color: rgb(176, 128, 0);">-1</span><span style="color: rgb(255, 159, 236);">]</span><span style="color: rgb(255, 159, 236);">=</span>xx<span style="color: rgb(64, 0, 167);"></span><br>    redirect(<span style="color: rgb(191, 3, 3);">"/"</span>)<br><b>end</b><br>  <br>get <span style="color: rgb(191, 3, 3);">"/reset/:x"</span> <b>do</b><br>    x <span style="color: rgb(255, 159, 236);">=</span> params<span style="color: rgb(255, 159, 236);">[</span><span style="color: rgb(212, 0, 0);">:x</span><span style="color: rgb(255, 159, 236);">]</span><span style="color: rgb(64, 0, 167);">.to_i</span><br>    mat<span style="color: rgb(255, 159, 236);">[</span>x<span style="color: rgb(176, 128, 0);">-1</span><span style="color: rgb(255, 159, 236);">]</span><span style="color: rgb(255, 159, 236);">=</span><span style="color: rgb(191, 3, 3);">"123456789"</span><br>    redirect <span style="color: rgb(191, 3, 3);">"/"</span><br><b>end</b>
+    </pre>
 
-Ayn&#305; teknikle s�tundakileri de ay&#305;klayabiliriz. Kar&#351;&#305;la&#351;t&#305;rma komutunu :<br>
+    İlk metod "localhost:4567/set/3/5" gibi adresleri algılıyor. Örnekteki
+    3 sayısı :x parametresine 5 sayısı da :xx parametresine aktarılıyor.
+    Burada matrisimizin bir hücresini yani ekrandaki kutunun bir tanesini
+    tek değer yapıyoruz ve tekrar index sayfasına dönüyoruz bu durumda ne
+    olur? O hücre (:x nolu hücre) artık :xx değerine setlenmiş olur. İkinci
+    metod ise çnceden setlenmiş bir hücreyi resetlemek için. Nasıl yapıyor?
+    Matristeki sırası verilen hücrenin içeriğine 1'den, 9'a tüm değerleri
+    yazıyor.<br>
 
-<pre style="color: rgb(24, 22, 21); background-color: rgb(255, 255, 255);">    <b>if</b> singles<span style="color: rgb(64, 0, 167);">.detect</span> <span style="color: rgb(255, 159, 236);">{|</span>v<span style="color: rgb(255, 159, 236);">|</span> v <span style="color: rgb(255, 159, 236);">=~</span> (<span style="color: rgb(0, 87, 174);">Regexp</span><span style="color: rgb(64, 0, 167);">.new</span>(row<span style="color: rgb(64, 0, 167);">.to_s</span> <span style="color: rgb(255, 159, 236);">+</span> <span style="color: rgb(191, 3, 3);">"[1-9]"</span> <span style="color: rgb(255, 159, 236);">+</span> x)) <b>or</b><br>            v <span style="color: rgb(255, 159, 236);">=~</span> <span style="color: rgb(0, 87, 174);">Regexp</span><span style="color: rgb(64, 0, 167);">.new</span>(<span style="color: rgb(191, 3, 3);">"[1-9]"</span> <span style="color: rgb(255, 159, 236);">+</span> col<span style="color: rgb(64, 0, 167);">.to_s</span> <span style="color: rgb(255, 159, 236);">+</span> x)<span style="color: rgb(255, 159, 236);">}</span> <br>  <br></pre>
+    Şimdi görsel dosyamızı, bu metodları doğru çağıracak şekilde
+    düzenleyelim:<br>
 
-yapt&#305;&#287;&#305;m&#305;z anda s�tunlar da art&#305;k kontrol�n i�ine girdiler. Tek bir
-kontrol�m�z daha kald&#305; 3x3 gruplar. Bunlar i�in ilk �nce o anda
-bakt&#305;&#287;&#305;m&#305;z h�crenin hangi 3x3 grupta oldu&#287;unu buluyoruz.&nbsp; <br>
+    <pre style="color: rgb(24, 22, 21); background-color: rgb(255, 255, 255);"><br><br><span style="color: rgb(255, 159, 236);">-</span> (<span style="color: rgb(176, 128, 0);">1</span><span style="color: rgb(255, 159, 236);">..</span><span style="color: rgb(176, 128, 0);">81</span>)<span style="color: rgb(64, 0, 167);">.each</span> <b>do</b> <span style="color: rgb(255, 159, 236);">|</span>x<span style="color: rgb(255, 159, 236);">|</span><br><span style="color: rgb(0, 110, 40);">    %</span>div<span style="color: rgb(0, 110, 40);">.</span><span style="color: rgb(191, 3, 3);">b{:id=&gt; x</span><span style="color: rgb(0, 110, 40);">.</span>to_s,<br>    <span style="color: rgb(212, 0, 0);">:style=</span><span style="color: rgb(255, 159, 236);">&gt;</span><span style="color: rgb(191, 3, 3);">"left: </span><span style="color: rgb(0, 110, 40);">#{</span>((x<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">%</span><span style="color: rgb(176, 128, 0);">9</span>)<span style="color: rgb(255, 159, 236);">*</span><span style="color: rgb(176, 128, 0);">52</span><span style="color: rgb(255, 159, 236);">+</span><span style="color: rgb(176, 128, 0);">50</span><span style="color: rgb(0, 110, 40);">}</span><span style="color: rgb(191, 3, 3);">px;  top: </span><span style="color: rgb(0, 110, 40);">#{</span>((x<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">/</span><span style="color: rgb(176, 128, 0);">9</span>)<span style="color: rgb(255, 159, 236);">*</span><span style="color: rgb(176, 128, 0);">52</span><span style="color: rgb(255, 159, 236);">+</span><span style="color: rgb(176, 128, 0);">50</span><span style="color: rgb(0, 110, 40);">}</span><span style="color: rgb(191, 3, 3);">px;"</span><span style="color: rgb(255, 159, 236);">}</span><br>        <span style="color: rgb(255, 159, 236);">-</span> <b>if</b> mat<span style="color: rgb(255, 159, 236);">[</span>x<span style="color: rgb(176, 128, 0);">-1</span><span style="color: rgb(255, 159, 236);">]</span><span style="color: rgb(64, 0, 167);">.length</span><span style="color: rgb(255, 159, 236);">==</span><span style="color: rgb(176, 128, 0);">1</span><br><span style="color: rgb(0, 110, 40);">            %</span>h1<span style="color: rgb(0, 110, 40);">{</span><span style="color: rgb(191, 3, 3);">:onclick=&gt;"window.location = '/reset/</span><span style="color: rgb(0, 110, 40);">#{</span>x<span style="color: rgb(0, 110, 40);">}</span><span style="color: rgb(191, 3, 3);">'"</span><span style="color: rgb(0, 110, 40);">}</span><br>                <span style="color: rgb(255, 159, 236);">=</span> mat<span style="color: rgb(255, 159, 236);">[</span>x<span style="color: rgb(176, 128, 0);">-1</span><span style="color: rgb(255, 159, 236);">]</span><br>        <span style="color: rgb(255, 159, 236);">-</span> <b>else</b><br>            <span style="color: rgb(255, 159, 236);">-</span> (<span style="color: rgb(176, 128, 0);">1</span><span style="color: rgb(255, 159, 236);">..</span><span style="color: rgb(176, 128, 0);">9</span>)<span style="color: rgb(64, 0, 167);">.each</span> <b>do</b> <span style="color: rgb(255, 159, 236);">|</span>xx<span style="color: rgb(255, 159, 236);">|</span><br>                <span style="color: rgb(255, 159, 236);">-</span> <b>if</b> mat<span style="color: rgb(255, 159, 236);">[</span>x<span style="color: rgb(176, 128, 0);">-1</span><span style="color: rgb(255, 159, 236);">]</span><span style="color: rgb(64, 0, 167);">.include?</span>(xx<span style="color: rgb(64, 0, 167);">.to_s</span>)<br><span style="color: rgb(0, 110, 40);">                    %</span>div<span style="color: rgb(0, 110, 40);">.</span><span style="color: rgb(191, 3, 3);">l{:style=&gt;"left: </span><span style="color: rgb(0, 110, 40);">#{</span>((xx<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">%</span><span style="color: rgb(176, 128, 0);">3</span>)<span style="color: rgb(255, 159, 236);">*</span><span style="color: rgb(176, 128, 0);">17</span><span style="color: rgb(255, 159, 236);">+</span><span style="color: rgb(176, 128, 0);">0</span><span style="color: rgb(0, 110, 40);">}</span><span style="color: rgb(191, 3, 3);">px;  top: </span><span style="color: rgb(0, 110, 40);">#{</span>((xx<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">/</span><span style="color: rgb(176, 128, 0);">3</span>)<span style="color: rgb(255, 159, 236);">*</span><span style="color: rgb(176, 128, 0);">17</span><span style="color: rgb(255, 159, 236);">+</span><span style="color: rgb(176, 128, 0);">0</span><span style="color: rgb(0, 110, 40);">}</span><span style="color: rgb(191, 3, 3);">px; ",</span><br><span style="color: rgb(191, 3, 3);">                    :onclick=&gt;"window</span><span style="color: rgb(0, 110, 40);">.</span>location <span style="color: rgb(255, 159, 236);">=</span> <span style="color: rgb(221, 74, 74);">'/set/#{x}/#{xx}'</span><span style="color: rgb(191, 3, 3);">"}</span><br><span style="color: rgb(191, 3, 3);">                        =xx </span><br><br><span style="color: rgb(191, 3, 3);"></span><span style="color: rgb(191, 3, 3);"><br></span><br></pre>
 
-<pre style="color: rgb(24, 22, 21); background-color: rgb(255, 255, 255);"><span style="color: rgb(0, 0, 128);"></span>    <b>for</b> row <b>in</b> <span style="color: rgb(176, 128, 0);">1</span><span style="color: rgb(255, 159, 236);">..</span><span style="color: rgb(176, 128, 0);">9</span><br>        <b>for</b> col <b>in</b> <span style="color: rgb(176, 128, 0);">1</span><span style="color: rgb(255, 159, 236);">..</span><span style="color: rgb(176, 128, 0);">9</span><br>            <b>if</b> mat<span style="color: rgb(255, 159, 236);">[</span>(row<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">*</span><span style="color: rgb(176, 128, 0);">9</span><span style="color: rgb(255, 159, 236);">+</span>(col<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">]</span><span style="color: rgb(64, 0, 167);">.length</span> !<span style="color: rgb(255, 159, 236);">=</span> <span style="color: rgb(176, 128, 0);">1</span>       <i><span style="color: rgb(137, 136, 135);">#e&#287;er h�crede 1 den fazla say&#305; varsa</span></i><br>                <span style="color: rgb(191, 3, 3);">"123456789"</span><span style="color: rgb(64, 0, 167);">.each_char</span> <b>do</b> <span style="color: rgb(255, 159, 236);">|</span>x<span style="color: rgb(255, 159, 236);">|</span>          	<i><span style="color: rgb(137, 136, 135);"># olas&#305; t�m say&#305;lar i�in </span></i><br>                    boxes <span style="color: rgb(255, 159, 236);">=</span> <span style="color: rgb(255, 159, 236);">[</span><span style="color: rgb(191, 3, 3);">"123"</span>,<span style="color: rgb(191, 3, 3);">"456"</span>,<span style="color: rgb(191, 3, 3);">"789"</span><span style="color: rgb(255, 159, 236);">]</span><br>                    row_box <span style="color: rgb(255, 159, 236);">=</span> boxes<span style="color: rgb(64, 0, 167);">.detect</span> <span style="color: rgb(255, 159, 236);">{|</span>v<span style="color: rgb(255, 159, 236);">|</span> v<span style="color: rgb(64, 0, 167);">.include?</span>(row<span style="color: rgb(64, 0, 167);">.to_s</span>)<span style="color: rgb(255, 159, 236);">}</span><br>                    col_box <span style="color: rgb(255, 159, 236);">=</span> boxes<span style="color: rgb(64, 0, 167);">.detect</span> <span style="color: rgb(255, 159, 236);">{|</span>v<span style="color: rgb(255, 159, 236);">|</span> v<span style="color: rgb(64, 0, 167);">.include?</span>(col<span style="color: rgb(64, 0, 167);">.to_s</span>)<span style="color: rgb(255, 159, 236);">}</span><br>					<i><span style="color: rgb(137, 136, 135);"># e&#287;er sat&#305;rda, s�tunda o say&#305;dan varsa</span></i><br>                    <b>if</b> singles<span style="color: rgb(64, 0, 167);">.detect</span> <span style="color: rgb(255, 159, 236);">{|</span>v<span style="color: rgb(255, 159, 236);">|</span> v <span style="color: rgb(255, 159, 236);">=~</span> (<span style="color: rgb(0, 87, 174);">Regexp</span><span style="color: rgb(64, 0, 167);">.new</span>(row<span style="color: rgb(64, 0, 167);">.to_s</span> <span style="color: rgb(255, 159, 236);">+</span> <span style="color: rgb(191, 3, 3);">"[1-9]"</span> <span style="color: rgb(255, 159, 236);">+</span> x)) <b>or</b><br>				v <span style="color: rgb(255, 159, 236);">=~</span> <span style="color: rgb(0, 87, 174);">Regexp</span><span style="color: rgb(64, 0, 167);">.new</span>(<span style="color: rgb(191, 3, 3);">"[1-9]"</span> <span style="color: rgb(255, 159, 236);">+</span> col<span style="color: rgb(64, 0, 167);">.to_s</span> <span style="color: rgb(255, 159, 236);">+</span> x) <b>or</b><br>				v <span style="color: rgb(255, 159, 236);">=~</span> (<span style="color: rgb(0, 87, 174);">Regexp</span><span style="color: rgb(64, 0, 167);">.new</span>(<span style="color: rgb(191, 3, 3);">"["</span> <span style="color: rgb(255, 159, 236);">+</span> row_box <span style="color: rgb(255, 159, 236);">+</span> <span style="color: rgb(191, 3, 3);">"]"</span> <span style="color: rgb(255, 159, 236);">+</span> <span style="color: rgb(191, 3, 3);">"["</span> <span style="color: rgb(255, 159, 236);">+</span> col_box <span style="color: rgb(255, 159, 236);">+</span> <span style="color: rgb(191, 3, 3);">"]"</span> <span style="color: rgb(255, 159, 236);">+</span> x))<span style="color: rgb(255, 159, 236);">}</span> <br>                        mat<span style="color: rgb(255, 159, 236);">[</span>(row<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">*</span><span style="color: rgb(176, 128, 0);">9</span><span style="color: rgb(255, 159, 236);">+</span>(col<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">]</span><span style="color: rgb(64, 0, 167);">.delete!</span> x        <i><span style="color: rgb(137, 136, 135);"># o say&#305;y&#305; sil</span></i><br>                    <i><span style="color: rgb(137, 136, 135);"># tersi durumda da e&#287;er yoksa o say&#305;y&#305; ekle</span></i><br>                    <b>else</b>	<br>                        mat<span style="color: rgb(255, 159, 236);">[</span>(row<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">*</span><span style="color: rgb(176, 128, 0);">9</span><span style="color: rgb(255, 159, 236);">+</span>(col<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">]</span> <span style="color: rgb(255, 159, 236);">+=</span> x	<br>                    <b>end</b><br></pre>
+    Çok azıcık JavaScript'i görselde ürettiğimiz div'lere ekleyip,
+    tıklandıklarında yeni tanımladığımız metodları çağırmasını sağlıyoruz. <br>
 
-<br>
+    E hadi, yükleyin ve de tıklayın biraz. Nasıl ? Güzel oldu mu ? Bu bile
+    iş görmeye başladı. <br>
 
-Sonra da me&#351;hur "if" sat&#305;r&#305;na 3x3 grup i�indeki kar&#351;&#305;la&#351;t&#305;rmay&#305; da
-koyuyoruz. Bu arada "detect" komutunu da baya&#287;&#305; bi kulland&#305;k yani. <br>
+    Artık görselle yapacağımız birşey kalmadı. Array içinde çalışacağız.
+    Önce satırlardan başlayalım aynı satırda benzer sayı olamayacağı için,
+    bir tanesi setlenince satırdan diğer hücrelerdekileri silelim. İlk önce
+    set ve reset işlemleri sonrası arrayi toparlayacak bir "check" metodu
+    çağıralım ve o metodun içinde array üzerinde bu işleri yapalım:<br>
 
-&#304;&#351;te bu kadar bundan sonra sudoku ��zerken kendi yapt&#305;&#287;&#305;n&#305;z bir
-yard&#305;mc&#305;n&#305;z var. Zevkle kullan&#305;n, daha da geli&#351;tirin, bana da haber
-verin.<br>
+    <pre style="color: rgb(24, 22, 21); background-color: rgb(255, 255, 255);"><span style="color: rgb(0, 0, 128);">require</span> <span style="color: rgb(191, 3, 3);">"rubygems"</span><br><span style="color: rgb(0, 0, 128);">require</span> <span style="color: rgb(191, 3, 3);">"sinatra"</span><br><br>mat <span style="color: rgb(255, 159, 236);">=</span> <span style="color: rgb(255, 159, 236);">[]</span><br>(<span style="color: rgb(176, 128, 0);">1</span><span style="color: rgb(255, 159, 236);">..</span><span style="color: rgb(176, 128, 0);">81</span>)<span style="color: rgb(64, 0, 167);">.each</span> <b>do</b><br>    mat <span style="color: rgb(255, 159, 236);">&lt;&lt;</span> <span style="color: rgb(191, 3, 3);">"123456789"</span> <br><b>end</b><br><br><b>def</b> check mat<br>    <i><span style="color: rgb(137, 136, 135);">#tekleri bul</span></i><br>    singles<span style="color: rgb(255, 159, 236);">=</span><span style="color: rgb(255, 159, 236);">[]</span><br>    <b>for</b> row <b>in</b> <span style="color: rgb(176, 128, 0);">1</span><span style="color: rgb(255, 159, 236);">..</span><span style="color: rgb(176, 128, 0);">9</span><br>        <b>for</b> col <b>in</b> <span style="color: rgb(176, 128, 0);">1</span><span style="color: rgb(255, 159, 236);">..</span><span style="color: rgb(176, 128, 0);">9</span><br>            v <span style="color: rgb(255, 159, 236);">=</span> mat<span style="color: rgb(255, 159, 236);">[</span>(row<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">*</span><span style="color: rgb(176, 128, 0);">9</span><span style="color: rgb(255, 159, 236);">+</span>(col<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">]</span><br>            <b>if</b> v<span style="color: rgb(64, 0, 167);">.length</span><span style="color: rgb(255, 159, 236);">==</span><span style="color: rgb(176, 128, 0);">1</span><br>                singles <span style="color: rgb(255, 159, 236);">&lt;&lt;</span> (row<span style="color: rgb(64, 0, 167);">.to_s</span> <span style="color: rgb(255, 159, 236);">+</span> col<span style="color: rgb(64, 0, 167);">.to_s</span> <span style="color: rgb(255, 159, 236);">+</span> v)<br>            <b>end</b><br>        <b>end</b><br>    <b>end</b><br>    <i><span style="color: rgb(137, 136, 135);">#tek olanları gruplardan ayıkla</span></i><br>    <b>for</b> row <b>in</b> <span style="color: rgb(176, 128, 0);">1</span><span style="color: rgb(255, 159, 236);">..</span><span style="color: rgb(176, 128, 0);">9</span><br>        <b>for</b> col <b>in</b> <span style="color: rgb(176, 128, 0);">1</span><span style="color: rgb(255, 159, 236);">..</span><span style="color: rgb(176, 128, 0);">9</span><br>            <b>if</b> mat<span style="color: rgb(255, 159, 236);">[</span>(row<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">*</span><span style="color: rgb(176, 128, 0);">9</span><span style="color: rgb(255, 159, 236);">+</span>(col<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">]</span><span style="color: rgb(64, 0, 167);">.length</span> !<span style="color: rgb(255, 159, 236);">=</span> <span style="color: rgb(176, 128, 0);">1</span>       <i><span style="color: rgb(137, 136, 135);">#eğer hücrede 1 den fazla sayı varsa</span></i><br>                <span style="color: rgb(191, 3, 3);">"123456789"</span><span style="color: rgb(64, 0, 167);">.each_char</span> <b>do</b> <span style="color: rgb(255, 159, 236);">|</span>x<span style="color: rgb(255, 159, 236);">|</span>          	<i><span style="color: rgb(137, 136, 135);"># olası tüm sayılar için </span></i><br>					<i><span style="color: rgb(137, 136, 135);"># eğer satırda o sayıdan varsa</span></i><br>                    <b>if</b> singles<span style="color: rgb(64, 0, 167);">.detect</span> <span style="color: rgb(255, 159, 236);">{|</span>v<span style="color: rgb(255, 159, 236);">|</span> v <span style="color: rgb(255, 159, 236);">=~</span> (<span style="color: rgb(0, 87, 174);">Regexp</span><span style="color: rgb(64, 0, 167);">.new</span>(row<span style="color: rgb(64, 0, 167);">.to_s</span> <span style="color: rgb(255, 159, 236);">+</span> <span style="color: rgb(191, 3, 3);">"[1-9]"</span> <span style="color: rgb(255, 159, 236);">+</span> x))<span style="color: rgb(255, 159, 236);">}</span> <br>                        mat<span style="color: rgb(255, 159, 236);">[</span>(row<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">*</span><span style="color: rgb(176, 128, 0);">9</span><span style="color: rgb(255, 159, 236);">+</span>(col<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">]</span><span style="color: rgb(64, 0, 167);">.delete!</span> x        <i><span style="color: rgb(137, 136, 135);"># o sayıyı sil</span></i><br>                    <i><span style="color: rgb(137, 136, 135);"># tersi durumda da eğer yoksa o sayıyı ekle</span></i><br>                    <b>else</b><span style="color: rgb(255, 159, 236);"></span><span style="color: rgb(255, 159, 236);"></span><span style="color: rgb(176, 128, 0);"></span><span style="color: rgb(255, 159, 236);"></span><span style="color: rgb(176, 128, 0);"></span><span style="color: rgb(255, 159, 236);"></span><span style="color: rgb(176, 128, 0);"></span><span style="color: rgb(255, 159, 236);"></span><span style="color: rgb(64, 0, 167);"></span>	<br>                        mat<span style="color: rgb(255, 159, 236);">[</span>(row<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">*</span><span style="color: rgb(176, 128, 0);">9</span><span style="color: rgb(255, 159, 236);">+</span>(col<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">]</span> <span style="color: rgb(255, 159, 236);">+=</span> x	<br>                    <b>end</b><br>                <b>end</b><br>            <b>end</b><br>        <b>end</b><br>    <b>end</b><br><b>end</b><br><br>get <span style="color: rgb(191, 3, 3);">"/"</span> <b>do</b><br>    haml <span style="color: rgb(212, 0, 0);">:index</span>, <span style="color: rgb(212, 0, 0);">:locals=</span><span style="color: rgb(255, 159, 236);">&gt;{</span><span style="color: rgb(212, 0, 0);">:mat</span> <span style="color: rgb(255, 159, 236);">=&gt;</span> mat<span style="color: rgb(255, 159, 236);">}</span><br><b>end</b><br><br>get <span style="color: rgb(191, 3, 3);">"/set/:x/:xx"</span> <b>do</b><br>    x <span style="color: rgb(255, 159, 236);">=</span> params<span style="color: rgb(255, 159, 236);">[</span><span style="color: rgb(212, 0, 0);">:x</span><span style="color: rgb(255, 159, 236);">]</span><span style="color: rgb(64, 0, 167);">.to_i</span><br>    xx <span style="color: rgb(255, 159, 236);">=</span> params<span style="color: rgb(255, 159, 236);">[</span><span style="color: rgb(212, 0, 0);">:xx</span><span style="color: rgb(255, 159, 236);">]</span><br>    mat<span style="color: rgb(255, 159, 236);">[</span>x<span style="color: rgb(176, 128, 0);">-1</span><span style="color: rgb(255, 159, 236);">]</span><span style="color: rgb(255, 159, 236);">=</span>xx<br>    check mat<br>    redirect(<span style="color: rgb(191, 3, 3);">"/"</span>)<br><b>end</b><br>  <br>get <span style="color: rgb(191, 3, 3);">"/reset/:x"</span> <b>do</b><br>    x <span style="color: rgb(255, 159, 236);">=</span> params<span style="color: rgb(255, 159, 236);">[</span><span style="color: rgb(212, 0, 0);">:x</span><span style="color: rgb(255, 159, 236);">]</span><span style="color: rgb(64, 0, 167);">.to_i</span><br>    mat<span style="color: rgb(255, 159, 236);">[</span>x<span style="color: rgb(176, 128, 0);">-1</span><span style="color: rgb(255, 159, 236);">]</span><span style="color: rgb(255, 159, 236);">=</span><span style="color: rgb(191, 3, 3);">"123456789"</span><br>    check mat<br>    redirect <span style="color: rgb(191, 3, 3);">"/"</span><br><b>end</b>
+    </pre>
 
-<br>
+    <br>
 
-<img style="width: 1024px; height: 600px;" alt="susohe_6.png" src="susohe_6.png"><br>
+    İlk önce tek değer olan hücrelerden bir liste üretiyoruz. Bu listede
+    satır numarası sonra sütun numarası en son da değerin olduğu
+    stringlerden oluşan bir array daha üretiyoruz. Mesela 5. sıranın 3.
+    hücresinde sadece 4 değeri varsa bu "singles" listesinde "534" olarak
+    yer alacaktır. Daha sonra içinde birden fazla değer olan her hücrede
+    olası tüm değerler için aynı satırda singles listesinden değer varsa
+    siliyoruz. Eğer yoksa söz konusu sayı acaba hücrede varmı. Yoksa
+    hücredeki olası sayılara ekliyoruz. Buradaki "singles.detect {|v| v =~
+    (Regexp.new(row.to_s + "[1-9]" + x))}" komut satırı ile o satırdaki
+    tekleri avlıyoruz. <br>
 
-<br>
-<!-- disqus deneme -->
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'ujkgithub'; // required: replace example with your forum shortname
+    <img style="width: 547px; height: 193px;" alt="susohe_5.png" src="susohe_5.png"><br>
 
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    <br>
 
+    Aynı teknikle sütundakileri de ayıklayabiliriz. Karşılaştırma komutunu :<br>
+
+    <pre style="color: rgb(24, 22, 21); background-color: rgb(255, 255, 255);">    <b>if</b> singles<span style="color: rgb(64, 0, 167);">.detect</span> <span style="color: rgb(255, 159, 236);">{|</span>v<span style="color: rgb(255, 159, 236);">|</span> v <span style="color: rgb(255, 159, 236);">=~</span> (<span style="color: rgb(0, 87, 174);">Regexp</span><span style="color: rgb(64, 0, 167);">.new</span>(row<span style="color: rgb(64, 0, 167);">.to_s</span> <span style="color: rgb(255, 159, 236);">+</span> <span style="color: rgb(191, 3, 3);">"[1-9]"</span> <span style="color: rgb(255, 159, 236);">+</span> x)) <b>or</b><br>            v <span style="color: rgb(255, 159, 236);">=~</span> <span style="color: rgb(0, 87, 174);">Regexp</span><span style="color: rgb(64, 0, 167);">.new</span>(<span style="color: rgb(191, 3, 3);">"[1-9]"</span> <span style="color: rgb(255, 159, 236);">+</span> col<span style="color: rgb(64, 0, 167);">.to_s</span> <span style="color: rgb(255, 159, 236);">+</span> x)<span style="color: rgb(255, 159, 236);">}</span> <br>  <br></pre>
+
+    yaptığımız anda sütunlar da artık kontrolün içine girdiler. Tek bir
+    kontrolümüz daha kaldı 3x3 gruplar. Bunlar için ilk önce o anda
+    baktığımız hücrenin hangi 3x3 grupta olduğunu buluyoruz.&nbsp; <br>
+
+    <pre style="color: rgb(24, 22, 21); background-color: rgb(255, 255, 255);"><span style="color: rgb(0, 0, 128);"></span>    <b>for</b> row <b>in</b> <span style="color: rgb(176, 128, 0);">1</span><span style="color: rgb(255, 159, 236);">..</span><span style="color: rgb(176, 128, 0);">9</span><br>        <b>for</b> col <b>in</b> <span style="color: rgb(176, 128, 0);">1</span><span style="color: rgb(255, 159, 236);">..</span><span style="color: rgb(176, 128, 0);">9</span><br>            <b>if</b> mat<span style="color: rgb(255, 159, 236);">[</span>(row<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">*</span><span style="color: rgb(176, 128, 0);">9</span><span style="color: rgb(255, 159, 236);">+</span>(col<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">]</span><span style="color: rgb(64, 0, 167);">.length</span> !<span style="color: rgb(255, 159, 236);">=</span> <span style="color: rgb(176, 128, 0);">1</span>       <i><span style="color: rgb(137, 136, 135);">#eğer hücrede 1 den fazla sayı varsa</span></i><br>                <span style="color: rgb(191, 3, 3);">"123456789"</span><span style="color: rgb(64, 0, 167);">.each_char</span> <b>do</b> <span style="color: rgb(255, 159, 236);">|</span>x<span style="color: rgb(255, 159, 236);">|</span>          	<i><span style="color: rgb(137, 136, 135);"># olası tüm sayılar için </span></i><br>                    boxes <span style="color: rgb(255, 159, 236);">=</span> <span style="color: rgb(255, 159, 236);">[</span><span style="color: rgb(191, 3, 3);">"123"</span>,<span style="color: rgb(191, 3, 3);">"456"</span>,<span style="color: rgb(191, 3, 3);">"789"</span><span style="color: rgb(255, 159, 236);">]</span><br>                    row_box <span style="color: rgb(255, 159, 236);">=</span> boxes<span style="color: rgb(64, 0, 167);">.detect</span> <span style="color: rgb(255, 159, 236);">{|</span>v<span style="color: rgb(255, 159, 236);">|</span> v<span style="color: rgb(64, 0, 167);">.include?</span>(row<span style="color: rgb(64, 0, 167);">.to_s</span>)<span style="color: rgb(255, 159, 236);">}</span><br>                    col_box <span style="color: rgb(255, 159, 236);">=</span> boxes<span style="color: rgb(64, 0, 167);">.detect</span> <span style="color: rgb(255, 159, 236);">{|</span>v<span style="color: rgb(255, 159, 236);">|</span> v<span style="color: rgb(64, 0, 167);">.include?</span>(col<span style="color: rgb(64, 0, 167);">.to_s</span>)<span style="color: rgb(255, 159, 236);">}</span><br>					<i><span style="color: rgb(137, 136, 135);"># eğer satırda, sütunda o sayıdan varsa</span></i><br>                    <b>if</b> singles<span style="color: rgb(64, 0, 167);">.detect</span> <span style="color: rgb(255, 159, 236);">{|</span>v<span style="color: rgb(255, 159, 236);">|</span> v <span style="color: rgb(255, 159, 236);">=~</span> (<span style="color: rgb(0, 87, 174);">Regexp</span><span style="color: rgb(64, 0, 167);">.new</span>(row<span style="color: rgb(64, 0, 167);">.to_s</span> <span style="color: rgb(255, 159, 236);">+</span> <span style="color: rgb(191, 3, 3);">"[1-9]"</span> <span style="color: rgb(255, 159, 236);">+</span> x)) <b>or</b><br>				v <span style="color: rgb(255, 159, 236);">=~</span> <span style="color: rgb(0, 87, 174);">Regexp</span><span style="color: rgb(64, 0, 167);">.new</span>(<span style="color: rgb(191, 3, 3);">"[1-9]"</span> <span style="color: rgb(255, 159, 236);">+</span> col<span style="color: rgb(64, 0, 167);">.to_s</span> <span style="color: rgb(255, 159, 236);">+</span> x) <b>or</b><br>				v <span style="color: rgb(255, 159, 236);">=~</span> (<span style="color: rgb(0, 87, 174);">Regexp</span><span style="color: rgb(64, 0, 167);">.new</span>(<span style="color: rgb(191, 3, 3);">"["</span> <span style="color: rgb(255, 159, 236);">+</span> row_box <span style="color: rgb(255, 159, 236);">+</span> <span style="color: rgb(191, 3, 3);">"]"</span> <span style="color: rgb(255, 159, 236);">+</span> <span style="color: rgb(191, 3, 3);">"["</span> <span style="color: rgb(255, 159, 236);">+</span> col_box <span style="color: rgb(255, 159, 236);">+</span> <span style="color: rgb(191, 3, 3);">"]"</span> <span style="color: rgb(255, 159, 236);">+</span> x))<span style="color: rgb(255, 159, 236);">}</span> <br>                        mat<span style="color: rgb(255, 159, 236);">[</span>(row<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">*</span><span style="color: rgb(176, 128, 0);">9</span><span style="color: rgb(255, 159, 236);">+</span>(col<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">]</span><span style="color: rgb(64, 0, 167);">.delete!</span> x        <i><span style="color: rgb(137, 136, 135);"># o sayıyı sil</span></i><br>                    <i><span style="color: rgb(137, 136, 135);"># tersi durumda da eğer yoksa o sayıyı ekle</span></i><br>                    <b>else</b>	<br>                        mat<span style="color: rgb(255, 159, 236);">[</span>(row<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">*</span><span style="color: rgb(176, 128, 0);">9</span><span style="color: rgb(255, 159, 236);">+</span>(col<span style="color: rgb(176, 128, 0);">-1</span>)<span style="color: rgb(255, 159, 236);">]</span> <span style="color: rgb(255, 159, 236);">+=</span> x	<br>                    <b>end</b><br></pre>
+
+    <br>
+
+    Sonra da meşhur "if" satırına 3x3 grup içindeki karşılaştırmayı da
+    koyuyoruz. Bu arada "detect" komutunu da bayağı bi kullandık yani. <br>
+
+    İşte bu kadar bundan sonra sudoku çözerken kendi yaptığınız bir
+    yardımcınız var. Zevkle kullanın, daha da geliştirin, bana da haber
+    verin.<br>
+
+    <br>
+
+    <img style="width: 1024px; height: 600px;" alt="susohe_6.png" src="susohe_6.png"><br>
+
+    <br>
+    <!-- disqus deneme -->
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'ujkgithub'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
 
 </body></html>

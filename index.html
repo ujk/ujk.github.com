@@ -1,76 +1,120 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html><head>
-  
-  <meta content="text/html; charset=UTF-8" http-equiv="content-type">
-  <title>Ümit Kayacık</title>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <title>Ümit Kayacık</title>
+    <style type="text/css">
+      td {
+        border: 2px solid #cccccc;
+        padding: 5px;
+      }
 
-  
-  
-  <style type="text/css">
-td {
-  border: 2px solid #cccccc;
-  padding: 5px;
-}
+    </style>
+    <link rel="stylesheet" 
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">
+        </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js">
+        </script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans">
+    <style>
+        div .scroll{
+            height:300px;
+            width: 100%;
+            overflow:scroll;
+            scrollbar-color: dark;
+        }
 
-  </style>
-</head><body style="padding: 10px; background-color: rgb(255, 255, 221);">
-<table style="width: 100%;">
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
 
-  <tbody>
-    <tr style="width: 100%;">
-      <td>
-      <h1 style="border: medium solid ; background-color: rgb(170, 0, 0); color: yellow; text-align: center; padding-top: 5px; padding-bottom: 5px;">BOŞ
-GEZENİN BOŞ KALFASI </h1>
-      </td>
-    </tr>
-    <tr>
-    </tr>
-  </tbody>
-</table>
+        ::-webkit-scrollbar-track {
+            background: white;
+        }
 
-<table style="width: 100%;">
+        ::-webkit-scrollbar-thumb {
+            background: gray;
+            border-radius: 10px;
+        }
 
-  <tbody>
-    <tr style="padding: 5px;">
-      <td style="width: 50%;">
-      <h2>Türkçe Sayfalarım</h2>
-      <p><a href="./susohe_tr.html">Sudoku Çözüm Yardımcısı </a></p>
-      <p><a href="camping_tutorial.html">Camping Tutorial</a></p>
-      </td>
-      <td>
-      <h2>My English Pages</h2>
-      <p><a href="./jquery.html">jQuery Trainings</a></p>
-      <p><a href="susohe_en.html">Sudoku Solving Helper</a><br>
-      </p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+        .cborder {
+            border: 1px solid black;
+            padding: 5px;
+        }
 
-<br>
+        .cpadding {
+            padding: 15px;
+        }
 
-<a href="http://tuxweet.linux.org.tr/umitka" target="_blank">Tuxweet</a> - <a href="https://twitter.com/#%21/umitka" target="_blank">Twitter</a> - <a href="http://rstat.us/users/umitka" target="_blank">Rstat.us</a> - <a href="https://github.com/ujk" target="_blank">Github</a> - <a href="http://identi.ca/umitka" target="_blank">Identi.ca</a> - <a href="mailto:ujk7107@gmail.com">ujk7107@gmail.com</a>  <br>
+        body {
+            font-size: large;
+        }
+
+        img.full {
+            width: 100%;
+        }
+
+        /* Revert CSS style of target element and its children */                       
+        .reset-style * {
+            all: revert ;
+        }
+
+        #top-jumbo {
+          background-color: rgb(170, 0, 0);
+          color: yellow;
+          border: medium solid;
+        }
+    </style>
+</head>
+
+<body style="padding: 10px; background-color: rgb(255, 255, 221);">
+  <div class="container">
+    <div class="jumbotron" id="top-jumbo">
+      <h1>BOŞ GEZENİN BOŞ KALFASI</h1>
+      <h2>Tek Milleti Tek Dil, Tek Devlet, Tek Bayrak</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Türkçe Sayfalarım</h2>
+        <p><a href="susohe_tr.html">Sudoku Çözüm Yardımcısı </a></p>
+        <p><a href="camping_tutorial.html">Camping Tutorial</a></p>
+      </div>
+      <div class="col-md-6">
+        <h2>My English Pages</h2>
+        <p><a href="./jquery.html">jQuery Trainings</a></p>
+        <p><a href="susohe_en.html">Sudoku Solving Helper</a><br>
+      </div>
+    </div>
+
+    <hr><a href="http://tuxweet.linux.org.tr/umitka" target="_blank">Tuxweet</a> - 
+    <a href="https://twitter.com/#%21/umitka" target="_blank">Twitter</a> - 
+    <a href="http://rstat.us/users/umitka" target="_blank">Rstat.us</a> - 
+    <a href="https://github.com/ujk" target="_blank">Github</a> - 
+    <a href="http://identi.ca/umitka" target="_blank">Identi.ca</a> - 
+    <a href="mailto:ujk7107@gmail.com">ujk7107@gmail.com</a>  <br>
+
+    <br><br><br>
+
+    <!-- disqus deneme -->
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'ujkgithub'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div><!-- CONTAINER -->
 
 
-<br>
-
-<br>
-
-<!-- disqus deneme -->
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'ujkgithub'; // required: replace example with your forum shortname
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
 </body></html>
