@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7">
+    <title>Web Geliştirme 4</title>
+    <link rel="stylesheet" 
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">
+        </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js">
+        </script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans">
+    <style>
+        div .scroll{
+            height:300px;
+            width: 100%;
+            overflow:scroll;
+            scrollbar-color: dark;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: white;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: gray;
+            border-radius: 10px;
+        }
+
+        .cborder {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        .cpadding {
+            padding: 15px;
+        }
+
+        body {
+            font-size: large;
+        }
+
+        img.full {
+            width: 100%;
+        }
+
+        /* Revert CSS style of target element and its children */                       
+        .reset-style * {
+            all: revert ;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+    </nav>
+
+    <div class="container" style="padding-top: 70px;;">
+        
+        <div class="row">
+            <div class="col-md-2 hidden-xs">
+                <div style="position:fixed; left: 50px; top: 70px;" id="left-menu">
+                    <br>
+                </div>
+            </div>
+            <div class="col-md-8"> 
+                <ul class="breadcrumb small" >
+                    <li><a href="../index.html">Ana Sayfa</a></li>
+                    <li><a href="index.html">Web Geliştirici Olun</a></li>
+                    <li class="active"><span>Bölüm-6 | JQuery</span></li>
+                </ul>
+                
+                <h1 id="attributes">Bölüm 6 <small>JQuery</small></h1>
+
+                <h2 id="jq" style="padding-top: 70px;">JQuery JavaScript Kütüphanesi</h2>
+                <p>
+                    
+                </p>
+
+                <p>.</p><p>.</p>
+                <br><a href="bolum5.html" class="btn btn-warning pull-left">< 5. Bölüm </a>
+                <a href="bolum5.html" class="btn btn-success pull-right">5. Bölüm ></a>
+            </div>
+            <div class="col-md-2 hidden-xs">.</div>
+        </div>
+    </div>
+
+<script>
+$(document).ready(function(){
+    $.get("menu.html", function(data){
+        $("#left-menu").append(data);
+    });
+});
+</script>
+    
+
+
+</body>

@@ -700,6 +700,7 @@
                     Aritmetik operatörler sayısal değerleri kullanıp sayısal sonuçlar elde eden operatörleridr. 
                     Aşağıdaki tabloda aritmetik operatörler ve anlamları veriliyor.
                 </p>
+                <style>.kbdr { margin-right: 15px; float: right;}</style>
                 <table class="table table-bordered table-condensed">
                     <thead>
                         <tr class="info">
@@ -708,26 +709,26 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Toplama <kbd><b>+</b></kbd></td><td>İki değeri toplar</td><td>2 <b>+</b> 2;</td>
+                            <td>Toplama <kbd class="kbdr"><b>+</b></kbd></td><td>İki değeri toplar</td><td>2 <b>+</b> 2;</td>
                         </tr>
                         <tr class="active">
-                            <td>Çıkarma <kbd><b>-</b></kbd></td><td>İkinci değeri ilkinden çıkarır</td><td>4 <b>-</b> 2;</td>
+                            <td>Çıkarma <kbd class="kbdr"><b>-</b></kbd></td><td>İkinci değeri ilkinden çıkarır</td><td>4 <b>-</b> 2;</td>
                         </tr>
                         <tr>
-                            <td>Çarpma <kbd><b>*</b></kbd></td><td>İki değeri çarpar</td><td>7 <b>*</b> 3;</td>
+                            <td>Çarpma <kbd class="kbdr"><b>*</b></kbd></td><td>İki değeri çarpar</td><td>7 <b>*</b> 3;</td>
                         </tr>
                         <tr class="active">
-                            <td>Bölme <kbd><b>/</b></kbd></td><td>Birinci değeri ikinciye böler</td><td>8 <b>/</b> 4;</td>
+                            <td>Bölme <kbd class="kbdr"><b>/</b></kbd></td><td>Birinci değeri ikinciye böler</td><td>8 <b>/</b> 4;</td>
                         </tr>
                         <tr>
-                            <td>Modül <kbd><b>%</b></kbd></td><td>Bölme işleminden kalanı bulur</td><td>5 <b>%</b> 2;</td>
+                            <td>Modül <kbd class="kbdr"><b>%</b></kbd></td><td>Bölme işleminden kalanı bulur</td><td>5 <b>%</b> 2;</td>
                         </tr>
                         <tr class="active">
-                            <td>Arttırma <kbd><b>++</b></kbd></td><td>Değeri +1 arttırır</td>
+                            <td>Arttırma <kbd class="kbdr"><b>++</b></kbd></td><td>Değeri +1 arttırır</td>
                             <td>var x = 7; x<b>++</b>;</td>
                         </tr>
                         <tr>
-                            <td>Azaltma <kbd><b>--</b></kbd></td><td>Değeri 1 eksiltir</td>
+                            <td>Azaltma <kbd class="kbdr"><b>--</b></kbd></td><td>Değeri 1 eksiltir</td>
                             <td>var y = 5; y<b>--</b>;</td>
                         </tr>
                     </tbody>
@@ -735,18 +736,356 @@
 
                 <br><br><h2>Atama Operatörleri</h2>
                 <p>
-                    
+                    Atama operatörleri değişkenlere değer atamak için kullanılır. Aşağıdaki tabloda 
+                    operatörle verilmiş.
+                </p>
+                <table class="table table-bordered table-condensed">
+                    <thead>
+                        <tr class="info">
+                            <th>Operatör</th><th>Ne yapar?</th><th>Örnek</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Atama <kbd class="kbdr"><b>=</b></kbd></td><td>Değişkene bir değer verir</td>
+                            <td>var x <b>=</b> 27;</td>
+                        </tr>
+                        <tr class="active">
+                            <td> <kbd class="kbdr"><b>+=</b></kbd></td><td>Bir değişkeni diğerine ekler</td>
+                            <td>x <b>+=</b> y; //( x = x + y)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br><p>
+                    İkinci satırdaki kısaltma amacıyla çok lazım olduğu için aşağı yukarı tüm programlama 
+                    dillerinde vardır. Mesela bir değere <b>3</b> eklemek için <code>a = a + 3;</code> 
+                    yazacağımıza <code>a += 3;</code> yazarız. 
+                </p>
+                <p>
+                    Yeri gelmişken , yeni başlayanlar için <code>a = a + 3;</code> yazımı da değişik 
+                    gelebilir. Bir değer nasıl 3 fazlasına eşit oluyor? diye düşünmeyin. <code>=</code> 
+                    işareti JavaScript dilinde bir atama operatörü ve kendisinin sağında verilen işlemlerin 
+                    sonucunu hesaplayıp solundaki değişkene yazar. Yani <b>a</b> değeri bu satıra gelindiğinde 
+                    <b>2</b> ise , önce <b>2 + 3</b> işlemi sonucu 5 değeri bulunur, sonra bu değer 
+                    <code>=</code> işareti solundaki <b>a</b> değişkenine konur. Böylece <b>a</b> değeri 
+                    <b>5</b> olur.
+                </p>
+                <p>
+                    Dört işlemin hepsinde buna benzer kısaltma yapılabilir.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div>&nbsp; &nbsp; <span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">a</span> <span style="color: #c792ea;">=</span> <span style="color: #f78c6c;">2</span>;</div><div>&nbsp; &nbsp; <span style="color: #bfc7d5;">a</span> <span style="color: #c792ea;">+=</span> <span style="color: #f78c6c;">3</span>; &nbsp; &nbsp;<span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> a : 5</span></div><div>&nbsp; &nbsp; <span style="color: #bfc7d5;">a</span> <span style="color: #c792ea;">-=</span> <span style="color: #f78c6c;">2</span>; &nbsp; &nbsp;<span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> a : 3</span></div><div>&nbsp; &nbsp; <span style="color: #bfc7d5;">a</span> <span style="color: #c792ea;">*=</span> <span style="color: #f78c6c;">4</span>; &nbsp; &nbsp;<span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> a : 12</span></div><div>&nbsp; &nbsp; <span style="color: #bfc7d5;">a</span> <span style="color: #c792ea;">/=</span> <span style="color: #f78c6c;">3</span>; &nbsp; &nbsp;<span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> a : 4</span></div></div></div>
+
+                <br><br><h2>Operatör Öncelikleri</h2>
+                <p>
+                    Şimdi orta okul yıllarına geri dönelim. Matematik ifadeleri yazarken işlemlerin birbirine 
+                    göre öncelikleri vardı. Örneğin <code>3 + 5 * 2</code> yazıyorsa önce <b>5</b> ve 
+                    <b>2</b>'yi çarpıp elde ettiğimiz sonucu <b>3</b>'e ekliyor ve <b>13</b> değerine 
+                    ulaşıyorduk. Çünkü bir matematik ifadede önce çarpma ve bölme işlemleri yapılır sonra
+                    toplama ve çıkarma işlemleri yapılır. Öncce toplama işlemi yapılmasını istiyorsak onu 
+                    <code>(3 + 5) * 2</code> gibi parantez içine alıyorduk.
+                </p>
+                <p>
+                    Aynı şekilde JavaScript dilinde de operaötrlerin öncelikleri vardır. Aşağıdaki satırları 
+                    konsolda tek tek deneyiniz.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div>&nbsp; &nbsp; <span style="color: #f78c6c;">150</span> <span style="color: #89ddff;">+</span> <span style="color: #f78c6c;">70</span> <span style="color: #89ddff;">*</span> <span style="color: #f78c6c;">4</span>; &nbsp; &nbsp; &nbsp; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> 430</span></div><div>&nbsp; &nbsp; <span style="color: #f78c6c;">12</span> <span style="color: #89ddff;">-</span> <span style="color: #f78c6c;">36</span> <span style="color: #89ddff;">/</span> <span style="color: #f78c6c;">12</span> <span style="color: #89ddff;">+</span> <span style="color: #f78c6c;">2</span> &nbsp; &nbsp;<span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> 11</span></div></div></div>
+                <br><p>
+                    İşlemleri soldan sağa sırayla yapmış olsaydı çok daha farklı sonuçlar çıkması gerekirdi. 
+                    Operatör öncelik sırası işimize gelmiyor ve değiştirmek istiyorsak öncelikli olmasını 
+                    istediğimiz işlemleri parantez içinde ifade ederek önceliğini sağlarız.
+                    <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_precedence">
+                        Mozilla Yardım Sayfasında
+                    </a> JavaScript dilinde kullanılan tüm operatörler ve bunların öncelik sıralarını 
+                    görebilirsiniz.
                 </p>
 
-                <p>.</p><p>.</p>
+                <br><br><h2>String Operatörleri</h2>
+                <p>
+                    String değerleri bir araya getirmek için <code>+</code> ve <code>+=</code> 
+                    operatörleri sayısal değerlerde olduğu gibi kullanılırlar. <code>+</code> operatörü 
+                    string değerlerde kullanıldığında <b>concatenation</b> (birleştirme) anlamı taşır. 
+                    Tarayıcımız Geliştirici Araçları Penceresi konsolunda bir kaç deneme yapalım.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div>&nbsp; &nbsp; <span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">bir</span> <span style="color: #c792ea;">=</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Babam saat 8'de</span><span style="color: #d9f5dd;">"</span>;</div><div>&nbsp; &nbsp; <span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">iki</span> <span style="color: #c792ea;">=</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">eve geldi</span><span style="color: #d9f5dd;">"</span>;</div><div>&nbsp; &nbsp; <span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">üç</span> <span style="color: #c792ea;">=</span> <span style="color: #bfc7d5;">bir</span> <span style="color: #89ddff;">+</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;"> </span><span style="color: #d9f5dd;">"</span> <span style="color: #89ddff;">+</span> <span style="color: #bfc7d5;">iki</span>;</div><div>&nbsp; &nbsp; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> "Babam saat 8'de eve geldi"</span></div></div></div></div>
+                <br><p>
+                    Değişkenler <b>bir</b> ve <b>iki</b> içindeki değerler <code>+</code> operatörü ile 
+                    birleştiriliyor. İki string değer birbirine yan yana geldiğinde aralarında boşluk 
+                    olmazsa kelimeler yapışacaktı, bu yüzden tek karakter boşluk olan (<b>" "</b>) string 
+                    değeri araya konuyor. İkinci örneğimiz de <code>+=</code> operatörü.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div>&nbsp; &nbsp; <span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">a</span> <span style="color: #c792ea;">=</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Merhaba </span><span style="color: #d9f5dd;">"</span>;</div><div>&nbsp; &nbsp; <span style="color: #bfc7d5;">a</span> <span style="color: #c792ea;">+=</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Ümit</span><span style="color: #d9f5dd;">"</span>;</div></div></div></div></div>
+                <br><p>
+                    Sonuçta <b>a</b> değişkeni içinde <i>"Merhaba Ümit"</i> değeri olacaktır. JavaScript 
+                    programlama dilinde string ve sayı değer birleştirmelerinde ilginizi çekecek şeyler 
+                    olur.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div>&nbsp;<span style="color: #f78c6c;">3</span> &nbsp;<span style="color: #89ddff;">-</span> <span style="color: #f78c6c;">1</span> &nbsp;<span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> -&gt; 2</span></div><div>&nbsp;<span style="color: #f78c6c;">3</span> &nbsp;<span style="color: #89ddff;">+</span> <span style="color: #f78c6c;">1</span> &nbsp;<span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> -&gt; 4</span></div><div><span style="color: #d9f5dd;">'</span><span style="color: #c3e88d;">3</span><span style="color: #d9f5dd;">'</span> <span style="color: #89ddff;">-</span> <span style="color: #f78c6c;">1</span> &nbsp;<span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> -&gt; 2</span></div><div><span style="color: #d9f5dd;">'</span><span style="color: #c3e88d;">3</span><span style="color: #d9f5dd;">'</span> <span style="color: #89ddff;">+</span> <span style="color: #f78c6c;">1</span> &nbsp;<span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> -&gt; '31'</span></div></div></div></div></div></div>
+                <br><p>
+                    Operatör <kbd>-</kbd> aritmetik br operatördür ve eğer içinde sayısal değer olan bir 
+                    <b>string</b> ile birlikte kullanılırsa , o string içindeki sayısal değere dönüştürülüp 
+                    işlem yapılıyor. Bu yüzden <code>"3" - 1 = 2</code> hesaplanıyor. Operatör <kbd>+</kbd>
+                    ise string değerlerle birlikte kullanılınca <b>birleştirme</b> işlemi yapıyor ve 
+                    sayısal olan değer de otomatik olarak string'e dönüştürülerek <code>"3" + 1 = "31"</code>
+                    oluyor. İlginç bir örnek daha:
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #d9f5dd;">'</span><span style="color: #c3e88d;">222</span><span style="color: #d9f5dd;">'</span> <span style="color: #89ddff;">-</span> <span style="color: #89ddff;">-</span><span style="color: #d9f5dd;">'</span><span style="color: #c3e88d;">111</span><span style="color: #d9f5dd;">'</span> <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> -&gt; 333</span></div></div></div></div></div></div>
+                <br><p>
+                    <code>-'111'</code> aslında <code>0 - '111'</code> olduğu için <code>-111</code> sayısal 
+                    değeri hesaplanıyor ve <code>'222' - -111</code> bize <code>+333</code> sayısını veriyor.
+                    Toplama işareti için şu kuralları unutmayınız:
+                </p>
+                <ol>
+                    <li>Sayı  + Sayı  => toplama</li>
+                    <li>Boolean + Sayı  => toplama (true = 1, false = 0 olur)</li>
+                    <li>Boolean + Boolean => toplama</li>
+                    <li>Sayı  + String  => concatenation</li>
+                    <li>String  + Boolean => concatenation</li>
+                    <li>String  + String  => concatenation</li>
+                </ol>
+
+                <br><br><h2>Karşılaştırma Operatörleri</h2>
+                <p>
+                    JavaScript karşılaştırma operatörleri değerleri karşılaştırır ve <b>boolean</b> bir 
+                    değer üretir. Boolean değer <code>true</code> ya da <code>false</code> değer 
+                    olabilir (doğru | yanlış). Karşılaştırma sonucu doğru ise <b>true</b>, yanlış ise 
+                    <b>false</b> değeri dönülür. Aşağıda karşılaştırma operatörleri ve anlamlarını gösteren 
+                    bir tablo görülüyor. 
+                </p>
+                <table class="table table-bordered table-condensed">
+                    <thead>
+                        <tr class="info">
+                            <th>Operatör</th><th>Ne yapar?</th><th>Örnek</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Eşitlik <kbd class="kbdr"><b>==</b></kbd></td>
+                            <td>Değerler birbirine eşit mi?</td>
+                            <td>2 <b>==</b> 2; //true</td>
+                        </tr>
+                        <tr class="active">
+                            <td>Tam eşitlik <kbd class="kbdr"><b>===</b></kbd></td>
+                            <td>Değerlerin eşitliğini veri tipi dahil test eder</td>
+                            <td>"2" <b>===</b> 2; //false ama<br>  "2" <b>==</b> 2; //true verir</td>
+                        </tr>
+                        <tr>
+                            <td>Eşit değil <kbd class="kbdr"><b>!=</b></kbd></td>
+                            <td>Değerler birbirine eşit değil mi?</td>
+                            <td>7 <b>!=</b> 2; //true</td>
+                        </tr>
+                        <tr class="active">
+                            <td>Kesin eşit değil <kbd class="kbdr"><b>!==</b></kbd></td>
+                            <td>Değerler tip dahil birbirine eşit değil mi?</td>
+                            <td>"2" <b>!==</b> 2; //true</td>
+                        </tr>
+                        <tr>
+                            <td>Büyüktür <kbd class="kbdr"><b>></b></kbd></td>
+                            <td>İlk değer ikinciden büyük mü?</td>
+                            <td>7 <b>></b> 2; //true</td>
+                        </tr>
+                        <tr class="active">
+                            <td>Küçüktür <kbd class="kbdr"><b><</b></kbd></td>
+                            <td>İlk değer ikinciden küçük mü?</td>
+                            <td>7 <b><</b> 2; //false</td>
+                        </tr>
+                        <tr>
+                            <td>Büyük ya da eşit <kbd class="kbdr"><b>>=</b></kbd></td>
+                            <td>İlk değer ikinciden büyük ya da eşit mi?</td>
+                            <td>5 <b>>=</b> 5; //true <br>5 <b>>=</b> 4; //true <br>5 <b>>=</b> 6; //false </td>
+                        </tr>
+                        <tr class="active">
+                            <td>Küçük ya da eşit <kbd class="kbdr"><b><=</b></kbd></td>
+                            <td>İlk değer ikinciden küçük ya da eşit mi?</td>
+                            <td>5 <b><=</b> 5; //true <br>5 <b><=</b> 6; //true <br>5 <b><=</b> 4; //false </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <br><br><h2>Mantık Operatörleri</h2>
+                <p>
+                    Mantık operatörleri birden fazla karşılaştırmanın sonucunu bir araya getirmek amacıyla 
+                    kullanılır. Örneğin <b>x</b> değerinin <b>5</b>'ten büyük ve <b>10</b>'dan küçük 
+                    olmasını test edeceksek, 2 karşılaştırma sonucunu birleştirmek gerekir. Bu amaçla 
+                    kullanılan operatörler şunlar:
+                </p>
+                <table class="table table-bordered table-condensed">
+                    <thead>
+                        <tr class="info">
+                            <th>Operatör</th><th>Ne yapar?</th><th>Örnek</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ve <kbd class="kbdr"><b>&&</b></kbd></td>
+                            <td>Tüm karşılaştırmalar doğru mu?</td>
+                            <td>x > 5 <b>&&</b> x < 10;</td>
+                        </tr>
+                        <tr class="active">
+                            <td>Veya <kbd class="kbdr"><b>||</b></kbd></td>
+                            <td>En az bir karşılaştırma doğru mu</td>
+                            <td>x <= 5 <b>||</b> x >= 10;</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>
+                    Verilen örneklerde bir ayrıntı daha var, karşılaştırma operatörleri mantık operatörlerinden 
+                    önceliklidir. Bu yüden parantezlerle gruplamaya gerek duymadık. 
+                </p>
+
+                <h2 id="js-array" style="padding-top: 70px;">Array Veri Tipi</h2>
+                <p>
+                    Array bir tek değişken referansında birden çok değer saklamak için kullanılan bir 
+                    yapıdır. Array değişken aynı anda birden fazla değer saklayabilir, temel veri tiplerindeki
+                    değişkenler sadece birtek değer salarlar. Örnek bir array:
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">veriler</span> <span style="color: #c792ea;">=</span><span style="color: #bfc7d5;"> [ </span><span style="color: #f78c6c;">7</span><span style="color: #bfc7d5;">, </span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Ümit</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">, </span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Kayacık</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">, </span><span style="color: #f78c6c;">15</span><span style="color: #bfc7d5;">]</span>;</div></div></div></div></div></div></div>
+                <br><p>
+                    Burada string ve sayı tipi değerlerden oluşmuş bir array görünüyor. Array değerler 
+                    <code>[  ]</code> köşeli turnak içinde, birbirlerinden virgülle ayrılmış olarak 
+                    girilir. Örnek verilen kodu konsolda yazıp <b>veriler</b> değerini konsolda sorarsak
+                    4 elemanlı bir yapı gösterir bize.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #bfc7d5;">(</span><span style="color: #f78c6c;">4</span><span style="color: #bfc7d5;">) [</span><span style="color: #f78c6c;">7</span><span style="color: #bfc7d5;">, </span><span style="color: #d9f5dd;">'</span><span style="color: #c3e88d;">Ümit</span><span style="color: #d9f5dd;">'</span><span style="color: #bfc7d5;">, </span><span style="color: #d9f5dd;">'</span><span style="color: #c3e88d;">Kayacık</span><span style="color: #d9f5dd;">'</span><span style="color: #bfc7d5;">, </span><span style="color: #f78c6c;">15</span><span style="color: #bfc7d5;">]</span></div><div><span style="color: #f78c6c;">0</span>: <span style="color: #f78c6c;">7</span></div><div><span style="color: #f78c6c;">1</span>: <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Ümit</span><span style="color: #d9f5dd;">"</span></div><div><span style="color: #f78c6c;">2</span>: <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Kayacık</span><span style="color: #d9f5dd;">"</span></div><div><span style="color: #f78c6c;">3</span>: <span style="color: #f78c6c;">15</span></div><div>length: <span style="color: #f78c6c;">4</span></div></div></div></div></div></div></div></div></div>
+                <br><p>
+                    4 değerin sıra numaralarının sıfırdan başlıyor olmasına dikkat ediniz. Array içinde 
+                    ilk eleman <b>sıfırıncı</b> elemandır. Bu sıra numaralarına <code>index</code> denir.
+                    Bu durumda örneğin isime ulaşmak için <code>veriler[1]</code> şeklinde değişken adı 
+                    yanına köşeli parantez içinde index numarası yazılır. 
+                </p>
+                <p>
+                    Bir array söz konusu olduğunda yeni bir eleman eklemek ya da olan bir elemanı yok 
+                    etmek <b>push</b> ve <b>pop</b> işlemleri ile yapılır. Örnek array değişkenimize 
+                    yeni bir eleman ekleyelim. 
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #bfc7d5;">veriler</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">push</span><span style="color: #bfc7d5;">(</span><span style="color: #f78c6c;">10</span><span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div></div>
+                <br><p>
+                    Şimdi array değerini sorguladığımızda 5 elemanlı olduğunu ve <code>push()</code> metodunun 
+                    parametresi olan <b>10</b> değerinin en sona eklendiğini göreceğiz. 
+                    <code>veriler.push(10);</code> notasyonuna gelince; <b>veriler</b> değişkeni aslında 
+                    <b>array</b> sınıfından üretilmiş bir nesnedir. Nesnelere ait metodlar kullanılırken de 
+                    buna benzer <code>nesneAdı.metodAdı()</code> şeklinde noktalı notasyon kullanılır. 
+                </p>
+                <p>
+                    Array içinden eleman eksiltmek içinse <code>.pop()</code> metodu kullanılır.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #bfc7d5;">veriler</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">pop</span><span style="color: #bfc7d5;">()</span>;</div></div></div></div></div></div></div></div></div></div>
+                <br><p>
+                    Bu satır en son eklediğimiz <b>10</b> sayısını <b>veriler</b> array içinden siler. 
+                    Bunların dışında array'in ilk elemanını silen <code>.shift()</code> ve en başa 
+                    eleman ekleyen <code>.unshift()</code> metodu da kullanılabilir. 
+                </p>
+
+                <h2 id="js-cond" style="padding-top: 70px;">Koşullu İfadeler</h2>
+                <p>
+                    Kodumuzun bir kısmının belli koşullar karşılandığında çalıştırmak istersek , o 
+                    koşulun doğruluğunu test etmek için kullandığımız ifadeler vardır. Bunlar :
+                </p>
+                <ul>
+                    <li>
+                        <code>if</code> ifadesi : Bir koşul doğru ise bir blok kodun çalıştırılması için 
+                        kullanılan yapıdır. 
+                    </li>
+                    <li>
+                        <code>else</code> ifadesi : <b>if</b> ifadesi ile birlikte kullanılır ve <b>if</b>
+                        ifadesinin koşulu <b>false</b> değer dönerse çalışacak kod bloğunu çalıştıran yapıdır.
+                    </li>
+                </ul>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">sayı</span> <span style="color: #c792ea;">=</span> <span style="color: #f78c6c;">7</span>;</div><div><span style="color: #c792ea;">if</span> <span style="color: #bfc7d5;">(sayı</span> <span style="color: #c792ea;">==</span> <span style="color: #f78c6c;">7</span><span style="color: #bfc7d5;">)</span>{</div><div>&nbsp; &nbsp; <span style="color: #bfc7d5;">console</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Bugün şanslısın!.</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span>;</div><div>}</div></div></div></div></div></div></div></div></div></div></div></div>
+                <br><p>
+                    <code>if</code> kelimesi arkasından parantez içinde verilen koşul <code>(sayı == 7)</code>
+                    bir karşılaştırma işlemi. Eğer <b>sayı</b> değişkeni <b>7</b> değerine eşitse sonuç 
+                    <b>true</b> olur. Koşul true olunca arkasından gelen süslü parantez içine <code>{   }</code> toplanmış 
+                    kod çalıştırılır. Bu blok içindeki kod bir çok satırdan da oluşabilir, burada örnek 
+                    amaçlı tek satır kod var.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">sayı</span> <span style="color: #c792ea;">=</span> <span style="color: #f78c6c;">10</span>;</div><div><span style="color: #c792ea;">if</span> <span style="color: #bfc7d5;">(sayı</span> <span style="color: #c792ea;">==</span> <span style="color: #f78c6c;">7</span><span style="color: #bfc7d5;">)</span>{</div><div>&nbsp; &nbsp; <span style="color: #bfc7d5;">console</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Bugün şanslısın!.</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span>;</div><div>} <span style="color: #c792ea;">else</span> {</div><div>&nbsp; &nbsp; <span style="color: #bfc7d5;">console</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Üzgünüm şansın yok.</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span>;</div><div>}</div></div></div></div></div></div></div></div></div></div></div></div></div>
+                <br><p>
+                    <code>(sayı == 7)</code> koşulu gerçekleşmediğinde de başka bir kod bloğunun çalışmasını 
+                    istersek <code>if () { }</code> bloğunun bittiği yerde <code>else { }</code> deyimiyle 
+                    yeni bir blok ekleriz. <code>else</code> bloğu <code>if (..)</code> ile verilen koşul 
+                    gerçekleşmezse çalışır, koşul doğru olursa bu sefer <code>if</code> bloğu çalışır, <code>else</code>
+                    bloğu çalışmaz.
+                </p>
+
+                <h2 id="js-func" style="padding-top: 70px;">JavaScipt Fonksiyonlar</h2>
+                <p>
+                    Fonksiyonlar, kod içinde tekrar tekrar yaptığımız şeyleri içine topladığımız makro 
+                    yapılardır. Belirli bir işi gerçekleştiren bir kod bloğudur. Fonksiyon bloğunu çalıştırmak 
+                    için genelde ona bir isim verilir ve bu isimle çağrılır. 
+                </p>
+                <p>
+                    JavaScript'de bir çok önceden tanımlanmış fonksiyon vardır. Mesela <code>alert()</code> 
+                    fonksiyonunu daha önce popup mesaj göstermek için örneklerimizde kullanmıştık. 
+                    JavaScript size kendi fonksiyonlarınızı tanımlama imkanı da sunar. Kendi fonksiyonlarınızı 
+                    tanımlamak için <code>function</code> kelimesi kullanılır. Fonksiyonlara işlerini 
+                    yaparken kullanacakları değerleri parantez içinde virgülle ayrılmış değerler olarak 
+                    veririz, bunlara <b>parametre</b> adı verilir. Örnek bir fonksiyon tanımlaması:
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">function</span> <span style="color: #82aaff;">topla</span> <span style="color: #d9f5dd;">(</span><span style="color: #7986e7;">sayı1</span>, <span style="color: #7986e7;">sayı2</span><span style="color: #d9f5dd;">)</span> {</div><div>&nbsp; &nbsp; <span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">sonuç</span> <span style="color: #c792ea;">=</span> <span style="color: #bfc7d5;">sayı1</span> <span style="color: #89ddff;">+</span> <span style="color: #bfc7d5;">sayı2</span>;</div><div>&nbsp; &nbsp; <span style="color: #c792ea;">return</span> <span style="color: #bfc7d5;">sonuç</span>;</div><div>}</div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                <br><p>
+                    <b>function</b> kelimesi arkasından fonksiyonumuza vermek istediğimiz isim olarak 
+                    <b>topla</b> seçtik. Daha sonra parantez içinde fonksiyonumuzun 2 adet parametre 
+                    alacağını ve bunların fonksiyon tanımı içinde <b>sayı1</b> ve <b>sayı2</b> kullanılacağını 
+                    belirtiyoruz. 
+                </p>
+                <p>
+                    Fonksiyon içinde yapılanlara bakarsak <b>sonuç</b> adında bir değişkene fonksiyona 
+                    parametre olarak girilen <b>sayı1</b> ve <b>sayı2</b> değerlerinin toplamı konuyor. 
+                    <code>return</code> kelimesi ise fonksiyon bitmeden önce kullanılan kelimedir, JavaScript 
+                    bu komutu görünce arkasından gelen değerle (burada <i>sonuç</i> değişken değeri) 
+                    fonksiyonun çalışmasını bitirir ve geri döner.
+                </p>
+                <p>
+                    Yukarıda gördüğünüz kod bir <b>fonksiyonun tanımlaması</b>, JavaScript bu yazılanlara 
+                    gelince fonksiyon çalışmaz, sadece fonksiyonun tanımını hafızaya kaydederek daha 
+                    sonra çalıştırmak üzere komut bekler. Bu fonksiyonun çalışması için <b>çağrılması</b> 
+                    gerekir. Örnek :
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #82aaff;">topla</span><span style="color: #bfc7d5;">(</span><span style="color: #f78c6c;">3</span>, <span style="color: #f78c6c;">5</span><span style="color: #bfc7d5;">)</span>; &nbsp; &nbsp;<span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> =&gt; 8</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                <br><p>
+                    Yukarıda fonksiyon tanımında verilene göre <b>sayı1</b> değeri 3 ve <b>sayı2</b> 
+                    değeri 5 olacak şekilde fonksiyon çağrılır ve toplamı olan 8 değeri fonksiyondan 
+                    geri döner. Fonksiyondan geri dönen değeri kullanmak istersek mesela 
+                    <code>a = toplam(3, 5);</code> yazabiliriz.
+                </p>
+                <p>
+                    Fonksiyonu tanımlarken parametreleri olmayacaksa bile parantezler açılıp kapanmalıdır. 
+                    İçi boş olabilir.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">function</span> <span style="color: #82aaff;">alr</span> <span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; &nbsp; <span style="color: #82aaff;">alert</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">merhaba dünya</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span>;</div><div>}</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                <br><p>
+                    <code>alr()</code> fonksiyonu hiç bir parametre almıyor, çalıştırılınca geriye 
+                    <code>return</code> ile bir değer de dönmüyor. Ancak tanımlaması için aynı yapı 
+                    kullanılıyor. Esas kriterler
+                </p>
+                <ol>
+                    <li><b>function</b> kelimesi</li>
+                    <li>Fonksiyona bizim verdiğimiz ad</li>
+                    <li>Açılıp kapanan parantez (parametre olsa da , olmasa da)</li>
+                    <li>Süslü parantez içinde kod bloğu</li>
+                </ol>
+                <p>
+                    JavaScript programlamanın temellerini bu bölümde açıklamaya çalıştık. Sırada çok 
+                    yaygın kullanılan bir JavaScript kütüphanesi olan <b>JQuery</b> kütüphanesi var.
+                </p>
+
                 <br><a href="bolum4.html" class="btn btn-warning pull-left">< 4. Bölüm </a>
-                <a href="bolum5.html" class="btn btn-success pull-right">5. Bölüm ></a>
+                <a href="bolum6.html" class="btn btn-success pull-right">6. Bölüm ></a><br>
+                <p>.</p><p>.</p>
             </div>
             <div class="col-md-2 hidden-xs">.</div>
         </div>
     </div>
 
 <script>
+function topla (sayı1, sayı2) {
+    var sonuç = sayı1 + sayı2;
+    return sonuç;
+}
+topla(3, 5);    // => 8
+function alr () {
+    alert("merhaba dünya");
+}
 $(document).ready(function(){
     $.get("menu.html", function(data){
         $("#left-menu").append(data);
