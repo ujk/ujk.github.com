@@ -317,6 +317,102 @@
                     ifade ediliyor. <code>$(".para")</code> seçicisi <b>class</b> değeri <b>para</b> olan 
                     2 paragrafı seçer ve arkasından <code>.hide()</code> ile elemanları görünmez yapar. 
                     Birden çok eleman seçilirse <code>.hide()</code> metodu her birine tek tek uygulanır. 
+                    Her şeyi seçen seçici ile devam edelim.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div>&nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">button</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">click</span><span style="color: #bfc7d5;">(</span><span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span>{</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">*</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">hide</span><span style="color: #bfc7d5;">()</span>;</div><div>&nbsp; &nbsp; }<span style="color: #bfc7d5;">)</span>;</div></div></div></div></div><div></div></div></div></div></div></div></div></div></div>
+                <div class="cborder" id="test5">
+                    <h1 id="heading">Bu En Büyük Başlık Tag'i</h1>
+                    <h2>Bu İkinci Büyüklükte Başlık</h2>
+                    <h2>Bir Diğer Başlık</h2>
+                    <p class="para">Bu bir paragraf</p>
+                    <p class="para">Bu diğer bir paragraf</p>
+                    <button>Tıkla</button>
+                    <style>
+                        #test5 h2 { color: blue; }
+                        #test5 #heading { color: green; }
+                        #test5 .para { color: red; }
+                        #test5 button { background-color: red; color: white;
+                            padding: 5px 20px; border-radius: 10px;}
+                    </style>
+                    <script>
+                        $(document).ready(function(){
+                            $("#test5 button").click(function(){
+                                $("#test5 *").hide();
+                            });
+                        });
+                    </script>
+                </div>
+                <br><p>
+                    Aslında bu kod biraz komik olur, butona tıklayınca sayfadaki <code>&lt;body></code>, 
+                    <code>&lt;head></code> ve hatta <code>&lt;html></code> elemanı bile görünmez yapılır. 
+                    Butonun kendi bile yok olur. Bu seçici aslında bir kısmı görünmez yapmak amacıyla 
+                    kullanılabilir. Mesela <b>gizli</b> class değerine sahip bir <code>&lt;div class="gizli"></code> 
+                    elemanının tüm içeriğini seçmek istesek <code>$(".gizli *")</code> seçicisi kullanılır. 
+                    Bu şekilde arada boşluk vererek dıştaki eleman ve içteki eleman seçicinin yazılması da 
+                    aynı CSS seçicileri gibi yapılır. Sırada ilk elemanın seçilmesi var.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div>&nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">button</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">click</span><span style="color: #bfc7d5;">(</span><span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span>{</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">p:first</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">hide</span><span style="color: #bfc7d5;">()</span>;</div><div>&nbsp; &nbsp; }<span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div><div></div></div></div></div></div></div></div></div></div>
+                <div class="cborder" id="test6">
+                    <h1 id="heading">Bu En Büyük Başlık Tag'i</h1>
+                    <h2>Bu İkinci Büyüklükte Başlık</h2>
+                    <h2>Bir Diğer Başlık</h2>
+                    <p class="para">Bu bir paragraf</p>
+                    <p class="para">Bu diğer bir paragraf</p>
+                    <button>Tıkla</button>
+                    <style>
+                        #test6 h2 { color: blue; }
+                        #test6 #heading { color: green; }
+                        #test6 .para { color: red; }
+                        #test6 button { background-color: red; color: white;
+                            padding: 5px 20px; border-radius: 10px;}
+                    </style>
+                    <script>
+                        $(document).ready(function(){
+                            $("#test6 button").click(function(){
+                                $("#test6 p:first").hide();
+                            });
+                        });
+                    </script>
+                </div>
+                <br><p>
+                    <code>p:first</code> ile aranan yerdeki yukarıdan aşağıya sıralanmış <code>&lt;p></code> 
+                    elemanları içinde ilk başta olanı seçilerek geri döner. Buna benzer bir çok ilginç 
+                    seçiciyi <a href="https://api.jquery.com/category/selectors/" target="_blank">JQuery Selectors</a>
+                    dökümanında bulabilirsiniz. Sırada <b>this</b> kelimesi var.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div>&nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">button</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">click</span><span style="color: #bfc7d5;">(</span><span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span>{</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #ff5572;">this</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">hide</span><span style="color: #bfc7d5;">()</span>;</div><div>&nbsp; &nbsp; }<span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div><div></div></div></div></div></div></div></div></div></div>
+                <div class="cborder" id="test7">
+                    <h1 id="heading">Bu En Büyük Başlık Tag'i</h1>
+                    <h2>Bu İkinci Büyüklükte Başlık</h2>
+                    <h2>Bir Diğer Başlık</h2>
+                    <p class="para">Bu bir paragraf</p>
+                    <p class="para">Bu diğer bir paragraf</p>
+                    <button>Tıkla</button>
+                    <style>
+                        #test7 h2 { color: blue; }
+                        #test7 #heading { color: green; }
+                        #test7 .para { color: red; }
+                        #test7 button { background-color: red; color: white;
+                            padding: 5px 20px; border-radius: 10px;}
+                    </style>
+                    <script>
+                        $(document).ready(function(){
+                            $("#test7 button").click(function(){
+                                $(this).hide();
+                            });
+                        });
+                    </script>
+                </div>
+                <br><p>
+                    <code>$(this)</code> seçicisi o anda kodun uygulandığı elemanın kendisini seçer. 
+                    Bu örnekte kod <b>button</b> elemanının tıklanma olayının içinde olduğuna göre 
+                    <b>this</b> kelimesi butonun kendisini ifade eder. Bu durumda tıklanınca butonun 
+                    kendisi görünmez olur. <b>this</b> kelimesi de jQuery'de özel bir anlam taşır ve 
+                    tırnak kullanmadan <code>$(this)</code> şeklinde ifade edilir. 
+                </p>
+
+                <h2 id="jq-handlers" style="padding-top: 70px;">Olay İşleyiciler</h2>
+                <p>
                     
                 </p>
 
