@@ -81,6 +81,242 @@
 
                 <h2 id="jq" style="padding-top: 70px;">JQuery JavaScript Kütüphanesi</h2>
                 <p>
+                    JQuery bir JavaScript fonksiyonlar kütüphanesidir. Nasıl bildiğimiz kütüphane de 
+                    birçok kitap varsa , JQuery kütüphanesinde de birçok yararlı fonksiyon vardır. Bu 
+                    bölümde jQuery kütüphanesini kullanarak animasyonlar yapmasını, elemanları görünür-görünmez 
+                    yapmasını, fade ile yumuşak görünüm geçişlerini, eleman şeffaflıklarını değiştirmeyi, 
+                    eleman üzerinde birden fazla aksiyonun zincirleme yapılmasını, eleman üzerine mouse 
+                    gelince-gidince veya tıklanınca gibi olacak olayların tanımlamasını, class değerini 
+                    değiştirerek eleman stili değiştirmeyi vs. birçok eğlenceli şeyi öğreneceğiz.
+                </p>
+                <p>
+                    Bu bölüm sonunda etkileşimli web sayfalarının nasıl yapıldığına dair çok önemli 
+                    bilgiler edineceksiniz. 
+                </p>
+
+                <h2 id="jq-setup" style="padding-top: 70px;">JQuery Sayfaya Nasıl Eklenir?</h2>
+                <p>
+                    Aynı Bootstrap CSS kütüphanesini eklerken yaptığımız gibi JQuery kütüphanesini de web 
+                    sayfamıza eklerken 2 yöntem var.
+                </p>
+                <ul>
+                    <li><a href="https://jquery.com">https://jquery.com</a> adresinden indirip lokal 
+                    klasördeki dosya olarak kullamak.</li>
+                    <li>CDN server üzerinden referans vererek sayfamıza dahil etmek.</li>
+                </ul>
+                <p>
+                    Siteden lokale indiriken kullnamanız için sitesinde "download" linkine tıkladığınızda 
+                    size indirilebilir dosya seçenekleri gösterilir. Hızlı çalışması bakımından sıkıştırılmış 
+                    (compressed) versiyonu indirmeniz iyi olacaktır. İndirme linkine tıkladığınızda eğer 
+                    indirme klasör seçim penceresi otomatik açılmadan tarayıcınızda dosyayı direk gösterirse, 
+                    (adres barda https://code.jquery.com/jquery-3.7.1.min.js gibi bir şey yazıp sayfada 
+                    bir sürü kod görünürse) sayfa üzerinde sağ tıklayıp "farklı kaydet" seçeneği ile dosyayı 
+                    web sitenizin <b>scripts</b> klasörü içine indirebilirsiniz.
+                </p>
+                <p>
+                    Başka versiyonlar indirmek isterseniz ya da başka web geliştirme ortamlarında nasıl 
+                    kullanılacağını merak ederseniz "download" sayfasında bir çok yararlı bilgi bulunuyor. 
+                    JQuery kütüphanesini bir CDN server üzerinden sayfanıza nasıl dahil edeceğimiz de yine 
+                    burada gösteriliyor. Örneğin <b>jsDelivr</b> server'larından kullanmak için:
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;"> </span></div><div><span style="color: #89ddff;">&nbsp; &nbsp; </span><span style="color: #ffcb6b;">src</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div></div></div>
+                <br><p>
+                    kodunu sayfanızın <code>&lt;head></code> kısmına eklemeniz gerekiyor. Denemelerimizi 
+                    gerçekleştirmek üzere deneme web sitemizin olduğu klasöre <i>jquery.html</i> adında 
+                    bir yeni dosya ekleyelim. 
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;!</span><span style="color: #ff5572;">DOCTYPE</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">html</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">html</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">lang</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">en</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">head</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">meta</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">charset</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">UTF-8</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">meta</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">name</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">viewport</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">content</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">width=device-width, initial-scale=1.0</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">title</span><span style="color: #89ddff;">&gt;</span>Document<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">title</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;"> </span></div><div><span style="color: #89ddff;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span style="color: #ffcb6b;">src</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">head</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">body</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(document)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">ready</span><span style="color: #bfc7d5;">(</span><span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span>{</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #82aaff;">alert</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">jQuery Yüklendi. - </span><span style="color: #d9f5dd;">"</span> <span style="color: #89ddff;">+</span> <span style="color: #bfc7d5;">jQuery</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">fn</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">jquery</span><span style="color: #bfc7d5;">)</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; }<span style="color: #bfc7d5;">)</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">body</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">html</span><span style="color: #89ddff;">&gt;</span></div></div></div></div>
+                <br><p>
+                    Eğer lokalde indirdiğimiz dosyayı kullanmak istersek <code>&lt;script></code> elemanımız 
+                    şöyle olmalı:
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;"> </span></div><div><span style="color: #89ddff;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span style="color: #ffcb6b;">src</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">scripts/jquery-3.7.1.min.js</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div>
+                <br><p>
+                    Aşağıda <code>&lt;body></code> kısmı içindeki <code>&lt;script></code> elemanı içinde 
+                    ise yüklemenin gerçekleşmiş olduğunu test etmek için küçük bir jQuery program var. Bu 
+                    kod sayfa ilk yüklendiğinde bir popup mesaj penceresi açarak yüklü olan jQuery versiyonunu 
+                    bildiriyor. Eğer sayfamızı tarayıcıda açarsak şuna benzer bir mesaj çıkmalı:
+                </p>
+                <img src="images/tut028.png" alt="jQuery loaded message" class="img-thumbnail">
+                <br><br><p>
+                    Kodu biraz açıklamak gerekirse bu kodda jQuery'nin en yaygın kullanım tekniklerinden 
+                    biri yer alıyor.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(document)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">ready</span><span style="color: #bfc7d5;">(</span><span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span>{</div><div>&nbsp; &nbsp; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> Sayfa yüklenince yapılacak işler</span></div><div>}<span style="color: #bfc7d5;">)</span></div></div></div></div></div></div>
+                <br><p>
+                    Burada <code>$(document)</code> ifadesi bir jQuery HTML eleman seçim ifadesi. 
+                    <code>$(document)</code> seçimiyle jQuery o anda içinde bulunduğumuz web sayfasını 
+                    (dökümanını) seçiyor ve bize bir <b>jQuery nesnesi</b> olarak veriyor. Örneğin 
+                    <code>$("h1")</code> ifadesi bize sayfamızdaki <code>&lt;h1></code> elemanlarını 
+                    seçer vs. <code>document</code> kelimesi özel bir değişkendir ve tüm sayfayı ifade eder.
+                </p>
+                <p>
+                    Daha sonra <code>$(document)</code> nesnesinin <code>.ready()</code> metodu çağrılıyor.
+                    <code>.ready()</code> metodu sayfamız (document nesnesi) tamamen tarayıcıya 
+                    yüklendiğinde çalışacak bir fonksiyon bildirme imkanı veriyor. Yani sayfadaki tüm 
+                    HTML elemanlar yüklendiğinde artık jQuery kullanarak bu elemanlar üzerinde 
+                    manipülasyonlar yapabiliriz demektir. 
+                </p>
+                <p>
+                    <code>.ready()</code> metodu parametresinde ise bir JavaScript fonksiyon tanımlaması 
+                    yapılıyor, diğer kodlardan ayırırsak bu fonksiyon tanımı şöyle:
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span>{</div><div>&nbsp; &nbsp; <span style="color: #82aaff;">alert</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">jQuery Yüklendi. - </span><span style="color: #d9f5dd;">"</span> <span style="color: #89ddff;">+</span> <span style="color: #bfc7d5;">jQuery</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">fn</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">jquery</span><span style="color: #bfc7d5;">)</span></div><div>}</div></div></div></div></div></div></div>
+                <br><p>
+                    Bu bir fonksiyon tanımı, daha önceden JavaScript bölümünden biliyoruz ki fonksiyonlar 
+                    tanımlanınca çalışmaz, çağrıldıklarında çalışır. Bu fonksiyonu biz kod ile çağırmıyoruz, 
+                    <code>.ready()</code> metoduna parametre olarak verdiğimiz için bu fonksiyonu 
+                    <code>.ready()</code> metodu çağıracak. <code>.ready()</code> metodu bir olay işleme 
+                    metodudur ve "döküman hazır" olayı oluşunca parametresinde tanımı verilen fonksiyonu
+                    çalışsın diye tarayıcımızın JavaScript işleyen kımına bildirir. Ne zaman ki döküman 
+                    tamamen yüklenmiş olur, tarayıcımız bu verilen fonksiyonu otomatik olarak çalıştırır.
+                </p>
+                <p>
+                    Fonksiyonun yaptığı iş ise oldukça basit, bir popup mesaj açıp bize "JQuery Yüklendi" 
+                    mesajı ve yanında da yüklenmiş olan JQuery kütüphanesi versiyon numarasını veriyor. 
+                    <code>jQuery.fn.jquery</code> ifadesini tabi ki JQuery dökümanlarından buldum, bu 
+                    bize versiyon numarasını veren jQuery değişkeninin adı. <code>$.fn.jquery</code> de 
+                    yazılabilir , çünkü jQuery kütüphanesi için <code>$</code> ve <code>jQuery</code> 
+                    kelimeleri aynı nesneyi ifade ediyor.
+                </p>
+
+                <h2 id="jq-selectors" style="padding-top: 70px;">JQuery'de Seçici Deyimler</h2>
+                <p>
+                    JQuery seçiciler (selectors) en önemli kütüphane yapılarıdır. JQuery seçiciler ile 
+                    manipüle etmek istediğimiz HTML elemanlarını bulur ve seçeriz. JQuery seçicilerin 
+                    gruplandırması şöyle:
+                </p>
+                <ul>
+                    <li>Eleman Seçiciler</li>
+                    <li>ID Seçiciler</li>
+                    <li>Class Seçiciler</li>
+                    <li>Herşeyin Seçilmesi</li>
+                    <li><i>This</i> Kelimesi</li>
+                    <li>İlk Eleman Seçici</li>
+                </ul>
+                <p>
+                    JQuery seçiciler ifade edilirken <code>$("  ")</code> şeklinde bir <b>$</b> işareti 
+                    ve arkasından parantez içinde tırnak içine yazılan <b>Seçici Kelimeler</b> ile ifade 
+                    edilirler. <code>$(document)</code> ifadesinde tırnak kullanmadık çünkü <code>document</code>
+                    kelimesinin jQuery'de özel bir anlamı var, burada anlatacaklarımızla karışmasın. 
+                    Denemeler yapmak için web sayfamızın kodunu şöyle düzenleyelim:
+                </p>
+                <div class="cpadding scroll" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;!</span><span style="color: #ff5572;">DOCTYPE</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">html</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">html</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">lang</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">en</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">head</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">meta</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">charset</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">UTF-8</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">meta</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">name</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">viewport</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">content</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">width=device-width, initial-scale=1.0</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">title</span><span style="color: #89ddff;">&gt;</span>JQuery Denemeler<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">title</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">src</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">scripts/jquery-3.7.1.min.js</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #ff5572;">h2</span> { <span style="color: #80cbc4;">color</span>: <span style="color: #89ddff;">blue</span>; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #fad430;">#heading</span> { <span style="color: #80cbc4;">color</span>: <span style="color: #89ddff;">green</span>; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #ffcb6b;">.para</span> { <span style="color: #80cbc4;">color</span>: <span style="color: #89ddff;">red</span>; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #ff5572;">button</span> { <span style="color: #80cbc4;">background-color</span>: <span style="color: #89ddff;">red</span>; <span style="color: #80cbc4;">color</span>: <span style="color: #89ddff;">white</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">padding</span>: <span style="color: #f78c6c;">5</span><span style="color: #ffeb95;">px</span> <span style="color: #f78c6c;">20</span><span style="color: #ffeb95;">px</span>; <span style="color: #80cbc4;">border-radius</span>: <span style="color: #f78c6c;">10</span><span style="color: #ffeb95;">px</span>;}</div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">head</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">body</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">h1</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">id</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">heading</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span>Bu En Büyük Başlık Tag'i<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">h1</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">h2</span><span style="color: #89ddff;">&gt;</span>Bu İkinci Büyüklükte Başlık<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">h2</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">h2</span><span style="color: #89ddff;">&gt;</span>Bir Diğer Başlık<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">h2</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">para</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span>Bu bir paragraf<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">para</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span>Bu diğer bir paragraf<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">button</span><span style="color: #89ddff;">&gt;</span>Tıkla<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">button</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(document)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">ready</span><span style="color: #bfc7d5;">(</span><span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span>{</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">button</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">click</span><span style="color: #bfc7d5;">(</span><span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span>{</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> Buton tıklandı</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; }<span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp; <span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">body</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">html</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div></div></div></div>
+                <div class="cborder" id="test1">
+                    <h1 id="heading">Bu En Büyük Başlık Tag'i</h1>
+                    <h2>Bu İkinci Büyüklükte Başlık</h2>
+                    <h2>Bir Diğer Başlık</h2>
+                    <p class="para">Bu bir paragraf</p>
+                    <p class="para">Bu diğer bir paragraf</p>
+                    <button>Tıkla</button>
+                    <style>
+                        #test1 h2 { color: blue; }
+                        #test1 #heading { color: green; }
+                        #test1 .para { color: red; }
+                        #test1 button { background-color: red; color: white;
+                            padding: 5px 20px; border-radius: 10px;}
+                    </style>
+                </div>
+                <br><p>
+                    Aşağıda <code>&lt;script></code> tag içinde butona tıklanınca çalışacak olan 
+                    fonksiyonun tanımını yapıyoruz. Bunu yaparken de aslında bir <b>eleman seçici</b> 
+                    kullanıyoruz, <code>$("button")</code> seçicisi sayfadaki <b>button</b> elemanları 
+                    seçer. Sayfada bir tanecik button elemanı olduğu içinde tanımlanan fonksiyon o butonun 
+                    <code>.click()</code> olayında (yani elemana tıklanınca) çalışacak olan kod olur. 
+                    Şimdi butona tıklanınca değişik elemanları seçerek bazı manipülasyonlar deneyelim.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div>&nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">button</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">click</span><span style="color: #bfc7d5;">(</span><span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span>{</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">h2</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">hide</span><span style="color: #bfc7d5;">()</span>;</div><div>&nbsp; &nbsp; }<span style="color: #bfc7d5;">)</span>;</div><div></div></div></div></div></div></div></div></div></div>
+                <div class="cborder" id="test2">
+                    <h1 id="heading">Bu En Büyük Başlık Tag'i</h1>
+                    <h2>Bu İkinci Büyüklükte Başlık</h2>
+                    <h2>Bir Diğer Başlık</h2>
+                    <p class="para">Bu bir paragraf</p>
+                    <p class="para">Bu diğer bir paragraf</p>
+                    <button>Tıkla</button>
+                    <style>
+                        #test2 h2 { color: blue; }
+                        #test2 #heading { color: green; }
+                        #test2 .para { color: red; }
+                        #test2 button { background-color: red; color: white;
+                            padding: 5px 20px; border-radius: 10px;}
+                    </style>
+                    <script>
+                        $(document).ready(function(){
+                            $("#test2 button").click(function(){
+                                $("#test2 h2").hide();
+                            });
+                        });
+                    </script>
+                </div>
+                <br><p>
+                    İlk denmemiz bir <b>eleman seçici</b> ve sayfadaki <code>&lt;h2></code> elemanları 
+                    seçerek onlara <code>.hide()</code> metodunu uyguluyor. Seçici olan <code>$("h2")</code>
+                    sayfadan birden fazla eleman seçtiği için <code>.hide()</code> metodu her birine 
+                    tek tek uygulanır ve onları görünmez yapar. Aslında elemanlar sayfa kodundan silinmezler,
+                    geliştirici araçlarında bakarsanız <code>h2</code> elemanların hala orada olduğunu ama 
+                    <code>style: "display: none;"</code> stili verilerek görünmez yapıldığını göreceksiniz.
+                    Şimdi de <b>ID</b> seçicisi deneyelim.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><div style="line-height: 19px;"><div>&nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">button</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">click</span><span style="color: #bfc7d5;">(</span><span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span>{</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">#heading</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">hide</span><span style="color: #bfc7d5;">()</span>;</div><div>&nbsp; &nbsp; }<span style="color: #bfc7d5;">)</span>;</div></div></div><div></div></div></div></div></div></div></div></div></div>
+                <div class="cborder" id="test3">
+                    <h1 id="heading">Bu En Büyük Başlık Tag'i</h1>
+                    <h2>Bu İkinci Büyüklükte Başlık</h2>
+                    <h2>Bir Diğer Başlık</h2>
+                    <p class="para">Bu bir paragraf</p>
+                    <p class="para">Bu diğer bir paragraf</p>
+                    <button>Tıkla</button>
+                    <style>
+                        #test3 h2 { color: blue; }
+                        #test3 #heading { color: green; }
+                        #test3 .para { color: red; }
+                        #test3 button { background-color: red; color: white;
+                            padding: 5px 20px; border-radius: 10px;}
+                    </style>
+                    <script>
+                        $(document).ready(function(){
+                            $("#test3 button").click(function(){
+                                $("#test3 #heading").hide();
+                            });
+                        });
+                    </script>
+                </div>
+                <br><p>
+                    Aynı CSS kuralı yazarken yaptığımız gibi bir elemanı ID değerine göre belirtmek için 
+                    ID değerinin başına <code>#</code> işareti ekliyoruz. <code>$("#heading")</code> 
+                    seçicisi HTML elemanlar içinde ID değeri "heading" olan elemanı seçer ve bize getirir.
+                    Daha önce de belirtmiştik sayfa kodunuzda ID değeri aynı olan birden fazla eleman olmamalı, 
+                    ID değeri tek bir elemana özel olmalı. Eğer birden fazla elemana aynı ID değerini verip 
+                    jQuery ile ID seçcici kullanırsanız size sadece ilk bulduğu elemanı getirir, çünkü ID 
+                    değeri <i>biricik</i> olmalıdır. Şimdi de <b>class</b> seçicisi deneyelim.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><div style="line-height: 19px;"><div style="line-height: 19px;"><div>&nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">button</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">click</span><span style="color: #bfc7d5;">(</span><span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span>{</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">.para</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">hide</span><span style="color: #bfc7d5;">()</span>;</div><div>&nbsp; &nbsp; }<span style="color: #bfc7d5;">)</span>;</div></div></div></div><div></div></div></div></div></div></div></div></div></div>
+                <div class="cborder" id="test4">
+                    <h1 id="heading">Bu En Büyük Başlık Tag'i</h1>
+                    <h2>Bu İkinci Büyüklükte Başlık</h2>
+                    <h2>Bir Diğer Başlık</h2>
+                    <p class="para">Bu bir paragraf</p>
+                    <p class="para">Bu diğer bir paragraf</p>
+                    <button>Tıkla</button>
+                    <style>
+                        #test4 h2 { color: blue; }
+                        #test4 #heading { color: green; }
+                        #test4 .para { color: red; }
+                        #test4 button { background-color: red; color: white;
+                            padding: 5px 20px; border-radius: 10px;}
+                    </style>
+                    <script>
+                        $(document).ready(function(){
+                            $("#test4 button").click(function(){
+                                $("#test4 .para").hide();
+                            });
+                        });
+                    </script>
+                </div>
+                <br><p>
+                    Gördüğünüz üzere burada da aynı CSS gibi class değeri başına nokta işareti konarak 
+                    ifade ediliyor. <code>$(".para")</code> seçicisi <b>class</b> değeri <b>para</b> olan 
+                    2 paragrafı seçer ve arkasından <code>.hide()</code> ile elemanları görünmez yapar. 
+                    Birden çok eleman seçilirse <code>.hide()</code> metodu her birine tek tek uygulanır. 
                     
                 </p>
 
