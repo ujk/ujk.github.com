@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Veri Tipleri</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        div .scroll{
+            height:300px;
+            width: 100%;
+            overflow:scroll;
+            scrollbar-color: dark;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: white;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: gray;
+            border-radius: 10px;
+        }
+
+        .cborder {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        .cpadding {
+            padding: 15px;
+        }
+
+        body {
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+    </nav>
+
+    <div class="container" style="padding-top: 70px;">
+        <div class="row">
+            <div class="col-md-2 hidden-xs">
+
+            </div>
+            <div class="col-md-8">
+                <ul class="breadcrumb small" >
+                    <li><a href="../../../index.html">Ana Sayfa</a></li>
+                    <li><a href="../../index.html">JQuery Öğrenimi</a></li>
+                    <li><a href="../index.html">JQuery API</a></li>
+                    <li class="active"><span>JQuery Veri Tipleri</span></li>
+                </ul>
+                
+                <h1>JQuery Veri Tipleri</h1>
+                <p>
+                    Bu sayfada jQuery fonksiyonlarının kullandığı ve jQuery tarafından kısıtlanmış veri tipleri 
+                    veya JavaScript'in kendi veri tipleri açıklanıyor. Aşağıda verilen örneklerin çoğunu 
+                    tarayıcınızın geliştirici araçları penceresindeki konsolda direk kopyalayarak deneyebilirsiniz. 
+                </p>
+
+                <h2 id="Function" style="padding-top: 70px;">Function</h2>
+                <p>
+                    JavaScript'de bir fonksiyon (function) isimli ya da anonim olabilir. Herhangi bir fonksiyon 
+                    bir değişkene atanabilir ya da bir metoda parametre olarak verilebilir. Örnek:
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">function</span> <span style="color: #82aaff;">named</span><span style="color: #d9f5dd;">()</span> {}</div><div><span style="color: #c792ea;">var</span> <span style="color: #82aaff;">handler</span> <span style="color: #c792ea;">=</span> <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {}</div></div></div></div>
+                <br><p>
+                    JQuery kodlarında çok fazla sıklıkta anonim fonksiyonlara rastlarsınız
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">document</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">ready</span><span style="color: #bfc7d5;">(</span><span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {}<span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">a)</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {}<span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #bfc7d5;">$</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">ajax</span><span style="color: #bfc7d5;">(</span>{</div><div>&nbsp; url: <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">someurl.php</span><span style="color: #d9f5dd;">"</span>,</div><div>&nbsp; <span style="color: #82aaff;">success</span>: <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {}</div><div>}<span style="color: #bfc7d5;">)</span>;</div></div></div></div></div>
+                <br><p>
+                    Bir fonksiyonun veri tipi "function" dur.
+                </p>
+                <h3>arguments</h3>
+                <p>
+                    Bir fonksiyon tanımı içinde <b>arguments</b> özel değişkeni her zaman kullanılabilir. 
+                    Bir array gibidir ve <b>length</b> özelliği vardır, ancak array metodlarının çoğu ile 
+                    çalışmaz. Fonksiyon çağrılırken girilen argümanların (parametrelerin) oluşturduğu bir 
+                    sahte array gibidir. 
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">function</span> <span style="color: #82aaff;">log</span><span style="color: #d9f5dd;">(</span> <span style="color: #7986e7;">x</span> <span style="color: #d9f5dd;">)</span> {</div><div>&nbsp; <span style="color: #bfc7d5;">console</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(</span> <span style="color: #89ddff;">typeof</span> <span style="color: #bfc7d5;">x</span><span style="color: #eeffff;">,</span> <span style="color: #ff5572;">arguments</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">length</span> <span style="color: #bfc7d5;">)</span>;</div><div>}</div><div><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">()</span>; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> "undefined", 0</span></div><div><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(</span> <span style="color: #f78c6c;">1</span> <span style="color: #bfc7d5;">)</span>; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> "number", 1</span></div><div><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">1</span><span style="color: #d9f5dd;">"</span>, <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">2</span><span style="color: #d9f5dd;">"</span>, <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">3</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> "string", 3</span></div></div></div></div></div></div>
+                <br><p>
+                    <b>arguments</b> nesnesi aynı zamanda <b>callee</b> adında bir özelliğe sahiptir. Bu 
+                    özellik aslında o fonksiyonun tanımıdır. Örnek:
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">var</span> <span style="color: #82aaff;">awesome</span> <span style="color: #c792ea;">=</span> <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> { <span style="color: #c792ea;">return</span> <span style="color: #ff5572;">arguments</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">callee</span>; }</div><div><span style="color: #82aaff;">awesome</span><span style="color: #bfc7d5;">()</span> <span style="color: #c792ea;">===</span> <span style="color: #bfc7d5;">awesome</span> <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> true</span></div></div></div></div></div></div></div>
+                <br>
+                <h3>Context, Call ve Apply</h3>
+                <p>
+                    JavaScript'de <b>this</b> değeri her zaman bulunulan bağlamı (context) ifade eder. 
+                    Default olarak <b>this</b> ana eleman olan <b>window</b> nesnesidir. Bir fonksiyon 
+                    içerisinde bağlam o fonksiyonun nasıl çağrıldığına göre değişir. 
+                </p>
+                <p>
+                    JQuery'de olay işlerken o olayın oluştuğu eleman bağlam olur ve böylece olay işleyici 
+                    fonksiyon içinde <b>this</b> kelimesi olayın gerçekleştiği eleman olur.
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">document</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">ready</span><span style="color: #bfc7d5;">(</span><span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> this kelimesi window.document'i gösterir</span></div><div>}<span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">a</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> this kelimesi DOM elemanı &lt;a&gt;'dır</span></div><div>}<span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div>
+                <br><p>
+                    Bir fonksiyon için bağlamı <code>.call()</code> ve <code>.apply()</code> metodlarını 
+                    kullanarak değiştirebilirsiniz. Aralarındaki fark parametreleri fonksiyona nasıl 
+                    geçirdikleri ile alakalıdır. <code>.call()</code> verilen parametreleri virgülle 
+                    ayrılmış olarak fonksiyona verirken , <code>.apply()</code> bir array içinde verilen 
+                    değerleri parametre olarak fonksiyona geçirir. 
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">function</span> <span style="color: #82aaff;">scope</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; <span style="color: #bfc7d5;">console</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(</span> <span style="color: #ff5572;">this</span><span style="color: #eeffff;">,</span> <span style="color: #ff5572;">arguments</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">length</span> <span style="color: #bfc7d5;">)</span>;</div><div>}</div><div><span style="color: #82aaff;">scope</span><span style="color: #bfc7d5;">()</span> <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> window, 0</span></div><div><span style="color: #bfc7d5;">scope</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">call</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">foobar</span><span style="color: #d9f5dd;">"</span>,<span style="color: #bfc7d5;"> [ </span><span style="color: #f78c6c;">1</span><span style="color: #bfc7d5;">, </span><span style="color: #f78c6c;">2</span><span style="color: #bfc7d5;"> ]</span> <span style="color: #bfc7d5;">)</span>; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> "foobar", 1</span></div><div><span style="color: #bfc7d5;">scope</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">apply</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">foobar</span><span style="color: #d9f5dd;">"</span>,<span style="color: #bfc7d5;"> [ </span><span style="color: #f78c6c;">1</span><span style="color: #bfc7d5;">, </span><span style="color: #f78c6c;">2</span><span style="color: #bfc7d5;"> ]</span> <span style="color: #bfc7d5;">)</span>; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> "foobar", 2</span></div></div></div></div></div></div></div></div></div>
+                <br>
+                <h3>Kapsam (scope)</h3>
+                <p>
+                    JavaScript'de bir fonksiyon içinde tanımlanmış tüm değişkenler o fonksiyon kapsamı 
+                    içinde kullanılabilir. Örneğe bakalım:
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> global</span></div><div><span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">x</span> <span style="color: #c792ea;">=</span> <span style="color: #f78c6c;">0</span>;</div><div><span style="color: #bfc7d5;">(</span><span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> private</span></div><div>&nbsp; <span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">x</span> <span style="color: #c792ea;">=</span> <span style="color: #f78c6c;">1</span>;</div><div>&nbsp; <span style="color: #bfc7d5;">console</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">x</span> <span style="color: #bfc7d5;">)</span>; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> 1</span></div><div>}<span style="color: #bfc7d5;">)()</span>;</div><div><span style="color: #bfc7d5;">console</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">x</span> <span style="color: #bfc7d5;">)</span>; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> 0</span></div></div></div></div></div></div></div></div></div></div>
+                <br><p>
+                    Global kapsamda bir <b>x</b> değişkeni tanımlanıyor, hemen çalışacak bir anonim 
+                    fonksiyon tanımı içinde (fonksiyon tanımı sonrası gelen parantez açıp kapama hemen 
+                    çalışması için konulur) bir diğer <b>x</b> değişkeni başka bir değerle tanımlanıyor. 
+                    Dikkat ederseniz fonksiyon içinde başka değer , dışında başka değer veriyor konsola.
+                </p>
+                <h3>Kapanışlar (closures)</h3>
+                <p>
+                    
+                </p>
+
+                <script>
+
+                </script>
+
+                <p>.</p><p>.</p>
+
+            </div>
+            <div class="col-md-2 hidden-xs">
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

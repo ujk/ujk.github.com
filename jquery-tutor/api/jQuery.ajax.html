@@ -101,13 +101,38 @@
                                     <li>
                                         <b>accepts</b> (default: veri tipine göre değişir)<br>
                                         <span>Tip : Düz JavaScript nesne</span><br>
-                                        <span><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types">MIME</a>
-                                        tipine bağlı olarark </span>
+                                        <span>Verilen veri tipini onun 
+                                            <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types">MIME</a>
+                                            tipine bağlayan bir key/value setidir, isteğin <code>Accept</code> header'ında gönderilir. Bu header 
+                                            server'a nasıl bir değer dönüşü beklendiğini (kabul edileceğini) bildirir. Aşağıdaki örnek 
+                                            <code>mycustomtype</code> tipinde bir veri beklediğini server'a bildirir.</span>
+                                        <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div><span style="color: #bfc7d5;">$</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">ajax</span><span style="color: #bfc7d5;">(</span>{</div><div>&nbsp; accepts: {</div><div>&nbsp; &nbsp; mycustomtype: <span style="color: #d9f5dd;">'</span><span style="color: #c3e88d;">application/x-some-custom-type</span><span style="color: #d9f5dd;">'</span></div><div>&nbsp; },</div><div>&nbsp;</div><div>&nbsp; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> `mycustomtype` tipin nasıl dönüştürüleceği</span></div><div>&nbsp; converters: {</div><div>&nbsp; &nbsp; <span style="color: #d9f5dd;">'</span><span style="color: #c3e88d;">text mycustomtype</span><span style="color: #d9f5dd;">'</span>: <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">(</span><span style="color: #7986e7;">result</span><span style="color: #d9f5dd;">)</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> bir şeyler yapılır</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #c792ea;">return</span> <span style="color: #bfc7d5;">newresult</span>;</div><div>&nbsp; &nbsp; }</div><div>&nbsp; },</div><div>&nbsp;</div><div>&nbsp; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> Server'dan bir `mycustomtype` geri dönmesini iste</span></div><div>&nbsp; dataType: <span style="color: #d9f5dd;">'</span><span style="color: #c3e88d;">mycustomtype</span><span style="color: #d9f5dd;">'</span></div><div>}<span style="color: #bfc7d5;">)</span>; &nbsp; </div></div></div>
+
+                                    </li>
+                                    <hr>
+                                    <li>
+                                        <b>async</b> (default: true) <br>
+                                        <span>Tip : Boolean</span><br>
+                                        <span>
+                                            Default olarak tüm istekler asenkron gönderilir. Yani tarayıcı çalışmasını durdurmaz, 
+                                            isteği yapar ve işine devam eder. Ne zaman cevap gelirse, cevaba göre yapıması tanımlanan 
+                                            işlemler yapılır. Senkron olursa tarayıcı çalışmasını durdurup, cevabın gelmesini bekler. 
+                                            Senkron istekler tarayıcıda kiltlenmelere neden olabilir. Domanin'ler arası istekler ve 
+                                            <code>dataType: "jsonp"</code> veri tipi istekler senkron çalışmayı desteklemez. jQuery 
+                                            versiyon 1.8 sonrası senkron çalışma iptal edilerek, success/error/complete callback 
+                                            metodları kullanımı zorunlu yapılmıştır. 
+                                        </span>
+                                    </li><hr>
+                                    <li>
+                                        <b>beforeSend</b> <br>
+                                        <span>Tip : function(</span>
                                     </li>
                                 </ul>
                             </div>
                         </div>
+                        <script>
 
+                        </script>
 
 
 
