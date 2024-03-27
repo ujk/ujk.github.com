@@ -1,266 +1,369 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>jQuery.ajax()</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <style>
-        div .scroll{
-            height:300px;
-            width: 100%;
-            overflow:scroll;
-            scrollbar-color: dark;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery.ajax()</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+      div .scroll{
+          height:300px;
+          width: 100%;
+          overflow:scroll;
+          scrollbar-color: dark;
+      }
 
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
+      ::-webkit-scrollbar {
+          width: 10px;
+      }
 
-        ::-webkit-scrollbar-track {
-            background: white;
-        }
+      ::-webkit-scrollbar-track {
+          background: white;
+      }
 
-        ::-webkit-scrollbar-thumb {
-            background: gray;
-            border-radius: 10px;
-        }
+      ::-webkit-scrollbar-thumb {
+          background: gray;
+          border-radius: 10px;
+      }
 
-        .cborder {
-            border: 1px solid black;
-            padding: 5px;
-        }
+      .cborder {
+          border: 1px solid black;
+          padding: 5px;
+      }
 
-        .cpadding {
-            padding: 15px;
-        }
+      .cpadding {
+          padding: 15px;
+      }
 
-        body {
-            font-size: large;
-        }
-    </style>
+      body {
+          font-size: large;
+      }
+  </style>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
-    </nav>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+  </nav>
 
-    <div class="container" style="padding-top: 70px;">
-        <div class="row">
-            <div class="col-md-2 hidden-xs">
+  <div class="container" style="padding-top: 70px;">
+    <div class="row">
+      <div class="col-md-2 hidden-xs">
 
+      </div>
+      <div class="col-md-8">
+        <ul class="breadcrumb small" >
+          <li><a href="../../index.html">Ana Sayfa</a></li>
+          <li><a href="index.html">JQuery API</a></li>
+          <li class="active"><span>jQuery.ajax() Metodu</span></li>
+        </ul>
+          
+        <h1>jQuery.ajax()</h1>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <span>jQuery.ajax( url [, settings ] )</span>
+            <span class="pull-right"><i>Dönen Değer : jqXHR Nesnesi</i></span>
+          </div>
+          <div class="panel-body">
+            <b>Açıklama : </b><i>Asenkron bir HTTP (Ajax) isteği gerçekleştirir. </i>
+            <br><br><div class="panel panel-info">
+              <div class="panel-heading">
+                <span>jQuery.ajax( url [, settings ] )</span>
+              </div>
+              <div class="panel-body">
+                <b>url</b><br>
+                <span>Tip : String</span><br>
+                <span> 
+                  İsteğin yapıldığı URL adresini içeren string değer.
+                </span>
+                <hr>
+                <b>settings</b><br>
+                <span>Tip : Düz JavaScript nesne</span><br>
+                <span> 
+                  Ajax isteğini şekillendiren key/value değerlerden oluşan set.
+                </span>
+              </div>
             </div>
-            <div class="col-md-8">
-                <ul class="breadcrumb small" >
-                    <li><a href="../../index.html">Ana Sayfa</a></li>
-                    <li><a href="index.html">JQuery API</a></li>
-                    <li class="active"><span>jQuery.ajax() Metodu</span></li>
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <span>jQuery.ajax( [settings ] )</span>
+              </div>
+              <div class="panel-body">
+                <b>settings</b><br>
+                <span>Tip : Düz JavaScript nesne</span><br><br>
+                <span> 
+                  Ajax isteğini şekillendiren key/value değerlerden oluşan set. Tüm 
+                  ayar değerleri opsiyoneldir. Default değerler <a href="jQuery.ajaxSetup.html">$.ajaxSetup()</a>
+                  metodu ile belirlenebilir.
+                </span>
+                <ul>
+                  <li>
+                    <b>accepts</b> (default: veri tipine göre değişir)<br>
+                    <span>Tip : Düz JavaScript nesne</span><br>
+                    <span>Verilen veri tipini onun 
+                      <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types">MIME</a>
+                      tipine bağlayan bir key/value setidir, isteğin <code>Accept</code> header'ında gönderilir. Bu header 
+                      server'a nasıl bir değer dönüşü beklendiğini (kabul edileceğini) bildirir. Aşağıdaki örnek 
+                      <code>mycustomtype</code> tipinde bir veri beklediğini server'a bildirir.</span>
+                    <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div><span style="color: #bfc7d5;">$</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">ajax</span><span style="color: #bfc7d5;">(</span>{</div><div>&nbsp; accepts: {</div><div>&nbsp; &nbsp; mycustomtype: <span style="color: #d9f5dd;">'</span><span style="color: #c3e88d;">application/x-some-custom-type</span><span style="color: #d9f5dd;">'</span></div><div>&nbsp; },</div><div>&nbsp;</div><div>&nbsp; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> `mycustomtype` tipin nasıl dönüştürüleceği</span></div><div>&nbsp; converters: {</div><div>&nbsp; &nbsp; <span style="color: #d9f5dd;">'</span><span style="color: #c3e88d;">text mycustomtype</span><span style="color: #d9f5dd;">'</span>: <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">(</span><span style="color: #7986e7;">result</span><span style="color: #d9f5dd;">)</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> bir şeyler yapılır</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #c792ea;">return</span> <span style="color: #bfc7d5;">newresult</span>;</div><div>&nbsp; &nbsp; }</div><div>&nbsp; },</div><div>&nbsp;</div><div>&nbsp; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> Server'dan bir `mycustomtype` geri dönmesini iste</span></div><div>&nbsp; dataType: <span style="color: #d9f5dd;">'</span><span style="color: #c3e88d;">mycustomtype</span><span style="color: #d9f5dd;">'</span></div><div>}<span style="color: #bfc7d5;">)</span>; &nbsp; </div></div></div>
+
+                  </li>
+                  <hr>
+                  <li>
+                    <b>async</b> (default: true) <br>
+                    <span>Tip : Boolean</span><br>
+                    <span>
+                      Default olarak tüm istekler asenkron gönderilir. Yani tarayıcı çalışmasını durdurmaz, 
+                      isteği yapar ve işine devam eder. Ne zaman cevap gelirse, cevaba göre yapıması tanımlanan 
+                      işlemler yapılır. Senkron olursa tarayıcı çalışmasını durdurup, cevabın gelmesini bekler. 
+                      Senkron istekler tarayıcıda kiltlenmelere neden olabilir. Domanin'ler arası istekler ve 
+                      <code>dataType: "jsonp"</code> veri tipi istekler senkron çalışmayı desteklemez. jQuery 
+                      versiyon 1.8 sonrası senkron çalışma iptal edilerek, success/error/complete callback 
+                      metodları kullanımı zorunlu yapılmıştır. 
+                    </span>
+                  </li><hr>
+                  <li>
+                    <b>beforeSend</b> <br>
+                    <span>Tip : <a href="Types/index.html#Function">Fonksiyon</a>( <a href="Types/index.html#jqXHR">jqXHR</a> jqXHR,
+                      <a href="Types/index.html#PlainObject">Düz Nesne</a> ayarlar )</span><br>
+                    <span>
+                      jqXHR nesnesini (v1.4 öncesi XMLHTTPRequest nesnesini) göndermeden önce düzenlemek 
+                      için kullanılacak <i>callback</i> fonksiyonudur. <i>jqXHR</i> ve <i>ayarlar</i> nesneleri 
+                      parametre olarak verilir. Bu bir <a href="Ajax_Events.html">Ajax Olayı</a>'dır. 
+                      <code>beforeSend</code> fonksiyonundan <b>false</b> değer dönmesi Ajax isteğini 
+                      iptal eder. 
+                    </span>
+                  </li><hr>
+                  <li>
+                    <b>cache</b> (default <code>true</code>, eğer dataType <i>script</i> ya da <i>jsonp</i> 
+                    ise <code>false</code> döner ) <br>
+                    <span>
+                      Tip : <a href="Types/index.html#Boolean">Boolean</a><br>
+                      Eğer <code>false</code> yapılırsa tarayıcının istek yapılan bilgiyi geçici hafızasında
+                      saklaması engellenir. <b>Not:</b> <code>cache</code> değerini <b>false</b> yapmak sadece 
+                      HEAD ve GET isteklerinde çalışır. 
+                    </span>
+                  </li><hr>
+                  <li>
+                    <b>complete</b><br>
+                    <span>Tip : <a href="Types/index.html#Function">Fonksiyon</a>( <a href="Types/index.html#jqXHR">jqXHR</a> jqXHR,
+                      <a href="Types/index.html#String">String</a> textStatus )</span><br>
+                    <span>
+                      İstek sonlandığında çağrılacak fonksiyon ( <code>success</code> ve <code>error</code> 
+                      olay işleyicilerinden sonra çalışır ). Fonksiyona iki parametre geçer, jqXHR nesnesi 
+                      ve isteğin durumunu ifade eden bir string değer ( <code>"success"</code>, <code>"notmodified"</code>, 
+                      <code>"nocontent"</code>, <code>"error"</code>, <code>"timeout"</code>, <code>"abort"</code> veya 
+                      <code>parsererror</code> ). Versiyon 1.5 sonrası <code>complete</code> özelliği fonksiyonlardan 
+                      oluşan bir array de değer alabilir, bu fonksiyonlar sırayla çalıştırılır. Bu bir 
+                      <a href="Ajax_Events.html">Ajax Olayıdır</a>.
+                    </span>
+                  </li><hr>
+                  <li>
+                    <b>contents</b><br>
+                    Tip : <a href="Types/index.html#PlainObject">Düz Nesne</a><br>
+                    Verilen içerik tipine göre jQuery'nin cevabı nasıl parse edeceğini belirleyen string/regex 
+                    çiftlerinden oluşan bir nesne. 
+                  </li><hr>
+                  <li>
+                    <b>contentType</b> (default: '<code>application/x-www-form-urlencoded; charset=UTF-8</code>')<br>
+                    Tip : <a href="Types/index.html#Boolean">Boolean</a> veya 
+                      <a href="Types/index.html#String">String</a><br>
+                    Veriyi server'a gönderirken bu veri tipini kullan. Birçok durumda default değeri 
+                    uygundur. Eğer <code>$.ajax()</code> ile bir <b>contentType</b> verilmişse veri gönderilmese 
+                    bie bu tip server'a gönderilir. Versiyon 1.6'dan itibaren bu değere <b>false</b> vererek 
+                    jQuery'nin bir veri tipi header göndermesi istenmediği belirtilir. 
+                  </li><hr>
+                  <li>
+                    <b>context</b><br>
+                    Tip : <a href="Types/index.html#PlainObject">Düz Nesne</a><br>
+                    <div class="cpadding" style="background-color: #3e313c; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="color: #f6f6f4;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #bfc7d5;">$</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">ajax</span><span style="color: #bfc7d5;">(</span>{</div><div>&nbsp; url: <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">test.html</span><span style="color: #d9f5dd;">"</span>,</div><div>&nbsp; context: <span style="color: #bfc7d5;">document</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">body</span></div><div>}<span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">done</span><span style="color: #bfc7d5;">(</span><span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #ff5572;">this</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">addClass</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">done</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div>}<span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                    <br>Ajax fonksiyonunda kullanılacak bağlamı belirtir. Örnekte ajax isteği başarılı olunca 
+                    bulunulan sayfanın <code>&lt;body></code> elemanına <code>done</code> sınıf değeri eklenir.
+                  </li><hr>
+                  <li>
+                    <b>converters</b> ( default <code>{"* text": window.String, "text html": true, 
+                      <br> "text json": jQuery.parseJSON, "text xml": jQuery.parseXML}</code> ) <br>
+                    Tip : <a href="Types/index.html#PlainObject">Düz Nesne</a><br>
+                    Veri tipinden veri tipine dönüştüürcüleri içeren bir nesne. Her dönüştürücünün değeri 
+                    dönen cevabın dönüştürülmüş şeklini veren bir fonksiyondur.
+                  </li><hr>
+                  <li>
+                    <b>crossDomain</b> ( default <code>aynı domain'de istekler için <i>false</i> , 
+                      ayrı domain istekler için <i>true</i></code> ) <br>
+                    Tip : <a href="Types/index.html#Boolean">Boolean</a><br>
+                    Aynı domain'de istek yaparken domain'ler arası şeklinde istek yapmak için bu özelliğe <code>true</code>
+                    değeri girin. Bu sayede örneğin server tarafından başka domainlere redirect etme 
+                    imkanı verebilirsiniz. 
+                  </li><hr>
+                  <li>
+                    <b>data</b><br>
+                    Tip : <a href="Types/index.html#PlainObject">Düz Nesne</a> veya 
+                      <a href="Types/index.html#String">String</a> veya 
+                      <a href="Types/index.html#Array">Array</a><br>
+                      Server'a gönderilecek veri. Eğer HTTP metodu mesela GET gibi bir entity bölümüne 
+                      sahip değilse veriler <b>url</b> değerine eklenerek gönderilir. <br><br>
+
+                      Veri bir nesne olduğunda eğer <code>processData</code> opsiyonunda <code>false</code> 
+                      değer verilmemişse , jQuery nesnenin key-value çiftlerinden bir veri string'i 
+                      oluşturur. Örneğin <code>{ a: "bc", d: "e,f" }</code> nesnesi <code>"a=bc&d=e%2Cf"</code>
+                      string'ine dönüştürülür. Eğer değer bir array'se default <code>traditional: false</code>
+                      ayarı ile birçok değer aynı key ile verilir. Örnek <code>{ a: [1,2] }</code> dönüştürülünce 
+                      <code>"a%5B%5D=1&a%5B%5D=2"</code> olur, bu aslında <code>"a[]=1&a[]=2"</code> 
+                      string'inin url'e uygun dönüştürülmüş hali. <br><br>
+
+                      <code>data</code> bir string yapılırken <code>contentType</code>'da belirtildiği 
+                      şekilde dönüştürülmüş olmalıdır. <br><br>
+
+                      <code>dataType: "json"</code> veya <code>dataType: "jsonp"</code> olan isteklerde 
+                      eğer URL içinde çift soru işareti (??) veya sorgu stringinde tek soru işareti (?)
+                      varsa jQuery tarafından üretilen ve her sayfada biricik olan bir değere değiştirilir 
+                      (mesela <code>jQuery21406515378922229067_1479880736745</code> )
+                  </li><hr>
+                  <li>
+                    <b>dataFilter</b><br>
+
+                  </li>
                 </ul>
-                
-                <h1>jQuery.ajax()</h1>
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <span>jQuery.ajax( url [, settings ] )</span>
-                        <span class="pull-right"><i>Dönen Değer : jqXHR Nesnesi</i></span>
-                    </div>
-                    <div class="panel-body">
-                        <b>Açıklama : </b><i>Asenkron bir HTTP (Ajax) isteği gerçekleştirir. </i>
-                        <br><br><div class="panel panel-info">
-                            <div class="panel-heading">
-                                <span>jQuery.ajax( url [, settings ] )</span>
-                            </div>
-                            <div class="panel-body">
-                                <b>url</b><br>
-                                <span>Tip : String</span><br>
-                                <span> 
-                                    İsteğin yapıldığı URL adresini içeren string değer.
-                                </span>
-                                <hr>
-                                <b>settings</b><br>
-                                <span>Tip : Düz JavaScript nesne</span><br>
-                                <span> 
-                                    Ajax isteğini şekillendiren key/value değerlerden oluşan set.
-                                </span>
-                            </div>
-                        </div>
-                        <div class="panel panel-info">
-                            <div class="panel-heading">
-                                <span>jQuery.ajax( [settings ] )</span>
-                            </div>
-                            <div class="panel-body">
-                                <b>settings</b><br>
-                                <span>Tip : Düz JavaScript nesne</span><br><br>
-                                <span> 
-                                    Ajax isteğini şekillendiren key/value değerlerden oluşan set. Tüm 
-                                    ayar değerleri opsiyoneldir. Default değerler <a href="jQuery.ajaxSetup.html">$.ajaxSetup()</a>
-                                    metodu ile belirlenebilir.
-                                </span>
-                                <ul>
-                                    <li>
-                                        <b>accepts</b> (default: veri tipine göre değişir)<br>
-                                        <span>Tip : Düz JavaScript nesne</span><br>
-                                        <span>Verilen veri tipini onun 
-                                            <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types">MIME</a>
-                                            tipine bağlayan bir key/value setidir, isteğin <code>Accept</code> header'ında gönderilir. Bu header 
-                                            server'a nasıl bir değer dönüşü beklendiğini (kabul edileceğini) bildirir. Aşağıdaki örnek 
-                                            <code>mycustomtype</code> tipinde bir veri beklediğini server'a bildirir.</span>
-                                        <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div><span style="color: #bfc7d5;">$</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">ajax</span><span style="color: #bfc7d5;">(</span>{</div><div>&nbsp; accepts: {</div><div>&nbsp; &nbsp; mycustomtype: <span style="color: #d9f5dd;">'</span><span style="color: #c3e88d;">application/x-some-custom-type</span><span style="color: #d9f5dd;">'</span></div><div>&nbsp; },</div><div>&nbsp;</div><div>&nbsp; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> `mycustomtype` tipin nasıl dönüştürüleceği</span></div><div>&nbsp; converters: {</div><div>&nbsp; &nbsp; <span style="color: #d9f5dd;">'</span><span style="color: #c3e88d;">text mycustomtype</span><span style="color: #d9f5dd;">'</span>: <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">(</span><span style="color: #7986e7;">result</span><span style="color: #d9f5dd;">)</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> bir şeyler yapılır</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #c792ea;">return</span> <span style="color: #bfc7d5;">newresult</span>;</div><div>&nbsp; &nbsp; }</div><div>&nbsp; },</div><div>&nbsp;</div><div>&nbsp; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> Server'dan bir `mycustomtype` geri dönmesini iste</span></div><div>&nbsp; dataType: <span style="color: #d9f5dd;">'</span><span style="color: #c3e88d;">mycustomtype</span><span style="color: #d9f5dd;">'</span></div><div>}<span style="color: #bfc7d5;">)</span>; &nbsp; </div></div></div>
-
-                                    </li>
-                                    <hr>
-                                    <li>
-                                        <b>async</b> (default: true) <br>
-                                        <span>Tip : Boolean</span><br>
-                                        <span>
-                                            Default olarak tüm istekler asenkron gönderilir. Yani tarayıcı çalışmasını durdurmaz, 
-                                            isteği yapar ve işine devam eder. Ne zaman cevap gelirse, cevaba göre yapıması tanımlanan 
-                                            işlemler yapılır. Senkron olursa tarayıcı çalışmasını durdurup, cevabın gelmesini bekler. 
-                                            Senkron istekler tarayıcıda kiltlenmelere neden olabilir. Domanin'ler arası istekler ve 
-                                            <code>dataType: "jsonp"</code> veri tipi istekler senkron çalışmayı desteklemez. jQuery 
-                                            versiyon 1.8 sonrası senkron çalışma iptal edilerek, success/error/complete callback 
-                                            metodları kullanımı zorunlu yapılmıştır. 
-                                        </span>
-                                    </li><hr>
-                                    <li>
-                                        <b>beforeSend</b> <br>
-                                        <span>Tip : function(</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <script>
-
-                        </script>
-
-
-
-                        <p>
-                            <code>.after()</code> ve <a href="insertAfter.html">insertAfter()</a> metodu aynı görevi 
-                            yapar. Ana fark deyimin kullanılış şeklindedir. <code>.after()</code> kullanırken 
-                            seçili olan elemanlara parametrede verilen içerik eklenirken , <code>insertAfter()</code>
-                            metodunda seçili olan elemanlar parametrede verilen elemana eklenir.
-                        </p>
-
-                        <p>
-                            Aşağıdaki HTML içeriği kullanalım :
-                        </p>
-                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"container"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">h2</span><span style="color: grey;">&gt;</span>Selamlaşma<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">h2</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"inner"</span><span style="color: grey;">&gt;</span>Merhaba<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"inner"</span><span style="color: grey;">&gt;</span>Hoşçakal<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
-                        <br><p>
-                            Bir içerik üretip bunu bir set elemanın her birine ekleyebiliriz.
-                        </p>
-                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">".inner"</span> ).<span style="color: #dcdcaa;">after</span>( <span style="color: #ce9178;">"&lt;p&gt;Test&lt;/p&gt;"</span> );</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
-                        <br><p>
-                            Her <code>&lt;div></code> elemanı arkasına yeni bir içerik gelir. Sonuç HTML şöyle olur:
-                        </p>
-                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"container"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">h2</span><span style="color: grey;">&gt;</span>Selamlaşma<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">h2</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"inner"</span><span style="color: grey;">&gt;</span>Merhaba<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Test<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"inner"</span><span style="color: grey;">&gt;</span>Hoşçakal<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Test<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
-                        <br><p>
-                            DOM içindeki mevcut elemanlardan biri de seçilip başka bir elemanın arkasına eklenebilir.
-                        </p>
-                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">".container"</span> ).<span style="color: #dcdcaa;">after</span>( <span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"h2"</span> ) );</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
-                        <br><p>
-                            Eğer arkasına eklenecek tek bir eleman seçildiyse DOM içinden bulunan eleman onun arkasına 
-                            taşınır. Ama arkasına eklenecek eleman seti birden fazlaysa, her birinin arkasına eklenecek 
-                            olan elemanın klonlama ile elde edilen ikizi eklenir. Yukarıdaki kodun sonucu şöyle olur:
-                        </p>
-                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"container"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"inner"</span><span style="color: grey;">&gt;</span>Merhaba<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"inner"</span><span style="color: grey;">&gt;</span>Hoşçakal<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">h2</span><span style="color: grey;">&gt;</span>Selamlaşma<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">h2</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
-                        <br><p>
-                            Birden fazla elemana ekleme yapılmasını da şöyle örnekleyebiliriz:
-                        </p>
-                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">".inner"</span> ).<span style="color: #dcdcaa;">after</span>( <span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"h2"</span> ) );</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
-                        <br><p>
-                            Bu kodun sonucu oluşan HTML şöyle olur:
-                        </p>
-                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"container"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"inner"</span><span style="color: grey;">&gt;</span>Merhaba<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">h2</span><span style="color: grey;">&gt;</span>Selamlaşma<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">h2</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"inner"</span><span style="color: grey;">&gt;</span>Hoşçakal<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">h2</span><span style="color: grey;">&gt;</span>Selamlaşma<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">h2</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
-                        <br><h3>Fonksiyon Olarak Parametre:</h3>
-                        <p>
-                            JQuery versiyon 1.4'ten sonra <code>.after()</code> metodu eklenecek içeriği dönen bir 
-                            fonksiyonu da parametre olarak kabul etmeye başladı.
-                        </p>
-                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"p"</span> ).<span style="color: #dcdcaa;">after</span>(<span style="color: #569cd6;">function</span>() {</div><div>&nbsp; <span style="color: #c586c0;">return</span> <span style="color: #ce9178;">"&lt;div&gt;"</span> <span style="color: #d4d4d4;">+</span> <span style="color: #569cd6;">this</span>.<span style="color: #9cdcfe;">className</span> <span style="color: #d4d4d4;">+</span> <span style="color: #ce9178;">"&lt;/div&gt;"</span>;</div><div>});</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
-                        <br><p>
-                            Bu kod her <code>&lt;p></code> elemanı arkasına bir <code>&lt;div></code> elemanı ekler ve
-                            içine paragrafın sınıf değerini yazar.
-                        </p>
-
-                        <br><h3>İlave Parametreler</h3>
-                        <p>
-                            Diğer içerik ekleyen <code>.prepend()</code> ve <code>.before()</code> metodları gibi 
-                            <code>.after()</code> metodu da parametresinde birden fazla girdiyi kabul eder. Bu girdiler 
-                            DOM elemanları, jQuery nesneleri, HTML stringler ve DOM elemanlarından oluşan bir array 
-                            olabilir. 
-                        </p>
-                        <p>
-                            Örneğin aşağıdaki kod , ilk paragrafın arkasına 2 yeni <code>&lt;div></code> ve bir mevcut 
-                            <code>&lt;div></code> elemanını ekler.
-                        </p>
-                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #569cd6;">var</span> <span style="color: #9cdcfe;">$newdiv1</span> <span style="color: #d4d4d4;">=</span> <span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"&lt;div id='object1'&gt;newdiv 1&lt;/div&gt;"</span> ),</div><div>&nbsp; <span style="color: #9cdcfe;">newdiv2</span> <span style="color: #d4d4d4;">=</span> <span style="color: #9cdcfe;">document</span>.<span style="color: #dcdcaa;">createElement</span>( <span style="color: #ce9178;">"div"</span> ),</div><div>&nbsp; <span style="color: #9cdcfe;">existingdiv1</span> <span style="color: #d4d4d4;">=</span> <span style="color: #9cdcfe;">document</span>.<span style="color: #dcdcaa;">getElementById</span>( <span style="color: #ce9178;">"foo"</span> );</div><div>&nbsp;</div><div><span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"p"</span> ).<span style="color: #dcdcaa;">first</span>().<span style="color: #dcdcaa;">after</span>( <span style="color: #9cdcfe;">$newdiv1</span>, [ <span style="color: #9cdcfe;">newdiv2</span>, <span style="color: #9cdcfe;">existingdiv1</span> ] );</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
-                        <br><p>
-                            <code>.after()</code> metodu istenen sayıda argüman alabildiği için yukarıda 3 eleman da 
-                            <br><code>$( "p" ).first().after( $newdiv1, newdiv2, existingdiv1 )</code> şeklinde virgül ile 
-                            ayrılmış şekilde verebilirsiniz.
-                        </p>
-
-                        <br><br><h3>Örnekler :</h3>
-                        <p>
-                             Tüm paragrafların sonrasına bazı HTML eklenir.
-                        </p>
-                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">meta</span> <span style="color: #9cdcfe;">charset</span>=<span style="color: #ce9178;">"utf-8"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>JQuery Öğrenimi<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"jquery.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">p</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">background</span>: <span style="color: #ce9178;">yellow</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span> &nbsp; &nbsp; &nbsp; &nbsp;</div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Şunu demek isterim ki: <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"p"</span> ).<span style="color: #dcdcaa;">after</span>( <span style="color: #ce9178;">"&lt;b&gt;Hello&lt;/b&gt;"</span> );</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
-                        <br><p><b>Demo:</b></p>
-                        <div class="cborder" id="test1">
-                            <style>
-                                #test1 p {
-                                    background: yellow;
-                                }
-                            </style>        
-                            <p>Şunu demek isterim ki: </p>
-                            <script>
-                                $( "#test1 p" ).after( "<b>Hello</b>" );
-                            </script>
-                        </div>
-                        <br><p>
-                             Tüm paragrafların sonrasına bir DOM elemanı eklenir.
-                        </p>
-                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">meta</span> <span style="color: #9cdcfe;">charset</span>=<span style="color: #ce9178;">"utf-8"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>JQuery Öğrenimi<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"jquery.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">p</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">background</span>: <span style="color: #ce9178;">yellow</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span> &nbsp; &nbsp; &nbsp; &nbsp;</div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Şunu demek isterim ki: <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"p"</span> ).<span style="color: #dcdcaa;">after</span>( <span style="color: #9cdcfe;">document</span>.<span style="color: #dcdcaa;">createTextNode</span>( <span style="color: #ce9178;">"Hello"</span> ) );</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
-                        <br><div class="cborder" id="test2">
-                            <style>
-                                #test2 p {
-                                    background: yellow;
-                                }
-                            </style>   
-                            <p>Şunu demek isterim ki: </p>
-                            <script>
-                                $( "#test2 p" ).after( document.createTextNode( "Hello" ) );
-                            </script>
-                        </div>
-                        <br><p>
-                             Tüm paragrafların sonrasına bir jQuery nesne (DOM elemanlarından bir array'e benzer) eklenir.
-                        </p>
-                        <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">meta</span> <span style="color: #9cdcfe;">charset</span>=<span style="color: #ce9178;">"utf-8"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>JQuery Öğrenimi<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"jquery.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">p</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">background</span>: <span style="color: #ce9178;">yellow</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span> &nbsp; &nbsp; &nbsp; &nbsp;</div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">b</span><span style="color: grey;">&gt;</span>Hello<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">b</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Şunu demek isterim ki: <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"p"</span> ).<span style="color: #dcdcaa;">after</span>( <span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"b"</span> ) );</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
-                        <br><div class="cborder" id="test3">
-                            <style>
-                                #test3 p {
-                                    background: yellow;
-                                }
-                            </style>  
-                            <b>Hello</b> 
-                            <p>Şunu demek isterim ki: </p>
-                            <script>
-                                $( "#test3 p" ).after( $( "#test3 b" ) );
-                            </script>
-                        </div>
-
-                    </div>
-                </div>
-                <p>.</p><p>.</p>
+              </div>
 
             </div>
-            <div class="col-md-2 hidden-xs">
 
+            <h4 id="jqXHR" style="padding-top: 70px;"><b>jqXHR Nesnesi</b></h4>
+            <p>
+              ------- TO DO -------- <br><br>
+            </p>
+            <script>
+
+            </script>
+
+
+
+            <p>
+              <code>.after()</code> ve <a href="insertAfter.html">insertAfter()</a> metodu aynı görevi 
+              yapar. Ana fark deyimin kullanılış şeklindedir. <code>.after()</code> kullanırken 
+              seçili olan elemanlara parametrede verilen içerik eklenirken , <code>insertAfter()</code>
+              metodunda seçili olan elemanlar parametrede verilen elemana eklenir.
+            </p>
+
+            <p>
+              Aşağıdaki HTML içeriği kullanalım :
+            </p>
+            <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"container"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">h2</span><span style="color: grey;">&gt;</span>Selamlaşma<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">h2</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"inner"</span><span style="color: grey;">&gt;</span>Merhaba<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"inner"</span><span style="color: grey;">&gt;</span>Hoşçakal<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+            <br><p>
+              Bir içerik üretip bunu bir set elemanın her birine ekleyebiliriz.
+            </p>
+            <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">".inner"</span> ).<span style="color: #dcdcaa;">after</span>( <span style="color: #ce9178;">"&lt;p&gt;Test&lt;/p&gt;"</span> );</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+            <br><p>
+              Her <code>&lt;div></code> elemanı arkasına yeni bir içerik gelir. Sonuç HTML şöyle olur:
+            </p>
+            <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"container"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">h2</span><span style="color: grey;">&gt;</span>Selamlaşma<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">h2</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"inner"</span><span style="color: grey;">&gt;</span>Merhaba<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Test<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"inner"</span><span style="color: grey;">&gt;</span>Hoşçakal<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Test<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+            <br><p>
+              DOM içindeki mevcut elemanlardan biri de seçilip başka bir elemanın arkasına eklenebilir.
+            </p>
+            <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">".container"</span> ).<span style="color: #dcdcaa;">after</span>( <span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"h2"</span> ) );</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+            <br><p>
+              Eğer arkasına eklenecek tek bir eleman seçildiyse DOM içinden bulunan eleman onun arkasına 
+              taşınır. Ama arkasına eklenecek eleman seti birden fazlaysa, her birinin arkasına eklenecek 
+              olan elemanın klonlama ile elde edilen ikizi eklenir. Yukarıdaki kodun sonucu şöyle olur:
+            </p>
+            <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"container"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"inner"</span><span style="color: grey;">&gt;</span>Merhaba<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"inner"</span><span style="color: grey;">&gt;</span>Hoşçakal<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">h2</span><span style="color: grey;">&gt;</span>Selamlaşma<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">h2</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+            <br><p>
+              Birden fazla elemana ekleme yapılmasını da şöyle örnekleyebiliriz:
+            </p>
+            <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">".inner"</span> ).<span style="color: #dcdcaa;">after</span>( <span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"h2"</span> ) );</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+            <br><p>
+              Bu kodun sonucu oluşan HTML şöyle olur:
+            </p>
+            <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"container"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"inner"</span><span style="color: grey;">&gt;</span>Merhaba<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">h2</span><span style="color: grey;">&gt;</span>Selamlaşma<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">h2</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">div</span> <span style="color: #9cdcfe;">class</span>=<span style="color: #ce9178;">"inner"</span><span style="color: grey;">&gt;</span>Hoşçakal<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">h2</span><span style="color: grey;">&gt;</span>Selamlaşma<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">h2</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">div</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+            <br><h3>Fonksiyon Olarak Parametre:</h3>
+            <p>
+              JQuery versiyon 1.4'ten sonra <code>.after()</code> metodu eklenecek içeriği dönen bir 
+              fonksiyonu da parametre olarak kabul etmeye başladı.
+            </p>
+            <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"p"</span> ).<span style="color: #dcdcaa;">after</span>(<span style="color: #569cd6;">function</span>() {</div><div>&nbsp; <span style="color: #c586c0;">return</span> <span style="color: #ce9178;">"&lt;div&gt;"</span> <span style="color: #d4d4d4;">+</span> <span style="color: #569cd6;">this</span>.<span style="color: #9cdcfe;">className</span> <span style="color: #d4d4d4;">+</span> <span style="color: #ce9178;">"&lt;/div&gt;"</span>;</div><div>});</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+            <br><p>
+              Bu kod her <code>&lt;p></code> elemanı arkasına bir <code>&lt;div></code> elemanı ekler ve
+              içine paragrafın sınıf değerini yazar.
+            </p>
+
+            <br><h3>İlave Parametreler</h3>
+            <p>
+              Diğer içerik ekleyen <code>.prepend()</code> ve <code>.before()</code> metodları gibi 
+              <code>.after()</code> metodu da parametresinde birden fazla girdiyi kabul eder. Bu girdiler 
+              DOM elemanları, jQuery nesneleri, HTML stringler ve DOM elemanlarından oluşan bir array 
+              olabilir. 
+            </p>
+            <p>
+              Örneğin aşağıdaki kod , ilk paragrafın arkasına 2 yeni <code>&lt;div></code> ve bir mevcut 
+              <code>&lt;div></code> elemanını ekler.
+            </p>
+            <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #569cd6;">var</span> <span style="color: #9cdcfe;">$newdiv1</span> <span style="color: #d4d4d4;">=</span> <span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"&lt;div id='object1'&gt;newdiv 1&lt;/div&gt;"</span> ),</div><div>&nbsp; <span style="color: #9cdcfe;">newdiv2</span> <span style="color: #d4d4d4;">=</span> <span style="color: #9cdcfe;">document</span>.<span style="color: #dcdcaa;">createElement</span>( <span style="color: #ce9178;">"div"</span> ),</div><div>&nbsp; <span style="color: #9cdcfe;">existingdiv1</span> <span style="color: #d4d4d4;">=</span> <span style="color: #9cdcfe;">document</span>.<span style="color: #dcdcaa;">getElementById</span>( <span style="color: #ce9178;">"foo"</span> );</div><div>&nbsp;</div><div><span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"p"</span> ).<span style="color: #dcdcaa;">first</span>().<span style="color: #dcdcaa;">after</span>( <span style="color: #9cdcfe;">$newdiv1</span>, [ <span style="color: #9cdcfe;">newdiv2</span>, <span style="color: #9cdcfe;">existingdiv1</span> ] );</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+            <br><p>
+              <code>.after()</code> metodu istenen sayıda argüman alabildiği için yukarıda 3 eleman da 
+              <br><code>$( "p" ).first().after( $newdiv1, newdiv2, existingdiv1 )</code> şeklinde virgül ile 
+              ayrılmış şekilde verebilirsiniz.
+            </p>
+
+            <br><br><h3>Örnekler :</h3>
+            <p>
+              Tüm paragrafların sonrasına bazı HTML eklenir.
+            </p>
+            <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">meta</span> <span style="color: #9cdcfe;">charset</span>=<span style="color: #ce9178;">"utf-8"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>JQuery Öğrenimi<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"jquery.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">p</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">background</span>: <span style="color: #ce9178;">yellow</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span> &nbsp; &nbsp; &nbsp; &nbsp;</div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Şunu demek isterim ki: <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"p"</span> ).<span style="color: #dcdcaa;">after</span>( <span style="color: #ce9178;">"&lt;b&gt;Hello&lt;/b&gt;"</span> );</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+            <br><p><b>Demo:</b></p>
+            <div class="cborder" id="test1">
+              <style>
+                #test1 p {
+                  background: yellow;
+                }
+              </style>        
+              <p>Şunu demek isterim ki: </p>
+              <script>
+                $( "#test1 p" ).after( "<b>Hello</b>" );
+              </script>
             </div>
+            <br><p>
+              Tüm paragrafların sonrasına bir DOM elemanı eklenir.
+            </p>
+            <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">meta</span> <span style="color: #9cdcfe;">charset</span>=<span style="color: #ce9178;">"utf-8"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>JQuery Öğrenimi<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"jquery.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">p</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">background</span>: <span style="color: #ce9178;">yellow</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span> &nbsp; &nbsp; &nbsp; &nbsp;</div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Şunu demek isterim ki: <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"p"</span> ).<span style="color: #dcdcaa;">after</span>( <span style="color: #9cdcfe;">document</span>.<span style="color: #dcdcaa;">createTextNode</span>( <span style="color: #ce9178;">"Hello"</span> ) );</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+              <br><div class="cborder" id="test2">
+                <style>
+                  #test2 p {
+                    background: yellow;
+                  }
+                </style>   
+                <p>Şunu demek isterim ki: </p>
+                <script>
+                  $( "#test2 p" ).after( document.createTextNode( "Hello" ) );
+                </script>
+              </div>
+              <br><p>
+                Tüm paragrafların sonrasına bir jQuery nesne (DOM elemanlarından bir array'e benzer) eklenir.
+              </p>
+              <div class="cpadding" style="background-color: black; color: white; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: grey;">&lt;!</span><span style="color: #569cd6;">doctype</span> <span style="color: #9cdcfe;">html</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">meta</span> <span style="color: #9cdcfe;">charset</span>=<span style="color: #ce9178;">"utf-8"</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span>JQuery Öğrenimi<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">title</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span> <span style="color: #9cdcfe;">src</span>=<span style="color: #ce9178;">"jquery.js"</span><span style="color: grey;">&gt;&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d7ba7d;">p</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #d4d4d4;">background</span>: <span style="color: #ce9178;">yellow</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">style</span><span style="color: grey;">&gt;</span> &nbsp; &nbsp; &nbsp; &nbsp;</div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">head</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">b</span><span style="color: grey;">&gt;</span>Hello<span style="color: grey;">&lt;/</span><span style="color: #569cd6;">b</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span>Şunu demek isterim ki: <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">p</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"p"</span> ).<span style="color: #dcdcaa;">after</span>( <span style="color: #dcdcaa;">$</span>( <span style="color: #ce9178;">"b"</span> ) );</div><div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">script</span><span style="color: grey;">&gt;</span></div><div>&nbsp; &nbsp; <span style="color: grey;">&lt;/</span><span style="color: #569cd6;">body</span><span style="color: grey;">&gt;</span></div><div><span style="color: grey;">&lt;/</span><span style="color: #569cd6;">html</span><span style="color: grey;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+              <br><div class="cborder" id="test3">
+                <style>
+                  #test3 p {
+                    background: yellow;
+                  }
+                </style>  
+                <b>Hello</b> 
+                <p>Şunu demek isterim ki: </p>
+                <script>
+                  $( "#test3 p" ).after( $( "#test3 b" ) );
+                </script>
+              </div>
+
+          </div>
         </div>
+        <p>.</p><p>.</p>
+
+      </div>
+      <div class="col-md-2 hidden-xs">
+
+      </div>
     </div>
+  </div>
 
 </body>
 </html>

@@ -1,148 +1,427 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>jQuery Veri Tipleri</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <style>
-        div .scroll{
-            height:300px;
-            width: 100%;
-            overflow:scroll;
-            scrollbar-color: dark;
-        }
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>jQuery Veri Tipleri</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <style>
+      div .scroll{
+         height:300px;
+         width: 100%;
+         overflow:scroll;
+         scrollbar-color: dark;
+      }
 
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
+      ::-webkit-scrollbar {
+         width: 10px;
+      }
 
-        ::-webkit-scrollbar-track {
-            background: white;
-        }
+      ::-webkit-scrollbar-track {
+         background: white;
+      }
 
-        ::-webkit-scrollbar-thumb {
-            background: gray;
-            border-radius: 10px;
-        }
+      ::-webkit-scrollbar-thumb {
+         background: gray;
+         border-radius: 10px;
+      }
 
-        .cborder {
-            border: 1px solid black;
-            padding: 5px;
-        }
+      .cborder {
+         border: 1px solid black;
+         padding: 5px;
+      }
 
-        .cpadding {
-            padding: 15px;
-        }
+      .cpadding {
+         padding: 15px;
+      }
 
-        body {
-            font-size: large;
-        }
-    </style>
+      body {
+         font-size: large;
+      }
+
+      #left-fixed {
+         position: fixed;
+         top: 100px;
+         left: 20px;
+      }
+   </style>
+   <script>
+      $(document).ready(function(){
+         var başlıklar = $("h2[id]");
+         başlıklar.each(function(ind, elm){
+            $("#left-fixed").append("<a href='#" + elm.id + "' class='badge alert-success' style='width: 150px;'>" 
+               + elm.textContent + "</a><br>");
+         });
+      });
+   </script>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
-    </nav>
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+      <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+   </nav>
 
-    <div class="container" style="padding-top: 70px;">
-        <div class="row">
-            <div class="col-md-2 hidden-xs">
-
-            </div>
-            <div class="col-md-8">
-                <ul class="breadcrumb small" >
-                    <li><a href="../../../index.html">Ana Sayfa</a></li>
-                    <li><a href="../../index.html">JQuery Öğrenimi</a></li>
-                    <li><a href="../index.html">JQuery API</a></li>
-                    <li class="active"><span>JQuery Veri Tipleri</span></li>
-                </ul>
-                
-                <h1>JQuery Veri Tipleri</h1>
-                <p>
-                    Bu sayfada jQuery fonksiyonlarının kullandığı ve jQuery tarafından kısıtlanmış veri tipleri 
-                    veya JavaScript'in kendi veri tipleri açıklanıyor. Aşağıda verilen örneklerin çoğunu 
-                    tarayıcınızın geliştirici araçları penceresindeki konsolda direk kopyalayarak deneyebilirsiniz. 
-                </p>
-
-                <h2 id="Function" style="padding-top: 70px;">Function</h2>
-                <p>
-                    JavaScript'de bir fonksiyon (function) isimli ya da anonim olabilir. Herhangi bir fonksiyon 
-                    bir değişkene atanabilir ya da bir metoda parametre olarak verilebilir. Örnek:
-                </p>
-                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">function</span> <span style="color: #82aaff;">named</span><span style="color: #d9f5dd;">()</span> {}</div><div><span style="color: #c792ea;">var</span> <span style="color: #82aaff;">handler</span> <span style="color: #c792ea;">=</span> <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {}</div></div></div></div>
-                <br><p>
-                    JQuery kodlarında çok fazla sıklıkta anonim fonksiyonlara rastlarsınız
-                </p>
-                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">document</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">ready</span><span style="color: #bfc7d5;">(</span><span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {}<span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">a)</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {}<span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #bfc7d5;">$</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">ajax</span><span style="color: #bfc7d5;">(</span>{</div><div>&nbsp; url: <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">someurl.php</span><span style="color: #d9f5dd;">"</span>,</div><div>&nbsp; <span style="color: #82aaff;">success</span>: <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {}</div><div>}<span style="color: #bfc7d5;">)</span>;</div></div></div></div></div>
-                <br><p>
-                    Bir fonksiyonun veri tipi "function" dur.
-                </p>
-                <h3>arguments</h3>
-                <p>
-                    Bir fonksiyon tanımı içinde <b>arguments</b> özel değişkeni her zaman kullanılabilir. 
-                    Bir array gibidir ve <b>length</b> özelliği vardır, ancak array metodlarının çoğu ile 
-                    çalışmaz. Fonksiyon çağrılırken girilen argümanların (parametrelerin) oluşturduğu bir 
-                    sahte array gibidir. 
-                </p>
-                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">function</span> <span style="color: #82aaff;">log</span><span style="color: #d9f5dd;">(</span> <span style="color: #7986e7;">x</span> <span style="color: #d9f5dd;">)</span> {</div><div>&nbsp; <span style="color: #bfc7d5;">console</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(</span> <span style="color: #89ddff;">typeof</span> <span style="color: #bfc7d5;">x</span><span style="color: #eeffff;">,</span> <span style="color: #ff5572;">arguments</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">length</span> <span style="color: #bfc7d5;">)</span>;</div><div>}</div><div><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">()</span>; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> "undefined", 0</span></div><div><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(</span> <span style="color: #f78c6c;">1</span> <span style="color: #bfc7d5;">)</span>; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> "number", 1</span></div><div><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">1</span><span style="color: #d9f5dd;">"</span>, <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">2</span><span style="color: #d9f5dd;">"</span>, <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">3</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> "string", 3</span></div></div></div></div></div></div>
-                <br><p>
-                    <b>arguments</b> nesnesi aynı zamanda <b>callee</b> adında bir özelliğe sahiptir. Bu 
-                    özellik aslında o fonksiyonun tanımıdır. Örnek:
-                </p>
-                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">var</span> <span style="color: #82aaff;">awesome</span> <span style="color: #c792ea;">=</span> <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> { <span style="color: #c792ea;">return</span> <span style="color: #ff5572;">arguments</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">callee</span>; }</div><div><span style="color: #82aaff;">awesome</span><span style="color: #bfc7d5;">()</span> <span style="color: #c792ea;">===</span> <span style="color: #bfc7d5;">awesome</span> <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> true</span></div></div></div></div></div></div></div>
-                <br>
-                <h3>Context, Call ve Apply</h3>
-                <p>
-                    JavaScript'de <b>this</b> değeri her zaman bulunulan bağlamı (context) ifade eder. 
-                    Default olarak <b>this</b> ana eleman olan <b>window</b> nesnesidir. Bir fonksiyon 
-                    içerisinde bağlam o fonksiyonun nasıl çağrıldığına göre değişir. 
-                </p>
-                <p>
-                    JQuery'de olay işlerken o olayın oluştuğu eleman bağlam olur ve böylece olay işleyici 
-                    fonksiyon içinde <b>this</b> kelimesi olayın gerçekleştiği eleman olur.
-                </p>
-                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">document</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">ready</span><span style="color: #bfc7d5;">(</span><span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> this kelimesi window.document'i gösterir</span></div><div>}<span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">a</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> this kelimesi DOM elemanı &lt;a&gt;'dır</span></div><div>}<span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div>
-                <br><p>
-                    Bir fonksiyon için bağlamı <code>.call()</code> ve <code>.apply()</code> metodlarını 
-                    kullanarak değiştirebilirsiniz. Aralarındaki fark parametreleri fonksiyona nasıl 
-                    geçirdikleri ile alakalıdır. <code>.call()</code> verilen parametreleri virgülle 
-                    ayrılmış olarak fonksiyona verirken , <code>.apply()</code> bir array içinde verilen 
-                    değerleri parametre olarak fonksiyona geçirir. 
-                </p>
-                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">function</span> <span style="color: #82aaff;">scope</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; <span style="color: #bfc7d5;">console</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(</span> <span style="color: #ff5572;">this</span><span style="color: #eeffff;">,</span> <span style="color: #ff5572;">arguments</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">length</span> <span style="color: #bfc7d5;">)</span>;</div><div>}</div><div><span style="color: #82aaff;">scope</span><span style="color: #bfc7d5;">()</span> <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> window, 0</span></div><div><span style="color: #bfc7d5;">scope</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">call</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">foobar</span><span style="color: #d9f5dd;">"</span>,<span style="color: #bfc7d5;"> [ </span><span style="color: #f78c6c;">1</span><span style="color: #bfc7d5;">, </span><span style="color: #f78c6c;">2</span><span style="color: #bfc7d5;"> ]</span> <span style="color: #bfc7d5;">)</span>; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> "foobar", 1</span></div><div><span style="color: #bfc7d5;">scope</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">apply</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">foobar</span><span style="color: #d9f5dd;">"</span>,<span style="color: #bfc7d5;"> [ </span><span style="color: #f78c6c;">1</span><span style="color: #bfc7d5;">, </span><span style="color: #f78c6c;">2</span><span style="color: #bfc7d5;"> ]</span> <span style="color: #bfc7d5;">)</span>; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> "foobar", 2</span></div></div></div></div></div></div></div></div></div>
-                <br>
-                <h3>Kapsam (scope)</h3>
-                <p>
-                    JavaScript'de bir fonksiyon içinde tanımlanmış tüm değişkenler o fonksiyon kapsamı 
-                    içinde kullanılabilir. Örneğe bakalım:
-                </p>
-                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> global</span></div><div><span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">x</span> <span style="color: #c792ea;">=</span> <span style="color: #f78c6c;">0</span>;</div><div><span style="color: #bfc7d5;">(</span><span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> private</span></div><div>&nbsp; <span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">x</span> <span style="color: #c792ea;">=</span> <span style="color: #f78c6c;">1</span>;</div><div>&nbsp; <span style="color: #bfc7d5;">console</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">x</span> <span style="color: #bfc7d5;">)</span>; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> 1</span></div><div>}<span style="color: #bfc7d5;">)()</span>;</div><div><span style="color: #bfc7d5;">console</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">x</span> <span style="color: #bfc7d5;">)</span>; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> 0</span></div></div></div></div></div></div></div></div></div></div>
-                <br><p>
-                    Global kapsamda bir <b>x</b> değişkeni tanımlanıyor, hemen çalışacak bir anonim 
-                    fonksiyon tanımı içinde (fonksiyon tanımı sonrası gelen parantez açıp kapama hemen 
-                    çalışması için konulur) bir diğer <b>x</b> değişkeni başka bir değerle tanımlanıyor. 
-                    Dikkat ederseniz fonksiyon içinde başka değer , dışında başka değer veriyor konsola.
-                </p>
-                <h3>Kapanışlar (closures)</h3>
-                <p>
-                    
-                </p>
-
-                <script>
-
-                </script>
-
-                <p>.</p><p>.</p>
+   <div class="container" style="padding-top: 70px;">
+      <div class="row">
+         <div class="col-md-2 hidden-xs">
+            <div id="left-fixed">
 
             </div>
-            <div class="col-md-2 hidden-xs">
+         </div>
+         <div class="col-md-8">
+            <ul class="breadcrumb small" >
+               <li><a href="../../../index.html">Ana Sayfa</a></li>
+               <li><a href="../../index.html">JQuery Öğrenimi</a></li>
+               <li><a href="../index.html">JQuery API</a></li>
+               <li class="active"><span>JQuery Veri Tipleri</span></li>
+            </ul>
+               
+            <h1>JQuery Veri Tipleri</h1>
+            <p>
+               Bu sayfada jQuery fonksiyonlarının kullandığı ve jQuery tarafından kısıtlanmış veri tipleri 
+               veya JavaScript'in kendi veri tipleri açıklanıyor. Aşağıda verilen örneklerin çoğunu 
+               tarayıcınızın geliştirici araçları penceresindeki konsolda direk kopyalayarak deneyebilirsiniz. 
+            </p>
 
-            </div>
-        </div>
-    </div>
+            <h2 id="Array" style="padding-top: 70px;">Array</h2>
+            <p>
+               JavaScript Array , dahili metodları ile değiştirilebilir bir değerler listesidir. Array 
+               değerler şöyle girilir:
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">x</span> <span style="color: #c792ea;">=</span><span style="color: #bfc7d5;"> []</span>;</div><div><span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">y</span> <span style="color: #c792ea;">=</span><span style="color: #bfc7d5;"> [ </span><span style="color: #f78c6c;">1</span><span style="color: #bfc7d5;">, </span><span style="color: #f78c6c;">2</span><span style="color: #bfc7d5;">, </span><span style="color: #f78c6c;">3</span><span style="color: #bfc7d5;"> ]</span>;</div></div></div></div></div></div></div></div></div></div></div></div></div>
+            <br><p>
+               Bir array'in veri tipi <b>object</b>'dir.
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">typeof</span><span style="color: #bfc7d5;"> []</span>; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> "object"</span></div><div><span style="color: #89ddff;">typeof</span><span style="color: #bfc7d5;"> [ </span><span style="color: #f78c6c;">1</span><span style="color: #bfc7d5;">, </span><span style="color: #f78c6c;">2</span><span style="color: #bfc7d5;">, </span><span style="color: #f78c6c;">3</span><span style="color: #bfc7d5;"> ]</span>; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> "object"</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+            <br><p>
+               Array elemanlarına ulaşmak için köşeli parantez notasyonu kullanılır.
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #bfc7d5;">x[ </span><span style="color: #f78c6c;">0</span><span style="color: #bfc7d5;"> ]</span> <span style="color: #c792ea;">=</span> <span style="color: #f78c6c;">1</span>;</div><div><span style="color: #bfc7d5;">y[ </span><span style="color: #f78c6c;">2</span><span style="color: #bfc7d5;"> ]</span> <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> 3</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+            <br>
+            <h3>İterasyon</h3>
+            <p>
+               Bir array elemanları üzerinde iterasyon yapmak için <code>length</code> özelliği 
+               kullanılabilir.
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">for</span> <span style="color: #bfc7d5;">(</span> <span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">i</span> <span style="color: #c792ea;">=</span> <span style="color: #f78c6c;">0</span>; <span style="color: #bfc7d5;">i</span> <span style="color: #c792ea;">&lt;</span> <span style="color: #bfc7d5;">a</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">length</span>; <span style="color: #bfc7d5;">i</span><span style="color: #89ddff;">++</span> <span style="color: #bfc7d5;">)</span> {</div><div>&nbsp; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> a[i] elemanı ile bir şeyler yap</span></div><div>}</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+            <br><p>
+               Performans önemliyse her turda array uzunluğunu sormak yerine :
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">for</span> <span style="color: #bfc7d5;">(</span> <span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">i</span> <span style="color: #c792ea;">=</span> <span style="color: #f78c6c;">0</span>, <span style="color: #bfc7d5;">j</span> <span style="color: #c792ea;">=</span> <span style="color: #bfc7d5;">a</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">length</span>; <span style="color: #bfc7d5;">i</span> <span style="color: #c792ea;">&lt;</span> <span style="color: #bfc7d5;">j</span>; <span style="color: #bfc7d5;">i</span><span style="color: #89ddff;">++</span> <span style="color: #bfc7d5;">)</span> {</div><div>&nbsp; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> a[i] ile bir şeyler yapın</span></div><div>}</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+            <br><p>
+               Bir diğer yaklaşımsa her tur için bir değişkene o anki array elemanını koymak. Ama bu 
+               yaklaşım eleman değeri <i>0</i> veya <i>boş string</i> olan array'ler için çalışmaz.
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">for</span> <span style="color: #bfc7d5;">(</span> <span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">i</span> <span style="color: #c792ea;">=</span> <span style="color: #f78c6c;">0</span>, <span style="color: #bfc7d5;">item</span>; <span style="color: #bfc7d5;">item</span> <span style="color: #c792ea;">=</span> <span style="color: #bfc7d5;">a[i]</span>; <span style="color: #bfc7d5;">i</span><span style="color: #89ddff;">++</span> <span style="color: #bfc7d5;">)</span> {</div><div>&nbsp; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> item değişkeni ile bir şeyler yapın</span></div><div>}</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+            <br><p>
+               Elemanlar bittiğinde <code>item = a[i]</code> <i>false</i> değeri döneceğinden döngü biter. 
+               JQuery bir nesne ya da array'in elemanları üzerinden iterasyon yapmak için 
+               <a href="../jQuery.each.html">each metoduna</a> sahiptir. 
+            </p>
+            <div style="background-color: #3e313c; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="color: #f6f6f4;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">x</span> <span style="color: #c792ea;">=</span><span style="color: #bfc7d5;"> [ </span><span style="color: #f78c6c;">1</span><span style="color: #bfc7d5;">, </span><span style="color: #f78c6c;">2</span><span style="color: #bfc7d5;">, </span><span style="color: #f78c6c;">3</span><span style="color: #bfc7d5;"> ]</span>;</div><div><span style="color: #bfc7d5;">jQuery</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">each</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">x</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">(</span> <span style="color: #7986e7;">index</span>, <span style="color: #7986e7;">value</span> <span style="color: #d9f5dd;">)</span> {</div><div>&nbsp; <span style="color: #bfc7d5;">console</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">index</span><span style="color: #d9f5dd;">"</span><span style="color: #eeffff;">,</span> <span style="color: #bfc7d5;">index</span><span style="color: #eeffff;">,</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">value</span><span style="color: #d9f5dd;">"</span><span style="color: #eeffff;">,</span> <span style="color: #bfc7d5;">value</span> <span style="color: #bfc7d5;">)</span>;</div><div>}<span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+            <br><p>
+               Bu callback fonksiyonun dezavantajı döngü esnasında hangi elemandaysa kapsam o olarak 
+               callback çağrılacağından, bulunduğunuz yerde <code>this</code> kelimesi anlamı değişir. 
+               Eğer gerekliyse dikkat etmelisiniz.
+            </p>
+            <p>
+               Array'e eleman eklemek için <code>length</code> özelliği de kullanılabilir. Bu <code>.push()</code>
+               metodu ile aynı işi yapar.
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="color: #f6f6f4;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">x</span> <span style="color: #c792ea;">=</span><span style="color: #bfc7d5;"> []</span>;</div><div><span style="color: #bfc7d5;">x</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">push</span><span style="color: #bfc7d5;">(</span> <span style="color: #f78c6c;">1</span> <span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #bfc7d5;">x[ x</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">length</span><span style="color: #bfc7d5;"> ]</span> <span style="color: #c792ea;">=</span> <span style="color: #f78c6c;">2</span>;</div><div><span style="color: #bfc7d5;">x</span> <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> [ 1, 2 ]</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+            <br><p>
+               Her iki kullanımı da JavaScript kütüphanesi kodunda sıklıkla görebilirsiniz. 
+            </p>
+            <p>
+               Diğer dahili metodları ise, reverse, join, shift, unshift, pop, slice, splice ve sort :
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="color: #f6f6f4;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">x</span> <span style="color: #c792ea;">=</span><span style="color: #bfc7d5;"> [ </span><span style="color: #f78c6c;">0</span><span style="color: #bfc7d5;">, </span><span style="color: #f78c6c;">3</span><span style="color: #bfc7d5;">, </span><span style="color: #f78c6c;">1</span><span style="color: #bfc7d5;">, </span><span style="color: #f78c6c;">2</span><span style="color: #bfc7d5;"> ]</span>;</div><div><span style="color: #bfc7d5;">x</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">reverse</span><span style="color: #bfc7d5;">()</span> &nbsp; &nbsp; &nbsp;<span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> [ 2, 1, 3, 0 ]</span></div><div><span style="color: #bfc7d5;">x</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">join</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;"> – </span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span> &nbsp; &nbsp;<span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> "2 - 1 - 3 - 0"</span></div><div><span style="color: #bfc7d5;">x</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">pop</span><span style="color: #bfc7d5;">()</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> [ 2, 1, 3 ]</span></div><div><span style="color: #bfc7d5;">x</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">unshift</span><span style="color: #bfc7d5;">(</span> <span style="color: #89ddff;">-</span><span style="color: #f78c6c;">1</span> <span style="color: #bfc7d5;">)</span> &nbsp;<span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> [ -1, 2, 1, 3 ]</span></div><div><span style="color: #bfc7d5;">x</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">shift</span><span style="color: #bfc7d5;">()</span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> [ 2, 1, 3 ]</span></div><div><span style="color: #bfc7d5;">x</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">sort</span><span style="color: #bfc7d5;">()</span> &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> [ 1, 2, 3 ]</span></div><div><span style="color: #bfc7d5;">x</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">splice</span><span style="color: #bfc7d5;">(</span> <span style="color: #f78c6c;">1</span>, <span style="color: #f78c6c;">2</span> <span style="color: #bfc7d5;">)</span> <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> [ 2, 3 ]</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+            <h3>Boolean Default</h3>
+            <p>
+               Bir array elemanları olsun ya da olmasın asla <b>false</b> vermez
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="color: #f6f6f4;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">!</span><span style="color: #bfc7d5;">[]</span> <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> false</span></div><div><span style="color: #c792ea;">!!</span><span style="color: #bfc7d5;">[]</span> <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> true</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+            <h3>Array&lt;Type> Notasyonu</h3>
+            <p>
+               JQuery API dökümanında sıklıkla Array&lt;type> notasyonu karşınıza çıkar. 
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="color: #f6f6f4;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #bfc7d5;">dragPrevention</span> &nbsp; &nbsp;<span style="color: #bfc7d5;">Array</span><span style="color: #c792ea;">&lt;</span><span style="color: #bfc7d5;">String</span><span style="color: #c792ea;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+            <br><p>
+               Bu parametrenin sadece bir array değil , string değerlerden oluşan bir array olması 
+               gerektiğini belirtir. Bu amaçla Java ya da C++ notasyonundan öykünülen bu notasyonla 
+               ifade edilir.
+            </p>
+
+
+
+            <h2 id="ArrayLikeObject" style="padding-top: 70px;">Array Benzeri Nesneler</h2>
+            <p>
+               Ya bir JavaScript array ya da negatif olmayan <code>length</code> ve <code>0</code>'dan 
+               <code>length-1</code>'e kadar <b>index</b> özelliği olan nesneler. İkinci çeşit array benzeri 
+               nesneler web tabanlı kodlarda çok rastlanır, mesela <code>arguments</code> nesnesi ya da 
+               birçok DOM metodundan dönen <code>NodeList</code> nesnesi gibi. JQuery'deki düz nesneler 
+               <i>length</i> özelliğine sahipse array benzeri nesne gibi davranabilir.
+            </p>
+
+            <h2 id="Boolean" style="padding-top: 70px;">Boolean</h2>
+            <p>
+               JavaScript'de <i>boolean</i> bir değer <b>true</b> ya da <b>false</b> olabilir.
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">if</span> <span style="color: #bfc7d5;">(</span> <span style="color: #ff5874;">true</span> <span style="color: #bfc7d5;">)</span> <span style="color: #bfc7d5;">console</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">her zaman!</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #c792ea;">if</span> <span style="color: #bfc7d5;">(</span> <span style="color: #ff5874;">false</span> <span style="color: #bfc7d5;">)</span> <span style="color: #bfc7d5;">console</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">asla!</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div></div></div>
+
+
+            <h2 id="PlainObject" style="padding-top: 70px;">Düz Nesne</h2>
+            <p>
+               <b>PlainObject</b> tipi sıfır ya da daha fazla <b>key/value</b> çifti değer içeren 
+               JavaScript nesnesidir. JQuery dökümanında <i>plain</i> denmesi sebebi, onu diğer 
+               JavaScript nesnelerden ( <code>null</code>, kullanıcı tanımlı array'ler, <code>document</code>
+               gibi <i>typeOf</i> deyince <b>object</b> denen diğerleri vs. ) ayırt etmek içindir.
+               <a href="../jQuery.isPlainObject.html">jQuery.isPlainObject()</a> metodu aşağıda 
+               gösterildiği gibi parametrelerin düz nesne olup olmadığını test için kullanılabilir. 
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div>&nbsp; <span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">a</span> <span style="color: #c792ea;">=</span><span style="color: #bfc7d5;"> []</span>;</div><div>&nbsp; <span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">d</span> <span style="color: #c792ea;">=</span> <span style="color: #bfc7d5;">document</span>;</div><div>&nbsp; <span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">o</span> <span style="color: #c792ea;">=</span> {};</div><div>&nbsp;</div><div>&nbsp; <span style="color: #89ddff;">typeof</span> <span style="color: #bfc7d5;">a</span>; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> object</span></div><div>&nbsp; <span style="color: #89ddff;">typeof</span> <span style="color: #bfc7d5;">d</span>; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> object</span></div><div>&nbsp; <span style="color: #89ddff;">typeof</span> <span style="color: #bfc7d5;">o</span>; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> object</span></div><div>&nbsp;</div><div>&nbsp; <span style="color: #bfc7d5;">jQuery</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">isPlainObject</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">a</span> <span style="color: #bfc7d5;">)</span>; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> false</span></div><div>&nbsp; <span style="color: #bfc7d5;">jQuery</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">isPlainObject</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">d</span> <span style="color: #bfc7d5;">)</span>; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> false</span></div><div>&nbsp; <span style="color: #bfc7d5;">jQuery</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">isPlainObject</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">o</span> <span style="color: #bfc7d5;">)</span>; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> true</span></div></div></div></div></div></div>
+
+            <h2 id="Element" style="padding-top: 70px;">Eleman</h2>
+            <p>
+               Document Object Model (DOM) içinde bir elemanın bağlı özellikleri , yazısı ve alt elemanları 
+               olabilir. Üst elemanı ve alt elemanlarına erişip özelliklerini değiştirmek için metodlara 
+               sahiptir. DOM API özellikleri ve uyarlamalarındaki tutarsızlıklar yüzünden kullanımları 
+               sorun üretebilir. JQuery size bu elemanların DOM etkileşimlerinde yardımcı olacak bir "wrapper" 
+               sağlar. 
+            </p>
+            <p>
+               JQuery'nin <code>.each()</code> metodunu veya olay işleyici metodlardan birini bir jQuery 
+               kolleksiyonunda kullandığınızda , callback metodunun kapsamında <code>this</code> kelimesi 
+               bir DOM elemanını gösterir.
+            </p>
+            <p>
+               Aşağıdaki örnekte bir text input elemanında bir şey yazmadan başka yere geçince bir alert 
+               mesajı veriliyor.
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">input[type='text']</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">blur</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; <span style="color: #c792ea;">if</span><span style="color: #bfc7d5;">(</span> <span style="color: #c792ea;">!</span><span style="color: #ff5572;">this</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">value</span> <span style="color: #bfc7d5;">)</span> {</div><div>&nbsp; &nbsp; <span style="color: #82aaff;">alert</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Lütfen bir şeyler yazınız!</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; }</div><div>}<span style="color: #bfc7d5;">)</span>;</div></div></div></div></div>
+            <br><p>
+               Burada standart <code>this.value</code> yerine jQuery şekliyle <code>$(this).val()</code>
+               de yazabilirsiniz, ama bu size artı bir şey kazandırmaz. 
+            </p>
+            <script>
+
+            </script>
+            <p>
+
+            </p>
+
+            <h2 id="Function" style="padding-top: 70px;">Function</h2>
+            <p>
+               JavaScript'de bir fonksiyon (function) isimli ya da anonim olabilir. Herhangi bir fonksiyon 
+               bir değişkene atanabilir ya da bir metoda parametre olarak verilebilir. Örnek:
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">function</span> <span style="color: #82aaff;">named</span><span style="color: #d9f5dd;">()</span> {}</div><div><span style="color: #c792ea;">var</span> <span style="color: #82aaff;">handler</span> <span style="color: #c792ea;">=</span> <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {}</div></div></div></div>
+            <br><p>
+               JQuery kodlarında çok fazla sıklıkta anonim fonksiyonlara rastlarsınız
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">document</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">ready</span><span style="color: #bfc7d5;">(</span><span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {}<span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">a)</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {}<span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #bfc7d5;">$</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">ajax</span><span style="color: #bfc7d5;">(</span>{</div><div>&nbsp; url: <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">someurl.php</span><span style="color: #d9f5dd;">"</span>,</div><div>&nbsp; <span style="color: #82aaff;">success</span>: <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {}</div><div>}<span style="color: #bfc7d5;">)</span>;</div></div></div></div></div>
+            <br><p>
+               Bir fonksiyonun veri tipi "function" dur.
+            </p>
+            <h3>arguments</h3>
+            <p>
+               Bir fonksiyon tanımı içinde <b>arguments</b> özel değişkeni her zaman kullanılabilir. 
+               Bir array gibidir ve <b>length</b> özelliği vardır, ancak array metodlarının çoğu ile 
+               çalışmaz. Fonksiyon çağrılırken girilen argümanların (parametrelerin) oluşturduğu bir 
+               sahte array gibidir. 
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">function</span> <span style="color: #82aaff;">log</span><span style="color: #d9f5dd;">(</span> <span style="color: #7986e7;">x</span> <span style="color: #d9f5dd;">)</span> {</div><div>&nbsp; <span style="color: #bfc7d5;">console</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(</span> <span style="color: #89ddff;">typeof</span> <span style="color: #bfc7d5;">x</span><span style="color: #eeffff;">,</span> <span style="color: #ff5572;">arguments</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">length</span> <span style="color: #bfc7d5;">)</span>;</div><div>}</div><div><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">()</span>; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> "undefined", 0</span></div><div><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(</span> <span style="color: #f78c6c;">1</span> <span style="color: #bfc7d5;">)</span>; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> "number", 1</span></div><div><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">1</span><span style="color: #d9f5dd;">"</span>, <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">2</span><span style="color: #d9f5dd;">"</span>, <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">3</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> "string", 3</span></div></div></div></div></div></div>
+            <br><p>
+               <b>arguments</b> nesnesi aynı zamanda <b>callee</b> adında bir özelliğe sahiptir. Bu 
+               özellik aslında o fonksiyonun tanımıdır. Örnek:
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">var</span> <span style="color: #82aaff;">awesome</span> <span style="color: #c792ea;">=</span> <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> { <span style="color: #c792ea;">return</span> <span style="color: #ff5572;">arguments</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">callee</span>; }</div><div><span style="color: #82aaff;">awesome</span><span style="color: #bfc7d5;">()</span> <span style="color: #c792ea;">===</span> <span style="color: #bfc7d5;">awesome</span> <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> true</span></div></div></div></div></div></div></div>
+            <br>
+            <h3>Context, Call ve Apply</h3>
+            <p>
+               JavaScript'de <b>this</b> değeri her zaman bulunulan bağlamı (context) ifade eder. 
+               Default olarak <b>this</b> ana eleman olan <b>window</b> nesnesidir. Bir fonksiyon 
+               içerisinde bağlam o fonksiyonun nasıl çağrıldığına göre değişir. 
+            </p>
+            <p>
+               JQuery'de olay işlerken o olayın oluştuğu eleman bağlam olur ve böylece olay işleyici 
+               fonksiyon içinde <b>this</b> kelimesi olayın gerçekleştiği eleman olur.
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">document</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">ready</span><span style="color: #bfc7d5;">(</span><span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> this kelimesi window.document'i gösterir</span></div><div>}<span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">a</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> this kelimesi DOM elemanı &lt;a&gt;'dır</span></div><div>}<span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div>
+            <br><p>
+               Bir fonksiyon için bağlamı <code>.call()</code> ve <code>.apply()</code> metodlarını 
+               kullanarak değiştirebilirsiniz. Aralarındaki fark parametreleri fonksiyona nasıl 
+               geçirdikleri ile alakalıdır. <code>.call()</code> verilen parametreleri virgülle 
+               ayrılmış olarak fonksiyona verirken , <code>.apply()</code> bir array içinde verilen 
+               değerleri parametre olarak fonksiyona geçirir. 
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">function</span> <span style="color: #82aaff;">scope</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; <span style="color: #bfc7d5;">console</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(</span> <span style="color: #ff5572;">this</span><span style="color: #eeffff;">,</span> <span style="color: #ff5572;">arguments</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">length</span> <span style="color: #bfc7d5;">)</span>;</div><div>}</div><div><span style="color: #82aaff;">scope</span><span style="color: #bfc7d5;">()</span> <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> window, 0</span></div><div><span style="color: #bfc7d5;">scope</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">call</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">foobar</span><span style="color: #d9f5dd;">"</span>,<span style="color: #bfc7d5;"> [ </span><span style="color: #f78c6c;">1</span><span style="color: #bfc7d5;">, </span><span style="color: #f78c6c;">2</span><span style="color: #bfc7d5;"> ]</span> <span style="color: #bfc7d5;">)</span>; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> "foobar", 1</span></div><div><span style="color: #bfc7d5;">scope</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">apply</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">foobar</span><span style="color: #d9f5dd;">"</span>,<span style="color: #bfc7d5;"> [ </span><span style="color: #f78c6c;">1</span><span style="color: #bfc7d5;">, </span><span style="color: #f78c6c;">2</span><span style="color: #bfc7d5;"> ]</span> <span style="color: #bfc7d5;">)</span>; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> "foobar", 2</span></div></div></div></div></div></div></div></div></div>
+            <br>
+            <h3>Kapsam (scope)</h3>
+            <p>
+               JavaScript'de bir fonksiyon içinde tanımlanmış tüm değişkenler o fonksiyon kapsamı 
+               içinde kullanılabilir. Örneğe bakalım:
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> global</span></div><div><span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">x</span> <span style="color: #c792ea;">=</span> <span style="color: #f78c6c;">0</span>;</div><div><span style="color: #bfc7d5;">(</span><span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> private</span></div><div>&nbsp; <span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">x</span> <span style="color: #c792ea;">=</span> <span style="color: #f78c6c;">1</span>;</div><div>&nbsp; <span style="color: #bfc7d5;">console</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">x</span> <span style="color: #bfc7d5;">)</span>; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> 1</span></div><div>}<span style="color: #bfc7d5;">)()</span>;</div><div><span style="color: #bfc7d5;">console</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">x</span> <span style="color: #bfc7d5;">)</span>; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> 0</span></div></div></div></div></div></div></div></div></div></div>
+            <br><p>
+               Global kapsamda bir <b>x</b> değişkeni tanımlanıyor, hemen çalışacak bir anonim 
+               fonksiyon tanımı içinde (fonksiyon tanımı sonrası gelen parantez açıp kapama hemen 
+               çalışması için konulur) bir diğer <b>x</b> değişkeni başka bir değerle tanımlanıyor. 
+               Dikkat ederseniz fonksiyon içinde başka değer , dışında başka değer veriyor konsola.
+            </p>
+            <h3>Kapalı Değerler (closures)</h3>
+            <p>
+               Kapalı değerler bir değişken bulunulan kapsam dışında tanımlanıp daha iç bir kapsamdan 
+               erişildiğinde oluşur.  Aşağıdaki örnekte <b>üret</b> fonksiyonu kapsamındaki <i>sayaç</i> 
+               değişkeni <i>arttır</i> ve <i>yazdır</i> metodları tarafından görülebilir, ama onların 
+               haricinden görünemez.
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">function</span> <span style="color: #82aaff;">üret</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; <span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">sayaç</span> <span style="color: #c792ea;">=</span> <span style="color: #f78c6c;">0</span>;</div><div>&nbsp; <span style="color: #c792ea;">return</span> {</div><div>&nbsp; &nbsp; <span style="color: #82aaff;">arttır</span>: <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #bfc7d5;">sayaç</span><span style="color: #89ddff;">++</span>;</div><div>&nbsp; &nbsp; }<span style="color: #eeffff;">,</span></div><div>&nbsp; &nbsp; <span style="color: #82aaff;">yazdır</span>: <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #bfc7d5;">console</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">sayaç</span> <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp; }</div><div>&nbsp; }</div><div>}</div><div><span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">c</span> <span style="color: #c792ea;">=</span> <span style="color: #82aaff;">üret</span><span style="color: #bfc7d5;">()</span>;</div><div><span style="color: #bfc7d5;">c</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">arttır</span><span style="color: #bfc7d5;">()</span>;</div><div><span style="color: #bfc7d5;">c</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">yazdır</span><span style="color: #bfc7d5;">()</span>; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> 1</span></div></div></div></div></div></div></div></div></div></div></div>
+            <br><p>
+               Bu patern size dışarıdan görünmeyen özellik verilerini işleyebilen metodları olan 
+               nesneler üretme imkanı verir. Nesne yönelimli programlamanın temeli (oop).
+            </p>
+
+            <h2 id="Integer" style="padding-top: 70px;">Integer - Tamsayı</h2>
+            <p>
+               Integer düz sayı bir değerdir. Matematikte tam sayı diye bildiğimiz değerdir. Noktalı olmayan sayı 
+               demek. İşlem yapılması için emin olunabilecek limitleri:
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #bfc7d5;">Number</span><span style="color: #c792ea;">.</span>MAX_SAFE_INTEGER</div><div><span style="color: #bfc7d5;">Number</span><span style="color: #c792ea;">.</span>MIN_SAFE_INTEGER</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+
+            <h2 id="jQuery" style="padding-top: 70px;">jQuery Nesnesi</h2>
+            <p>
+               Bir jQuery nesnesi bir HTML string ile üretilmiş veya dökümandan seçilerek bulunmuş DOM 
+               elemanlarından bir kolleksiyondur. JQuery metodları elemanları bulmak için sıklıkla CSS 
+               seçicilerini kullandığı için jQuery nesneleri genellikle "eşleşen elemanlar" ya da 
+               "seçilen elemanlar" olarak adlandırılır. 
+            </p>
+            <p>
+               JQuery nesnesi bir array gibi davranış sergiler, <code>length</code> özelliği vardır ve 
+               üyelerine <code>[0]</code>'dan <code>[length - 1]</code>'e kadar index değerleri ile 
+               erişilebilir. Dikkatinizi çekerim jQuery nesneleri standart JavaScript Array nesneleri 
+               ile aynı değildir, mesela <code>.join()</code> gibi birçok array metodu çalışmaz.
+            </p>
+            <p>
+               Çoğunlukla <code>jQuery()</code> (yada "$()") metodunu kullanarak jQuery nesneleri 
+               oluşturursunuz. <code>jQuery.noConflict()</code> ile engellemediğiniz müddetçe 
+               <code>jQuery()</code> yerine eşleniği olan <code>$()</code> metodunu da kullanabilirsiniz. 
+               Birçok jQuery nesne metodları yine jQuery nesnesi döndüğü için metodlar zincirleme arka 
+               arkaya bağlanabilir. 
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">p</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">css</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">color</span><span style="color: #d9f5dd;">"</span>, <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">red</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">find</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">.special</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">css</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">color</span><span style="color: #d9f5dd;">"</span>, <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">green</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div></div>
+            <br><p>
+               örnekte <code>.css()</code> metodu sadece bir özelliğini değiştirip bize aynı jQuery nesnesini 
+               ( $("p") ) geri döner. Ama <code>.find()</code> metodu yeni bir eleman seti oluşturarak bize 
+               yeni bir jQuery nesnesi döner, o noktadan sonra bu yeni jQuery nesnesi geçerli olacaktır. Bir 
+               önceki jQuery nesnesine (önceki eleman setine) geri dönmek için <code>.end()</code> metodu 
+               kullanarak zinciri bozmadan devam edilebilir.
+            </p>
+            <p>
+               Bir jQuery nesnesi boş olabilir, yani içinde hiç bir DOM elemanı olmaz. Boş bir jQuery 
+               nesnesini <code>$()</code> metodunu parametresiz olarak kullanarak üretebilirsiniz. Bir jQuery 
+               nesnesi eğer sorgu hiç bir eleman seçemediyse veya bir zincir metod elemanları filtrelerken 
+               tüm elemanlar dışarda kalırsa da boş nesne olabilir. Bu bir hata değildir, sadece sonrasında 
+               gelecek metodlar eleman olmadığı için hiç bir şey yapamaz. Örneğin aşağıdaki kodda eğer 
+               <code>.badEntry</code> sınıfında eleman bulunamazsa hiç bir elemanın rengi kırmızı olamaz.
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">.badEntry</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">css</span><span style="color: #bfc7d5;">(</span>{ color: <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">red</span><span style="color: #d9f5dd;">"</span> }<span style="color: #bfc7d5;">)</span>;</div></div></div>
+
+            <h2 id="jqXHR" style="padding-top: 70px;">jqXHR</h2>
+            <p>
+               JQuery versiyon <b>1.5</b> sonrası <a href="../jQuery.ajax.html">$.ajax()</a> metodu 
+               <i>jqXHR</i> nesnesi dönmeye başladı. Bu nesne <i>XMLHTTPRequest</i> JavaScript nesnesinin 
+               bir süperseti. Daha fazla bilgi için <a href="../jQuery.ajax.html#jqXHR">$.ajax() metodu 
+               jqXHR başlığına</a> bakınız.
+            </p>
+
+            <h2 id="Object" style="padding-top: 70px;">Object - Nesne</h2>
+            <p>
+               JavaScript^de her şey bir nesnedir. Bir nesne üretmenin yolu nesne literal kullanmaktır. 
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">x</span> <span style="color: #c792ea;">=</span> {};</div><div><span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">y</span> <span style="color: #c792ea;">=</span> {</div><div>&nbsp; name: <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Pete</span><span style="color: #d9f5dd;">"</span>,</div><div>&nbsp; age: <span style="color: #f78c6c;">15</span></div><div>};</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+            <br><p>
+               Nesnelerin veri tipi <i>Object</i>'tir.
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #89ddff;">typeof</span> {} <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> "object"</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+            <br>
+            <h3>Nokta Notasyonu</h3>
+            <p>
+               Bir nesnenin özelliklerine nokta notasyonu ile ulaşılır.
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #bfc7d5;">y</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">name</span> <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> "Pete"</span></div><div><span style="color: #bfc7d5;">y</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">age</span> <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> 15</span></div><div><span style="color: #bfc7d5;">x</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">name</span> <span style="color: #c792ea;">=</span> <span style="color: #bfc7d5;">y</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">name</span> <span style="color: #89ddff;">+</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;"> Pan</span><span style="color: #d9f5dd;">"</span> <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> "Pete Pan"</span></div><div><span style="color: #bfc7d5;">x</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">age</span> <span style="color: #c792ea;">=</span> <span style="color: #bfc7d5;">y</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">age</span> <span style="color: #89ddff;">+</span> <span style="color: #f78c6c;">1</span> <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> 16</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+            <br>
+            <h3>Array Notasyonu</h3>
+            <p>
+               Array notasyonu ile de nesne özelliklerine erişilebilir. Bu sayede dinamik erişimler 
+               mümkün olur. 
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">işlemler</span> <span style="color: #c792ea;">=</span> {</div><div>&nbsp; arttır: <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">++</span><span style="color: #d9f5dd;">"</span>,</div><div>&nbsp; azalt: <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">--</span><span style="color: #d9f5dd;">"</span></div><div>};</div><div><span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">işlem</span> <span style="color: #c792ea;">=</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">arttır</span><span style="color: #d9f5dd;">"</span>;</div><div><span style="color: #bfc7d5;">işlemler[ işlem ]</span> <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> "++"</span></div><div><span style="color: #bfc7d5;">işlemler[ </span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">çarp</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;"> ]</span> <span style="color: #c792ea;">=</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">*</span><span style="color: #d9f5dd;">"</span>; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> "*"</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+            <br>
+            <h3>İterasyon</h3>
+            <p>
+               Nesne özellikleri üzerinden iterasyon <i>for-in</i> döngüsü ile kolayca yapılır. 
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">obj</span> <span style="color: #c792ea;">=</span> {</div><div>&nbsp; name: <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Pete</span><span style="color: #d9f5dd;">"</span>,</div><div>&nbsp; age: <span style="color: #f78c6c;">15</span></div><div>};</div><div><span style="color: #c792ea;">for</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">key</span> <span style="color: #89ddff;">in</span> <span style="color: #bfc7d5;">obj</span> <span style="color: #bfc7d5;">)</span> {</div><div>&nbsp; <span style="color: #82aaff;">alert</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">key : </span><span style="color: #d9f5dd;">"</span> <span style="color: #89ddff;">+</span><span style="color: #bfc7d5;"> [ key ]</span> <span style="color: #89ddff;">+</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">, value : </span><span style="color: #d9f5dd;">"</span> <span style="color: #89ddff;">+</span> <span style="color: #bfc7d5;">obj[ key ]</span> <span style="color: #bfc7d5;">)</span>;</div><div>}</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+            <br><p>
+               JQuery'nin <a href="../jQuery.each.html">each()</a> metodu nesne özelliklerinde iterasyon 
+               için kullanılabilir. 
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #bfc7d5;">jQuery</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">each</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">obj</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">(</span> <span style="color: #7986e7;">key</span>, <span style="color: #7986e7;">value</span> <span style="color: #d9f5dd;">)</span> {</div><div>&nbsp; <span style="color: #bfc7d5;">console</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">key</span><span style="color: #d9f5dd;">"</span><span style="color: #eeffff;">,</span> <span style="color: #bfc7d5;">key</span><span style="color: #eeffff;">,</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">value</span><span style="color: #d9f5dd;">"</span><span style="color: #eeffff;">,</span> <span style="color: #bfc7d5;">value</span> <span style="color: #bfc7d5;">)</span>;</div><div>}<span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+            <br><p>
+               Callback fonksiyonu nesnenin her özelliği için tek tek çalışır. 
+            </p>
+            <h3>Default Boolean</h3>
+            <p>
+               Bir nesne özellikleri olsun ya da olmasın asla <b>false</b> default vermez.
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">!</span>{} <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> false</span></div><div><span style="color: #c792ea;">!!</span>{} <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> true</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+            <br>
+
+            <h2 id="String" style="padding-top: 70px;">String</h2>
+            <p>
+               JavaScript'in temel veri tiplerinden olan String, boş, tek karakter ya da bir çok 
+               karakterden oluşan yazı dizisidir.
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">I'm a String in JavaScript!</span><span style="color: #d9f5dd;">"</span></div><div><span style="color: #d9f5dd;">'</span><span style="color: #c3e88d;">So am I!</span><span style="color: #d9f5dd;">'</span></div></div></div></div></div></div></div></div></div></div>
+            <br><div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #89ddff;">typeof</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Bir string</span><span style="color: #d9f5dd;">"</span>; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> string</span></div></div></div></div></div></div></div></div></div></div>
+            <br><h3>Tırnak İşaretleri</h3>
+            <p>
+               Bir string değer tek ya da çift tırnak içinde yazılmalıdır. Yazı değer içinde tek tırnak 
+               kullanmak gerekirse çift tırnak ile , çift tırnak kullanmak gerekirse tek tırnak içinde 
+               verilir. Eğer çift tırnak içinde yine çift tırnak gerekirse (ya da tek tırnak içinde tek 
+               tırnak gerekirse) ters slash ( \ ) ile beraber yazılır.
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">You make 'me' sad.</span><span style="color: #d9f5dd;">"</span></div><div><span style="color: #d9f5dd;">'</span><span style="color: #c3e88d;">That</span><span style="color: #f78c6c;">\'</span><span style="color: #c3e88d;">s "cranking" good fun!</span><span style="color: #d9f5dd;">'</span></div><div><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">&lt;a href=</span><span style="color: #f78c6c;">\"</span><span style="color: #c3e88d;">home</span><span style="color: #f78c6c;">\"</span><span style="color: #c3e88d;">&gt;Home&lt;/a&gt;</span><span style="color: #d9f5dd;">"</span></div></div></div></div></div></div></div></div></div></div></div></div>
+            <br><h3>Dahili Metodları</h3>
+            <p>
+               Bir JavaScript string'in onu işlemek için birkaç dahili tanımlı metodu vardır. Genellikle yine 
+               bir string değer dönerler - ya da örneğin <i>split</i> bir 
+               <a href="#Array">Array</a> değer döner.
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="color: #f6f6f4;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">hello</span><span style="color: #d9f5dd;">"</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">charAt</span><span style="color: #bfc7d5;">(</span> <span style="color: #f78c6c;">0</span> <span style="color: #bfc7d5;">)</span> <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> "h"</span></div><div><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">hello</span><span style="color: #d9f5dd;">"</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">toUpperCase</span><span style="color: #bfc7d5;">()</span> <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> "HELLO"</span></div><div><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Hello</span><span style="color: #d9f5dd;">"</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">toLowerCase</span><span style="color: #bfc7d5;">()</span> <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> "hello"</span></div><div><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">hello</span><span style="color: #d9f5dd;">"</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">replace</span><span style="color: #bfc7d5;">(</span><span style="color: #80cbc4;"> </span><span style="color: #d9f5dd;">/</span><span style="color: #80cbc4;">e</span><span style="color: #89ddff;">|</span><span style="color: #80cbc4;">o</span><span style="color: #d9f5dd;">/</span><span style="color: #80cbc4;">g</span>, <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">x</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span> <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> "hxllx"</span></div><div><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">1,2,3</span><span style="color: #d9f5dd;">"</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">split</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">,</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span> <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> [ "1", "2", "3" ]</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+            <br>
+            <h3>length Özelliği</h3>
+            <p>
+               Tüm string'lerde <code>length</code> özelliği vardır.
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="color: #f6f6f4;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Hello</span><span style="color: #d9f5dd;">"</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">length</span> <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> 5</span></div><div><span style="color: #d9f5dd;">""</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">length</span> <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> 0</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+            <h3>Boolean Default</h3>
+            <p>
+               Boş bir string <b>false</b> değere karşılıkdır
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="color: #f6f6f4;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">!</span><span style="color: #d9f5dd;">""</span> <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> true</span></div><div><span style="color: #c792ea;">!!</span><span style="color: #d9f5dd;">""</span> <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> false</span></div><div><span style="color: #c792ea;">!</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">hello</span><span style="color: #d9f5dd;">"</span> <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> false</span></div><div><span style="color: #c792ea;">!</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">true</span><span style="color: #d9f5dd;">"</span> <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> false</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+
+
+            <p>.</p><p>.</p>
+
+         </div>
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+      </div>
+   </div>
 
 </body>
 </html>

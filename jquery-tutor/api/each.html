@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>.each() Metodu</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+      div .scroll{
+          height:300px;
+          width: 100%;
+          overflow:scroll;
+          scrollbar-color: dark;
+      }
+
+      ::-webkit-scrollbar {
+          width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+          background: white;
+      }
+
+      ::-webkit-scrollbar-thumb {
+          background: gray;
+          border-radius: 10px;
+      }
+
+      .cborder {
+          border: 1px solid black;
+          padding: 5px;
+      }
+
+      .cpadding {
+          padding: 15px;
+      }
+
+      body {
+          font-size: large;
+      }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+  </nav>
+
+  <div class="container" style="padding-top: 70px;">
+    <div class="row">
+      <div class="col-md-2 hidden-xs">
+
+      </div>
+      <div class="col-md-8">
+        <ul class="breadcrumb small" >
+          <li><a href="../../index.html">Ana Sayfa</a></li>
+          <li><a href="index.html">JQuery API</a></li>
+          <li class="active"><span>.each() Metodu</span></li>
+        </ul>
+          
+        <h1>.each()</h1>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <span>.each( function )</span>
+            <span class="pull-right"><i>Dönen Değer : 
+              <a href="Types/index.html#jQuery" style="color: aqua;">jQuery Nesnesi</a>
+            </i></span>
+          </div>
+          <div class="panel-body">
+            <b>Açıklama : </b><i>Bir jQuery nesnesi üzerinden iterasyon yapar, her eşleşen eleman 
+              için fonksiyon çalıştırılır.</i>
+            <br><br><div class="panel panel-info">
+              <div class="panel-heading">
+                <span>.each( function )</span>
+              </div>
+              <div class="panel-body">
+                <b>function</b><br>
+                <span>Tip : 
+                  <a href="Types/index.html#Function">Fonksiyon</a>( 
+                    <a href="Types/index.html#Integer">integer</a> index, 
+                    <a href="Types/index.html#Element">element</a> eleman )
+                </span><br>
+                <span>
+                  Her eşleşen eleman üzerinde uygulanacak fonksiyon.
+                </span>
+              </div>
+            </div>
+            <p>
+              <code>.each()</code> metodu DOM elemanları üzerinde yapılacak iterasyonların kısa ve hataya 
+              meydan vermeyecek şekilde olmasını sağlar. Çağrıldığında verilen jQuery nesnesinin parçaları 
+              olan DOM elemanları üzerinden iterasyon yapar. Callback fonksiyon her çalıştığında sıfırdan 
+              başlar şekilde bulunulan iterasyon döngüsüne verilir. Daha önemlisi callback ateşlendiğinde 
+              kapsam o anda bulunulan DOM elemanıdır ve <code>this</code> kelimesi iterasyonda o anda işlenen 
+              elemanı gösterir. 
+            </p>
+            <p>
+              Sayfanızda basit bir sırasız liste olduğunu düşünün:
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>foo<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>bar<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div></div>
+            <br><p>
+              Liste elemanlarını seçip onlar üzerinde iterasyon yapabilirsiniz:
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">li</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">each</span><span style="color: #bfc7d5;">(</span><span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">(</span> <span style="color: #7986e7;">index</span> <span style="color: #d9f5dd;">)</span> {</div><div>&nbsp; <span style="color: #bfc7d5;">console</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">index</span> <span style="color: #89ddff;">+</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">: </span><span style="color: #d9f5dd;">"</span> <span style="color: #89ddff;">+</span> <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #ff5572;">this</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">text</span><span style="color: #bfc7d5;">()</span> <span style="color: #bfc7d5;">)</span>;</div><div>}<span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div>
+            <br><p>
+              Listedeki her eleman için konsola bir mesaj yazılacaktır.
+            </p>
+            <p>
+              <span>0: foo</span><br><span>1: bar</span>
+            </p>
+            <p>
+              Döngüyü callback fonksiyonundan <b>false</b> değer döndürerek istediğiniz anda bitirebilirsiniz.
+            </p>
+            <p class="well">
+              <b>Not : </b>bir jQuery nesnesi dönen birçok jQuery metodu, ayrıca bir jQuery nesnesi içindeki 
+              bir set eleman üzerinde iterasyon yaparak çalışır - buna <i>örtülü yineleme</i> (implicit 
+              iteration) denir. Bu oluştuğunda genellikle <code>.each()</code> ile harici bir iterasyon 
+              yapmanıza gerek kalmaz.
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> Burada .each() metoduna gerek yoktur:</span></div><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">li</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">each</span><span style="color: #bfc7d5;">(</span><span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #ff5572;">this</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">addClass</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">foo</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div>}<span style="color: #bfc7d5;">)</span>;</div><div>&nbsp;</div><div><span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> Bunun yaerine jQuery örtülü iterasyon kullanır:</span></div><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">li</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">addClass</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">bar</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div>
+
+
+            <br><br><h3>Örnekler :</h3>
+            <p>
+              3 adet <code>&lt;div></code> üzerinde iterasyon yaparak <code>color</code> özelliklerini 
+              değiştir.
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="color: #f6f6f4;"><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div style="color: #f6f6f4;">&nbsp; <span style="color: #ff5572;">div</span> {</div><div style="color: #f6f6f4;">&nbsp; &nbsp; <span style="color: #80cbc4;">color</span>: <span style="color: #89ddff;">red</span>;</div><div style="color: #f6f6f4;">&nbsp; &nbsp; <span style="color: #80cbc4;">text-align</span>: <span style="color: #89ddff;">center</span>;</div><div style="color: #f6f6f4;">&nbsp; &nbsp; <span style="color: #80cbc4;">cursor</span>: <span style="color: #89ddff;">pointer</span>;</div><div style="color: #f6f6f4;">&nbsp; &nbsp; <span style="color: #80cbc4;">font-weight</span>: <span style="color: #89ddff;">bolder</span>;</div><div style="color: #f6f6f4;">&nbsp; &nbsp; <span style="color: #80cbc4;">width</span>: <span style="color: #f78c6c;">300</span><span style="color: #ffeb95;">px</span>;</div><div style="color: #f6f6f4;">&nbsp; }</div><div style="color: #f6f6f4;"><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div style="color: #f6f6f4;"><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span>Bu div'ler<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div style="color: #f6f6f4;"><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span>üzerinde iterasyon için<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div style="color: #f6f6f4;"><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span>buraya tıklayın.<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div style="color: #f6f6f4;"><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #f6f6f4;">&nbsp; </span><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #f6f6f4;"> </span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">body</span><span style="color: #d9f5dd;">"</span><span style="color: #f6f6f4;"> </span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span><span style="color: #f6f6f4;"> </span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span><span style="color: #f6f6f4;">, </span><span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span><span style="color: #f6f6f4;"> {</span></div><div style="color: #f6f6f4;">&nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">div</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">each</span><span style="color: #bfc7d5;">(</span> <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">(</span> <span style="color: #7986e7;">i</span> <span style="color: #d9f5dd;">)</span> {</div><div style="color: #f6f6f4;">&nbsp; &nbsp; &nbsp; <span style="color: #c792ea;">if</span> <span style="color: #bfc7d5;">(</span> <span style="color: #ff5572;">this</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">style</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">color</span> <span style="color: #c792ea;">!==</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">blue</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span> {</div><div style="color: #f6f6f4;">&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #ff5572;">this</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">style</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">color</span> <span style="color: #c792ea;">=</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">blue</span><span style="color: #d9f5dd;">"</span>;</div><div style="color: #f6f6f4;">&nbsp; &nbsp; &nbsp; } <span style="color: #c792ea;">else</span> {</div><div style="color: #f6f6f4;">&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #ff5572;">this</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">style</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">color</span> <span style="color: #c792ea;">=</span> <span style="color: #d9f5dd;">""</span>;</div><div style="color: #f6f6f4;">&nbsp; &nbsp; &nbsp; }</div><div style="color: #f6f6f4;">&nbsp; &nbsp; } <span style="color: #bfc7d5;">)</span>;</div><div style="color: #f6f6f4;">&nbsp; } <span style="color: #bfc7d5;">)</span>;</div><div style="color: #f6f6f4;"><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div></div></div></div></div>
+            <div class="cborder" id="test1">
+              <style>
+                #test1 div {
+                  color: red;
+                  text-align: center;
+                  cursor: pointer;
+                  font-weight: bolder;
+                  width: 300px;
+                }
+              </style>
+              <div>Bu div'ler</div>
+              <div>üzerinde iterasyon için</div>
+              <div>buraya tıklayın.</div>
+              <script>
+                $( "#test1" ).on( "click", function() {
+                  $( "#test1 div" ).each( function( i ) {
+                    if ( this.style.color !== "blue" ) {
+                      this.style.color = "blue";
+                    } else {
+                      this.style.color = "";
+                    }
+                  } );
+                } );
+              </script>
+            </div>
+            <br><hr>
+            <p>
+              Standart DOM elemanı yerine jQuery nesnesine erişmek için örnek gibi <code>$( this )</code> 
+              kullanın.
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="color: #f6f6f4;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #ff5572;">ul</span> {</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">font-size</span>: <span style="color: #f78c6c;">18</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">margin</span>: <span style="color: #f78c6c;">0</span>;</div><div>&nbsp; }</div><div>&nbsp; <span style="color: #ff5572;">span</span> {</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">color</span>: <span style="color: #89ddff;">blue</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">text-decoration</span>: <span style="color: #89ddff;">underline</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">cursor</span>: <span style="color: #89ddff;">pointer</span>;</div><div>&nbsp; }</div><div>&nbsp; <span style="color: #ffcb6b;">.example</span> {</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">font-style</span>: <span style="color: #89ddff;">italic</span>;</div><div>&nbsp; }</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div>Yapılacaklar listesi : <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">span</span><span style="color: #89ddff;">&gt;</span>(değiştirmek için buraya tıklayın)<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">span</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>Yemek ye<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>Uyu<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>Evlen<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">span</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">li</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">each</span><span style="color: #bfc7d5;">(</span><span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #ff5572;">this</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">toggleClass</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">example</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; }<span style="color: #bfc7d5;">)</span>;</div><div>}<span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div>
+            <div class="cborder" id="test2">
+              <style>
+                #test2 ul {
+                  font-size: 18px;
+                  margin: 0;
+                }
+                #test2 span {
+                  color: blue;
+                  text-decoration: underline;
+                  cursor: pointer;
+                }
+                #test2 .example {
+                  font-style: italic;
+                }
+              </style>
+              Yapılacaklar listesi : <span>(değiştirmek için buraya tıklayın)</span>
+              <ul>
+                <li>Yemek ye</li>
+                <li>Uyu</li>
+                <li>Evlen</li>
+              </ul>
+
+              <script>
+              $( "#test2 span" ).on( "click", function() {
+                $( "#test2 li" ).each(function() {
+                  $( this ).toggleClass( "example" );
+                });
+              });
+              </script>
+            </div>
+            <br><hr>
+            <p>
+              each() döngüsünden bitmeden önce çıkmak için <code>return false;</code> satırı kullanın.
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="color: #f6f6f4;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #ff5572;">div</span> {</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">width</span>: <span style="color: #f78c6c;">40</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">height</span>: <span style="color: #f78c6c;">40</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">margin</span>: <span style="color: #f78c6c;">5</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">float</span>: <span style="color: #89ddff;">left</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">border</span>: <span style="color: #f78c6c;">2</span><span style="color: #ffeb95;">px</span> <span style="color: #89ddff;">blue</span> <span style="color: #89ddff;">solid</span>;</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">text-align</span>: <span style="color: #89ddff;">center</span>;</div><div>&nbsp; }</div><div>&nbsp; <span style="color: #ff5572;">span</span> {</div><div>&nbsp; &nbsp; <span style="color: #80cbc4;">color</span>: <span style="color: #89ddff;">red</span>;</div><div>&nbsp; }</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">button</span><span style="color: #89ddff;">&gt;</span>Renkleri Değiştir<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">button</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">span</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">span</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">br</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">id</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">stop</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">small</span><span style="color: #89ddff;">&gt;</span>Dur<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">small</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">br</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">br</span><span style="color: #89ddff;">&gt;</span></div><br /><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">button</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">div</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">each</span><span style="color: #bfc7d5;">(</span><span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">(</span> <span style="color: #7986e7;">index</span>, <span style="color: #7986e7;">element</span> <span style="color: #d9f5dd;">)</span> {</div><div>&nbsp; &nbsp; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> element == this</span></div><div>&nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">element</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">css</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">backgroundColor</span><span style="color: #d9f5dd;">"</span><span style="color: #eeffff;">,</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">yellow</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp; <span style="color: #c792ea;">if</span> <span style="color: #bfc7d5;">(</span> <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #ff5572;">this</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">is</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">#stop</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span> <span style="color: #bfc7d5;">)</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">span</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">text</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">div index #</span><span style="color: #d9f5dd;">"</span> <span style="color: #89ddff;">+</span> <span style="color: #bfc7d5;">index</span> <span style="color: #89ddff;">+</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">'de durdu</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #c792ea;">return</span> <span style="color: #ff5874;">false</span>;</div><div>&nbsp; &nbsp; }</div><div>&nbsp; }<span style="color: #bfc7d5;">)</span>;</div><div>}<span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div>
+            <div class="cborder" id="test3" style="height: 100px;">
+              <style>
+                #test3 div {
+                  width: 40px;
+                  height: 40px;
+                  margin: 5px;
+                  float: left;
+                  border: 2px blue solid;
+                  text-align: center;
+                }
+                #test3 span {
+                  color: red;
+                }
+              </style>
+              <button>Renkleri Değiştir</button>
+              <span></span><br>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div id="stop"><small>Dur</small></div>
+              <div></div>
+              <div></div>
+              <div></div><br><br>
+
+              <script>
+              $( "#test3 button" ).on( "click", function() {
+                $( "#test3 div" ).each(function( index, element ) {
+                  // element == this
+                  $( element ).css( "backgroundColor", "yellow" );
+                  if ( $( this ).is( "#stop" ) ) {
+                    $( "#test3 span" ).text( "div index #" + index + "'de durdu");
+                    return false;
+                  }
+                });
+              });
+              </script>
+            </div>
+
+          </div>
+        </div>
+        <p>.</p><p>.</p>
+
+      </div>
+      <div class="col-md-2 hidden-xs">
+
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

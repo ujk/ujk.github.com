@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Olayları</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        div .scroll{
+            height:300px;
+            width: 100%;
+            overflow:scroll;
+            scrollbar-color: dark;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: white;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: gray;
+            border-radius: 10px;
+        }
+
+        .cborder {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        .cpadding {
+            padding: 15px;
+        }
+
+        body {
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+    </nav>
+
+    <div class="container" style="padding-top: 70px;">
+        <div class="row">
+            <div class="col-md-2 hidden-xs">
+
+            </div>
+            <div class="col-md-8">
+                <ul class="breadcrumb small" >
+                    <li><a href="../../index.html">Ana Sayfa</a></li>
+                    <li><a href="index.html">JQuery API</a></li>
+                    <li class="active"><span>Ajax Olayları</span></li>
+                </ul>
+                
+                <h1>Ajax Olayları</h1>
+                <p>
+                    Ajax istekleri işleyebileceğiniz birkaç olay oluşturur. Burada olayların tetiklenme sırasına 
+                    göre bir listesi var. 
+                </p>
+                <p>
+                    İki tip olay vardır.
+                </p>
+                <h2>Lokal Olaylar</h2>
+                <p>
+                    Bunlar Ajax isteği içerisinde işleyebileceğiniz olaylardır. Şöyle ki:
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div>&nbsp;<span style="color: #bfc7d5;">$</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">ajax</span><span style="color: #bfc7d5;">(</span>{</div><div>&nbsp; &nbsp;<span style="color: #82aaff;">beforeSend</span>: <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span>{</div><div>&nbsp; &nbsp; &nbsp;<span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> beforeSend olayı işleyicisi</span></div><div>&nbsp; &nbsp;},</div><div>&nbsp; &nbsp;<span style="color: #82aaff;">complete</span>: <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span>{</div><div>&nbsp; &nbsp; &nbsp;<span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> complete olayı işleyicisi</span></div><div>&nbsp; &nbsp;}</div><div>&nbsp; &nbsp;<span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> ......</span></div><div>&nbsp;}<span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div>
+                <br>
+                <h2>Global Olaylar</h2>
+                <p>
+                    Bu olaylar <code>document</code> nesnesinde tetiklenir. Olayı dinleyen işleyicileri 
+                    çağırır. Bu olayları şöyle işleyebilirsiniz:
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div>&nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(document)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">ajaxSend</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span>{</div><div>&nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">#loading</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">show</span><span style="color: #bfc7d5;">()</span>;</div><div>&nbsp;}<span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">ajaxComplete</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span>{</div><div>&nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">#loading</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">hide</span><span style="color: #bfc7d5;">()</span>;</div><div>&nbsp;}<span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div>
+                <br><p>
+                    Global olaylar Ajax isteği içinde <code>global</code> opsiyonu kullanarak şöyle devre 
+                    dışı bırakılabilir:
+                </p>
+                <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div>&nbsp;<span style="color: #bfc7d5;">$</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">ajax</span><span style="color: #bfc7d5;">(</span>{</div><div>&nbsp; &nbsp;url: <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">test.html</span><span style="color: #d9f5dd;">"</span>,</div><div>&nbsp; &nbsp;global: <span style="color: #ff5874;">false</span>,</div><div>&nbsp; &nbsp;<span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> ...</span></div><div>&nbsp;}<span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div></div>
+                <br>
+                <h2>Olaylar</h2>
+                <p>
+                    Burada Ajax olaylarının tetiklenme sırasına göre tam listesi var. İçeri girdilenmiş olaylar 
+                    her bir Ajax isteğinde sırayla tetiklenir (global opsiyonu ile devre dışı bırakılanlar 
+                    hariç). <b>ajaxStart</b> ve <b>ajaxStop</b> olayları tüm Ajax ihtiyaçlarında ortak 
+                    olaylardır.
+                </p><br>
+                <ul>
+                    <li>
+                        <b>ajaxStart</b> (global olay) <br>
+                        Bu olay bir Ajax isteği başlatıldığında , başka çalışmakta olan Ajax isteği yoksa 
+                        tetiklenir. <br><br>
+                        <ul>
+                            <li>
+                                <b>beforeSend</b> (lokal olay) <br>
+                                Bu olay bir Ajax isteği başlamadan önce oluşur. XMLHttpRequest nesnesini 
+                                göndermeden önce değiştirmek için kullanılır (ihtiyaç olursa heading ve 
+                                ayarları değiştirmek için). 
+                            </li><br>
+                            <li>
+                                <b>ajaxSend</b> (global olay) <br>
+                                Bu olay da istek çalışmadan önce oluşur.
+                            </li><br>
+                            <li>
+                                <b>success</b> (lokal olay) <br>
+                                Bu olay eğer istek başarılı olursa oluşur (server'dan hata gelmemiş, veride hata 
+                                olmamış).
+                            </li><br>
+                            <li>
+                                <b>ajaxSuccess</b> (global olay) <br>
+                                Bu olay da istek başarılı olunca oluşur. 
+                            </li><br>
+                            <li>
+                                <b>error</b> (lokal olay) <br>
+                                Bu olay istek çalışırken hata olursa oluşur. Bir istekte hem <i>success</i> 
+                                hem de <i>error</i> olayı oluşamaz.
+                            </li><br>
+                            <li>
+                                <b>ajaxError</b> (global olay) <br>
+                                Aynı lokal <i>error</i> olayı gibi oluşur.
+                            </li><br>
+                            <li>
+                                <b>complete</b> (lokal olay) <br>
+                                Bu olay isteğin başarılı olması ya da olmamasından bağımsız oluşr. Senkron 
+                                istekler için bile her zaman <i>complete</i> olayı oluşur. 
+                            </li><br>
+                            <li>
+                                <b>ajaxComplete</b> (global olay) <br>
+                                Bu olay da <i>complete</i> gibi Ajax isteği bitince oluşur. 
+                            </li>
+                        </ul>
+                    </li><br>
+                    <li>
+                        <b>ajaxStop</b> (global olay) <br>
+                        Bu olay eğer çalışmakta olan bir Ajax isteği kalmayınca oluşur. 
+                    </li>
+                </ul>
+
+
+                <p>.</p><p>.</p>
+
+            </div>
+            <div class="col-md-2 hidden-xs">
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

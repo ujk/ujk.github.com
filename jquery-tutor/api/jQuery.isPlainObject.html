@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery.isPlainObject()</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        div .scroll{
+            height:300px;
+            width: 100%;
+            overflow:scroll;
+            scrollbar-color: dark;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: white;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: gray;
+            border-radius: 10px;
+        }
+
+        .cborder {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        .cpadding {
+            padding: 15px;
+        }
+
+        body {
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+    </nav>
+
+    <div class="container" style="padding-top: 70px;">
+        <div class="row">
+            <div class="col-md-2 hidden-xs">
+
+            </div>
+            <div class="col-md-8">
+                <ul class="breadcrumb small" >
+                    <li><a href="../../index.html">Ana Sayfa</a></li>
+                    <li><a href="index.html">JQuery API</a></li>
+                    <li class="active"><span>jQuery.isPlainObject() Metodu</span></li>
+                </ul>
+                
+                <h1>jQuery.isPlainObject()</h1>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <span>jQuery.isPlainObject( nesne )</span>
+                        <span class="pull-right"><i>Dönen Değer : 
+                            <a href="Types/index.html#Boolean" style="color: aqua;">Boolean</a></i></span>
+                    </div>
+                    <div class="panel-body">
+                        <b>Açıklama : </b><i>Bir nesnenin <i>düz nesne</i> olmasını test eder ( "{ }"" ya da 
+                        "new Object" kullanarak üretilmiş). </i>
+                        <br><br><div class="panel panel-info">
+                            <div class="panel-heading">
+                                <span>jQuery.isPlainObject( nesne )</span>
+                            </div>
+                            <div class="panel-body">
+                                <b>nesne</b><br>
+                                <span>Tip : <a href="Types/index.html#PlainObject">Düz Nesne</a></span><br>
+                                <span> 
+                                    Verilen nesnenin bir "düz nesne" olması test edilir.
+                                </span>
+                            </div>
+                        </div>
+
+                        <p class="well">
+                            <b>Not : </b> Bazı tarayıcılar için <code>.isPlainObject()</code> metodu hata yapabilir.
+                            Aşağıda <code>document.location</code> nesnesinin test edilmesi görülüyor
+                            <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #bfc7d5;">console</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">$</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">isPlainObject</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">document</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">location</span> <span style="color: #bfc7d5;">)</span> <span style="color: #bfc7d5;">)</span>;</div></div></div>
+                            bu kod normalde <b>false</b> değer yazmalıdır. IE8 tarayıcıda hata vermektedir.
+                        </p>
+
+                        <br><br><h3>Örnekler :</h3>
+                        <p>
+                           Nesnelerin düz nesne olmasını test edin 
+                        </p>
+                        <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #bfc7d5;">jQuery</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">isPlainObject</span><span style="color: #bfc7d5;">(</span>{}<span style="color: #bfc7d5;">)</span> <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> true</span></div><div><span style="color: #bfc7d5;">jQuery</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">isPlainObject</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">test</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span> <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> false</span></div></div></div></div></div>
+                    </div>
+                </div>
+                <p>.</p><p>.</p>
+
+            </div>
+            <div class="col-md-2 hidden-xs">
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
