@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>.serialize() Metodu</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <style>
+      div .scroll{
+         height:300px;
+         width: 100%;
+         overflow:scroll;
+         scrollbar-color: dark;
+      }
+
+      ::-webkit-scrollbar {
+         width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+         background: white;
+      }
+
+      ::-webkit-scrollbar-thumb {
+         background: gray;
+         border-radius: 10px;
+      }
+
+      .cborder {
+         border: 1px solid black;
+         padding: 5px;
+      }
+
+      .cpadding {
+         padding: 15px;
+      }
+
+      body {
+         font-size: large;
+      }
+   </style>
+</head>
+<body>
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+      <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+   </nav>
+
+   <div class="container" style="padding-top: 70px;">
+      <div class="row">
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+         <div class="col-md-8">
+            <ul class="breadcrumb small" >
+               <li><a href="../../index.html">Ana Sayfa</a></li>
+               <li><a href="index.html">JQuery API</a></li>
+               <li class="active"><span>.serialize() Metodu</span></li>
+            </ul>
+               
+            <h1>.serialize()</h1>
+            <div class="panel panel-primary">
+               <div class="panel-heading">
+                  <span>.serialize()</span>
+                  <span class="pull-right"><i>Dönen Değer : 
+                     <a href="Types/index.html#String" style="color: aqua;">String</a> </i></span>
+               </div>
+               <div class="panel-body">
+                  <b>Açıklama : </b><i>Form elemanlarını göndermek için string'e dönüştürür.</i>
+                  <br><br><div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>.serialize()</span>
+                     </div>
+                     <div class="panel-body">
+                        Bu metod bir parametre almaz.
+                     </div>
+                  </div>
+                  <p>
+                     <code>.serialize()</code> metodu standart URL-encoded notasyonda bir string oluşturur.
+                     Değişik form kontrollerinden seçilmiş bir jQuery nesnesi üzerinde çalışır. Örneğin 
+                     <code>&lt;input></code>, <code>&lt;textarea></code>, ve <code>&lt;select></select></code> 
+                     elemanları için :<br> <code>$( "input, textarea, select" ).serialize();</code>
+                  </p>
+                  <p>
+                     Genellikle <code>&lt;form></code> elemanını komple seçmek daha kolay olacaktır.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">form</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">submit</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">(</span> <span style="color: #7986e7;">event</span> <span style="color: #d9f5dd;">)</span> {</div><div>&nbsp; <span style="color: #bfc7d5;">event</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">preventDefault</span><span style="color: #bfc7d5;">()</span>;</div><div>&nbsp; <span style="color: #bfc7d5;">console</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(</span> <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #ff5572;">this</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">serialize</span><span style="color: #bfc7d5;">()</span> <span style="color: #bfc7d5;">)</span>;</div><div>}<span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                  <br><p>
+                     Bu örnekteki şekliyle jQuery form içindeki kontrolleri bularak serialize edecektir. Sadece veri 
+                     girişi bulunan <code>&lt;form></code> elemanları işleme alıır. Ama başka seçim yapılırsa 
+                     seçilenlerin veri giriş elemanları olması gerekir. Hem form hem içindeki alt elemanların 
+                     seçilmesi sonuç değerde çiftlemelere sebep olur. 
+                  </p>
+                  <p>
+                     <b>Not : </b>Sadece <a href="https://www.w3.org/TR/html401/interact/forms.html#h-17.13.2" target="_blank">geçerli form kontrolleri</a>
+                     stringe dahil edilir. Form bir buton kullanılarak gönderildiği için <i>submit</i> butonu 
+                     da string'e konmaz. Çıktıda olmasını istediğiniz her form elemanının <code>name</code> 
+                     özelliği olmalıdır. Checkbox ve radio button ("radio" veya "checkbox" tipi <i>input</i>
+                     elemanları) değerleri sadece seçili olmaları durumunda 
+                     çıktıya dahil edilir. Dosya seçim elemanlarındaki veri çıktıya dahil edilmez. 
+                  </p>
+
+
+                  <br><h3>Örnekler:</h3>
+                  <p>
+                     Bir formu bir Ajax isteğinde kullanılacak şekilde sorgu string'e çevir.
+                  </p>
+                  <div class="cpadding scroll" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #ff5572;">body</span><span style="color: #c792ea;">, </span><span style="color: #ff5572;">select</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">font-size</span>: <span style="color: #f78c6c;">12</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp;}</div><div>&nbsp; &nbsp;<span style="color: #ff5572;">form</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">margin</span>: <span style="color: #f78c6c;">5</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp;}</div><div>&nbsp; &nbsp;<span style="color: #ff5572;">p</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">color</span>: <span style="color: #89ddff;">red</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">margin</span>: <span style="color: #f78c6c;">5</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">font-size</span>: <span style="color: #f78c6c;">14</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp;}</div><div>&nbsp; &nbsp;<span style="color: #ff5572;">b</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">color</span>: <span style="color: #89ddff;">blue</span>;</div><div>&nbsp; &nbsp;}</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">form</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">select</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">name</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">single</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">option</span><span style="color: #89ddff;">&gt;</span>Single<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">option</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">option</span><span style="color: #89ddff;">&gt;</span>Single2<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">option</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">select</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;</div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">br</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">select</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">name</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">multiple</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">multiple</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">multiple</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">option</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">selected</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">selected</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span>Multiple<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">option</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">option</span><span style="color: #89ddff;">&gt;</span>Multiple2<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">option</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">option</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">selected</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">selected</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span>Multiple3<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">option</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">select</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;</div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">br</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">input</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">type</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">checkbox</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">name</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">check</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">value</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">check1</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">id</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">ch1</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">label</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">for</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">ch1</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span>check1<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">label</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">input</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">type</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">checkbox</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">name</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">check</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">value</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">check2</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">checked</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">checked</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">id</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">ch2</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">label</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">for</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">ch2</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span>check2<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">label</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;</div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">br</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">input</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">type</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">radio</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">name</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">radio</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">value</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">radio1</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">checked</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">checked</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">id</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">r1</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">label</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">for</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">r1</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span>radio1<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">label</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">input</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">type</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">radio</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">name</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">radio</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">value</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">radio2</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">id</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">r2</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">label</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">for</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">r2</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span>radio2<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">label</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">form</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: white;">tt</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">id</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">results</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: white;">tt</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span></div><br /><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #c792ea;">function</span> <span style="color: #82aaff;">showValues</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">str</span> <span style="color: #c792ea;">=</span> <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">form</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">serialize</span><span style="color: #bfc7d5;">()</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">#results</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">text</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">str</span> <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp;}</div><div>&nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">input[type='checkbox'], input[type='radio']</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span>, <span style="color: #bfc7d5;">showValues</span> <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">select</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">change</span><span style="color: #d9f5dd;">"</span>, <span style="color: #bfc7d5;">showValues</span> <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp;<span style="color: #82aaff;">showValues</span><span style="color: #bfc7d5;">()</span>;</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div><div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                  <div class="cborder" id="test1">
+                     <style>
+                        #test1 body, #test1 select {
+                           font-size: 12px;
+                        }
+                        #test1 form {
+                           margin: 5px;
+                        }
+                        #test1 p {
+                           color: red;
+                           margin: 5px;
+                           font-size: 14px;
+                        }
+                        #test1 b {
+                           color: blue;
+                        }
+                     </style>
+                     <form>
+                        <select name="single">
+                           <option>Single</option>
+                           <option>Single2</option>
+                        </select>
+                        
+                        <br>
+                        <select name="multiple" multiple="multiple">
+                           <option selected="selected">Multiple</option>
+                           <option>Multiple2</option>
+                           <option selected="selected">Multiple3</option>
+                        </select>
+                        
+                        <br>
+                        <input type="checkbox" name="check" value="check1" id="ch1">
+                        <label for="ch1">check1</label>
+                        <input type="checkbox" name="check" value="check2" checked="checked" id="ch2">
+                        <label for="ch2">check2</label>
+                        
+                        <br>
+                        <input type="radio" name="radio" value="radio1" checked="checked" id="r1">
+                        <label for="r1">radio1</label>
+                        <input type="radio" name="radio" value="radio2" id="r2">
+                        <label for="r2">radio2</label>
+                     </form>
+                     <p><tt id="results"></tt></p>
+ 
+                     <script>
+                        function showValues() {
+                           var str = $( "#test1 form" ).serialize();
+                           $( "#test1 #results" ).text( str );
+                        }
+                        $( "#test1 input[type='checkbox'], #test1 input[type='radio']" ).on( "click", showValues );
+                        $( "#test1 select" ).on( "change", showValues );
+                        showValues();
+                     </script>
+                  </div>
+
+               </div>
+            </div>
+            <p>.</p><p>.</p>
+
+         </div>
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+      </div>
+   </div>
+
+</body>
+</html>

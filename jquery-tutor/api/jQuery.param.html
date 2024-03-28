@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery.param()</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+  <style>
+      div .scroll{
+          height:300px;
+          width: 100%;
+          overflow:scroll;
+          scrollbar-color: dark;
+      }
+
+      ::-webkit-scrollbar {
+          width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+          background: white;
+      }
+
+      ::-webkit-scrollbar-thumb {
+          background: gray;
+          border-radius: 10px;
+      }
+
+      .cborder {
+          border: 1px solid black;
+          padding: 5px;
+      }
+
+      .cpadding {
+          padding: 15px;
+      }
+
+      body {
+          font-size: large;
+      }
+  </style>
+</head>
+<body style="font-family: Open Sans;">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+  </nav>
+
+  <div class="container" style="padding-top: 70px;">
+    <div class="row">
+      <div class="col-md-2 hidden-xs">
+
+      </div>
+      <div class="col-md-8">
+        <ul class="breadcrumb small" >
+          <li><a href="../../index.html">Ana Sayfa</a></li>
+          <li><a href="index.html">JQuery API</a></li>
+          <li class="active"><span>jQuery.param() Metodu</span></li>
+        </ul>
+          
+        <h1>jQuery.param()</h1>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <span>jQuery.param( nesne )</span>
+            <span class="pull-right"><i>Dönen Değer : 
+              <a href="Types/index.html#String" style="color: aqua;">String</a>
+            </i></span>
+          </div>
+          <div class="panel-body">
+            <b>Açıklama : </b><i>Bir array, bir düz nesne veya bir jQuery nesnesini URL sorgu string'lerinde 
+              veya ajax isteklerinde kullanılabilecek string'e dönüştürür. JQuery nesnesi verildiğinde name-value 
+              özellikleri olan input elemanları içermelidir. 
+            </i>
+            <br><br><div class="panel panel-info">
+              <div class="panel-heading">
+                <span>jQuery.param( nesne )</span>
+              </div>
+              <div class="panel-body">
+                <b>nesne</b><br>
+                Tip : <a href="Types/index.html#Array">Array</a> veya 
+                  <a href="Types/index.html#PlainObject">Düz Nesne</a> veya 
+                  <a href="Types/index.html#jQuery">jQuery Nesnesi</a><br>
+                Diziye çevrilecek olan nesne.
+              </div>
+            </div>
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <span>jQuery.param( obj, traditional )</span>
+              </div>
+              <div class="panel-body">
+                <b>obj</b><br>
+                Tip : <a href="Types/index.html#Array">Array</a> veya 
+                  <a href="Types/index.html#PlainObject">Düz Nesne</a> veya 
+                  <a href="Types/index.html#jQuery">jQuery Nesnesi</a><br>
+                Diziye çevrilecek olan nesne. <hr>
+                <b>traditional</b><br>
+                Tip : <a href="Types/index.html#Boolean">Boolean</a><br>
+                Geleneksel "shallow" serializasyonu yapılmasını istediğinizi belirten değer. 
+              </div>
+            </div>
+            <p>
+              Bu fonksiyon form eleman değerlerini dizili yazıya Dönüştürülmesi için kullanılır. Ayrıntı 
+              için <a href="serialize.html">.serialize()</a> metoduna bakınız.
+            </p>
+            <p>
+              Versiyon 1.4 sonrası <code>$.param()</code> metodu modern script dilleri ve PHP veya Ruby on Rails 
+              gibi framework ihtiyaçlarını karşılayacak şekilde daha gelişmiş <b>recursively</b> dönüştürmeye 
+              başladı. Bu geliştirmeyi <code>jQuery.ajaxSettings.traditional = true;</code> ayarı ile iptal 
+              edebilirsiniz. 
+            </p>
+            <p>
+              Versiyon 3.0 sonrası <code>$.param()</code> metodu artık <code>jQuery.ajaxSettings.traditional</code>
+              ayarını ve onun default değerini kullanmayı bıraktı ve default <code>false</code> değeri 
+              kullandı. Bunlar yüzünden en iyisi metoda ikinci parametreyi vererek nasıl çalışmasını 
+              istediğinizi ayrıca belirtin. 
+            </p>
+            <p>
+              Eğer verilen nesne bir array ise bu <a href="serializeArray.html">.serializeArray()</a> 
+              metodundan dönen değer gibi nesnelerden oluşan bir array olmalıdır. 
+            </p>
+            <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><div style="line-height: 19px;"><div><span style="color: #bfc7d5;">[</span></div><div><span style="color: #bfc7d5;">&nbsp; { name: </span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">first</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">, value: </span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Rick</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;"> },</span></div><div><span style="color: #bfc7d5;">&nbsp; { name: </span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">last</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">, value: </span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Astley</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;"> },</span></div><div><span style="color: #bfc7d5;">&nbsp; { name: </span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">job</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">, value: </span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Rock Star</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;"> }</span></div><div><span style="color: #bfc7d5;">]</span></div></div></div><div></div></div></div></div></div></div><div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+            <br>
+
+            <br><br><h3>Örnekler :</h3>
+<script>
+
+</script>
+
+          </div>
+        </div>
+        <p>.</p><p>.</p>
+
+      </div>
+      <div class="col-md-2 hidden-xs">
+
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

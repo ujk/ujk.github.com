@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
   <style>
       div .scroll{
           height:300px;
@@ -42,7 +43,7 @@
       }
   </style>
 </head>
-<body>
+<body style="font-family: Open Sans;">
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
   </nav>
@@ -222,7 +223,212 @@
                   </li><hr>
                   <li>
                     <b>dataFilter</b><br>
-
+                    Tip : <a href="Types/index.html#Function">Fonksiyon</a>( 
+                      <a href="Types/index.html#String">String</a> data, <a href="Types/index.html#String">String</a> type ) => 
+                      <a href="Types/index.html#Anything">Herhangi bir şey</a><br>
+                    XMLHttpRequest'in ham cevabını işlemek için kullanılan bir fonksiyon. Bu fonksiyon, cevabı sanitize 
+                    etmek için kullanılan bir ön filtrasyon fonksiyonu. Sanitize edilmiş veriyi geri dönmelisiniz. Fonksiyona 
+                    geçirilen 2 parametrede server'dan dönen ham veri ve isteğin <i>dataType</i> özellik 
+                    değeri vardır. 
+                  </li><hr>
+                  <li>
+                    <b>dataType</b> (default: <code>Akıllı tahmin (xml, json, script, veya html)</code> ) <br>
+                    Tip : <a href="Types/index.html#String">String</a><br>
+                    Server'dan cevap olarak beklediğiniz verinin tipi. Eğer hiç bir şey verilmemişse jQuery 
+                    istek yapılan dosya MIME tipine göre tahminde bulunur (XML MIME tipi cevap XML'e dönüştürülür,
+                    v1.4'te JSON cevap JavaScript nesneye dönüştürüldü, v1.4'te script cevap kod olarak 
+                    çalıştırıldı, geri kalan herşey string olarak işlenir). Mümkün olan veri tipleri (ve 
+                    <i>success</i> callback'inize parametrede gidecek veriler) şunlardır:
+                    <br><br><ul>
+                      <li>
+                        <code>"xml"</code> JQuery tarafından işlenebilen bir XML döküman döner
+                      </li><hr>
+                      <li>
+                        <code>"html"</code> HTML kodu düz yazı olarak döner, <i>script</i> tag'leri DOM'a 
+                        monte edildiğinde çalışacaktır. 
+                      </li><hr>
+                      <li>
+                        <code>"script"</code> Cevabı JavaScript olarak çalıştırır ve düz yazı olarak geri 
+                        döner. Eğer <code>cache</code> opsiyonuna <b>true</b> değer verilmemişse, URL'e 
+                        <code>_=[TIMESTAMP]</code> sorgu parametresi ekleyerek cash edilmesini engeller. 
+                        <b>Not : </b>bu uzak dömain'ler için POST istekleri GET'e çevirir. 
+                      </li><hr>
+                      <li>
+                        <code>"json"</code> Cevabı bir JSON veri olarak işler ve bir JavaScript nesnesi 
+                        döner. Domain'ler arası örneğin <code>?callback=?</code> gibi callback değeri olan 
+                        <code>"json"</code> istekler eğer istek ayarlarında <code>jsonp: false</code> olarak 
+                        belirtilmediyse <a href="https://bob.ippoli.to/archives/2005/12/05/remote-json-jsonp/" target="_blank">JSONP</a>
+                        olarak işlenir. JSON veri çok katı kurallarla işlenir, herhangi bir hatalı JSON veri 
+                        yazımı bir <i>parse</i> hatası olarak geri döner. Versiyon 1.9 sonrasında boş cevaplar 
+                        da kabul edilmez, server ya <code>null</code> ya da <code>{ }</code> dönmelidir. ( 
+                        sağlıklı JSON formatları için <a href="https://json.org/" target="_blank">json.org</a> 
+                        adresine bakınız )
+                      </li><hr>
+                      <li>
+                        <code>"jsonp"</code> Bir JSON bloğuna 
+                        <a href="https://bob.ippoli.to/archives/2005/12/05/remote-json-jsonp/" target="_blank">JSONP</a>
+                        kullanarak değer yükler. Bir callback belirtmek için URL sonuna <code>"?callback=?"</code>
+                        eklenir. <code>cache</code> opsiyonuna <code>true</code> değer verilmemişse URL'e 
+                        eklenen sorgu parametrelerine <br> <code>"_=[TIMESTAMP]"</code> ekleyerek cache edilmesini 
+                        engeller. 
+                      </li><hr>
+                      <li>
+                        <code>"text"</code> düz yazı bir string.
+                      </li><hr>
+                      <li>
+                        <code>Birden çok boşlukla ayrılmış değer</code> Versiyon 1.5'ten itibaren jQuery 
+                        <i>Content-Type</i> header'ında alınan bir <i>dataType</i>'ı ihtiyacınız olan tipe 
+                        dönüştürür. Örneğin bir <i>text</i> cevaba XML gibi davranılmasını istiyorsanız, 
+                        dataType değerine <code>"text xml"</code> verirsiniz. Ayrıca bir JSONP isteği yapıp 
+                        <i>text</i> olarak gelen cevabın jQuery tarafından XML olarak işlenmesi için 
+                        <code>"jsonp text xml"</code> değeri verirsiniz. Benzer olarak kısaca <code>"jsonp xml"</code>
+                        değeri verirseniz direk dönüştürmeyi başaramayacağı için önce JSONP'den <i>text</i>'e , oaradan
+                        XML'e çevirecektir. 
+                      </li>
+                    </ul>
+                  </li><hr>
+                  <li>
+                    <b>error</b><br>
+                    Tip : <a href="Types/index.html#Function">Fonksiyon</a>( 
+                      <a href="Types/index.html#jqXHR">jqXHR</a> jqXHR, <a href="Types/index.html#String">String</a>
+                      textStatus, <a href="Types/index.html#String">String</a> errorThrown ) <br>
+                    İstek başarısız olursa çalışacak bir fonksiyon. Fonksiyona 3 parametre geçirilir: ilkinde 
+                    jqXHR nesnesi vardır, ikinci oluşan hatanın türünü belirtir bir stringdir. İkinci parametrede 
+                    gelmesi olası değerler (<code>null</code> hariç), <code>"timeout"</code>, <code>"error"</code>,
+                    <code>"abort"</code> ve <code>"parseerror"</code>. Bir HTTP hatası oluşursa <code>erroThrown</code> 
+                    değerine "Not Found" ya da "Internal Server Error" gibi HTTP status'un yazı kısmı konur.
+                    Versiyon 1.5 sonrası birden fazla fonksiyonu da bir array içinde değer olarak alabilir, 
+                    fonksiyonlar sırayla çalıştırılır. <b>Not : </b> Bu olay işleyicisi <i>domain'ler arası 
+                      script ve domain'ler arası JSONP</i> isteklerde çalıştırılmaz. Bu bir 
+                    <a href="Ajax_Events.html">Ajax Olayı</a>'dır.
+                  </li><hr>
+                  <li>
+                    <b>global</b> ( default <code>true</code> ) <br>
+                    Tip : <a href="Types/index.html#Boolean">Boolean</a><br>
+                    Bu istek için global Ajax olay işleyicilerine izin verilip verilmeyeceği. Değeri 
+                    <code>false</code> yapılırsa <code>ajaxStart</code> veya <code>ajaxStop</code> gibi 
+                    global olaylar tetiklenmeyecektir. Global olayları <a href="Ajax_Events.html">Ajax Olayları</a>
+                    başlığında görebilirsiniz. 
+                  </li><hr>
+                  <li>
+                    <b>headers</b> ( default <code>{ }</code> ) <br>
+                    Tip : <a href="Types/index.html#PlainObject">Düz Nesne</a><br>
+                    XMLHttpRequest gönderimi ile istekte bulunurken beraberinde gönderilecek ilave header 
+                    key-value çiftleri. <code>X-Requested-With: XMLHttpRequest</code> header değeri her 
+                    zaman eklenir, fakat <code>XMLHttpRequest</code> default değeri burada değiştirilebilir. 
+                    <code>headers</code> ayarı içindeki değerler ayrıca <code>beforeSend</code> ile verilen 
+                    fonksiyon içinde de değiştirilebilir.
+                  </li><hr>
+                  <li>
+                    <b>ifModified</b> ( default <code>false</code> ) <br>
+                    Tip : <a href="Types/index.html#Boolean">Boolean</a><br>
+                    İsteğin eğer cevap son istekten sonra değişmiş ise başarılı sonlanmasına izin verir. Bunu 
+                    <i>Last-Modified</i> header değerini kontrol ederek yapar. Default değer <code>false</code>, 
+                    header'ı dikkate almaz, her isteğin başarılı sonlanmasına izin verir.  
+                  </li><hr>
+                  <li>
+                    <b>isLocal</b> ( default <code>mevcut lcation protocol'e bağlı</code> ) <br>
+                    Tip : <a href="Types/index.html#Boolean">Boolean</a><br>
+                    Bulunulan ortamın (environment) jQuery tarafından öyle algılanmasa bile "lokal" algılanmasını sağlar.
+                    <code>file</code>, <code>*-extension</code>, ve <code>widget</code> progtokolleri 
+                    "lokal" kabul edilir. Eğer <code>isLocal</code> özelliğine değer verilecekse 
+                    <code>$.ajaxSetup()</code> metodu içinde yapılması tavsiye edlir. 
+                  </li><hr>
+                  <li>
+                    <b>jsonp</b><br>
+                    Tip : <a href="Types/index.html#String">String</a> veya <a href="Types/index.html#Boolean">Boolean</a><br>
+                    Bir JSONP isteğinde callback fonksiyon metodunun üzerine yazar. Bu değer URL'deki 
+                    sorgu string'inin <code> 'callback=?'</code> parçasındaki <code>callback</code> yerine 
+                    yazılmalıdır. Yani <code>{jsonp:'onJSONPLoad'}</code> değeri server'a <code>'onJSONPLoad=?'</code>
+                    şeklinde bir URL'ye ilave parametre server'a gönderilir. Versiyon 1.5 sonrası <code>jsonp</code>
+                    özelliğine <code>false</code> değeri varmek jQuery'nin URL'e <i>"?callback"</i> değerini 
+                    eklemesini engeller. Bu durumda ayrıca <code>jsonpCallback</code> değerine bakmanız 
+                    gerekir. Örneğin <code>{ jsonp: false, jsonpCallback: "callbackName" }</code>. Eğer 
+                    Ajax isteği yaptığınız yere güvenmiyorsanız, güvenlik için <code>jsonp</code> özelliğini 
+                    <code>false</code> yapabilirsiniz. 
+                  </li><hr>
+                  <li>
+                    <b>jsonpCallback</b><br>
+                    Tip : <a href="Types/index.html#String">String</a> veya <a href="Types/index.html#Function">Fonksiyon</a>(). <br>
+                    Bir JSONP isteğinde callback fonksiyonu belirtir. Bu değer jQuery tarafından rastgele 
+                    isimle üretilen fonksiyon adının yerini alır. JQuery'nin herşeyi kolayca yönetmesi için 
+                    kendi verdiği rastgele ismi kullanmak tercih edilir. Versiyon 1.5 sonrası bu değere callback 
+                    fonksiyonunun adını dönen bir fonksiyon kullanımı da mümkün kılınmıştır.
+                  </li><br>
+                  <li>
+                    <b>method</b> ( default GET ) <br>
+                    Tip : <a href="Types/index.html#String">String</a><br>
+                    İşlemde kullanılması istenen HTTP metodu. (örn. POST , GET , PUT)
+                  </li><hr>
+                  <li>
+                    <b>mimeType</b><br>
+                    Tip : <a href="Types/index.html#String">String</a><br>
+                    <abbr title="XMLHttpRequest">XHR</abbr> mime tipinin üzerine yazar. 
+                  </li><hr>
+                  <li>
+                    <b>password</b><br>
+                    Tip : <a href="Types/index.html#String">String</a><br>
+                    XMLHTTPRequest isteklerinde HTTP erişim yetkilendirmelerine kullanılacak şifre. 
+                  </li><br>
+                  <li>
+                    <b>processData</b> ( default <code>true</code> ) <br>
+                    Tip : <a href="Types/index.html#Boolean">Boolean</a><br>
+                    Default olarak <code>data</code> özelliğinde veriler işlenip sorgu stringe dönüştürülecek 
+                    bir nesne olarak verilir (String'den başka veriler için). content-type 
+                    "application/x-www-form-urlencoded" değerine uygun dönüştürülür. Eğer bir DOMdocument ya da başka 
+                    işlenmeyen bir değer göndermek isterseniz bu değeri <code>false</code> yapınız.
+                  </li><hr>
+                  <li>
+                    <b>scriptAttrs</b><br>
+                    Tip : <a href="Types/index.html#PlainObject">Düz Nesne</a><br>
+                    "script" veya "jsonp" isteklerde kullanmak üzere ilave özellikleri tanımlayan bir nesne. 
+                    Key olarak özellik adı, value olarak da özelliğin değeri girilir. Eğer bu nesne verilirse 
+                    script-tag aktarımına zorlayacaktır. 
+                  </li><hr>
+                  <li>
+                    <b>scriptCharset</b><br>
+                    Tip : <a href="Types/index.html#String">String</a><br>
+                    Sadece "script" aktarım kullanılırsa değer verilebilir. İstekte kullanılan script tag'inin 
+                    karakter setini belirtir. Bulunulan sayfa ve hedef uzak kaynağın karakter setleri farklıysa 
+                    kullanılır. Alternatif olarak <code>scriptAttrs</code> içinde <code>charset</code> 
+                    özelliğinde verilerek "script" aktarımdan emin olunabilir.
+                  </li><hr>
+                  <li>
+                    <b>statusCode</b> ( default <code>{ }</code> ) <br>
+                    Tip : <a href="Types/index.html#PlainObject">Düz Nesne</a><br>
+                    Cevabın HTTP kodu ve o kodda cevaba karşı çalışacak fonksiyondan oluşan key-value 
+                    çiftleri. Aşağıdaki örnek cevap kodu 404 olunca alarm popup açıyor. <br>
+                    <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div><span style="color: #bfc7d5;">$</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">ajax</span><span style="color: #bfc7d5;">(</span>{</div><div>&nbsp; statusCode: {</div><div>&nbsp; &nbsp; <span style="color: #f78c6c;">404</span>: <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #82aaff;">alert</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">sayfa bulunamadı</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp; }</div><div>&nbsp; }</div><div>}<span style="color: #bfc7d5;">)</span>;</div></div></div>
+                    <br> Eğer istek başarılı sonlanırsa durum kodu fonksiyonu aynı <b>success</b> callback 
+                    fonksiyonu parametrelerini alır. Eğer cevap kodu hataysa (3xx redirect dahil) ona verilen 
+                    fonksiyon da <b>error</b> callback parametreleri ile aynıdır.
+                  </li><hr>
+                  <li>
+                    <b>success</b><br>
+                    Tip : <a href="Types/index.html#Function">Fonksiyon</a>( 
+                      <a href="Types/index.html#Anything">Herhangi bir şey</a> data, 
+                      <a href="Types/index.html#String">String</a> textStatus,
+                      <a href="Types/index.html#jqXHR">jqXHR</a> jqXHR ) <br>
+                      İstek başarılı şekilde sonlanırsa çağrılacak olay işleyici metod. Fonksiyona 3 
+                      parametre geçer: Server'dan dönen veri, <code>dataType</code> ile belirtilen formatta 
+                      ve <code>dataFilter</code>'a göre düzenlenmiş olarak. Eğer varsa <b>status</b> değeri 
+                      string olarak, ve jqXHR nesnesi. Versiyon 1.5 sonrası bu özelliğe fonksiyonlardan 
+                      oluşan bir array verilebilir, verilen fonksiyonlar sırayla çalışır.
+                  </li><hr>
+                  <li>
+                    <b>timeout</b><br>
+                    Tip : <a href="Types/index.html#Number">Sayı</a><br>
+                    İstek için milisaniye olarak bir timeout değeri verilir. Sıfır değeri timeout olmayacağını 
+                    belirtir. Bu değer <a href="jQuery.ajaxSetup.html">jQuery.ajaxSetup()</a> ile verilen 
+                    değerin üzerine yazar. Timeout zamanı <code>$.ajax</code> metodu çağrılmasıyla başlar. 
+                    Eğer o esnada başka istekler de aktifse ve tarayıcı sunucuya ulaşmakta sorun yaşıyorsa 
+                    timeout oluşabiliir. 
+                  </li><hr>
+                  <li>
+                    <b>traditional</b><br>
+                    Tip : <a href="Types/index.html#Boolean">Boolean</a><br>
+                    Eğer geleneksel <a href="jQuery.param.html">parametre dizilimi</a> kullanmak isterseniz 
+                    bu değeri <code>true</code> yapın.
                   </li>
                 </ul>
               </div>
