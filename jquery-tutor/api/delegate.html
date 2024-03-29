@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>.delegate() Metodu</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+   <style>
+      div .scroll{
+         height:300px;
+         width: 100%;
+         overflow:scroll;
+         scrollbar-color: dark;
+      }
+
+      ::-webkit-scrollbar {
+         width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+         background: white;
+      }
+
+      ::-webkit-scrollbar-thumb {
+         background: gray;
+         border-radius: 10px;
+      }
+
+      .cborder {
+         border: 1px solid black;
+         padding: 5px;
+      }
+
+      .cpadding {
+         padding: 15px;
+      }
+
+      body {
+         font-size: large;
+      }
+   </style>
+</head>
+<body style="font-family: Open Sans;">
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+      <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+   </nav>
+
+   <div class="container" style="padding-top: 70px;">
+      <div class="row">
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+         <div class="col-md-8">
+            <ul class="breadcrumb small" >
+               <li><a href="../../index.html">Ana Sayfa</a></li>
+               <li><a href="index.html">JQuery API</a></li>
+               <li class="active"><span>.delegate() Metodu</span></li>
+            </ul>
+               
+            <h1>.delegate()</h1>
+            <div class="panel panel-primary">
+               <div class="panel-heading">
+                  <span>.delegate( selector, eventType, handler )</span>
+                  <span class="pull-right"><i>Dönen Değer : 
+                     <a href="Types/index.html#jQuery" style="color: aqua;">jQuery Nesnesi</a> </i></span>
+               </div>
+               <div class="panel-body">
+                  <b>Açıklama : </b><i>Seçimden gelen bir ya da daha fazla elemanın bir ya da daha fazla 
+                     olayına bir olay işleyici bağlar.</i>
+                  <br><br><div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>.delegate( selector, eventType, handler )</span>
+                     </div>
+                     <div class="panel-body">
+                        <b>selector</b><br>
+                        Tip : <a href="Types/index.html#String">String</a><br>
+                        Seçilmiş elemanların olayı tetikleyen alt elemanlarını bulmak için seçici filtre.
+                         <hr>
+                        <b>eventType</b><br>
+                        Tip : <a href="Types/index.html#String">String</a><br>
+                        Bir ya da birden fazla JavaScript olay tipinin boşlukla ayrılmış şekilde oluşturduğu 
+                        string. "click" veya "keydown" veya kullanıcı tanımlı olay ismi gibi.
+                        <hr>
+                        <b>handler</b><br>
+                        Tip : <a href="Types/index.html#Function">Fonksiyon</a>( 
+                           <a href="Types/index.html#Event">Olay</a> eventObject ) <br>
+                        Olay her tetiklendiğinde çalıştırılacak olan fonksiyon. 
+                     </div>
+                  </div>
+                  <div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>.delegate( selector, eventType, eventData, handler )</span>
+                     </div>
+                     <div class="panel-body">
+                        <b>selector</b><br>
+                        Tip : <a href="Types/index.html#String">String</a><br>
+                        Seçilmiş elemanların olayı tetikleyen alt elemanlarını bulmak için seçici filtre.
+                         <hr>
+                        <b>eventType</b><br>
+                        Tip : <a href="Types/index.html#String">String</a><br>
+                        Bir ya da birden fazla JavaScript olay tipinin boşlukla ayrılmış şekilde oluşturduğu 
+                        string. "click" veya "keydown" veya kullanıcı tanımlı olay ismi gibi.
+                        <hr>
+                        <b>eventData</b><br>
+                        Tip : <a href="Types/index.html#Anything">Herhangi birşey</a><br>
+                        Olay işleyiciye gönderilmek istenen verileri içeren bir nesne.
+                        <hr>
+                        <b>handler</b><br>
+                        Tip : <a href="Types/index.html#Function">Fonksiyon</a>( 
+                           <a href="Types/index.html#Event">Olay</a> eventObject ) <br>
+                        Olay her tetiklendiğinde çalıştırılacak olan fonksiyon. 
+                     </div>
+                  </div>
+                  <div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>.delegate( selector, events )</span>
+                     </div>
+                     <div class="panel-body">
+                        <b>selector</b><br>
+                        Tip : <a href="Types/index.html#String">String</a><br>
+                        Seçilmiş elemanların olayı tetikleyen alt elemanlarını bulmak için seçici filtre.
+                         <hr>
+                        <b>events</b><br>
+                        Tip : <a href="Types/index.html#PlainObject">Düz Nesne</a><br>
+                        Bir ya da daha fazla olay tipi ve onlara karşı işlenecek olan olay işleyici tanımları 
+                        içieren nesne.
+                     </div>
+                  </div>
+
+                  <br><br><p>
+                     JQuery versiyon 3.0'la beraber <code>.delegate()</code> metodu kaldırıldı. Versiyon 
+                     1.7'den beri <code><a href="on.html">.on()</a></code> metodu kullanılması tercih ediliyor. Daha önceki 
+                     versiyonlar içinse etkili bir olay tanımlama metodudur. <code><a href="on.html">.on()</a></code>
+                     metodunda olay bağlamanın teknikleri ayrıntılı görülebilir. Aynı teknikleri kullandığı 
+                     için bu metodlar kaldırılmıştır. 
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> jQuery 1.4.3+</span></div><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">elements</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">delegate</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">selector</span>, <span style="color: #bfc7d5;">events</span>, <span style="color: #bfc7d5;">data</span>, <span style="color: #bfc7d5;">handler</span> <span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> jQuery 1.7+</span></div><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">elements</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">events</span>, <span style="color: #bfc7d5;">selector</span>, <span style="color: #bfc7d5;">data</span>, <span style="color: #bfc7d5;">handler</span> <span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div></div>
+                  <br><p>
+                     Örneğin aşağıdaki <code>.delegate()</code> kodu,
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">table</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">delegate</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">td</span><span style="color: #d9f5dd;">"</span>, <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #ff5572;">this</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">toggleClass</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">chosen</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div>}<span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div></div></div>
+                  <br><p>
+                     <code>.on()</code> metodu kullanan şu kodla eşleniktir:
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">table</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span>, <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">td</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #ff5572;">this</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">toggleClass</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">chosen</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div>}<span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div></div></div></div>
+                  <br><p>
+                     <code>.delegate()</code> ile eklenen olayları iptal etmek için 
+                     <code><a href="undelegate.html">.undelegate()</a></code> metodunu kullanırsınız.
+                  </p>
+                  <p>
+                     <code>data</code> ile verilen verinin ayrıştırması <code><a href="on.html">.on()</a></code> 
+                     metodu gibidir. 
+                  </p>
+                  
+
+
+                  <br><h3>Örnekler:</h3>
+                  <p>
+                     Bir paragrafa tıklayarak yeni bir tane oluştur ve o da tıklanabilsin.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="color: #f6f6f4;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #ff5572;">p</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">background</span>: <span style="color: #89ddff;">yellow</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">font-weight</span>: <span style="color: #89ddff;">bold</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">cursor</span>: <span style="color: #89ddff;">pointer</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">padding</span>: <span style="color: #f78c6c;">5</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp;}</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span>Bana Tıkla!<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">body</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">delegate</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">p</span><span style="color: #d9f5dd;">"</span>, <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #ff5572;">this</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">after</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">&lt;p&gt;İlave paragraf!&lt;/p&gt;</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp;}<span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                  <div class="cborder" id="test1">
+                     <style>
+                        #test1 p {
+                           background: yellow;
+                           font-weight: bold;
+                           cursor: pointer;
+                           padding: 5px;
+                        }
+                     </style>
+                     <p>Bana Tıkla!</p>
+                     <script>
+                        $( "#test1" ).delegate( "p", "click", function() {
+                           $( this ).after( "<p>İlave paragraf!</p>" );
+                        });
+                     </script>
+                  </div>
+                  <br><p>
+                     Her paragrafa tıklandığında içindeki yazıyı alert popup'a çıkarmak.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="color: #f6f6f4;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">body</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">delegate</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">p</span><span style="color: #d9f5dd;">"</span>, <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; <span style="color: #82aaff;">alert</span><span style="color: #bfc7d5;">(</span> <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #ff5572;">this</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">text</span><span style="color: #bfc7d5;">()</span> <span style="color: #bfc7d5;">)</span>;</div><div>}<span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                  <br><p>
+                     Elemanın default olayını iptal etmek ve olayın üst elemanlara aktarımını da önlemek için 
+                     <code>return false;</code> kullanın.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="color: #f6f6f4;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">body</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">delegate</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">a</span><span style="color: #d9f5dd;">"</span>, <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; <span style="color: #c792ea;">return</span> <span style="color: #ff5874;">false</span>;</div><div>}<span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                  <br><p>
+                     Sadece elemanın default olayını iptal için <code>.preventDefault()</code> metodu kullanın.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="color: #f6f6f4;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">body</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">delegate</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">a</span><span style="color: #d9f5dd;">"</span>, <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">(</span> <span style="color: #7986e7;">event</span> <span style="color: #d9f5dd;">)</span> {</div><div>&nbsp; <span style="color: #bfc7d5;">event</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">preventDefault</span><span style="color: #bfc7d5;">()</span>;</div><div>}<span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                  <br><p>
+                     Kullanıcı tanımlı olaylar da bağlanabilir.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="color: #f6f6f4;"><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div style="color: #f6f6f4;">&nbsp; &nbsp;<span style="color: #ff5572;">p</span> {</div><div style="color: #f6f6f4;">&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">color</span>: <span style="color: #89ddff;">red</span>;</div><div style="color: #f6f6f4;">&nbsp; &nbsp;}</div><div style="color: #f6f6f4;">&nbsp; &nbsp;<span style="color: #ff5572;">span</span> {</div><div style="color: #f6f6f4;">&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">color</span>: <span style="color: #89ddff;">blue</span>;</div><div style="color: #f6f6f4;">&nbsp; &nbsp;}</div><div style="color: #f6f6f4;"><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div style="color: #f6f6f4;"><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span>Özel olay tanımlanmış.<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span></div><div style="color: #f6f6f4;"><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">button</span><span style="color: #89ddff;">&gt;</span>Özel olayı tetikle<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">button</span><span style="color: #89ddff;">&gt;</span></div><div style="color: #f6f6f4;"><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">span</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">style</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">display:none;</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">span</span><span style="color: #89ddff;">&gt;</span></div><div style="color: #f6f6f4;">&nbsp;</div><div style="color: #f6f6f4;"><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #f6f6f4;">&nbsp; &nbsp;</span><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #f6f6f4;"> </span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">body</span><span style="color: #d9f5dd;">"</span><span style="color: #f6f6f4;"> </span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">delegate</span><span style="color: #bfc7d5;">(</span><span style="color: #f6f6f4;"> </span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">p</span><span style="color: #d9f5dd;">"</span><span style="color: #f6f6f4;">, </span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">myCustomEvent</span><span style="color: #d9f5dd;">"</span><span style="color: #f6f6f4;">, </span><span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">(</span><span style="color: #f6f6f4;"> </span><span style="color: #7986e7;">e</span><span style="color: #f6f6f4;">, </span><span style="color: #7986e7;">myName</span><span style="color: #f6f6f4;">, </span><span style="color: #7986e7;">myValue</span><span style="color: #f6f6f4;"> </span><span style="color: #d9f5dd;">)</span><span style="color: #f6f6f4;"> {</span></div><div style="color: #f6f6f4;">&nbsp; &nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #ff5572;">this</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">text</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Merhaba!</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div style="color: #f6f6f4;">&nbsp; &nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">span</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span></div><div style="color: #f6f6f4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #c792ea;">.</span><span style="color: #82aaff;">stop</span><span style="color: #bfc7d5;">()</span></div><div style="color: #f6f6f4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #c792ea;">.</span><span style="color: #82aaff;">css</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">opacity</span><span style="color: #d9f5dd;">"</span><span style="color: #eeffff;">,</span> <span style="color: #f78c6c;">1</span> <span style="color: #bfc7d5;">)</span></div><div style="color: #f6f6f4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #c792ea;">.</span><span style="color: #82aaff;">text</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">myName = </span><span style="color: #d9f5dd;">"</span> <span style="color: #89ddff;">+</span> <span style="color: #bfc7d5;">myName</span> <span style="color: #bfc7d5;">)</span></div><div style="color: #f6f6f4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #c792ea;">.</span><span style="color: #82aaff;">fadeIn</span><span style="color: #bfc7d5;">(</span> <span style="color: #f78c6c;">30</span> <span style="color: #bfc7d5;">)</span></div><div style="color: #f6f6f4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #c792ea;">.</span><span style="color: #82aaff;">fadeOut</span><span style="color: #bfc7d5;">(</span> <span style="color: #f78c6c;">1000</span> <span style="color: #bfc7d5;">)</span>;</div><div style="color: #f6f6f4;">&nbsp; &nbsp;}<span style="color: #bfc7d5;">)</span>;</div><div style="color: #f6f6f4;">&nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">button</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div style="color: #f6f6f4;">&nbsp; &nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">p</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">trigger</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">myCustomEvent</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div style="color: #f6f6f4;">&nbsp; &nbsp;}<span style="color: #bfc7d5;">)</span>;</div><div style="color: #f6f6f4;"><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                  <div class="cborder" id="test2">
+                     <style>
+                        #test2 p {
+                           color: red;
+                        }
+                        #test2 span {
+                           color: blue;
+                        }
+                     </style>
+                     <p>Özel olay tanımlanmış.</p>
+                     <button>Özel olayı tetikle</button>
+                     <span style="display:none;"></span>
+                     
+                     <script>
+                        $( "#test2" ).delegate( "p", "myCustomEvent", function( e, myName, myValue ) {
+                           $( this ).text( "Merhaba!" );
+                           $( "#test2 span" )
+                              .stop()
+                              .css( "opacity", 1 )
+                              .text( "myName = " + myName )
+                              .fadeIn( 30 )
+                              .fadeOut( 1000 );
+                        });
+                        $( "#test2 button" ).on( "click", function() {
+                           $( "#test2 p" ).trigger( "myCustomEvent" );
+                        });
+                     </script>
+                  </div>
+<script>
+
+</script>
+               </div>
+            </div>
+            <p>.</p><p>.</p>
+
+         </div>
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+      </div>
+   </div>
+
+</body>
+</html>

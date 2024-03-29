@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>.on() Metodu</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+   <style>
+      div .scroll{
+         height:300px;
+         width: 100%;
+         overflow:scroll;
+         scrollbar-color: dark;
+      }
+
+      ::-webkit-scrollbar {
+         width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+         background: white;
+      }
+
+      ::-webkit-scrollbar-thumb {
+         background: gray;
+         border-radius: 10px;
+      }
+
+      .cborder {
+         border: 1px solid black;
+         padding: 5px;
+      }
+
+      .cpadding {
+         padding: 15px;
+      }
+
+      body {
+         font-size: large;
+      }
+   </style>
+</head>
+<body style="font-family: Open Sans;">
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+      <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+   </nav>
+
+   <div class="container" style="padding-top: 70px;">
+      <div class="row">
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+         <div class="col-md-8">
+            <ul class="breadcrumb small" >
+               <li><a href="../../index.html">Ana Sayfa</a></li>
+               <li><a href="index.html">JQuery API</a></li>
+               <li class="active"><span>.on() Metodu</span></li>
+            </ul>
+               
+            <h1>.on() Metodu</h1>
+            <div class="panel panel-primary">
+               <div class="panel-heading">
+                  <span>.on( events [, selector ] [, data ], handler )</span>
+                  <span class="pull-right"><i>Dönen Değer : 
+                     <a href="Types/index.html#jQuery" style="color: aqua;">jQuery Nesnesi</a> </i></span>
+               </div>
+               <div class="panel-body">
+                  <b>Açıklama : </b><i>Seçilen elemanlara bir ya da daha fazla olay işleyici bağlar.</i>
+                  <br><br><div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>.on( events [, selector ] [, data ], handler )</span>
+                     </div>
+                     <div class="panel-body">
+                        <b>events</b><br>
+                        Tip : <a href="Types/index.html#String">String</a><br>
+                        Bir ya da boşluklarla ayrılmış daha fazla olay tipi adını ve varsa nameSpace değeri 
+                        içeren string. "click" veya "keydown.myPlugin" gibi. <hr>
+                        <b>selector</b><br>
+                        Tip : <a href="Types/index.html#String">String</a><br>
+                        Seçilmiş elemanların olayı tetikleyen alt elemanlarını bulmak için seçici filtre.
+                        Bu değer <code>null</code> ise ya da verilmemişse olay seçili elemanda tetiklenir.
+                         <hr>
+                        <b>data</b><br>
+                        Tip : <a href="Types/index.html#Anything">Herhangi bir şey</a><br>
+                        Olay işleyiciye <code><a href="event.data.html">event.data</a></code> olarak 
+                        kullanması için gönderilecek veri. 
+                        <hr>
+                        <b>handler</b><br>
+                        Tip : <a href="Types/index.html#Function">Fonksiyon</a>( 
+                           <a href="Types/index.html#Event">Olay</a> eventObject [, 
+                           <a href="Types/index.html#Anything">Herhangi birşey</a> extraParameter ] [, ... ]  ) <br>
+                        Olay her tetiklendiğinde çalıştırılacak olan fonksiyon. Sadece <code>return false;</code> 
+                        içeriğine sahip bir fonksiyon yerine direk buraya <code>false</code> değer verilebilir.
+                     </div>
+                  </div>
+                  <br><br><div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>.on( events [, selector ] [, data ] )</span>
+                     </div>
+                     <div class="panel-body">
+                        <b>events</b><br>
+                        Tip : <a href="Types/index.html#PlainObject">Düz Nesne</a><br>
+                        Key olarak bir ya da boşluklarla ayrılmış daha fazla olay tipi adını içeren string 
+                        ve value olarak olay işleyici fonksiyon içeren nesne.<hr>
+                        <b>selector</b><br>
+                        Tip : <a href="Types/index.html#String">String</a><br>
+                        Seçilmiş elemanların olayı tetikleyen alt elemanlarını bulmak için seçici filtre.
+                        Bu değer <code>null</code> ise ya da verilmemişse olay seçili elemanda tetiklenir.
+                         <hr>
+                        <b>data</b><br>
+                        Tip : <a href="Types/index.html#Anything">Herhangi bir şey</a><br>
+                        Olay işleyiciye <code><a href="event.data.html">event.data</a></code> olarak 
+                        kullanması için gönderilecek veri. 
+                     </div>
+                  </div><br><br>
+
+                  <p>
+                     <code>.on()</code> metodu jQuery nesnesi olarak seçilmiş elemanlara olay işleyiciler 
+                     bağlamak için kullanılır. Eski versiyon jQuery olay metodlarından dönüştürmeye yardımcı 
+                     olarak, <code><a href="bind.html">.bind()</a></code>, 
+                     <code><a href="delegate.html">.delegate()</a></code>
+                  </p>
+                  
+                  ------------ TO DO ---------------
+
+
+                  <br><h3>Örnekler:</h3>
+
+               </div>
+            </div>
+            <p>.</p><p>.</p>
+
+         </div>
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+      </div>
+   </div>
+
+</body>
+</html>

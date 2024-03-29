@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>.load() Metodu</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+   <style>
+      div .scroll{
+         height:300px;
+         width: 100%;
+         overflow:scroll;
+         scrollbar-color: dark;
+      }
+
+      ::-webkit-scrollbar {
+         width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+         background: white;
+      }
+
+      ::-webkit-scrollbar-thumb {
+         background: gray;
+         border-radius: 10px;
+      }
+
+      .cborder {
+         border: 1px solid black;
+         padding: 5px;
+      }
+
+      .cpadding {
+         padding: 15px;
+      }
+
+      body {
+         font-size: large;
+      }
+   </style>
+</head>
+<body style="font-family: Open Sans;">
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+      <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+   </nav>
+
+   <div class="container" style="padding-top: 70px;">
+      <div class="row">
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+         <div class="col-md-8">
+            <ul class="breadcrumb small" >
+               <li><a href="../../index.html">Ana Sayfa</a></li>
+               <li><a href="index.html">JQuery API</a></li>
+               <li class="active"><span>.load() Metodu</span></li>
+            </ul>
+               
+            <h1>.load()</h1>
+            <div class="panel panel-primary">
+               <div class="panel-heading">
+                  <span>.load( url [, data ] [, complete ] )</span>
+                  <span class="pull-right"><i>Dönen Değer : 
+                     <a href="Types/index.html#jQuery" style="color: aqua;">jQuery Nesnesi</a> </i></span>
+               </div>
+               <div class="panel-body">
+                  <b>Açıklama : </b><i>Server'dan veriyi yükler ve gelen HTML'i seçili elemanların 
+                     içeriğine yükler.</i>
+                  <br><br><div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>.load( url [, data ] [, complete ] )</span>
+                     </div>
+                     <div class="panel-body">
+                        <b>url</b><br>
+                        Tip : <a href="Types/index.html#String">String</a><br>
+                        İsteğin gönderileceği URL adresi içeren bir string. <hr>
+                        <b>data</b><br>
+                        Tip : <a href="Types/index.html#PlainObject">Düz Nesne</a> ya da 
+                           <a href="Types/index.html#String">String</a><br>
+                        İstekle beraber veri olarak server'a gönderilecek bir düz nesne ya da string. <hr>
+                        <b>complete</b><br>
+                        Tip : <a href="Types/index.html#Function">Fonksiyon</a>( 
+                           <a href="Types/index.html#String">String</a> responseText, 
+                           <a href="Types/index.html#String">String</a> textStatus, 
+                           <a href="Types/index.html#jqXHR">jqXHR</a> jqXHR ) <br>
+                        İstek tamamlandığında çağrılacak callback metod.
+                     </div>
+                  </div>
+                  <p class="well">
+                     <b>Not : </b> Versiyon 3.0 öncesinde aynı <code><a href="load-event.html">.load()</a></code> 
+                     adında bir olay işleme metodu da vardı. 
+                  </p>
+                  ------------ TO DO ---------------
+
+
+                  <br><h3>Örnekler:</h3>
+
+               </div>
+            </div>
+            <p>.</p><p>.</p>
+
+         </div>
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+      </div>
+   </div>
+
+</body>
+</html>
