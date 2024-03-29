@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>.live() Metodu</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+   <style>
+      div .scroll{
+         height:300px;
+         width: 100%;
+         overflow:scroll;
+         scrollbar-color: dark;
+      }
+
+      ::-webkit-scrollbar {
+         width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+         background: white;
+      }
+
+      ::-webkit-scrollbar-thumb {
+         background: gray;
+         border-radius: 10px;
+      }
+
+      .cborder {
+         border: 1px solid black;
+         padding: 5px;
+      }
+
+      .cpadding {
+         padding: 15px;
+      }
+
+      body {
+         font-size: 1.6rem;
+      }
+   </style>
+</head>
+<body style="font-family: Open Sans;">
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+      <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+   </nav>
+
+   <div class="container" style="padding-top: 70px;">
+      <div class="row">
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+         <div class="col-md-8">
+            <ul class="breadcrumb small" >
+               <li><a href="../../index.html">Ana Sayfa</a></li>
+               <li><a href="index.html">JQuery API</a></li>
+               <li class="active"><span>.live() Metodu</span></li>
+            </ul>
+               
+            <h1>.live()</h1>
+            <div class="panel panel-primary">
+               <div class="panel-heading">
+                  <span>.live( events, handler )</span>
+                  <span class="pull-right"><i>Dönen Değer : 
+                     <a href="Types/index.html#jQuery" style="color: aqua;">jQuery Nesnesi</a> </i></span>
+               </div>
+               <div class="panel-body">
+                  <b>Açıklama : </b><i>Verilen seçiciyle şimdi mevcut olan ve ileride de eklenecek olan 
+                     tüm elemanlara bir olay işleyici bağlar.</i>
+                  <br><br><div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>.live( events, handler )</span>
+                     </div>
+                     <div class="panel-body">
+                        <b>events</b><br>
+                        Tip : <a href="Types/index.html#String">String</a><br>
+                        JavaScript olay tipini içeren bir string, "click" veya "keydown" gibi. Versiyon 1.4
+                        itibarıyla boşlukla ayrılmış birden çok olay tipi veya kullanıcı tanımlı olay isimlerini 
+                        de kabul etmeye başladı. 
+                        <hr>
+                        <b>handler</b><br>
+                        Tip : <a href="Types/index.html#Function">Fonksiyon</a>( 
+                           <a href="Types/index.html#Event">Olay</a> eventObject ) <br>
+                        Olay her tetiklendiğinde çalıştırılacak olan fonksiyon.
+                     </div>
+                  </div>
+                  <div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>.live( events [, data ], handler )</span>
+                     </div>
+                     <div class="panel-body">
+                        <b>events</b><br>
+                        Tip : <a href="Types/index.html#String">String</a><br>
+                        JavaScript olay tipini içeren bir string, "click" veya "keydown" gibi. Versiyon 1.4
+                        itibarıyla boşlukla ayrılmış birden çok olay tipi veya kullanıcı tanımlı olay isimlerini 
+                        de kabul etmeye başladı. 
+                        <hr>
+                        <b>data</b><br>
+                        Tip : <a href="Types/index.html#PlainObject">Düz Nesne</a><br>
+                        Olay işleyiciye gönderilecek verileri içeren bir nesne.
+                        <hr>
+                        <b>handler</b><br>
+                        Tip : <a href="Types/index.html#Function">Fonksiyon</a>( 
+                           <a href="Types/index.html#Event">Olay</a> eventObject ) <br>
+                        Olay her tetiklendiğinde çalıştırılacak olan fonksiyon.
+                     </div>
+                  </div>
+                  <div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>.live( events )</span>
+                     </div>
+                     <div class="panel-body">
+                        <b>events</b><br>
+                        Tip : <a href="Types/index.html#PlainObject">Düz Nesne</a><br>
+                        Bir ya da daha fazla JavaScript olay tipini ve onlara karşılık olay işleyici fonksiyonları 
+                        içeren bir nesne. 
+                     </div>
+                  </div>
+                  <br><p class="well">
+                     <b>Not : </b>Bu API JQuery v1.9'da kaldırıldı, yerine <code><a href="on.html">.on()</a></code>
+                     metodu kullanınız. 
+                  </p>
+                  <p>Bu metod sayfa içeriğinde dinamik olarak değişimler olduğunda olay 
+                     işleyicilerin kullanımını kolaylaştıran şekilde <code>document</code> elemanında delegasyon
+                     tipi olay işleyici eklemeye yarar. Direk ve delegasyon yoluyla olay tanımları için 
+                     <code><a href="on.html">.on()</a></code> metoduna bakınız.
+                  </p>
+                  <p>
+                     <code>.live()</code> metodunu tekrar düzenlemeler ile nasıl dönüştüğü şöyle sıralanır.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">selector</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">live</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">events</span>, <span style="color: #bfc7d5;">data</span>, <span style="color: #bfc7d5;">handler</span> <span style="color: #bfc7d5;">)</span>; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> jQuery 1.3+</span></div><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">document</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">delegate</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">selector</span>, <span style="color: #bfc7d5;">events</span>, <span style="color: #bfc7d5;">data</span>, <span style="color: #bfc7d5;">handler</span> <span style="color: #bfc7d5;">)</span>; &nbsp;<span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> jQuery 1.4.3+</span></div><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">document</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">events</span>, <span style="color: #bfc7d5;">selector</span>, <span style="color: #bfc7d5;">data</span>, <span style="color: #bfc7d5;">handler</span> <span style="color: #bfc7d5;">)</span>; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> jQuery 1.7+</span></div></div></div>
+                  <br>
+                  <p>
+                     Parametre <code>events</code> olay isimlerinden veya namespace değerlerinden oluşabileceği gibi 
+                     olay adı stringi ve olay işleyici fonksiyonlardan oluşan bir nesne de olabilir. Parametre
+                     <code>data</code> istenirse kullanılmayabilir. Örneğin aşağıdaki 3 metod çağrısı fonksiyonel 
+                     olarak eşittir. 
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">a.offsite</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">live</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; <span style="color: #82aaff;">alert</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Goodbye!</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> jQuery 1.3+</span></div><div>}<span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">document</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">delegate</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">a.offsite</span><span style="color: #d9f5dd;">"</span>, <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; <span style="color: #82aaff;">alert</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Goodbye!</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> jQuery 1.4.3+</span></div><div>}<span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">document</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span>, <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">a.offsite</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; <span style="color: #82aaff;">alert</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Goodbye!</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>; &nbsp;<span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> jQuery 1.7+</span></div><div>}<span style="color: #bfc7d5;">)</span>;</div></div></div></div>
+                  <br><p>
+                     JQuery yeni versiyonlarında dezavantajları olmayan daha iyi metodlar olduğundan <code>.live()</code>
+                     metodu kullanımı tavsiye edilmez. Aşağıda <code>.live()</code> kullanımının sebep olduğu 
+                     sorunlar sıralanıyor.
+                  </p><br>
+                  <ul>
+                     <li>
+                        <code>.live()</code> metodunu çağırmadan önceki jQuery seçicisi tarafından getirilen 
+                        elemanlar büyük dökümanlarda zaman sorunu üretebilir.
+                     </li>
+                     <li>
+                        Zincirleme metod imkanı desteklenmez. Mesela <br> 
+                        <code>$( "a" ).find( ".offsite, .external" ).live( ... );</code> geçerli değildir 
+                        ve beklendiği gibi çalışmaz.
+                     </li>
+                     <li>
+                        Tüm <code>.live()</code> olayları <b>document</b> nesnesine bağlandığı için olaylar 
+                        işlenmeden önce en uzun ve meşakkatli yoldan geçerler.
+                     </li>
+                     <li>
+                        Mobil iOS'da (iPhone, iPad ve iPod Touch) <code>click</code> olayı birçok eleman 
+                        tarafından document body'ye aktarılmadığından aşağıdakilerden birini çalışmadan 
+                        <code>.live()</code> metodu kullanılamaz.
+                        <ol>
+                           <li>
+                              <code>a</code> ya da <code>button</code> gibi doğal olarak tıklanan elemanlar 
+                              kullanın. Bu ikisi de olayı üstü olan <code>document</code>'e aktarır.
+                           </li>
+                           <li>
+                              <code>document.body</code> altındaki elemanlar için <code>.on()</code> ve
+                              <code>.delegate()</code> kullanın. 
+                           </li>
+                           <li>
+                              <code>click</code> olayını üst elemana aktarmasını istediğiniz elemana 
+                              <code>cursor: pointer;</code> CSS stili verin. Ama bu durumda elemanda 
+                              kopyala-yapıştır imkanının olamayacağını ve dokunulunca elemanın parlak 
+                              olacağını unutmayın.
+                           </li>
+                        </ol>
+                     </li>
+                     <li>
+                        Döküman altındaki elemanlara tanımlanmış olay işleyicilerde 
+                        <code><a href="event.stopPropagation.html">event.stopPropagation()</a></code> 
+                        olayın yayılmasını önlemekte işe yaramaz, çünkü kod oraya geldiğinde olay zaten 
+                        <code>document</code>'e kadar yayılmıştır. 
+                     </li>
+                  </ul>
+
+<script>
+
+</script>
+                  
+                  ------------ TO DO ---------------
+
+
+                  <br><h3>Örnekler:</h3>
+
+               </div>
+            </div>
+            <p>.</p><p>.</p>
+
+         </div>
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+      </div>
+   </div>
+
+</body>
+</html>

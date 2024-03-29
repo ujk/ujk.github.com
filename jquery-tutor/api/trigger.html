@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>.trigger() Metodu</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+   <style>
+      div .scroll{
+         height:300px;
+         width: 100%;
+         overflow:scroll;
+         scrollbar-color: dark;
+      }
+
+      ::-webkit-scrollbar {
+         width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+         background: white;
+      }
+
+      ::-webkit-scrollbar-thumb {
+         background: gray;
+         border-radius: 10px;
+      }
+
+      .cborder {
+         border: 1px solid black;
+         padding: 5px;
+      }
+
+      .cpadding {
+         padding: 15px;
+      }
+
+      body {
+         font-size: 1.6rem;
+      }
+   </style>
+</head>
+<body style="font-family: Open Sans;">
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+      <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+   </nav>
+
+   <div class="container" style="padding-top: 70px;">
+      <div class="row">
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+         <div class="col-md-8">
+            <ul class="breadcrumb small" >
+               <li><a href="../../index.html">Ana Sayfa</a></li>
+               <li><a href="index.html">JQuery API</a></li>
+               <li class="active"><span>.trigger() Metodu</span></li>
+            </ul>
+               
+            <h1>.trigger()</h1>
+            <div class="panel panel-primary">
+               <div class="panel-heading">
+                  <span>.trigger( eventType [, extraParameters ] )</span>
+                  <span class="pull-right"><i>Dönen Değer : 
+                     <a href="Types/index.html#jQuery" style="color: aqua;">jQuery Nesnesi</a> </i></span>
+               </div>
+               <div class="panel-body">
+                  <b>Açıklama : </b><i>Eşleşen elemanlarda verilen olay tipi için tüm davranışları ve olay 
+                     işleyicileri çalıştırır.</i>
+                  <br><br><div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>.trigger( eventType [, extraParameters ] )</span>
+                     </div>
+                     <div class="panel-body">
+                        <b>eventType</b><br>
+                        Tip : <a href="Types/index.html#String">String</a><br>
+                        JavaScript olay tipi içeren string, <code>click</code> veya <code>submit</code> gibi.
+                        <hr>
+                        <b>extraParameters</b><br>
+                        Tip : <a href="Types/index.html#Array">Array</a> veya <a href="Types/index.html#PlainObject">Düz Nesne</a><br>
+                        Olay işleyiciye aktarılacak ilave parametreler.
+                     </div>
+                  </div>
+                  <div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>.trigger( event [, extraParameters ] )</span>
+                     </div>
+                     <div class="panel-body">
+                        <b>event</b><br>
+                        Tip : <a href="Types/index.html#Event">Event</a><br>
+                        Bir <a href="events/event-object.html">jQuery.Event</a> nesnesi.
+                        <hr>
+                        <b>extraParameters</b><br>
+                        Tip : <a href="Types/index.html#Array">Array</a> veya <a href="Types/index.html#PlainObject">Düz Nesne</a><br>
+                        Olay işleyiciye aktarılacak ilave parametreler.
+                     </div>
+                  </div>
+                  <br><p>
+                     <code>.on()</code> metodu ya da onun kısa yollarından biriyle tanımlanan olay işleyiciler 
+                     tetiklenerek olay olmuş gibi davranması sağlanır. Olay manual tetiklenebileceği gibi 
+                     <code>.trigger()</code> ile de tetiklenebilir. <code>.trigger()</code> ile tetiklenen 
+                     olay aynı doğal yolla tetiklendiği gibi davranır.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">#foo</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; &nbsp;<span style="color: #82aaff;">alert</span><span style="color: #bfc7d5;">(</span> <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #ff5572;">this</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">text</span><span style="color: #bfc7d5;">()</span> <span style="color: #bfc7d5;">)</span>;</div><div>}<span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">#foo</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">trigger</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div>
+                  <br><p>
+                     Versiyon 1.3 ile <code>.trigger()</code> ile tetiklenen olaylar DOM ağacında yukarıya yayılırlar. 
+                     Bir olay işleyicinin olayı üst elemanlara yaymasını handler metoddan <code>false</code> değer 
+                     dönerek ya da olaya iliştirilen olay işleyici fonksiyon içinde 
+                     <a href="event.stopPropagation.html">event.stopPropagation()</a> metodunu çağırarak 
+                     engellersiniz.
+                  </p>
+                  <p>
+                     <code>.on()</code> metodu ile özel olay tipi tanımladığımızda , <code>.trigger()</code>
+                     metoduna vereceğimiz ikinci parametre faydalı olabilir. Örneğin yukarıda gösterdiğimiz koddaki 
+                     <code>click</code> olayı yerine <code>custom</code> özel olayını tanımlarsak ikinci 
+                     parametreden şöyle yayrarlanabiliriz:
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">#foo</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">custom</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">(</span> <span style="color: #7986e7;">event</span>, <span style="color: #7986e7;">param1</span>, <span style="color: #7986e7;">param2</span> <span style="color: #d9f5dd;">)</span> {</div><div>&nbsp; &nbsp;<span style="color: #82aaff;">alert</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">param1</span> <span style="color: #89ddff;">+</span> <span style="color: #d9f5dd;">"</span><span style="color: #f78c6c;">\n</span><span style="color: #d9f5dd;">"</span> <span style="color: #89ddff;">+</span> <span style="color: #bfc7d5;">param2</span> <span style="color: #bfc7d5;">)</span>;</div><div>}<span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">#foo</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">trigger</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">custom</span><span style="color: #d9f5dd;">"</span>,<span style="color: #bfc7d5;"> [ </span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Custom</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">, </span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Event</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;"> ]</span> <span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div>
+                  <br><p>
+                     Bir olay işleyicide ilk parametrede her zaman olay nesnesi gelir. <code>.trigger()</code> ile 
+                     bir array içinde verilen parametreler, olay işleyiciye <code>event</code> nesnesinden 
+                     sonra sırayla virgülle ayrılmış şekilde verilir. Versiyon 1.6.2 ile tek string ya da 
+                     sayı değer array içine konmadan verilebilir. 
+                  </p>
+                  <p class="well">
+                     <b>Not : </b>Extra parametreler ile <code>.on()</code> metodunda verilen 
+                     <code>eventData</code> parametresi arasındaki fark, olayın tetiklendiği ana özel 
+                     bilgi gerekirse olur. <code>eventData</code> olay işleyiciyi ilk bağlarken oluşan bir 
+                     değer, ama <code>.trigger()</code> parametresi ise olayın gerçekleştiği andaki 
+                     bilgileri kullanabilir. 
+                  </p>
+
+                  ---------------------- TO DO ----------------------
+
+                  <script>
+
+                  </script>
+                  
+
+
+                  <br><h3>Örnekler:</h3>
+
+               </div>
+            </div>
+            <p>.</p><p>.</p>
+
+         </div>
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+      </div>
+   </div>
+
+</body>
+</html>

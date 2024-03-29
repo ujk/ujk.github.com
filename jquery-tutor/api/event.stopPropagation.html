@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>event.stopPropagation() Metodu</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+   <style>
+      div .scroll{
+         height:300px;
+         width: 100%;
+         overflow:scroll;
+         scrollbar-color: dark;
+      }
+
+      ::-webkit-scrollbar {
+         width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+         background: white;
+      }
+
+      ::-webkit-scrollbar-thumb {
+         background: gray;
+         border-radius: 10px;
+      }
+
+      .cborder {
+         border: 1px solid black;
+         padding: 5px;
+      }
+
+      .cpadding {
+         padding: 15px;
+      }
+
+      body {
+         font-size: 1.6rem;
+      }
+   </style>
+</head>
+<body style="font-family: Open Sans;">
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+      <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+   </nav>
+
+   <div class="container" style="padding-top: 70px;">
+      <div class="row">
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+         <div class="col-md-8">
+            <ul class="breadcrumb small" >
+               <li><a href="../../index.html">Ana Sayfa</a></li>
+               <li><a href="index.html">JQuery API</a></li>
+               <li class="active"><span>event.stopPropagation() Metodu</span></li>
+            </ul>
+               
+            <h1>event.stopPropagation()</h1>
+            <div class="panel panel-primary">
+               <div class="panel-heading">
+                  <span>event.stopPropagation()</span>
+                  <span class="pull-right"><i>Dönen Değer : 
+                     <a href="Types/index.html#undefined" style="color: aqua;">undefined</a> </i></span>
+               </div>
+               <div class="panel-body">
+                  <b>Açıklama : </b><i>Olayın DOM ağacında yukarı doğru yayınlanmasını engeller. Yukarıdaki 
+                     elemanların olaydan heberdar olmasını engeller.
+                  </i>
+                  <br><br><div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>event.stopPropagation()</span>
+                     </div>
+                     <div class="panel-body">
+                        Bu metod bir parametre almaz
+                     </div>
+                  </div>
+                  <br><p>
+                     Metod <code><a href="event.isPropagationStopped.html">event.isPropagationStopped()</a></code>
+                     ile bu olay nesnesinde bu metod çağrılmış mı öğreniriz.
+                  </p>
+                  <p>
+                     Bu metod <a href="trigger.html">trigger()</a> ile tetiklenen kullanıcı tanımlanmış 
+                     olaylarda da çalışır.
+                  </p>
+                  ---------------------- TO DO ----------------------
+
+                  <script>
+
+                  </script>
+                  
+
+
+                  <br><h3>Örnekler:</h3>
+
+               </div>
+            </div>
+            <p>.</p><p>.</p>
+
+         </div>
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+      </div>
+   </div>
+
+</body>
+</html>
