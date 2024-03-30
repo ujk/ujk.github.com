@@ -188,16 +188,62 @@
                         olayın yayılmasını önlemekte işe yaramaz, çünkü kod oraya geldiğinde olay zaten 
                         <code>document</code>'e kadar yayılmıştır. 
                      </li>
+                     <li>
+                        <code>.live()</code> metodunun diğer olay metodlarıyla etkileşimi bazen ilginç 
+                        olabilir. Örneğin <code>$( document ).off( "click" )</code> komutu <code>.live()</code>
+                        ile tanımlanan tüm <code>click</code> olaylarını iptal eder. 
+                     </li>
                   </ul>
+                  <br>
+                  <p>
+                     Hala <code>.live()</code> kullanan siteler için bu versiyona göre listesi faydalı 
+                     olabilir.
+                  </p>
+                  <ul>
+                     <li>
+                        JQuery 1.7 öncesinde <code>.live()</code> ile bağlanan olay işleyicilerin daha 
+                        yukarı yayılmasını önlemek için olay işleyiciden <code>false</code> değeri 
+                        dönülür. <code>.stopPropagation()</code> metodu bunlarda işe yaramaz.
+                     </li>
+                     <li>
+                        Versiyon 1.4 ile <code>.live()</code> metodu yayılan tüm JavaScript olayları gibi 
+                        kullanıcı tanımlı olayları da destekler. Ayrıca yayılmayan <code>change</code>, 
+                        <code>submit</code>, <code>focus</code> ve <code>blur</code> gibi olayları da 
+                        destekler. 
+                     </li>
+                     <li>
+                        Versiyon 1.3.x 'te sadece şu JavaScript olayları bağlanabilir: <code>click</code>,
+                         <code>dblclick</code>, <code>keydown</code>, <code>keypress</code>, <code>keyup</code>,
+                          <code>mousedown</code>, <code>mousemove</code>, <code>mouseout</code>, <code>mouseover</code>,
+                        ve <code>mouseup</code>.
+                     </li>
+                  </ul>
+                  <br>
 
-<script>
-
-</script>
-                  
-                  ------------ TO DO ---------------
 
 
                   <br><h3>Örnekler:</h3>
+                  <p>
+                     Bir olayı iptal et ve yukarı yayılmasına da <b>false</b> değeri dönerek engel ol.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">a</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">live</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; <span style="color: #c792ea;">return</span> <span style="color: #ff5874;">false</span>;</div><div>}<span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div></div></div></div>
+                  <br>
+                  <p>
+                     Sadece default aksiyonu <code>preventDefault</code> fonksiyonu kullanarak iptal et.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">a</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">live</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">(</span> <span style="color: #7986e7;">event</span> <span style="color: #d9f5dd;">)</span> {</div><div>&nbsp; <span style="color: #bfc7d5;">event</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">preventDefault</span><span style="color: #bfc7d5;">()</span>;</div><div>}<span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div></div></div></div></div>
+                  <br>
+                  <p>
+                     <code>.live()</code> ile kullanıcı tanımlı olay tanımla.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">p</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">live</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">myCustomEvent</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">(</span> <span style="color: #7986e7;">event</span>, <span style="color: #7986e7;">myName</span>, <span style="color: #7986e7;">myValue</span> <span style="color: #d9f5dd;">)</span> {</div><div>&nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #ff5572;">this</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">text</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Hi there!</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">span</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span></div><div>&nbsp; &nbsp; <span style="color: #c792ea;">.</span><span style="color: #82aaff;">stop</span><span style="color: #bfc7d5;">()</span></div><div>&nbsp; &nbsp; <span style="color: #c792ea;">.</span><span style="color: #82aaff;">css</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">opacity</span><span style="color: #d9f5dd;">"</span><span style="color: #eeffff;">,</span> <span style="color: #f78c6c;">1</span> <span style="color: #bfc7d5;">)</span></div><div>&nbsp; &nbsp; <span style="color: #c792ea;">.</span><span style="color: #82aaff;">text</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">myName = </span><span style="color: #d9f5dd;">"</span> <span style="color: #89ddff;">+</span> <span style="color: #bfc7d5;">myName</span> <span style="color: #bfc7d5;">)</span></div><div>&nbsp; &nbsp; <span style="color: #c792ea;">.</span><span style="color: #82aaff;">fadeIn</span><span style="color: #bfc7d5;">(</span> <span style="color: #f78c6c;">30</span> <span style="color: #bfc7d5;">)</span></div><div>&nbsp; &nbsp; <span style="color: #c792ea;">.</span><span style="color: #82aaff;">fadeOut</span><span style="color: #bfc7d5;">(</span> <span style="color: #f78c6c;">1000</span> <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; }<span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">button</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">p</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">trigger</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">myCustomEvent</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div>}<span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div></div></div></div></div></div>
+                  <br>
+                  <p>
+                     Bir nesne ile birçok olay ve olay işleyici tanımla. Not: <code>.live()</code> sayesinde 
+                     belgede bulunan ve sonradan eklenecek tüm paragraflara <code>click</code>, <code>mouseover</code>
+                     ve <code>mouseout</code> olay işleyicileri ekleniyor.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">p</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">live</span><span style="color: #bfc7d5;">(</span>{</div><div>&nbsp; <span style="color: #82aaff;">click</span>: <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #ff5572;">this</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">after</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">&lt;p&gt;Another paragraph!&lt;/p&gt;</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; },</div><div>&nbsp; <span style="color: #82aaff;">mouseover</span>: <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #ff5572;">this</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">addClass</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">over</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; },</div><div>&nbsp; <span style="color: #82aaff;">mouseout</span>: <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #ff5572;">this</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">removeClass</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">over</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; }</div><div>}<span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div></div></div></div></div></div></div>
 
                </div>
             </div>

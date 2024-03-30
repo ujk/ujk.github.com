@@ -102,12 +102,65 @@
                      </div>
                   </div>
                   <br>
+                  <p>
+                     <code>.triggerHandler( eventType )</code> olay tipi için jQuery ile bğlanan tüm  olay 
+                     işleyicileri çalıştırır. Ayrıca elemanda bulunan tüm <code>on{eventType}()</code> 
+                     metodlarını çağırır. Bu metodun davranışı aşağıdakiler hariç 
+                     <code><a href="trigger.html">.trigger()</a></code> ile aynıdır.
+                  </p>
+                  <ul>
+                     <li>
+                        <code>triggerHandler("olayAdı")</code> elemana bağlanan <code>.olayAdı()</code> metodunu
+                        çağırmaz. Örnek bir form için verilen <code>.triggerHandler( "submit" )</code> 
+                        çağrısı formda <code>.submit()</code> metodunu çalıştırmaz.
+                     </li>
+                     <li>
+                        <code>.trigger()</code> metodu jQuery nesnesindeki eşleşen tüm elemanlara uygulanırken 
+                        <code>.triggerHandler()</code> sadece eşleşen elemanların ilkine uygulanır. 
+                     </li>
+                     <li>
+                        <code>.triggerHandler()</code> ile tetiklenen olaylar DOM hiyerarşisinde üst elemanlara 
+                        yayılmaz. Olaylar hedef elemana direk verilmediyse hiç bir şey yapmaz.
+                     </li>
+                     <li>
+                        JQuery nesnesini dönmek yerine (zincirleme metod çağrısı için gereklidir), 
+                         <code>.triggerHandler()</code> metodu çalışmasını sağladığı en son olay işleyiciden 
+                         dönen değeri aynen geri döner. Eğer hiç bir olay işleyici çalıştırılamamışsa 
+                         <code>undefined</code> döner. 
+                     </li>
+                  </ul>
+                  <p>
+                     Bu metodun kullanımı hakkında daha fazla bilgi için <code><a href="trigger.html">.trigger()</a></code>
+                     metoduna bakabilirsiniz.
+                  </p>
 
-                  ---------------------- TO DO ----------------------
 
 
 
                   <br><h3>Örnekler:</h3>
+                  <p>
+                     Eğer <code>.triggerHandler()</code> metodunu <b>focus</b> olayını tetiklemek için 
+                     çağırırsanız sadece elemanın <b>focus</b> olayına bağlanan olay işleyiciler 
+                     çalıştırılır, tarayıcının default <b>focus</b> eylemi tetiklenmez.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">button</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">id</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">old</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span>.trigger( "focus" )<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">button</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">button</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">id</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">new</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span>.triggerHandler( "focus" )<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">button</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">br</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">br</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp;</div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">input</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">type</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">text</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">value</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Fokuslanılacak</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">br</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">#old</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">input</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">trigger</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">focus</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp;} <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">#new</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">input</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">triggerHandler</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">focus</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp;} <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">input</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">focus</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">&lt;span&gt;Focuslandı!&lt;/span&gt;</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">appendTo</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">body</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">fadeOut</span><span style="color: #bfc7d5;">(</span> <span style="color: #f78c6c;">1000</span> <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp;} <span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div></div></div>
+                  <div class="cborder" id="test1">
+                     <button id="old">.trigger( "focus" )</button>
+                     <button id="new">.triggerHandler( "focus" )</button><br><br>
+                     
+                     <input type="text" value="Fokuslanılacak"><br>
+                     <script>
+                        $( "#test1 #old" ).on( "click", function() {
+                           $( "#test1 input" ).trigger( "focus" );
+                        } );
+                        $( "#test1 #new" ).on( "click", function() {
+                           $( "#test1 input" ).triggerHandler( "focus" );
+                        } );
+                        $( "#test1 input" ).on( "focus", function() {
+                           $( "<span>Focuslandı!</span>" ).appendTo( "#test1" ).fadeOut( 1000 );
+                        } );
+                     </script>
+                  </div>
 
                </div>
             </div>

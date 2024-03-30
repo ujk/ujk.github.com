@@ -9,9 +9,7 @@
 - jquery-tutor\api\events\index.html line 76
 - jquery-tutor\api\bind.html line 123
 - jquery-tutor\api\on.html line 125
-- jquery-tutor\api\live.html line 185
-- jquery-tutor\api\event.stopPropagation.html line 89
-- jquery-tutor\api\trigger.html line 143
+- jquery-tutor\api\one.html line ...
 
 # TO DO
 - Add a flag to banner

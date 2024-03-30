@@ -89,15 +89,23 @@
                      Bu metod <a href="trigger.html">trigger()</a> ile tetiklenen kullanıcı tanımlanmış 
                      olaylarda da çalışır.
                   </p>
-                  ---------------------- TO DO ----------------------
-
-                  <script>
-
-                  </script>
-                  
-
+                  <p>
+                     Dikkat ediniz bu metod aynı elemandaki başka olay işleyicileri engellemez.
+                  </p>
+                  <br><h3>İlave Notlar</h3>
+                  <p>
+                     <a href="live.html">.live()</a> metodu olayları en üst elemana (döküman) yayıldığında 
+                     işlediğinden live olaylarının bu metodla durdurulması olamaz (yayılması engellenemez).
+                     Benzer olarak <a href="delegate.html">.delegate()</a> ile üst elemanlardan delegasyon 
+                     ile olay tanımı yapıldığı için olay işleyici çalıştığında zaten olay yayılmıştır. 
+                  </p>
+                  <br>
 
                   <br><h3>Örnekler:</h3>
+                  <p>
+                     <code>click</code> olayının yayılmasını engelle.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">p</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">(</span> <span style="color: #7986e7;">event</span> <span style="color: #d9f5dd;">)</span> {</div><div>&nbsp; <span style="color: #bfc7d5;">event</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">stopPropagation</span><span style="color: #bfc7d5;">()</span>;</div><div>&nbsp; <span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> Do something</span></div><div>}<span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div></div></div>
 
                </div>
             </div>
