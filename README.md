@@ -11,7 +11,7 @@
 - jquery-tutor\api\on.html line 125
 - jquery-tutor\api\live.html line 185
 - jquery-tutor\api\event.stopPropagation.html line 89
-- jquery-tutor\api\trigger.html line 134
+- jquery-tutor\api\trigger.html line 143
 
 # TO DO
 - Add a flag to banner
