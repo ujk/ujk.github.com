@@ -129,9 +129,119 @@
                      bakınız. Bir kere çalışan ve kendini iptal eden olay işleyici için <a href="one.html">.one()</a>
                      metoduna bakınız.
                   </p>
+
+                  <br><h3>Olay İsimleri ve Namespace</h3>
+                  <p>
+                     <code>events</code> parametresinde herhangib olay ad(lar)ı verilebilir. JQuery bunları 
+                     standart JavaScript olay tiplerine eşleştirir, daha sonra tarayıcının tetiklediği olaya 
+                     karşılık (mesela <cod>click</cod> olayı) <code>handler</code> olarak verilen olay işleyici 
+                     çağrılır. Ayrıca <code><a href="trigger.html">.trigger()</a></code> metodu da tarayıcı 
+                     standart olaylarını ve kullanıcı tanımlı olayları tetikleyebilir ve olay işleyicilerini 
+                     çağırabilir. Olay isimleri sadece alfanümerik karakterler, alt çizgi ve iki nokta üstüste 
+                     içerebilir.
+                  </p>
+                  <p>
+                     Bir olay ismi bir <i>event namespace</i> ile gruplanabilir. Böylece olayların iptal 
+                     edilmesi ve tetiklenmesi kolaylaşır. Örneğin <code>"click.myPlugin.simple"</code> 
+                     değeri <b>click</b> olayını hem <i>myPlugin</i> hem <i>simple</i> namespace'i üyesi 
+                     yapar. Bu değerle elemana tanımlanan <b>click</b> olayı işleyicisi, aynı elemana bağlı diğer 
+                     <b>click</b> olay işleyicilerine dokunmadan <code>.off("click.myPlugin")</code> ya da 
+                     <code>.off("click.simple")</code> kodları ile iptal edilebilir. Namespace'ler CSS class 
+                     değerlerine benzerler, hiyerarşik yapı değildirler sadece adlarının eşleşmesi 
+                     yeterlidir. Namespace değerlerinde sadece büyük-küçük harf ve sayılar olabilir.
+                  </p>
+                  <p>
+                     İkinci <code>.on()</code> metodu kullanım şeklinde <code>events</code> parametresi 
+                     bir düz nesnedir. <b>Key</b> değerleri string olan <code>events</code> parametresi 
+                     gibi bağlanacak olay ya da olayların adını varsa namespace ile birlikte içerir. 
+                     <b>Value</b> değerlerinde ise <i>key</i> değerinde verilen olaya karşı çalışması 
+                     istenen olay işleyici fonksiyon (ya da <code>false</code>) girilir, bu kullanım şeklinde <code>.on()</code> metoduna
+                     <b>handler</b> parametresi ile olay işleyici verilmez. Diğer açılardan bu iki kullanım 
+                     şekkli aşağıda anlatıldığı şekilde aynı davranırlar.
+                  </p>
+
+                  <br><h3>Direk ve Delegasyonlu Olay İşleyiciler</h3>
+                  <p>
+                     Tarayıcı olaylarının büyük çoğunluğu olayın bağlandığı en içerdeki elemandan ( <b>event target</b> )
+                     üst elemanlara <i>yayılarak</i> en üstteki <code>document</code> nesnesine kadar iletilir. 
+                     IE8 ve öncesinde <code>change</code> ve <code>submit</code> üste doğru yayılmaz ama 
+                     jQuery bunları da tarayıcılar arası uyum için üste yayar.
+                  </p>
+                  <p>
+                     Eğer <code>selector</code> parametresi verilmemiş ya da <code>null</code> değer verilmişse,
+                     bu olaya <b>direk</b> ya da <b>direk bağlanmış</b> olay denir. Seçilmiş olan elemanlarda 
+                     olay  o elemanın kendisinde oluştuğunda ya da içindeki elemanlardan birinde oluşup ona kadar 
+                     yayılarak geldiğinde verilen olay işleyici fonksiyon çalışır. 
+                  </p>
+                  <p>
+                     Eğer <code>selector</code> parametresinde bir seçici deyim verilmişse, buna <b>delegasyonlu</b> 
+                     olay denir. Seçili elemanda direk oluşan olay işe yaramaz, sadece seçici deyimle 
+                     eşleşen içindeki elemanlardan birinde olay oluşur ve yayılarak seçili elemana gelirse 
+                     olay işleyici çalışır. JQuery <i>selector</i> parametresi ile belirtilen elemanlardan 
+                     olay işleyicinin tanımlandığı üst elemana kadar olayın yayılmasını sağlayacaktır (en 
+                     içteki elemandan en dıştaki elemana kadar). 
+                  </p>
+                  <p>
+                     <b>Olay işleyiciler sadece seçili olan elemanlara bağlanır; <code>.on()</code> metodunu 
+                     çağırdığınız anda sayfada bu elemanlar mevcut olmalıdır.</b> Elemanların mevcut olduğu ve 
+                     seçilmiş olduğundan emin olmak için ya HTML kodunda elemanların arkasından script'inizi 
+                     koyun ya da <code>document.ready</code> olay işleyicisi içine yerleştirin (ki çoğu 
+                     zaman böyle yapılır). Sonradan gelecek elemanlar için <b>delegasyon</b> yoluyla olay 
+                     işleyici ekleme alternatifi kullanılabilir. 
+                  </p>
+                  <p>
+                     <b>Delegasyonlu olay işleyicileri</b> seçili eleman içinde daha sonra eklenecek elemanlarda da 
+                     kullanılabilmesi avantajına sahiptir. Bir sayfada sıklıkla eklenen ya da çıkarılan elemanlar 
+                     ve bu elemanlarda olmasını istediğiniz olaylar varsa elemanları her zaman mevcut olan 
+                     bir dış eleman içinde toplayarak delegasyonlu olay işleyicisi kullanmak işinizi 
+                     kolaylaştırır. Örneğin dinamik içerikli MVC (model-view-controller) yapıdaki sayfalarda 
+                     görseller hep bir dış konteyner eleman içinde verilere göre değişir, bu konteyner seçilebilr.
+                     <code>document</code> elemanı da sayfaya hiç bir HTML eleman yüklemeden önce <code>&lt;head></code>
+                     kısmında hazırdır ve erişilebilir, sonradan gelecek elemanlar için olay işleyicileri 
+                     <code>document</code> nesnesi üzerinden de <i>delegasyonlu</i> bağlayabilirsiniz.
+                  </p>
+                  <p>
+                     Delegasyonlu olay işleyici bağlamak sadece sonradan gelecek elemanlara olay işleyici 
+                     bağlamak dışında sayfadaki bir sürü benzer olayı takip etmenizi de kolaylaştırır. Örneğin 
+                     1000 satırlı bir <code>tbody</code> elemanında her bir satıra olay işleyici eklenmesi.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">#dataTable tbody tr</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; <span style="color: #bfc7d5;">console</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(</span> <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #ff5572;">this</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">text</span><span style="color: #bfc7d5;">()</span> <span style="color: #bfc7d5;">)</span>;</div><div>}<span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div></div>
+                  <br><p>
+                     Bu kod tüm <code>&lt;tr></code> elemanlarına direk olarak bir olay işleyici bağlar. Halbuki sadece 
+                     <code>&lt;tr></code> elemanından <code>&lt;tbody></code> elemanına <i>yayılarak</i> geçen 
+                     bir tıklama olayına tek bir olay işleyici tanımlanabilir.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">#dataTable tbody</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span>, <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">tr</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; <span style="color: #bfc7d5;">console</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">log</span><span style="color: #bfc7d5;">(</span> <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #ff5572;">this</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">text</span><span style="color: #bfc7d5;">()</span> <span style="color: #bfc7d5;">)</span>;</div><div>}<span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div></div></div>
+                  <br>
+                  <p>
+                     <b>Not : </b>Delegasyonlu olay işleyiciler SVG için çalışmaz.
+                  </p>
+                  <br><h3>Olay İleyici ve Onun Ortamı</h3>
+                  <p>
+                     <code>handler</code> parametresi bir fonksiyondur (ya da bazı durumlarda aşağıda görüleceği 
+                     üzere <code>false</code> değer) ve eğer <code>events</code> parametresinde nesne içinde verilmiyorsa 
+                     bu parametreye girilmesi gerekir. Parametrede bir anonim fonksiyon olarak girilebildiği 
+                     gibi isimli bir fonksyonun adı da girilebilir. 
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">function</span> <span style="color: #82aaff;">notify</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; <span style="color: #82aaff;">alert</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">tıklandı</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div>}</div><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">button</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span>, <span style="color: #bfc7d5;">notify</span> <span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div></div></div></div>
+                  <br><p>
+                     Tarayıcı bir olayı tetiklediğinde ya da JavaScript kod içinde <code>.trigger()</code> metodu 
+                     yardımıyla olay tetiklendiğinde, jQuery olay işleyiciye <code><a href="events/event-object.html">Event</a></code> 
+                     nesnesini parametrede gönderir ve bu nesne olayı incelemek ya da işlemek amacıyla fonksiyon içinde 
+                     kullanılabillir. Bu nesne tarayıcı tarafından verilen değerlerin düzenlenmiş bir halidir. Tarayıcının 
+                     işlenmemiş ham <i>event</i> nesnesi <code>event.originalEvent</code> özelliğinde 
+                     bulunur. Örneğin <code><a href="event.type.html">event.type</a></code> içinde olayın 
+                     adı vardır ("resize" gibi) ve <code><a href="event.target.html">event.target</a></code>
+                     olayın oluştuğu en içteki elemanı verir.
+                  </p>
+                  <p>
+                     Default davranış olarak orjinal 
+                  </p>
                   
                   ------------ TO DO ---------------
+<script>
 
+</script>
 
                   <br><h3>Örnekler:</h3>
 

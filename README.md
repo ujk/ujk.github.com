@@ -8,8 +8,7 @@
 - jquery-tutor\api\events\event-object.html line 64
 - jquery-tutor\api\events\index.html line 76
 - jquery-tutor\api\bind.html line 123
-- jquery-tutor\api\on.html line 125
-- jquery-tutor\api\one.html line ...
+- jquery-tutor\api\on.html line 234
 
 # TO DO
 - Add a flag to banner
