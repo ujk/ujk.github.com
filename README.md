@@ -8,7 +8,9 @@
 - jquery-tutor\api\events\event-object.html line 64
 - jquery-tutor\api\events\index.html line 76
 - jquery-tutor\api\bind.html line 123
-- jquery-tutor\api\on.html line 234
+- jquery-tutor\api\on.html line 357
+- jquery-tutor\api\hover.html line 127
+- jquery-tutor\api\mouseenter.html line 117
 
 # TO DO
 - Add a flag to banner

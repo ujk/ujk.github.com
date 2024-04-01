@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>mouseenter Olayı</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+   <style>
+      div .scroll{
+         height:300px;
+         width: 100%;
+         overflow:scroll;
+         scrollbar-color: dark;
+      }
+
+      ::-webkit-scrollbar {
+         width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+         background: white;
+      }
+
+      ::-webkit-scrollbar-thumb {
+         background: gray;
+         border-radius: 10px;
+      }
+
+      .cborder {
+         border: 1px solid black;
+         padding: 5px;
+      }
+
+      .cpadding {
+         padding: 15px;
+      }
+
+      body {
+         font-size: 1.6rem;
+      }
+   </style>
+</head>
+<body style="font-family: Open Sans;">
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+      <img src="../../images/bayrak.jpg" alt="Turkish Flag" width="70" 
+         style="position: absolute; left: 20px; top: 10px;" class="hidden-xs">
+      <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+   </nav>
+
+   <div class="container" style="padding-top: 70px;">
+      <div class="row">
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+         <div class="col-md-8">
+            <ul class="breadcrumb small" >
+               <li><a href="../../index.html">Ana Sayfa</a></li>
+               <li><a href="index.html">JQuery API</a></li>
+               <li class="active"><span>mouseenter Olayı</span></li>
+            </ul>
+               
+            <h1>mouseenter olayı</h1>
+            <p>
+               Seçilen elemanlara mouse işaretçisi girdiğinde çalışacak olay işleyiciyi bağla ya da 
+               bir elemanda bu olayı tetikle.
+            </p>
+            <p><b>İçindekiler : </b></p>
+            <ul>
+               <li><a href="#on1">.on( "mouseenter" [, eventData ], handler )</a></li>
+               <li><a href="#trigger2">.trigger( "mouseenter" )</a></li>
+            </ul>
+            <div style="padding-top: 70px;" id="on1"></div>
+            <div class="panel panel-primary">
+               <div class="panel-heading">
+                  <span>.on( "mouseenter" [, eventData ], handler )</span>
+                  <span class="pull-right"><i>Dönen Değer : 
+                     <a href="Types/index.html#jQuery" style="color: aqua;">jQuery Nesnesi</a> </i></span>
+               </div>
+               <div class="panel-body">
+                  <b>Açıklama : </b><i>Seçilen elemanlara mouse işaretçisi girdiğinde  
+                     çalışacak bir olay işleyici bağlar.</i>
+                  <br><br>
+                  <div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>.on( "mouseenter" [, eventData ], handler )</span>
+                        <small class="pull-right">Eklendiği Versiyon 1.7</small>
+                     </div>
+                     <div class="panel-body">
+                        <b>"mouseenter"</b><br>
+                        Tip : <a href="Types/index.html#String">String</a> <br>
+                        "mouseenter" sabit string değeri
+                        <hr>
+                        <b>eventData</b><br>
+                        Tip : <a href="Types/index.html#Anything">Herhangi birşey</a><br>
+                        Olay işleyiciye iletilecek veriyi içeren bir nesne.
+                        <hr>
+                        <b>handler</b><br>
+                        Tip : <a href="Types/index.html#Function">Fonksiyon</a>( 
+                           <a href="Types/index.html#Event">Olay</a> eventObject ) <br>
+                        Mouse işaretçisi elemana girdiğinde çalıştırılacak olan fonksiyon.
+                     </div>
+                  </div>
+                  <p class="well">
+                     Bu sayfa  <code>mouseenter</code> olayını anlatıyor. Kaldırılmış olan 
+                     <code><a href="mouseenter-shorthand.html">.mouseenter()</a></code> metodu için linkteki 
+                     sayfaya bakınız.
+                  </p>
+                  <p>
+                     <code>mouseenter</code> JAvaScript olayı aslında Internet Explorer'a tescilli. Olayın 
+                     genel faydası yüzünden jQuery olayı simüle ederek tarayıcıdan bağımsız çalışmasını sağlar. 
+                     Bu olay mouse işaretçisi eleman üzerine geldiğinde o elemana gönderilir. Herhangi bir 
+                     HTML eleman bu olaya bağlanabilir.
+                  </p>
+                  
+
+                  <script>
+
+                  </script>
+
+                  --------------- TO DO ---------------
+                  
+
+                  <br><br><h3>Örnekler:</h3>
+
+               </div>
+            </div>
+            
+            <p>.</p><p>.</p>
+
+         </div>
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+      </div>
+   </div>
+
+</body>
+</html>

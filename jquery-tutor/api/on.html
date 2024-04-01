@@ -216,7 +216,7 @@
                   <p>
                      <b>Not : </b>Delegasyonlu olay işleyiciler SVG için çalışmaz.
                   </p>
-                  <br><h3>Olay İleyici ve Onun Ortamı</h3>
+                  <br><h3>Olay İşleyici ve Onun Ortamı</h3>
                   <p>
                      <code>handler</code> parametresi bir fonksiyondur (ya da bazı durumlarda aşağıda görüleceği 
                      üzere <code>false</code> değer) ve eğer <code>events</code> parametresinde nesne içinde verilmiyorsa 
@@ -235,7 +235,125 @@
                      olayın oluştuğu en içteki elemanı verir.
                   </p>
                   <p>
-                     Default davranış olarak orjinal 
+                     Default davranış olarak orjinal olay elemanından <code>document</code> nesnesine kadar 
+                     olay yayılarak gider. Yol üzerindeki tüm elemanlarda eşleşen olay versa jQuery hepsini 
+                     işleyecektir. Bunlardan birinde olayın yukarı doğru yayılmasını engelleyen 
+                     <code>event.stopPropagation()</code> kodu girilerek 
+                     dökümana kadar olayın yayılması engellenebilir. Bununla beraber bulunulan elemandaki aynı 
+                     olaya bağlanan diğer olay işleyiciler çalışacaktır. Bunu da engellemek isterseniz 
+                     <code>event.stopImmediatePropagation()</code> metodu kullanırsınız. Aynı eleman aynı olaya 
+                     bağlı olay işleyiciler, tanımlama kodlarının işlenme sırasına göre çağrılır yan bilgisini
+                     de verelim.
+                  </p>
+                  <p>
+                     Benzer olarak bir olay işleyici söz konusu elemanın tarayıcıdaki default davranışını da 
+                     <code>event.preventDefault()</code> ile engelleyebilir, örneğin linke tıklanınca 
+                     hedefe giden <code>click</code> olayı gibi. Tüm tarayıcı olayları default davranışa 
+                     sahip değildir ve tüm default davranışlar da iptal edilemez. Bu konuda detay için 
+                     <a href="https://www.w3.org/TR/DOM-Level-3-Events/#event-types-list" 
+                     target="_blank">W3C Events Specification</a> sayfasına bakınız.
+                  </p>
+                  <p>
+                     Bir olay işleyiciden <code>false</code> dönerek otomatik olarak <code>event.stopPropagation()</code>
+                     ve <code>event.preventDefault()</code> çağrılması sağlanır. Kısaltma olarak <code>handler</code> 
+                     değerine <code>function(){ return false; }</code> kodu yerine direk <code>false</code> 
+                     da yazılabilir. Yani <code>$( "a.disabled" ).on( "click", false );</code> kodu 
+                     <b>disabled</b> class değerine sahip tüm linklerin aksiyonunu engellediği gibi tıklamanın 
+                     üst elemanlara doğru yayılmasını da engeller. 
+                  </p>
+                  <p>
+                     JQuery bir olay işleyiciyi çağırdığında <code>this</code> kelimesi olayın tanımlandığı 
+                     elemanı içerir. Direk bağlanan elemanlar için bu eleman olayın bağlandığı elemandır, 
+                     delegasyonlu tanımlamalarda ise <code>selector</code> ile olay dinlemesi yapılan elemandır. 
+                     (Not, eğer olay iç elemanlardan yayılma ile geldiyse <code>this</code> ile 
+                     <code><a href="event.target.html">event.target</a></code> farklı olurlar). JQuery 
+                     metodları ile birlikte kullanılabilecek bir jQuery nesnesi oluşturmak için 
+                     <code>$( this )</code> kodu kullanılabilir.
+                  </p>
+                  <br><h3>Olay İşleyiciye Veriler Göndermek</h3>
+                  <p>
+                     Eğer <code>.on()</code> metodunda <code>data</code> parametresi varsa ve değeri <b>null</b> 
+                     ya da <b>undefined</b> değilse, olay her tetiklendiğinde buradaki veri olay işleyiciye 
+                     <code><a href="event.data.html">event.data</a></code> nesnesi ile verilir. <code>data</code> 
+                     parametresi herhangi bir veri tipinde olabilir. Fakat eğer <code>selector</code> 
+                     parametresinde <b>string</b> bir değer verilecekse <code>data</code> değerinin de ya 
+                     verilmesi ya da <code>null</code> olarak belirtilmesi gerekir, böylece <i>data</i> ve 
+                     <i>selector</i> karışmaz. En iyisi verileri düz nesne içinde vermektir. 
+                  </p>
+                  <p>
+                     Versiyon 1.4 ile aynı olay işleyici bir elemana defalarca bağlanabilir. Bu özellikle 
+                     <code>event.data</code> kullanılacaksa faydalı olacaktır. Örneğin:
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div><span style="color: #c792ea;">function</span> <span style="color: #82aaff;">greet</span><span style="color: #d9f5dd;">(</span> <span style="color: #7986e7;">event</span> <span style="color: #d9f5dd;">)</span> {</div><div>&nbsp; &nbsp;<span style="color: #82aaff;">alert</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Hello </span><span style="color: #d9f5dd;">"</span> <span style="color: #89ddff;">+</span> <span style="color: #bfc7d5;">event</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">data</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">name</span> <span style="color: #bfc7d5;">)</span>;</div><div>}</div><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">button</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span>, {</div><div>&nbsp; &nbsp;name: <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Karl</span><span style="color: #d9f5dd;">"</span></div><div>}, <span style="color: #bfc7d5;">greet</span> <span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">button</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span>, {</div><div>&nbsp; &nbsp;name: <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Addy</span><span style="color: #d9f5dd;">"</span></div><div>}, <span style="color: #bfc7d5;">greet</span> <span style="color: #bfc7d5;">)</span>;</div></div></div>
+                  <div class="cborder" id="test1">
+                     <button>Tıkla</button>
+                     <script>
+                        function greet( event ) {
+                           alert( "Hello " + event.data.name );
+                        }
+                        $( "#test1 button" ).on( "click", {
+                           name: "Karl"
+                        }, greet );
+                        $( "#test1 button" ).on( "click", {
+                           name: "Addy"
+                        }, greet );
+                     </script>
+                  </div>
+                  <br><p>
+                     Yukarıdaki kod butona tıklanınca iki farklı alert mesajı verecektir.
+                  </p>
+                  <p>
+                     <code>.on()</code> metodunda <code>data</code> ile veri göndermeye bir diğer alternatif 
+                     ise <code><a href="trigger.html">.trigger()</a></code> veya 
+                     <code><a href="triggerHandler.html">.triggerHandler()</a></code> metodları kullanırken 
+                     onlarla birlikte parametreleri göndermek. Bu yolla gönderilen veriler olay işleyici 
+                     tanımında <code>Event</code> parametresi arkasından virgülle ayrılmış olarak verilen 
+                     parametreler olarak olay işleyiciye geçerler. <code>.trigger()</code> ya da 
+                     <code>.triggerHandler()</code> metodlarında ikinci parmetreye bir <b>array</b> 
+                     verilirse, array'in her elemanı olay işleyiciye ilave bir parametre olarak gelecektir.
+                  </p>
+
+                  <br><h3>Olay Performansı</h3>
+                  <p>
+                     Bir çok durumlarda örneğin <code>click</code> gibi olaylar çok sık gerçekleşmez ve 
+                     performans önemli bir sorun değildir. Bununla beraber <code>mousemove</code> ya da 
+                     <code>scroll</code> gibi olaylar saniye içinde defalarca oluşabilir ve bu durumda 
+                     olayları sağ duyulu bir şekilde ele almak önemli olur. Olay işleyici 
+                     içinde yapılan işleri azaltarak performans arttırılabilir. Olay işleyiciye lazım 
+                     olan bilgileri her sefer hesaplamak yerine cash etmek veya <code>setTimeout</code> 
+                     ile sayfada yenileme sayılarını azaltmak gibi önlemler alınabilir.
+                  </p>
+                  <p>
+                     Dökümanın en üst seviyesine yakın elemanlarda çok fazla sayıda delegasyonlu olay 
+                     tanımlamak performansı düşürebilir. Olay her oluştuğunda jQuery olayın gerçekleştiği 
+                     elemandan olay işleyiciyi tanımladığınız elemana kadar olayın yayılımını tek tek 
+                     çalışır. En iyi performans için delegasyonlu olayları olayın gerçekleşeceği 
+                     elemanlara en yakın üst elemanlarda tanımlayınız. Büyük dökümanlarda delegasyonlu 
+                     olayları tanımlamak için <code>document</code> ya da <code>document.body</code> 
+                     elemanlarını mümkün olduğunca az kullanınız.
+                  </p>
+                  <p>
+                     JQuery <code>tag#id.class</code> şeklindeki basit seçici deyimleri çok hızlı işler. 
+                     Bu durumda örn. <code>"#myForm"</code>, <code>"a.external"</code> ve  <code>"button"</code> 
+                     çok hızlı seçicilerdir. Daha karmaşık seçiciler kullanan delegasyonlu olay tanımlarında 
+                     özellikle hiyerarşik olanlar daha yavaş çalışır. Örneğin <br>
+                     <code>$( "body" ).on( "click", "#commentForm .addNew", addComment )</code> yerine <br>
+                     <code>$( "#commentForm" ).on( "click", ".addNew", addComment )</code> kullanmak daha 
+                     yüksek performans sağlar. 
+                  </p>
+                  <br><h3>İlave Notlar</h3>
+                  <p>
+                     Bazı olayların açıklamaları için özel sayfalar ver. Bunların listesi için 
+                     <a href="events/index.html">Olaylar Kategorisi</a> sayfasına bakabilirsiniz.
+                  </p>
+                  <p>
+                     <i>Versiyon 1.8'de kapatıldı, 1.9'da silindi : </i> <code>"hover"</code> ismi 
+                     <code>"mouseenter mouseleave"</code> isimlerinin kısa yolu olarak kullanıldı. 
+                     Bununla iki olaya tek bir olay işleyici bağlanıyordu ve olay işleyici 
+                     <code>event.type</code> değerini işleyerek olayın <code>mouseenter</code> mi, 
+                     <code>mouseleave</code> mi olduğunu bulmalıydı. Bunu bir ya da iki fonksiyon 
+                     tanımı alan sahte <code><a href="hover.html">.hover()</a></code> metodu ile 
+                     karıştırmayınız.
                   </p>
                   
                   ------------ TO DO ---------------
@@ -255,6 +373,9 @@
          </div>
       </div>
    </div>
-
+<script>
+   // put space at paragraph start
+   $("p").filter(function(){return !this.class}).prepend("&emsp;");
+</script>
 </body>
 </html>
