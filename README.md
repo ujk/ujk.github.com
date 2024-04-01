@@ -10,7 +10,6 @@
 - jquery-tutor\api\bind.html line 123
 - jquery-tutor\api\on.html line 357
 - jquery-tutor\api\hover.html line 127
-- jquery-tutor\api\mouseenter.html line 117
 
 # TO DO
 - Add a flag to banner
