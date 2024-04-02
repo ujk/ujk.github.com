@@ -39,7 +39,7 @@
       }
 
       body {
-         font-size: large;
+         font-size: 1.6rem;
       }
    </style>
 </head>
@@ -70,10 +70,12 @@
                      <a href="Types/index.html#jQuery" style="color: aqua;">jQuery Nesnesi</a> </i></span>
                </div>
                <div class="panel-body">
+                  <small class="pull-right">Kaldırıldığı versiyon 3.0</small>
                   <b>Açıklama : </b><i>Seçilen elemanlara bir olay işleyici bağlar.</i>
                   <br><br><div class="panel panel-info">
                      <div class="panel-heading">
                         <span>.bind( eventType [, eventData ], handler )</span>
+                        <small class="pull-right">Eklendiği Versiyon: 1.0</small>
                      </div>
                      <div class="panel-body">
                         <b>eventType</b><br>
@@ -92,6 +94,7 @@
                   <div class="panel panel-info">
                      <div class="panel-heading">
                         <span>.bind( eventType [, eventData ] [, preventBubble ] )</span>
+                        <small class="pull-right">Eklendiği Versiyon: 1.4.3</small>
                      </div>
                      <div class="panel-body">
                         <b>eventType</b><br>
@@ -111,6 +114,7 @@
                   <div class="panel panel-info">
                      <div class="panel-heading">
                         <span>.bind( events )</span>
+                        <small class="pull-right">Eklendiği Versiyon: 1.4</small>
                      </div>
                      <div class="panel-body">
                         <b>events</b><br>
@@ -122,8 +126,21 @@
 
                   <p>
                      JQuery 3.0 itibarıyla <code>.bind()</code> kaldırıldı. V1.7'den itibaren dökümana olay 
-                     işleyiciler bağlamak için kullanılan <a href="on.html">.on()</a> metoduna geçildi. 
+                     işleyiciler bağlamak için kullanılan <a href="on.html">.on()</a> metoduna geçildi. Daha 
+                     önceki versiyonlar için elemanlara direk olarak olay işleyici eklemek için <code>.bind()</code>
+                     metodu kullanılabilir. JQuery'de olay işleyiciler seçilmiş olan elemanlara bağlanır, 
+                     bu durumda <code>.bind()</code> ile olay bağlanacak elemanların olay tanımı yapılırken 
+                     dökümanda mevcut olması gerekir. Daha esnek olay bağlamaları için 
+                     <code><a href="on.html">.on()</a></code> metodunda delegasyonlu olay bağlamalarına 
+                     bakabilirsiniz. 
                   </p>
+                  <p>
+                     <code>eventType</code> değerinde her string değer olabilir, eğer olay tipi 
+                     standart DOM olayı değilse kullanıcı tanımlı bir olay olarak bağlanır. Bu olaylar 
+                     tarayıcı tarafından hiçbir zaman tetiklenemez, ama JavaScript kodunda <code>.trigger()</code>
+                     ve <code>.triggerHandler()</code> metodları ile tetiklenebilir.
+                  </p>
+                  Eğer <code>eventType</code> string içinde nokta karakteri varsa 
                   
                   ------------ TO DO ---------------
 
@@ -140,6 +157,10 @@
          </div>
       </div>
    </div>
-
+<script>
+   $(document).ready(function(){
+      $("p").filter(function(){return !this.class}).prepend("&emsp;");
+   });
+</script>
 </body>
 </html>

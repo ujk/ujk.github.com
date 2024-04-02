@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>mouseleave Olayı</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+   <style>
+      div .scroll{
+         height:300px;
+         width: 100%;
+         overflow:scroll;
+         scrollbar-color: dark;
+      }
+
+      ::-webkit-scrollbar {
+         width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+         background: white;
+      }
+
+      ::-webkit-scrollbar-thumb {
+         background: gray;
+         border-radius: 10px;
+      }
+
+      .cborder {
+         border: 1px solid black;
+         padding: 5px;
+      }
+
+      .cpadding {
+         padding: 15px;
+      }
+
+      body {
+         font-size: 1.6rem;
+      }
+   </style>
+</head>
+<body style="font-family: Open Sans;">
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+      <img src="../../images/bayrak.jpg" alt="Turkish Flag" width="70" 
+         style="position: absolute; left: 20px; top: 10px;" class="hidden-xs">
+      <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+   </nav>
+
+   <div class="container" style="padding-top: 70px;">
+      <div class="row">
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+         <div class="col-md-8">
+            <ul class="breadcrumb small" >
+               <li><a href="../../index.html">Ana Sayfa</a></li>
+               <li><a href="index.html">JQuery API</a></li>
+               <li class="active"><span>mouseleave Olayı</span></li>
+            </ul>
+               
+            <h1>mouseleave olayı</h1>
+            <p>
+               Seçilen elemanlardan mouse işaretçisi eyrıldığında çalışacak olay işleyiciyi bağla ya da 
+               bir elemanda bu olayı tetikle.
+            </p>
+            <p><b>İçindekiler : </b></p>
+            <ul>
+               <li><a href="#on1">.on( "mouseleave" [, eventData ], handler )</a></li>
+               <li><a href="#trigger2">.trigger( "mouseleave" )</a></li>
+            </ul>
+            <div style="padding-top: 70px;" id="on1"></div>
+            <div class="panel panel-primary">
+               <div class="panel-heading">
+                  <span>.on( "mouseleave" [, eventData ], handler )</span>
+                  <span class="pull-right"><i>Dönen Değer : 
+                     <a href="Types/index.html#jQuery" style="color: aqua;">jQuery Nesnesi</a> </i></span>
+               </div>
+               <div class="panel-body">
+                  <b>Açıklama : </b><i>Seçilen elemanlardan mouse işaretçisi ayrıldığında  
+                     çalışacak bir olay işleyici bağlar.</i>
+                  <br><br>
+                  <div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>.on( "mouseleave" [, eventData ], handler )</span>
+                        <small class="pull-right">Eklendiği Versiyon 1.7</small>
+                     </div>
+                     <div class="panel-body">
+                        <b>"mouseleave"</b><br>
+                        Tip : <a href="Types/index.html#String">String</a> <br>
+                        "mouseleave" sabit string değeri
+                        <hr>
+                        <b>eventData</b><br>
+                        Tip : <a href="Types/index.html#Anything">Herhangi birşey</a><br>
+                        Olay işleyiciye iletilecek veriyi içeren bir nesne.
+                        <hr>
+                        <b>handler</b><br>
+                        Tip : <a href="Types/index.html#Function">Fonksiyon</a>( 
+                           <a href="Types/index.html#Event">Olay</a> eventObject ) <br>
+                        Mouse işaretçisi elemandan ayrıldığında çalıştırılacak olan fonksiyon.
+                     </div>
+                  </div>
+                  <p class="well">
+                     Bu sayfa  <code>mouseleave</code> olayını anlatıyor. Kaldırılmış olan 
+                     <code><a href="mouseleave-shorthand.html">.mouseleave()</a></code> metodu için linkteki 
+                     sayfaya bakınız.
+                  </p>
+                  <p>
+                     <code>mouseleave</code> JAvaScript olayı aslında Internet Explorer'a tescilli. Olayın 
+                     genel faydası yüzünden jQuery olayı simüle ederek tarayıcıdan bağımsız çalışmasını sağlar. 
+                     Bu olay mouse işaretçisi eleman üzerinden ayrıldığında o elemana gönderilir. Herhangi bir 
+                     HTML eleman bu olaya bağlanabilir.
+                  </p>
+                  <p>
+                     Örnek olarak şu HTML:
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #ff5572;">div</span><span style="color: #ffcb6b;">.bordered</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #80cbc4;">margin</span>: <span style="color: #f78c6c;">10</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #80cbc4;">border</span>: <span style="color: #f78c6c;">1</span><span style="color: #ffeb95;">px</span> <span style="color: #89ddff;">solid</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #80cbc4;">padding</span>: <span style="color: #f78c6c;">10</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">id</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">outer</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">bordered</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; Outer</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">id</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">inner</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">bordered</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Inner</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">id</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">other</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">bordered</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; Trigger the handler</div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">id</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">log</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div>
+                  <div class="cborder" id="test1">
+                     <style>
+                        #test1 div.bordered {
+                           margin: 10px; padding: 10px;
+                           border: 1px solid;
+                        }
+                     </style>
+                     <div id="outer" class="bordered">
+                        Outer
+                        <div id="inner" class="bordered">
+                           Inner
+                        </div>
+                     </div>
+                     <div id="other" class="bordered">
+                        Trigger the handler
+                     </div>
+                     <div id="log"></div>
+                  </div>
+                  <br><p>
+                     Olay işleyici elemanların herhangi birine verilebilir.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">#outer</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">mouseleave</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">#log</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">append</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">&lt;div&gt;`mouseleave` handler çağrıldı.&lt;/div&gt;</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div>} <span style="color: #bfc7d5;">)</span>;</div></div></div></div>
+                  <div class="cborder" id="test2">
+                     <style>
+                        #test2 div.bordered {
+                           margin: 10px; padding: 10px;
+                           border: 1px solid;
+                        }
+                     </style>
+                     <div id="outer" class="bordered">
+                        Outer
+                        <div id="inner" class="bordered">
+                           Inner
+                        </div>
+                     </div>
+                     <div id="other" class="bordered">
+                        Trigger the handler
+                     </div>
+                     <div id="log"></div>
+                     <script>
+                        $( "#test2 #outer" ).on( "mouseleave", function() {
+                           $( "#test2 #log" ).append( "<div>`mouseleave` handler çağrıldı.</div>" );
+                        } );
+                     </script>
+                  </div>
+                  <br><p>
+                     Şimdi mouse şaretçisi dıştaki <code>&lt;div></code> sınırlarından dışarı çıkarken 
+                     <code>&lt;div id="log"></code> elemanına mesaj eklenir. Ayrıca olayı diğer bir elemana 
+                     tıklayınca tetikleyebilirsiniz.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">#other</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">#outer</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">trigger</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">mouseleave</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div>} <span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div>
+                  <div class="cborder" id="test3">
+                     <style>
+                        #test3 div.bordered {
+                           margin: 10px;
+                           border: 1px solid;
+                           padding: 10px;
+                        }
+                     </style>
+                     <div id="outer" class="bordered">
+                        Outer
+                        <div id="inner" class="bordered">
+                           Inner
+                        </div>
+                     </div>
+                     <div id="other" class="bordered">
+                        Trigger the handler
+                     </div>
+                     <div id="log"></div>
+                     <script>
+                        $( "#test3 #outer" ).on( "mouseleave", function() {
+                           $( "#test3 #log" ).append( "<div>`mouseleave` handler çağrıldı.</div>" );
+                        } );
+                        $( "#test3 #other" ).on( "click", function() {
+                           $( "#test3 #outer" ).trigger( "mouseleave" );
+                        } );
+                     </script>
+                  </div>
+                  <br><p>
+                     Bu kod çalıştırıldıktan sonra Trigger bölgesine tıklanınca da mesaj satırı eklenecektir.
+                  </p>
+                  <p>
+                     <code>mouseleave</code> olayı <code>mouseout</code>'dan olayı yukarı yayması (bubling) 
+                     bakımından farklıdır. Bu örnekte eğer <code>mouseout</code> kullanılmış olsa, içteki 
+                     bölgeden ayrılınca da olay tetiklenir. Bu genelde istenmeyen davranışlara sebep olur. 
+                     Diğer yandan <code>mouseleave</code> sadece bağlandığı elemandan mouse ayrıldığı anda 
+                     oluşur, iç elemanlardan birinden ayrılırken tetiklenmez. Bu yüzden örnekteki dıştaki 
+                     elemandan mouse ayrılırken olay tetiklenir ama içteki elemandan ayrılırken bir şey olmaz. 
+                  </p>
+
+
+                  <br><br><h3>Örnekler:</h3>
+                  <p>
+                     Tetiklenen <code>mouseout</code> ve <code>mouseleave</code> olaylarını say.
+                     Olaylardan <code>mouseout</code> içteki elemandan da mouse ayrılınca tetiklenirken, 
+                     <code>mouseleave</code> ise sadece bağlandığı elemandan mouse işaretçisi ayrılınca tetiklenir.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span> &nbsp;</div><div>&nbsp; &nbsp;<span style="color: #ff5572;">div</span><span style="color: #ffcb6b;">.out</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">width</span>: <span style="color: #f78c6c;">40</span><span style="color: #ffeb95;">%</span>; <span style="color: #80cbc4;">height</span>: <span style="color: #f78c6c;">120</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">margin</span>: <span style="color: #f78c6c;">0</span> <span style="color: #f78c6c;">15</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">background-color</span>: <span style="color: #f78c6c;">#</span><span style="color: #ffeb95;">d6edfc</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">float</span>: <span style="color: #89ddff;">left</span>;</div><div>&nbsp; &nbsp;}</div><div>&nbsp; &nbsp;<span style="color: #ff5572;">div</span><span style="color: #ffcb6b;">.in</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">width</span>: <span style="color: #f78c6c;">60</span><span style="color: #ffeb95;">%</span>; <span style="color: #80cbc4;">height</span>: <span style="color: #f78c6c;">60</span><span style="color: #ffeb95;">%</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">background-color</span>: <span style="color: #f78c6c;">#</span><span style="color: #ffeb95;">fc0</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">margin</span>: <span style="color: #f78c6c;">10</span><span style="color: #ffeb95;">px</span> <span style="color: #89ddff;">auto</span>;</div><div>&nbsp; &nbsp;}</div><div>&nbsp; &nbsp;<span style="color: #ff5572;">p</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">line-height</span>: <span style="color: #f78c6c;">1</span><span style="color: #ffeb95;">em</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">margin</span>: <span style="color: #f78c6c;">0</span>; <span style="color: #80cbc4;">padding</span>: <span style="color: #f78c6c;">0</span>;</div><div>&nbsp; &nbsp;}</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">out overout</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span>move your mouse<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">in overout</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span>move your mouse<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span>0<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span>0<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><br /><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">out enterleave</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span>move your mouse<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">in enterleave</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span>move your mouse<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span>0<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span>0<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">i</span> <span style="color: #c792ea;">=</span> <span style="color: #f78c6c;">0</span>;</div><div>&nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">div.overout</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">mouseover</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">p</span><span style="color: #d9f5dd;">"</span><span style="color: #eeffff;">,</span> <span style="color: #ff5572;">this</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">first</span><span style="color: #bfc7d5;">()</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">text</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">mouse over</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp; &nbsp; } <span style="color: #bfc7d5;">)</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">mouseout</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">p</span><span style="color: #d9f5dd;">"</span><span style="color: #eeffff;">,</span> <span style="color: #ff5572;">this</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">first</span><span style="color: #bfc7d5;">()</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">text</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">mouse out</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">p</span><span style="color: #d9f5dd;">"</span><span style="color: #eeffff;">,</span> <span style="color: #ff5572;">this</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">last</span><span style="color: #bfc7d5;">()</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">text</span><span style="color: #bfc7d5;">(</span> <span style="color: #89ddff;">++</span><span style="color: #bfc7d5;">i</span> <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp; &nbsp; } <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp;</div><div>&nbsp; &nbsp;<span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">n</span> <span style="color: #c792ea;">=</span> <span style="color: #f78c6c;">0</span>;</div><div>&nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">div.enterleave</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">mouseenter</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">p</span><span style="color: #d9f5dd;">"</span><span style="color: #eeffff;">,</span> <span style="color: #ff5572;">this</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">first</span><span style="color: #bfc7d5;">()</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">text</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">mouse enter</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp; &nbsp; } <span style="color: #bfc7d5;">)</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">mouseleave</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">p</span><span style="color: #d9f5dd;">"</span><span style="color: #eeffff;">,</span> <span style="color: #ff5572;">this</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">first</span><span style="color: #bfc7d5;">()</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">text</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">mouse leave</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">p</span><span style="color: #d9f5dd;">"</span><span style="color: #eeffff;">,</span> <span style="color: #ff5572;">this</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">last</span><span style="color: #bfc7d5;">()</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">text</span><span style="color: #bfc7d5;">(</span> <span style="color: #89ddff;">++</span><span style="color: #bfc7d5;">n</span> <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp; &nbsp; } <span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div></div></div>
+                  <div class="cborder" id="test4" style="height: 200px;">
+                     <style>  
+                        #test4 div.out {
+                           width: 40%; height: 120px;
+                           margin: 0 15px;
+                           background-color: #d6edfc;
+                           float: left;
+                        }
+                        #test4 div.in {
+                           width: 60%; height: 60%;
+                           background-color: #fc0;
+                           margin: 10px auto;
+                        }
+                        #test4 p {
+                           line-height: 1em;
+                           margin: 0; padding: 0;
+                        }
+                     </style>
+                     <div class="out overout">
+                        <p>move your mouse</p>
+                        <div class="in overout"><p>move your mouse</p><p>0</p></div>
+                        <p>0</p>
+                     </div>
+                     
+                     <div class="out enterleave">
+                        <p>move your mouse</p>
+                        <div class="in enterleave"><p>move your mouse</p><p>0</p></div>
+                        <p>0</p>
+                     </div>
+                     <script>
+                        var i = 0;
+                        $( "#test4 div.overout" )
+                           .on( "mouseover", function() {
+                              $( "p", this ).first().text( "mouse over" );
+                           } )
+                           .on( "mouseout", function() {
+                              $( "p", this ).first().text( "mouse out" );
+                              $( "p", this ).last().text( ++i );
+                           } );
+                        
+                        var n = 0;
+                        $( "#test4 div.enterleave" )
+                           .on( "mouseenter", function() {
+                              $( "p", this ).first().text( "mouse enter" );
+                           } )
+                           .on( "mouseleave", function() {
+                              $( "p", this ).first().text( "mouse leave" );
+                              $( "p", this ).last().text( ++n );
+                           } );
+                     </script>
+                  </div>
+               </div><!-- panel-body -->
+            </div><!-- panel-primary -->
+
+            <div style="padding-top: 70px;" id="trigger2"></div>
+            <div class="panel panel-primary">
+               <div class="panel-heading">
+                  <span>.trigger( "mouseleave" )</span>
+                  <span class="pull-right"><i>Dönen Değer : 
+                     <a href="Types/index.html#jQuery" style="color: aqua;">jQuery Nesnesi</a> </i></span>
+               </div>
+               <div class="panel-body">
+                  <b>Açıklama : </b><i>Seçilen elemanlarda "mouseleave" olayını tetikler.</i>
+                  <br><br>
+                  <div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>.trigger( "mouseleave" )</span>
+                        <small class="pull-right">Eklendiği Versiyon 1.0</small>
+                     </div>
+                     <div class="panel-body">
+                        <b>"mouseleave"</b><br>
+                        Tip : <a href="Types/index.html#String">String</a> <br>
+                        "mouseleave" sabit string değeri
+                     </div>
+                  </div>
+                  <br><p>
+                     <code><a href="#on1">.on( "mouseleave", ... ).</a></code> açıklamasına bakınız.
+                  </p>
+
+               </div><!-- panel-body -->
+            </div><!-- panel-primary -->
+
+            
+            <p>.</p><p>.</p>
+
+         </div>
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+      </div>
+   </div>
+
+<script>
+   // put space at paragraph start
+   $("p").filter(function(){return !this.class}).prepend("&emsp;");
+</script>
+
+</body>
+</html>
