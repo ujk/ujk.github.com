@@ -7,7 +7,7 @@
 - jquery-tutor\api\Types\index.html line 403-Event
 - jquery-tutor\api\events\event-object.html line 64
 - jquery-tutor\api\events\index.html line 76
-- jquery-tutor\api\bind.html line 145
+- jquery-tutor\api\change.html line 110
 
 # TO DO
 - Add a flag to banner

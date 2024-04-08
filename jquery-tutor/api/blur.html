@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>blur Olayı</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+   <style>
+      div .scroll{
+         height:300px;
+         width: 100%;
+         overflow:scroll;
+         scrollbar-color: dark;
+      }
+
+      ::-webkit-scrollbar {
+         width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+         background: white;
+      }
+
+      ::-webkit-scrollbar-thumb {
+         background: gray;
+         border-radius: 10px;
+      }
+
+      .cborder {
+         border: 1px solid black;
+         padding: 5px;
+      }
+
+      .cpadding {
+         padding: 15px;
+      }
+
+      body {
+         font-size: 1.6rem;
+      }
+   </style>
+</head>
+<body style="font-family: Open Sans;">
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+      <img src="../../images/bayrak.jpg" alt="Turkish Flag" width="70" 
+         style="position: absolute; left: 20px; top: 10px;" class="hidden-xs">
+      <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+   </nav>
+
+   <div class="container" style="padding-top: 70px;">
+      <div class="row">
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+         <div class="col-md-8">
+            <ul class="breadcrumb small" >
+               <li><a href="../../index.html">Ana Sayfa</a></li>
+               <li><a href="index.html">JQuery API</a></li>
+               <li class="active"><span>blur Olayı</span></li>
+            </ul>
+               
+            <h1>blur Olayı</h1>
+            <p>
+               Elemanın "blur" olayına olay işleyici bağlamak ya da olayı tetiklemek.
+            </p>
+            <p><b>İçindekiler : </b></p>
+            <ul>
+               <li><a href="#on1">.on( "blur" [, eventData ], handler )</a></li>
+               <li><a href="#trigger2">.trigger( "blur" )</a></li>
+            </ul>
+            <div style="padding-top: 70px;" id="on1"></div>
+            <div class="panel panel-primary">
+               <div class="panel-heading">
+                  <span>.on( "blur" [, eventData ], handler )</span>
+                  <span class="pull-right"><i>Dönen Değer : 
+                     <a href="Types/index.html#jQuery" style="color: aqua;">jQuery Nesnesi</a> </i></span>
+               </div>
+               <div class="panel-body">
+                  <b>Açıklama : </b><i>Seçilen eleman "blur" olayına bir olay işleyici bağlar.</i>
+                  <br><br>
+                  <div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>.on( "blur" [, eventData ], handler )</span>
+                        <small class="pull-right">Eklendiği Versiyon 1.7</small>
+                     </div>
+                     <div class="panel-body">
+                        <b>"blur"</b><br>
+                        Tip : <a href="Types/index.html#String">String</a> <br>
+                        <code>"blur"</code> sabit string değeri.
+                        <hr>
+                        <b>eventData</b><br>
+                        Tip : <a href="Types/index.html#Anything">Herhangi birşey</a><br>
+                        Olay işleyiciye iletilecek bilgileri içeren bir nesne.
+                        <hr>
+                        <b>handler</b><br>
+                        Tip : <a href="Types/index.html#Function">Fonksiyon</a>( 
+                           <a href="Types/index.html#Event">Olay</a> eventObject ) <br>
+                        Olay her tetiklendiğinde çalıştırılacak olan fonksiyon.
+                     </div>
+                  </div>
+                  <p class="well">
+                     Bu sayfa <code>blur</code> olayını açıklıyor, kaldırılmış olan 
+                     <code><a href="blur-shorthand.html">.blur()</a></code> metodu için linkteki sayfaya 
+                     bakınız.
+                  </p>
+                  <p>
+                     Blur olayı eleman odaktan çıktığında elemana gönderilir. Orjinalde bu olay sadece form 
+                     elemanlarına uygulanabilir, mesela <code>&lt;input></code> elemanı içine tıklayıp 
+                     kursörü oana odakladıktan sonra eleman dışına bir yere tıklayarak ya da tab vs tuşla 
+                     başka form elemanına geçince tetiklenir. Son tarayıcılarda olay tüm elemanlarda etkili 
+                     olabilecek şekilde genişletilmiştir. 
+                  </p>
+                  <p>
+                     Şöyle bir HTML düşünelim :
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">form</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">input</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">id</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">target</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">type</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">text</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">value</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Alan 1</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">input</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">type</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">text</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">value</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Alan 2</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">form</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">id</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">other</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; Olayı tetikler</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div></div></div>
+                  <br><p>
+                     Olay işleyici ilk <code>&lt;input></code> elemanına bağlanabilir.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">#target</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">blur</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; &nbsp;<span style="color: #82aaff;">alert</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">`blur` olay işleyici çağrıldı.</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div>} <span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div>
+                  <br><p>
+                     Şimdi eğer ilk giriş elemanı odak kaybederse "blur" olayı tetiklenir ve bir alert mesaj çıkar. 
+                  </p>
+                  <p>
+                     Olayı kod yoluyla da tetiklemek mümkün.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">#other</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">#target</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">trigger</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">blur</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div>} <span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div></div>
+                  <br><p>
+                     Bu kod çalıştırıldıktan sonra ID değeri "other" olan elemana tıklamak olayı dışardan 
+                     tetikleyecektir. 
+                  </p>
+                  <p>
+                     Bu <code>blur</code> olayı üst elemanlara doğru yayılmaz. JQuery 1.4.2 ile <code>blur</code>
+                     yerine <code>focusout</code> ile bu yayılma sağlanıyor. 
+                  </p>
+                  <p>
+                     Ojjinal <code>blur</code> olayı tüm IE versiyonlarında diğer tarayıcıların aksine asenkron 
+                     çalışır. Versiyon 3.7.0 ile  jQuery bu olayı tüm tarayıcılarda aynı davranış için 
+                     <code>focusout</code> olayını kullanmaya başladı.
+                  </p>
+
+                  <br><br><h3>Örnekler:</h3>
+                  <p>
+                     Tüm paragraflarda <code>blur</code> olayını tetikle.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">p</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">trigger</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">blur</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div></div>
+
+                  
+                  
+               </div>
+            </div> <!-- panel-primary -->
+            
+            <div style="padding-top: 70px;" id="trigger2"></div>
+            <div class="panel panel-primary">
+               <div class="panel-heading">
+                  <span>.trigger( "blur" )</span>
+                  <span class="pull-right"><i>Dönen Değer : 
+                     <a href="Types/index.html#jQuery" style="color: aqua;">jQuery Nesnesi</a> </i></span>
+               </div>
+               <div class="panel-body">
+                  <b>Açıklama : </b><i>Seçilen elemanlarda "blur" olayını tetikler.</i>
+                  <br><br>
+                  <div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>.trigger( "blur" )</span>
+                        <small class="pull-right">Eklendiği Versiyon 1.0</small>
+                     </div>
+                     <div class="panel-body">
+                        <b>"blur"</b><br>
+                        Tip : <a href="Types/index.html#String">String</a> <br>
+                        Sabit string "blur".
+                     </div>
+                  </div>
+                  <p>
+                     Kullanımı için <a href="#on1">.on( "blur", ... )</a> açıklamasına bakınız.
+                  </p>
+
+               </div> <!-- panel-body -->
+            </div> <!-- panel-primary -->
+            <p>.</p><p>.</p>
+
+         </div>
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+      </div>
+   </div>
+<script>
+   // put space at paragraph start
+   $("p").filter(function(){return !this.class}).prepend("&emsp;");
+
+</script>
+
+</body>
+</html>

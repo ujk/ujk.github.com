@@ -39,7 +39,7 @@
       }
 
       body {
-         font-size: large;
+         font-size: 1.6rem;
       }
    </style>
 </head>
@@ -76,6 +76,31 @@
                   Seçilmiş olan elemanlar için bir olaya "olay işleyici" fonksiyonu bağlar.
                </div>
             </div>            
+            <div class="panel panel-default">
+               <div class="panel-heading">
+                  <a href="../blur.html">blur olayı</a>
+               </div>
+               <div class="panel-body">
+                  Elemanda "blur" (odaktan çıkma) olayına olay işleyici bağlamak ya da elemanda bu 
+                  olayı tetiklemek.
+               </div>
+            </div>            
+            <div class="panel panel-default">
+               <div class="panel-heading">
+                  <a href="../blur-shorthand.html">.blur()</a>
+               </div>
+               <div class="panel-body">
+                  Seçilen elemanlara "blur" olay işleyicisi bağla ya da bu olayı tetikle.
+               </div>
+            </div>            
+            <div class="panel panel-default">
+               <div class="panel-heading">
+                  <a href="../change.html">change Olayı</a>
+               </div>
+               <div class="panel-body">
+                  Seçilen elemanlara "change" olay işleyicisi bağla ya da bu olayı tetikle.
+               </div>
+            </div>            
             ------------------ TO DO --------------
             
             <p>.</p><p>.</p>
@@ -86,6 +111,8 @@
          </div>
       </div>
    </div>
-
+<script>
+   $("p").filter(function(){ return !this.class; }).prepend("&emsp;");
+</script>
 </body>
 </html>

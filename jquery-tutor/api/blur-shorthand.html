@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>.blur() Metodu</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+   <style>
+      div .scroll{
+         height:300px;
+         width: 100%;
+         overflow:scroll;
+         scrollbar-color: dark;
+      }
+
+      ::-webkit-scrollbar {
+         width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+         background: white;
+      }
+
+      ::-webkit-scrollbar-thumb {
+         background: gray;
+         border-radius: 10px;
+      }
+
+      .cborder {
+         border: 1px solid black;
+         padding: 5px;
+      }
+
+      .cpadding {
+         padding: 15px;
+      }
+
+      body {
+         font-size: 1.6rem;
+      }
+   </style>
+</head>
+<body style="font-family: Open Sans;">
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+      <img src="../../images/bayrak.jpg" alt="Turkish Flag" width="70" 
+         style="position: absolute; left: 20px; top: 10px;" class="hidden-xs">
+      <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+   </nav>
+
+   <div class="container" style="padding-top: 70px;">
+      <div class="row">
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+         <div class="col-md-8">
+            <ul class="breadcrumb small" >
+               <li><a href="../../index.html">Ana Sayfa</a></li>
+               <li><a href="index.html">JQuery API</a></li>
+               <li class="active"><span>.blur() Metodu</span></li>
+            </ul>
+               
+            <h1>.blur()</h1>
+
+            <div class="panel panel-primary">
+               <div class="panel-heading">
+                  <span>.blur( handler )</span>
+                  <span class="pull-right"><i>Dönen Değer : 
+                     <a href="Types/index.html#jQuery" style="color: aqua;">jQuery Nesnesi</a> </i></span>
+               </div>
+               <div class="panel-body">
+                  <small class="pull-right">Kaldırıldığı Versiyon: 3.3</small>
+                  <b>Açıklama : </b><i>Seçilen elemanlara "blur" olay işleyicisi bağla ya da bu olayı 
+                     tetikle.</i>
+                  <br><br>
+                  <div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>.blur( handler )</span>
+                        <small class="pull-right">Eklendiği Versiyon 1.0</small>
+                     </div>
+                     <div class="panel-body">
+                        <b>handler</b><br>
+                        Tip : <a href="Types/index.html#Function">Fonksiyon</a>( 
+                           <a href="Types/index.html#Event">Olay</a> eventObject ) <br>
+                        Olay oluştuğunda çalıştırılacak olan fonksiyon.
+                     </div>
+                  </div>
+                  <div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>.blur( [eventData ], handler )</span>
+                        <small class="pull-right">Eklendiği Versiyon 1.4.3</small>
+                     </div>
+                     <div class="panel-body">
+                        <b>eventData</b><br>
+                        Tip : <a href="Types/index.html#Anything">Herhangi birşey</a><br>
+                        Olay işleyiciye geçirilecek verileri içeren bir nesne.
+                        <hr>
+                        <b>handler</b><br>
+                        Tip : <a href="Types/index.html#Function">Fonksiyon</a>( 
+                           <a href="Types/index.html#Event">Olay</a> eventObject ) <br>
+                        Olay oluştuğunda çalıştırılacak olan fonksiyon.
+                     </div>
+                  </div>
+                  <div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>.blur()</span>
+                        <small class="pull-right">Eklendiği Versiyon 1.0</small>
+                     </div>
+                     <div class="panel-body">
+                        Bu şekilde kullanım herhangi bir parametre almaz.
+                     </div>
+                  </div>
+                  <p class="well">
+                     Bu API kaldırıldı <br><br>
+                     <code>.blur( handler )</code> veya <code>.blur( eventData, handler )</code> 
+                     yerine sırasıyla <br><code><a href="blur.html#on1">.on( "blur", handler )</a></code>
+                     ve <code><a href="blur.html#on1">.on( "blur", eventData, handler )</a></code>
+                     kullanınız. <br><br>
+                     <code>.blur()</code> yerineyse 
+                     <code><a href="blur.html#trigger2">.trigger( "blur" )</a></code> 
+                     kullanınız.
+                  </p>
+                  
+
+                  
+
+                  <br><br><h3>Örnekler:</h3>
+
+               </div>
+            </div>
+            
+            <p>.</p><p>.</p>
+
+         </div>
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+      </div>
+   </div>
+
+</body>
+</html>

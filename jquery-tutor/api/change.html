@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>change Olayı</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+   <style>
+      div .scroll{
+         height:300px;
+         width: 100%;
+         overflow:scroll;
+         scrollbar-color: dark;
+      }
+
+      ::-webkit-scrollbar {
+         width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+         background: white;
+      }
+
+      ::-webkit-scrollbar-thumb {
+         background: gray;
+         border-radius: 10px;
+      }
+
+      .cborder {
+         border: 1px solid black;
+         padding: 5px;
+      }
+
+      .cpadding {
+         padding: 15px;
+      }
+
+      body {
+         font-size: 1.6rem;
+      }
+   </style>
+</head>
+<body style="font-family: Open Sans;">
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+      <img src="../../images/bayrak.jpg" alt="Turkish Flag" width="70" 
+         style="position: absolute; left: 20px; top: 10px;" class="hidden-xs">
+      <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+   </nav>
+
+   <div class="container" style="padding-top: 70px;">
+      <div class="row">
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+         <div class="col-md-8">
+            <ul class="breadcrumb small" >
+               <li><a href="../../index.html">Ana Sayfa</a></li>
+               <li><a href="index.html">JQuery API</a></li>
+               <li class="active"><span>change Olayı</span></li>
+            </ul>
+               
+            <h1>change Olayı</h1>
+            <p>
+               Seçilen elemanlara "change" olay işleyicisi bağla ya da bu olayı tetikle.
+            </p>
+            <p><b>İçindekiler : </b></p>
+            <ul>
+               <li><a href="#on1">.on( "change" [, eventData ], handler )</a></li>
+               <li><a href="#trigger2">.trigger( "change" )</a></li>
+            </ul>
+            <div style="padding-top: 70px;" id="on1"></div>
+            <div class="panel panel-primary">
+               <div class="panel-heading">
+                  <span>.on( "change" [, eventData ], handler )</span>
+                  <span class="pull-right"><i>Dönen Değer : 
+                     <a href="Types/index.html#jQuery" style="color: aqua;">jQuery Nesnesi</a> </i></span>
+               </div>
+               <div class="panel-body">
+                  <b>Açıklama : </b><i>Seçilen eleman "change" olayına bir olay işleyici bağlar.</i>
+                  <br><br>
+                  <div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>.on( "change" [, eventData ], handler )</span>
+                        <small class="pull-right">Eklendiği Versiyon 1.7</small>
+                     </div>
+                     <div class="panel-body">
+                        <b>"change"</b><br>
+                        Tip : <a href="Types/index.html#String">String</a> <br>
+                        <code>"change"</code> sabit string değeri.
+                        <hr>
+                        <b>eventData</b><br>
+                        Tip : <a href="Types/index.html#Anything">Herhangi birşey</a><br>
+                        Olay işleyiciye iletilecek bilgileri içeren bir nesne.
+                        <hr>
+                        <b>handler</b><br>
+                        Tip : <a href="Types/index.html#Function">Fonksiyon</a>( 
+                           <a href="Types/index.html#Event">Olay</a> eventObject ) <br>
+                        Olay her tetiklendiğinde çalıştırılacak olan fonksiyon.
+                     </div>
+                  </div>
+                  <p class="well">
+                     Bu sayfa <code>change</code> olayını açıklıyor, kaldırılmış olan 
+                     <code><a href="change-shorthand.html">.change()</a></code> metodu için linkteki sayfaya 
+                     bakınız.
+                  </p>
+                  <p>
+                     Elemanın value değeri değiştiğinde <code>change</code> olayı oluşur. Bu olay 
+                     <code>&lt;input></code>, <code>&lt;textarea></code> ve <code>&lt;select></code> 
+                     elemanları için geçerlidir. Select , checkbox ve radio button'lar için mouse ile 
+                     tıklanıp seçim yapıldığı anda oluşur, diğer elemanlar için eleman değeri değişip 
+                     eleman fokus kaybedince oluşur. 
+                  </p>
+                  <p>
+                     Örnek olarak şu HTML :
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">form</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">input</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">target</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">type</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">text</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">value</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Field 1</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">select</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">target</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">option</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">value</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">option1</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">selected</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">selected</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span>Option 1<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">option</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">option</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">value</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">option2</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span>Option 2<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">option</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">select</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">form</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">id</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">other</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;Trigger the handler</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div></div></div></div>
+                  <br>
+
+                  -------------- TO DO --------------
+
+                  <br><br><h3>Örnekler:</h3>
+
+                  
+                  
+               </div>
+            </div> <!-- panel-primary -->
+            
+            <div style="padding-top: 70px;" id="trigger2"></div>
+            <div class="panel panel-primary">
+               <div class="panel-heading">
+                  <span>.trigger( "blur" )</span>
+                  <span class="pull-right"><i>Dönen Değer : 
+                     <a href="Types/index.html#jQuery" style="color: aqua;">jQuery Nesnesi</a> </i></span>
+               </div>
+               <div class="panel-body">
+                  <b>Açıklama : </b><i>Seçilen elemanlarda "blur" olayını tetikler.</i>
+                  <br><br>
+                  <div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>.trigger( "blur" )</span>
+                        <small class="pull-right">Eklendiği Versiyon 1.0</small>
+                     </div>
+                     <div class="panel-body">
+                        <b>"blur"</b><br>
+                        Tip : <a href="Types/index.html#String">String</a> <br>
+                        Sabit string "blur".
+                     </div>
+                  </div>
+                  <p>
+                     Kullanımı için <a href="#on1">.on( "blur", ... )</a> açıklamasına bakınız.
+                  </p>
+
+               </div> <!-- panel-body -->
+            </div> <!-- panel-primary -->
+            <p>.</p><p>.</p>
+
+         </div>
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+      </div>
+   </div>
+<script>
+   // put space at paragraph start
+   $("p").filter(function(){return !this.class}).prepend("&emsp;");
+
+</script>
+
+</body>
+</html>
