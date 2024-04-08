@@ -7,7 +7,13 @@
 - jquery-tutor\api\Types\index.html line 403-Event
 - jquery-tutor\api\events\event-object.html line 64
 - jquery-tutor\api\events\index.html line 76
-- jquery-tutor\api\change.html line 110
+- jquery-tutor\api\change.html line 142
+- jquery-tutor\api\val.html line 116
+- jquery-tutor\api\checked-selector.html line 90
+- jquery-tutor\api\selected-selector.html line 94
+- jquery-tutor\api\filter.html line 84
+- jquery-tutor\api\Types\index.html line 440-Seçici
+- jquery-tutor\api\selectors\index.html line 88
 
 # TO DO
 - Add a flag to banner

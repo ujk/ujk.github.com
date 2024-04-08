@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Seçici Deyimler</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+   <style>
+      div .scroll{
+         height:300px;
+         width: 100%;
+         overflow:scroll;
+         scrollbar-color: dark;
+      }
+
+      ::-webkit-scrollbar {
+         width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+         background: white;
+      }
+
+      ::-webkit-scrollbar-thumb {
+         background: gray;
+         border-radius: 10px;
+      }
+
+      .cborder {
+         border: 1px solid black;
+         padding: 5px;
+      }
+
+      .cpadding {
+         padding: 15px;
+      }
+
+      body {
+         font-size: 1.6rem;
+      }
+   </style>
+</head>
+<body style="font-family: Open Sans;">
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+      <img src="../../../images/bayrak.jpg" alt="Turkish Flag" width="70" 
+         style="position: absolute; left: 20px; top: 10px;" class="hidden-xs">
+      <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+   </nav>
+
+   <div class="container" style="padding-top: 70px;">
+      <div class="row">
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+         <div class="col-md-8">
+            <ul class="breadcrumb small" >
+               <li><a href="../../index.html">Ana Sayfa</a></li>
+               <li><a href="index.html">JQuery API</a></li>
+               <li class="active"><span>Seçici Deyimler</span></li>
+            </ul>
+               
+            <h1>Seçici Deyimler</h1>
+            <p>
+               CSS 1-3'den alarak ve üzerine kendi özel deyimlerini katarak jQuery bir dökümandan eleman 
+               seti seçimi için oldukça kuvvetli bir yapı sunar. 
+            </p>
+            <p>
+               Herhangi bir meta karakteri deyim içinde kullanmak için (örn <code>!"#$%&'()*+,./:;<=>?@[\]^`{|}~</code> ) 
+               iki tane <i>ters slash</i> <code>\\</code> ile <i>escape</i> etmelisiniz. Örneğin bir 
+               eleman <code>id="foo.bar"</code> özelliğine sahip ve siz bunu seçmek istiyorsanız, seçici 
+               olarak <code>$("#foo\\.bar")</code> kullanmalısınız. W3C geçerli CSS seçicileri için 
+               <a target="_blank" href="https://www.w3.org/TR/CSS21/syndata.html#value-def-identifier">Geçerli CSS seçici kurallarına</a>
+               bakabilirsiniz. Ayrıca <a target="_blank" href="https://mathiasbynens.be/notes/css-escapes">şu blog sayfasında</a>
+               yararlı bilgiler var.
+            </p>
+            <br><hr><br>
+            <div class="panel panel-default">
+               <div class="panel-heading">
+                  <a href="../all-selector.html">All Seçicisi (“*”)</a>
+               </div>
+               <div class="panel-body">
+                  Tüm elemanları seçer.
+               </div>
+            </div>            
+            ------------------ TO DO --------------
+            
+            <p>.</p><p>.</p>
+
+         </div>
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+      </div>
+   </div>
+<script>
+   $("p").filter(function(){ return !this.class; }).prepend("&emsp;");
+</script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>.val() Metodu</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+   <style>
+      div .scroll{
+         height:300px;
+         width: 100%;
+         overflow:scroll;
+         scrollbar-color: dark;
+      }
+
+      ::-webkit-scrollbar {
+         width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+         background: white;
+      }
+
+      ::-webkit-scrollbar-thumb {
+         background: gray;
+         border-radius: 10px;
+      }
+
+      .cborder {
+         border: 1px solid black;
+         padding: 5px;
+      }
+
+      .cpadding {
+         padding: 15px;
+      }
+
+      body {
+         font-size: 1.6rem;
+      }
+   </style>
+</head>
+<body style="font-family: Open Sans;">
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+      <img src="../../images/bayrak.jpg" alt="Turkish Flag" width="70" 
+         style="position: absolute; left: 20px; top: 10px;" class="hidden-xs">
+      <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+   </nav>
+
+   <div class="container" style="padding-top: 70px;">
+      <div class="row">
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+         <div class="col-md-8">
+            <ul class="breadcrumb small" >
+               <li><a href="../../index.html">Ana Sayfa</a></li>
+               <li><a href="index.html">JQuery API</a></li>
+               <li class="active"><span>.val() Metodu</span></li>
+            </ul>
+               
+            <h1>.val() Metodu</h1>
+            <p>
+               Seçilen elemanlar setinin ilk elemanının değerini oku ya da elemanların hepsinin değerini 
+               değiştir.
+            </p>
+            <p><b>İçindekiler : </b></p>
+            <ul>
+               <li><a href="#val1">.val()</a>
+                  <ul><li><a href="#val">.val()</a></li></ul>
+               </li>
+               <li><a href="#val2">.val( value )</a>
+               <ul>
+                  <li><a href="#val-value">.val( value )</a></li>
+                  <li><a href="#val-function">.val( function )</a></li>
+               </ul></li>
+            </ul>
+            <div style="padding-top: 70px;" id="val1"></div>
+            <div class="panel panel-primary">
+               <div class="panel-heading">
+                  <span>.val()</span>
+                  <span class="pull-right"><i>Dönen Değer : 
+                     <a href="Types/index.html#String" style="color: aqua;">String</a> veya
+                     <a href="Types/index.html#Number" style="color: aqua;">Sayı</a> veya
+                     <a href="Types/index.html#Array" style="color: aqua;">Array</a>
+                   </i></span>
+               </div>
+               <div class="panel-body">
+                  <b>Açıklama : </b><i>Seçilen elemanların ilkinin değerini okur.</i>
+                  <div style="padding-top: 70px;" id="val"></div>
+                  <div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>.val()</span>
+                        <small class="pull-right">Eklendiği Versiyon 1.0</small>
+                     </div>
+                     <div class="panel-body">
+                        Bu şekil kullanım bir parametre almaz.
+                     </div>
+                  </div>
+                  <p>
+                     Bu şekil <code>.val()</code> metodu kullanımı örn. <code>&lt;input></code>, <code>&lt;select></code>
+                     ve <code>&lt;textarea></code> gibi elemanlardan değer okumak için kullanılır. Boş bir 
+                     eleman setinde kullanılınca <code>undefined</code> döner.
+                  </p>
+                  <p>
+                     Kolleksiyondaki ilk eleman <code>çoklu-seçim</code> bir elemansa (mesela <code>multiple</code>
+                     özelliği set edilmiş bir <code>select</code> elemanı) <code>.val()</code> metodu elemanlarında 
+                     seçilen değerleri içeren bir array döner. <b>JQuery 3.0</b> ile eğer seçili opsiyon yoksa 
+                     boş array döner, <b>jQuery 3.0 öncesi</b> ise <code>null</code> değer döner.
+                  </p>
+                  <p>
+                     <i>Select</i>, <i>checkbox</i> ve <i>raido buttonlar</i> için doğru elemanları seçmek 
+                     için <a href="checked-selector.html">checked</a> özelliğini kullanabilirsiniz.
+                  </p>
+<script>
+</script>
+                  -------------- TO DO --------------
+
+                  <br><br><h3>Örnekler:</h3>
+
+                  
+                  
+               </div>
+            </div> <!-- panel-primary -->
+            
+            <div style="padding-top: 70px;" id="val2"></div>
+            <div class="panel panel-primary">
+               <div class="panel-heading">
+                  <span>.trigger( "blur" )</span>
+                  <span class="pull-right"><i>Dönen Değer : 
+                     <a href="Types/index.html#jQuery" style="color: aqua;">jQuery Nesnesi</a> </i></span>
+               </div>
+               <div class="panel-body">
+                  <b>Açıklama : </b><i>Seçilen elemanlarda "blur" olayını tetikler.</i>
+                  <div style="padding-top: 70px;" id="val-value"></div>
+                  <div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>.trigger( "blur" )</span>
+                        <small class="pull-right">Eklendiği Versiyon 1.0</small>
+                     </div>
+                     <div class="panel-body">
+                        <b>"blur"</b><br>
+                        Tip : <a href="Types/index.html#String">String</a> <br>
+                        Sabit string "blur".
+                     </div>
+                  </div>
+                  <div style="padding-top: 70px;" id="val-function"></div>
+                  <div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>.trigger( "blur" )</span>
+                        <small class="pull-right">Eklendiği Versiyon 1.0</small>
+                     </div>
+                     <div class="panel-body">
+                        <b>"blur"</b><br>
+                        Tip : <a href="Types/index.html#String">String</a> <br>
+                        Sabit string "blur".
+                     </div>
+                  </div>
+                  <p>
+                     Kullanımı için <a href="#on1">.on( "blur", ... )</a> açıklamasına bakınız.
+                  </p>
+
+               </div> <!-- panel-body -->
+            </div> <!-- panel-primary -->
+            <p>.</p><p>.</p>
+
+         </div>
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+      </div>
+   </div>
+<script>
+   // put space at paragraph start
+   $("p").filter(function(){return !this.class}).prepend("&emsp;");
+
+</script>
+
+</body>
+</html>
