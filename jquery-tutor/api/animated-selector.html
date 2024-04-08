@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>:animated Seçicisi</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+   <style>
+      div .scroll{
+         height:300px;
+         width: 100%;
+         overflow:scroll;
+         scrollbar-color: dark;
+      }
+
+      ::-webkit-scrollbar {
+         width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+         background: white;
+      }
+
+      ::-webkit-scrollbar-thumb {
+         background: gray;
+         border-radius: 10px;
+      }
+
+      .cborder {
+         border: 1px solid black;
+         padding: 5px;
+      }
+
+      .cpadding {
+         padding: 15px;
+      }
+
+      body {
+         font-size: 1.6rem;
+      }
+   </style>
+</head>
+<body style="font-family: Open Sans;">
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+      <img src="../../images/bayrak.jpg" alt="Turkish Flag" width="70" 
+         style="position: absolute; left: 20px; top: 10px;" class="hidden-xs">
+      <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+   </nav>
+
+   <div class="container" style="padding-top: 70px;">
+      <div class="row">
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+         <div class="col-md-8">
+            <ul class="breadcrumb small" >
+               <li><a href="../../index.html">Ana Sayfa</a></li>
+               <li><a href="index.html">JQuery API</a></li>
+               <li class="active"><span>:animated Seçicisi</span></li>
+            </ul>
+               
+            <h1>:animated Seçicisi</h1>
+            <div class="panel panel-primary">
+               <div class="panel-heading">
+                  <span>:animated seçicisi</span>
+               </div>
+               <div class="panel-body">
+                  <b>Açıklama : </b><i>Seçici çalıştırıldığı anda animasyon yapmakta olan tüm elemanları 
+                     seçer.</i>
+                     ------------------ TO DO ------------------
+                  <br><br><div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>jQuery( "*" )</span>
+                        <small class="pull-right">Eklendiği Versiyon 1.0</small>
+                     </div>
+                     <div class="panel-body">
+                        
+                     </div>
+                  </div>
+                  <br><p>
+                     Dikkat : All ya da üniversal seçicisi oldukça yavaş çalışır.
+                  </p>
+
+                  <br><h3>Örnekler:</h3>
+                  <p>
+                     Dökümandaki tüm elemanları seç (head, body, html dahil). Dikkat edin eğer tarayıcınız DOM 
+                     elemanlarına <code>&lt;script></code> ya da <code>link</code> ekleyen eklentilere 
+                     sahipse o ekledikleri de sayılır.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #ff5572;">h3</span> { <span style="color: #80cbc4;">margin</span>: <span style="color: #f78c6c;">0</span>;}</div><div>&nbsp; &nbsp;<span style="color: #ff5572;">div</span><span style="color: #c792ea;">, </span><span style="color: #ff5572;">span</span><span style="color: #c792ea;">, </span><span style="color: #ff5572;">p</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">width</span>: <span style="color: #f78c6c;">100</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">height</span>: <span style="color: #f78c6c;">80</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">float</span>: <span style="color: #89ddff;">left</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">padding</span>: <span style="color: #f78c6c;">10</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">margin</span>: <span style="color: #f78c6c;">10</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">background-color</span>: <span style="color: #f78c6c;">#</span><span style="color: #ffeb95;">EEEEEE</span>;</div><div>&nbsp; &nbsp;}</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp;</div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span>DIV<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">span</span><span style="color: #89ddff;">&gt;</span>SPAN<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">span</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span>P <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">button</span><span style="color: #89ddff;">&gt;</span>Button<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">button</span><span style="color: #89ddff;">&gt;</span> <span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp;</div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">elementCount</span> <span style="color: #c792ea;">=</span> <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">*</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">css</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">border</span><span style="color: #d9f5dd;">"</span>, <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">3px solid red</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">length</span>;</div><div>&nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">body</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">prepend</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">&lt;h3&gt;</span><span style="color: #d9f5dd;">"</span> <span style="color: #89ddff;">+</span> <span style="color: #bfc7d5;">elementCount</span> <span style="color: #89ddff;">+</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;"> eleman bulundu&lt;/h3&gt;</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div></div></div>
+                  <div id="test1" class="cborder" style="height: 200px;">
+                     <style>
+                        #test1 h3 { margin: 0;}
+                        #test1 div, #test1 span, #test1 p {
+                           width: 100px;
+                           height: 80px;
+                           float: left;
+                           padding: 10px;
+                           margin: 10px;
+                           background-color: #EEEEEE;
+                        }
+                     </style>
+                     
+                     <div>DIV</div>
+                     <span>SPAN</span>
+                     <p>P <button>Button</button> .</p>
+                     
+                     <script>
+                        var elementCount = $( "#test1 *" ).css( "border", "3px solid red" ).length;
+                        $( "#test1" ).prepend( "<h3>" + elementCount + " eleman bulundu</h3>" );
+                     </script>
+                  </div>
+                  <br><p>
+                     Sadece görünen elemanları seçmek için bir <code>&lt;div></code> içine alabilirsiniz.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #ff5572;">h3</span> { <span style="color: #80cbc4;">margin</span>: <span style="color: #f78c6c;">0</span>; }</div><div>&nbsp; &nbsp;<span style="color: #ff5572;">div</span><span style="color: #c792ea;">, </span><span style="color: #ff5572;">span</span><span style="color: #c792ea;">, </span><span style="color: #ff5572;">p</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">width</span>: <span style="color: #f78c6c;">100</span><span style="color: #ffeb95;">px</span>; <span style="color: #80cbc4;">height</span>: <span style="color: #f78c6c;">80</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">float</span>: <span style="color: #89ddff;">left</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">padding</span>: <span style="color: #f78c6c;">10</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">margin</span>: <span style="color: #f78c6c;">10</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">background-color</span>: <span style="color: #f78c6c;">#</span><span style="color: #ffeb95;">EEEEEE</span>;</div><div>&nbsp; &nbsp;}</div><div>&nbsp; &nbsp;<span style="color: #fad430;">#test</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">width</span>: <span style="color: #89ddff;">auto</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">height</span>: <span style="color: #f78c6c;">120</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">background-color</span>: <span style="color: #89ddff;">transparent</span>;</div><div>&nbsp; &nbsp;}</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><br /><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">id</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">test</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span>DIV<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">span</span><span style="color: #89ddff;">&gt;</span>SPAN<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">span</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span>P <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">button</span><span style="color: #89ddff;">&gt;</span>Button<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">button</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp;</div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">elementCount</span> <span style="color: #c792ea;">=</span> <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">#test</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">find</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">*</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">css</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">border</span><span style="color: #d9f5dd;">"</span>, <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">3px solid red</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">length</span>;</div><div>&nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">body</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">prepend</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">&lt;h3&gt;</span><span style="color: #d9f5dd;">"</span> <span style="color: #89ddff;">+</span> <span style="color: #bfc7d5;">elementCount</span> <span style="color: #89ddff;">+</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;"> eleman bulundu&lt;/h3&gt;</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div></div></div></div>
+                  <div id="test2" class="cborder" style="height: 200px;">
+                     <style>
+                        #test2 h3 { margin: 0; }
+                        #test2 div, #test2 span, #test2 p {
+                           width: 100px; height: 80px;
+                           float: left;
+                           padding: 10px;
+                           margin: 10px;
+                           background-color: #EEEEEE;
+                        }
+                        #test2 #test {
+                           width: auto;
+                           height: 120px;
+                           background-color: transparent;
+                        }
+                     </style>
+
+                     <div id="test">
+                     <div>DIV</div>
+                     <span>SPAN</span>
+                     <p>P <button>Button</button></p>
+                     </div>
+                     
+                     <script>
+                        var elementCount = $( "#test" ).find( "*" ).css( "border", "3px solid red" ).length;
+                        $( "#test2" ).prepend( "<h3>" + elementCount + " eleman bulundu</h3>" );
+                     </script>
+                  </div>
+
+
+               </div>
+            </div>
+            <p>.</p><p>.</p>
+
+         </div>
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+      </div>
+   </div>
+
+</body>
+</html>

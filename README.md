@@ -14,6 +14,7 @@
 - jquery-tutor\api\filter.html line 84
 - jquery-tutor\api\Types\index.html line 440-Seçici
 - jquery-tutor\api\selectors\index.html line 88
+- jquery-tutor\api\animated-selector.html line 73
 
 # TO DO
 - Add a flag to banner
