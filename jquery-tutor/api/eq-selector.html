@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>:eq() Seçicisi</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+   <style>
+      div .scroll{
+         height:300px;
+         width: 100%;
+         overflow:scroll;
+         scrollbar-color: dark;
+      }
+
+      ::-webkit-scrollbar {
+         width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+         background: white;
+      }
+
+      ::-webkit-scrollbar-thumb {
+         background: gray;
+         border-radius: 10px;
+      }
+
+      .cborder {
+         border: 1px solid black;
+         padding: 5px;
+      }
+
+      .cpadding {
+         padding: 15px;
+      }
+
+      body {
+         font-size: 1.6rem;
+      }
+   </style>
+</head>
+<body style="font-family: Open Sans;">
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+      <img src="../../images/bayrak.jpg" alt="Turkish Flag" width="70" 
+         style="position: absolute; left: 20px; top: 10px;" class="hidden-xs">
+      <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+   </nav>
+
+   <div class="container" style="padding-top: 70px;">
+      <div class="row">
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+         <div class="col-md-8">
+            <ul class="breadcrumb small" >
+               <li><a href="../../index.html">Ana Sayfa</a></li>
+               <li><a href="index.html">JQuery API</a></li>
+               <li class="active"><span>:eq() Seçicisi</span></li>
+            </ul>
+               
+            <h1>:eq() Seçicisi</h1>
+
+            <div class="panel panel-primary">
+               <div class="panel-heading">
+                  <span>eq selector</span>
+                  <small class="pull-right">Vazgeçilen versiyon 3.4</small>
+               </div>
+               <div class="panel-body">
+                  <b>Açıklama : </b><i> Bulunulan set içinde index'i <b>n</b> olarak verilen elemanı bulur.</i>
+                  <br><br>
+                  <div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>jQuery( ":eq(index)" )</span>
+                        <small class="pull-right">Eklendiği Versiyon 1.0</small>
+                     </div>
+                     <div class="panel-body">
+                        <b>index : </b>Elemanın sıra numarası, sıfırdan başlayarak sayım.
+                     </div>
+                  </div>
+                  <div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>jQuery( ":eq(-index)" )</span>
+                        <small class="pull-right">Eklendiği Versiyon 1.8</small>
+                     </div>
+                     <div class="panel-body">
+                        <b>indexFromEnd : </b>Sıfırdan geri sayarak eleman index'i.
+                     </div>
+                  </div>
+                  <p class="well">
+                     <b>JQuery 3.4 itibarıyla</b> <code>:eq()</code> sahte sınıfından vazgeçildi. Eğer varsa 
+                     seçicilerinizden onu çıkarıp yerine sonuçları <code><a href="eq.html">.eq()</a></code>
+                     metodu ile filtreleyiniz.
+                  </p>
+                  <p>
+                     Index'e bağlı seçiciler (<code>:eq()</code>, <code>:lt()</code>, <code>:gt()</code>, 
+                     <code>:even</code>, <code>:odd</code>) önlerine eklenen eleman setini filtrelerler. 
+                     Verilen seti seçiciye uygun olarak daraltırlar. Örneğin elemanlar önce bir <b>class</b>
+                     seçiciyle seçilirse ( <code>.myClass</code> ) ve 4 elemanlık bir set dönerse eleman 
+                     index'leri <code>0</code>'dan <code>3</code>'e sıralanarak bu seçicilerce işlenir. 
+                  </p>
+                  <p>
+                     <b>Not : </b>JavaScript array'ler sıfırdan başlayan indexlere sahip olduğu için 
+                     <code>$( ".myclass:eq(1)" )</code> dökümandaki <code>.myclass</code> sınıf değerine 
+                     sahip ikinci elemanı seçer, ama CSS standardı olan <code>:nth-child(n)</code> 1'den
+                     başlayarak elemanları sayar. 
+                  </p>
+                  <p>
+                     Versiyon 1.8 öncesi <code>:eq(index)</code> seçicisi <b>index</b> olarak negatif 
+                     bir sayı almaz (fakat <a href="eq.html">.eq(index)</a> metodu alır).
+                  </p>
+
+                  <br><br><h3>İlave Notlar : </h3>
+                  <ul><li>
+                     <code>:eq()</code> bir jQuery eklentisi olduğu ve CSS standardı olmadığı için 
+                     JavaScript <code>querySelectorAll()</code> metodu performansından yararlanamaz. 
+                     Modern tarayıcılarda daha iyi bir performans için <code>$("saf-css-selector").eq(index)</code>
+                     şeklinde kullanınız.
+                  </li></ul>
+
+
+                  <br><br><h3>Örnekler:</h3>
+                  <p>
+                     3üncü <code>&Lt;td></code> elemanını bul.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="color: #f6f6f4;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">table</span><span style="color: #89ddff;"> </span><span style="color: white;">border</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">1</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;</span>TD #0<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;</span>TD #1<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;</span>TD #2<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;</span>TD #3<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;</span>TD #4<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;</span>TD #5<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;</span>TD #6<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;</span>TD #7<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;</span>TD #8<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">table</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp;</div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">td:eq( 2 )</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">css</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">color</span><span style="color: #d9f5dd;">"</span>, <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">red</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div>
+                  <div id="test1" class="cborder">
+                     <table border="1">
+                        <tr><td>TD #0</td><td>TD #1</td><td>TD #2</td></tr>
+                        <tr><td>TD #3</td><td>TD #4</td><td>TD #5</td></tr>
+                        <tr><td>TD #6</td><td>TD #7</td><td>TD #8</td></tr>
+                     </table>
+                     
+                     <script>
+                        $( "#test1 td:eq( 2 )" ).css( "color", "red" );
+                     </script>
+                  </div>
+                  <br><p>
+                     <code>:eq()</code> setten tek bir eleman döner, <code>:nth-child()</code> ise setteki 
+                     her eleman için bir seçim yapar. <code>:eq()</code> ile benzer bir işlem için de 
+                     <code>.each()</code> metodu kullanılmıştır.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="color: #f6f6f4;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">nav</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>List 1, item 1<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>List 1, item 2<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>List 1, item 3<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">nav</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>List 2, item 1<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>List 2, item 2<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>List 2, item 3<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp;</div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> Tek bir &lt;li&gt; elemana sarı arka renk ver</span></div><div>&nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">ul.nav li:eq(1)</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">css</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">backgroundColor</span><span style="color: #d9f5dd;">"</span>, <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">#ff0</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp;</div><div>&nbsp; &nbsp;<span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> &lt;ul class="nav"&gt; içinde ikinci &lt;li&gt; elemanlara italik yazı yap</span></div><div>&nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">ul.nav</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">each</span><span style="color: #bfc7d5;">(</span><span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">(</span> <span style="color: #7986e7;">index</span> <span style="color: #d9f5dd;">)</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #ff5572;">this</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">find</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">li:eq(1)</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">css</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">fontStyle</span><span style="color: #d9f5dd;">"</span><span style="color: #eeffff;">,</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">italic</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp;}<span style="color: #bfc7d5;">)</span>;</div><div>&nbsp;</div><div>&nbsp; &nbsp;<span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> &lt;ul class="nav"&gt; içindeki ikinci &lt;li&gt; torunlara </span></div><div>&nbsp; &nbsp;<span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> kırmızı yazı rengi uygula</span></div><div>&nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">ul.nav li:nth-child(2)</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">css</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">color</span><span style="color: #d9f5dd;">"</span>, <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">red</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div>
+                  <div id="test2" class="cborder">
+                     <ul class="nav">
+                        <li>List 1, item 1</li>
+                        <li>List 1, item 2</li>
+                        <li>List 1, item 3</li>
+                     </ul>
+                     <ul class="nav">
+                        <li>List 2, item 1</li>
+                        <li>List 2, item 2</li>
+                        <li>List 2, item 3</li>
+                     </ul>
+                     
+                     <script>
+                        // Tek bir <li> elemana sarı arka renk ver
+                        $( "#test2 ul.nav li:eq(1)" ).css( "backgroundColor", "#ff0" );
+                     
+                        // <ul class="nav"> içinde ikinci <li> elemanlara italik yazı yap
+                        $( "#test2 ul.nav" ).each(function( index ) {
+                           $( this ).find( "li:eq(1)" ).css( "fontStyle", "italic" );
+                        });
+                     
+                        // <ul class="nav"> içindeki ikinci <li> torunlara 
+                        // kırmızı yazı rengi uygula
+                        $( "#test2 ul.nav li:nth-child(2)" ).css( "color", "red" );
+                     </script>
+                  </div>
+                  <br><p>
+                     Geri doğru sayarak List 2 , Eleman 2'yi renklendir.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="color: #f6f6f4;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #ffcb6b;">.foo</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">color</span>: <span style="color: #89ddff;">blue</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">background-color</span>: <span style="color: #89ddff;">yellow</span>;</div><div>&nbsp; &nbsp;}</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><br /><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">nav</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>List 1, item 1<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>List 1, item 2<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>List 1, item 3<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">nav</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>List 2, item 1<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>List 2, item 2<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>List 2, item 3<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp;</div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">li:eq(-2)</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">addClass</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">foo</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                  <div id="test3" class="cborder">
+                     <style>
+                        #test3 .foo {
+                           color: blue;
+                           background-color: yellow;
+                        }
+                     </style>
+
+                     <ul class="nav">
+                        <li>List 1, item 1</li>
+                        <li>List 1, item 2</li>
+                        <li>List 1, item 3</li>
+                     </ul>
+                     <ul class="nav">
+                        <li>List 2, item 1</li>
+                        <li>List 2, item 2</li>
+                        <li>List 2, item 3</li>
+                     </ul>
+                     
+                     <script>
+                        $( "#test3 li:eq(-2)" ).addClass( "foo" )
+                     </script>
+                  </div>
+
+               </div>
+            </div> <!-- panel-primary -->
+            
+            <p>.</p><p>.</p>
+
+         </div>
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+      </div>
+   </div>
+<script>
+   // put space at paragraph start
+   $("p").filter(function(){return !this.class}).prepend("&emsp;");
+
+</script>
+
+</body>
+</html>

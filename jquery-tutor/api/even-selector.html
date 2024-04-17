@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>:even Seçicisi</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+   <style>
+      div .scroll{
+         height:300px;
+         width: 100%;
+         overflow:scroll;
+         scrollbar-color: dark;
+      }
+
+      ::-webkit-scrollbar {
+         width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+         background: white;
+      }
+
+      ::-webkit-scrollbar-thumb {
+         background: gray;
+         border-radius: 10px;
+      }
+
+      .cborder {
+         border: 1px solid black;
+         padding: 5px;
+      }
+
+      .cpadding {
+         padding: 15px;
+      }
+
+      body {
+         font-size: 1.6rem;
+      }
+   </style>
+</head>
+<body style="font-family: Open Sans;">
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+      <img src="../../images/bayrak.jpg" alt="Turkish Flag" width="70" 
+         style="position: absolute; left: 20px; top: 10px;" class="hidden-xs">
+      <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+   </nav>
+
+   <div class="container" style="padding-top: 70px;">
+      <div class="row">
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+         <div class="col-md-8">
+            <ul class="breadcrumb small" >
+               <li><a href="../../index.html">Ana Sayfa</a></li>
+               <li><a href="index.html">JQuery API</a></li>
+               <li class="active"><span>:even Seçicisi</span></li>
+            </ul>
+               
+            <h1>:even Seçicisi</h1>
+
+            <div class="panel panel-primary">
+               <div class="panel-heading">
+                  <span>even selector</span>
+                  <small class="pull-right">Vazgeçilen versiyon 3.4</small>
+               </div>
+               <div class="panel-body">
+                  <b>Açıklama : </b><i>Sıfır endeksli olarak çift elemanları bulur. Ayrıca 
+                     <code><a href="odd-selector.html">:odd</a></code> seçicisine bakınız.
+                  </i>
+                  <br><br>
+                  <div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>jQuery( ":even" )</span>
+                        <small class="pull-right">Eklendiği Versiyon 1.0</small>
+                     </div>
+                  </div>
+                  <p class="well">
+                     <b>JQuery 3.4 itibarıyla</b> <code>:even</code> sahte sınıfından vazgeçildi. Eğer varsa 
+                     seçicilerinizden onu çıkarıp yerine sonuçları <code><a href="even.html">.even()</a></code>
+                     metodu ile filtreleyiniz. (Versiyon 3.5.0 ve sonrası için)
+                  </p>
+                  <p>
+                     Dikkat ediniz <code>:even</code> seçicisi sıralamaya sıfırdan başladığı için ilk, 
+                     üçüncü, beşinic vs elemanları seçmektedir.
+                  </p>
+
+                  <br><br><h3>İlave Notlar : </h3>
+                  <ul><li>
+                     <code>:even</code> bir jQuery eklentisi olduğu ve CSS standardı olmadığı için 
+                     JavaScript <code>querySelectorAll()</code> metodu performansından yararlanamaz. 
+                     Modern tarayıcılarda daha iyi bir performans için önce saf CSS seçici ile 
+                     elemanları seçip <code><a href="filter.html">.filter(":even").</a></code> ile 
+                     seti filtreleyiniz.
+                  </li><li>
+                     Seçilen elemanlar dökümanda yer aldıkları sırayla gelirler. 
+                  </li></ul>
+
+
+                  <br><br><h3>Örnekler:</h3>
+                  <p>
+                     Çift sıra numaralı tablo satırlarını bul (index'i 0, 2, 4 olanlar).
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="color: #f6f6f4;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #ff5572;">table</span> { <span style="color: #80cbc4;">background</span>: <span style="color: #f78c6c;">#</span><span style="color: #ffeb95;">eee</span>; }</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">table</span><span style="color: #89ddff;"> </span><span style="color: white;">border</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">1</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;</span>Row with Index #0<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;</span>Row with Index #1<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;</span>Row with Index #2<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;</span>Row with Index #3<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">table</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp;</div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">tr:even</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">css</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">background-color</span><span style="color: #d9f5dd;">"</span>, <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">#bbf</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                  <div id="test1" class="cborder">
+                     <style>
+                        #test1 table { background: #eee; }
+                     </style>
+                     <table border="1">
+                        <tr><td>Row with Index #0</td></tr>
+                        <tr><td>Row with Index #1</td></tr>
+                        <tr><td>Row with Index #2</td></tr>
+                        <tr><td>Row with Index #3</td></tr>
+                     </table>
+                     
+                     <script>
+                        $( "#test1 tr:even" ).css( "background-color", "#bbf" );
+                     </script>
+                  </div>
+
+               </div>
+            </div> <!-- panel-primary -->
+            
+            <p>.</p><p>.</p>
+
+         </div>
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+      </div>
+   </div>
+<script>
+   // put space at paragraph start
+   $("p").filter(function(){return !this.class}).prepend("&emsp;");
+
+</script>
+
+</body>
+</html>

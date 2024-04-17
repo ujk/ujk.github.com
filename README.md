@@ -13,7 +13,7 @@
 - jquery-tutor\api\selected-selector.html line 94
 - jquery-tutor\api\filter.html line 84
 - jquery-tutor\api\Types\index.html line 440-Seçici
-- jquery-tutor\api\selectors\index.html line 196
+- jquery-tutor\api\selectors\index.html line 300
 
 # TO DO
 - Add a flag to banner

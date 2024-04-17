@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>.eq() Metodu</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+   <style>
+      div .scroll{
+         height:300px;
+         width: 100%;
+         overflow:scroll;
+         scrollbar-color: dark;
+      }
+
+      ::-webkit-scrollbar {
+         width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+         background: white;
+      }
+
+      ::-webkit-scrollbar-thumb {
+         background: gray;
+         border-radius: 10px;
+      }
+
+      .cborder {
+         border: 1px solid black;
+         padding: 5px;
+      }
+
+      .cpadding {
+         padding: 15px;
+      }
+
+      body {
+         font-size: 1.6rem;
+      }
+   </style>
+</head>
+<body style="font-family: Open Sans;">
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+      <img src="../../images/bayrak.jpg" alt="Turkish Flag" width="70" 
+         style="position: absolute; left: 20px; top: 10px;" class="hidden-xs">
+      <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+   </nav>
+
+   <div class="container" style="padding-top: 70px;">
+      <div class="row">
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+         <div class="col-md-8">
+            <ul class="breadcrumb small" >
+               <li><a href="../../index.html">Ana Sayfa</a></li>
+               <li><a href="index.html">JQuery API</a></li>
+               <li class="active"><span>.eq() Metodu</span></li>
+            </ul>
+               
+            <h1>.eq()</h1>
+
+            <div class="panel panel-primary">
+               <div class="panel-heading">
+                  <span>.eq( index )</span>
+                  <span class="pull-right">Dönen değer: 
+                     <a href="Types/index.html#jQuery" style="color: aqua;">jQuery Nesnesi</a></span>
+               </div>
+               <div class="panel-body">
+                  <b>Açıklama : </b><i> Bulunulan set içinde index'i verilen elemanı bulur.</i>
+                  <br><br>
+                  <div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>.eq( index )</span>
+                        <small class="pull-right">Eklendiği Versiyon 1.1.2</small>
+                     </div>
+                     <div class="panel-body">
+                        <b>index : </b><br>
+                        Tip : <a href="Types/index.html#Integer">Tamsayı</a><br>
+                        Elemanın sıra numarası, sıfırdan başlayarak sayım.
+                     </div>
+                  </div>
+                  <div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>.eq( indexFromEnd )</span>
+                        <small class="pull-right">Eklendiği Versiyon 1.4</small>
+                     </div>
+                     <div class="panel-body">
+                        <b>indexFromEnd : </b><br>
+                        Tip : <a href="Types/index.html#Integer">Tamsayı</a><br>
+                        Sıfırdan geri sayarak eleman index'i, negatif sayı.
+                     </div>
+                  </div>
+                  <p>
+                     DOM elemanlarından oluşan bir jQuery nesnesi verildiğinde, <code>.eq()</code> metodu 
+                     bu setin bir tane elemanından oluşan jQuery nesnesi döner. Verilen <b>index</b> bu 
+                     elemanın set içindeki sıra numarasıdır.
+                  </p>
+                  <p>
+                     Basit bir liste içeren sayfa düşünelim.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>list item 1<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>list item 2<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>list item 3<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>list item 4<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>list item 5<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div></div>
+                  <br><p>
+                     Bu listeye metodumuzu uygulayarak elemanın birinde değişiklik yapabiliriz.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">li</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">eq</span><span style="color: #bfc7d5;">(</span> <span style="color: #f78c6c;">2</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">css</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">background-color</span><span style="color: #d9f5dd;">"</span>, <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">red</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div>
+                  <div id="test1" class="cborder">
+                     <ul>
+                        <li>list item 1</li>
+                        <li>list item 2</li>
+                        <li>list item 3</li>
+                        <li>list item 4</li>
+                        <li>list item 5</li>
+                     </ul>
+                     <script>
+                        $( "#test1 li" ).eq( 2 ).css( "background-color", "red" );
+                     </script>
+                  </div>
+                  <br>
+                  <p>
+                     Index değeri sıfırdan başladığı için 3 numaralı liste elemanı seçilmiş olmasına dikkat 
+                     ediniz.
+                  </p>
+                  <p>
+                     Negatif bir index değeri vermek elemanları sondan geri doğru saymaya sebep olur.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">li</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">eq</span><span style="color: #bfc7d5;">(</span> <span style="color: #89ddff;">-</span><span style="color: #f78c6c;">2</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">css</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">background-color</span><span style="color: #d9f5dd;">"</span>, <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">red</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div>
+                  <div id="test2" class="cborder">
+                     <ul>
+                        <li>list item 1</li>
+                        <li>list item 2</li>
+                        <li>list item 3</li>
+                        <li>list item 4</li>
+                        <li>list item 5</li>
+                     </ul>
+                     <script>
+                        $( "#test2 li" ).eq( -2 ).css( "background-color", "red" );
+                     </script>
+                  </div>
+                  <br><p>
+                     5 nolu eleman -1'inci ve 4 nolu eleman -2'nci olacaktır. 
+                  </p>
+                  <p>
+                     Eğer verilen index'te eleman bulunamazsa boş bir jQuery nesnesi geri döner.
+                  </p>
+
+                  <br><br><h3>Örnekler:</h3>
+                  <p>
+                     Index'i 2 olan <code>&lt;div></code> elemanını ilgili sınıfı vererek mavi yap.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="color: #f6f6f4;"><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div style="color: #f6f6f4;">&nbsp; &nbsp;<span style="color: #ff5572;">div</span> {</div><div style="color: #f6f6f4;">&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">width</span>: <span style="color: #f78c6c;">70</span><span style="color: #ffeb95;">px</span>; <span style="color: #80cbc4;">height</span>: <span style="color: #f78c6c;">70</span><span style="color: #ffeb95;">px</span>;</div><div style="color: #f6f6f4;">&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">margin</span>: <span style="color: #f78c6c;">10</span><span style="color: #ffeb95;">px</span>; <span style="color: #80cbc4;">float</span>: <span style="color: #89ddff;">left</span>;</div><div style="color: #f6f6f4;">&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">border</span>: <span style="color: #f78c6c;">2</span><span style="color: #ffeb95;">px</span> <span style="color: #89ddff;">solid</span> <span style="color: #89ddff;">blue</span>;</div><div style="color: #f6f6f4;">&nbsp; &nbsp;}</div><div style="color: #f6f6f4;">&nbsp; &nbsp;<span style="color: #ffcb6b;">.blue</span> { <span style="color: #80cbc4;">background</span>: <span style="color: #89ddff;">blue</span>; }</div><div style="color: #f6f6f4;"><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div style="color: #f6f6f4;">&nbsp;</div><div style="color: #f6f6f4;"><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span> <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span> <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div style="color: #f6f6f4;"><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span> <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span> <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div style="color: #f6f6f4;">&nbsp;</div><div style="color: #f6f6f4;"><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #f6f6f4;">&nbsp; &nbsp;</span><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #f6f6f4;"> </span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">body</span><span style="color: #d9f5dd;">"</span><span style="color: #f6f6f4;"> </span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">find</span><span style="color: #bfc7d5;">(</span><span style="color: #f6f6f4;"> </span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">div</span><span style="color: #d9f5dd;">"</span><span style="color: #f6f6f4;"> </span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">eq</span><span style="color: #bfc7d5;">(</span><span style="color: #f6f6f4;"> </span><span style="color: #f78c6c;">2</span><span style="color: #f6f6f4;"> </span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">addClass</span><span style="color: #bfc7d5;">(</span><span style="color: #f6f6f4;"> </span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">blue</span><span style="color: #d9f5dd;">"</span><span style="color: #f6f6f4;"> </span><span style="color: #bfc7d5;">)</span><span style="color: #f6f6f4;">;</span></div><div style="color: #f6f6f4;"><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div></div></div></div></div>
+                  <div id="test3" class="cborder" style="height: 120px;">
+                     <style>
+                        #test3 div {
+                           width: 70px; height: 70px;
+                           margin: 10px; float: left;
+                           border: 2px solid blue;
+                        }
+                        #test3 .blue { background: blue; }
+                     </style>
+                     
+                     <div></div> <div></div> <div></div>
+                     <div></div> <div></div> <div></div>
+                     
+                     <script>
+                        $( "#test3" ).find( "div" ).eq( 2 ).addClass( "blue" );
+                     </script>
+                  </div>
+
+
+               </div>
+            </div> <!-- panel-primary -->
+            
+            <p>.</p><p>.</p>
+
+         </div>
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+      </div>
+   </div>
+<script>
+   // put space at paragraph start
+   $("p").filter(function(){return !this.class}).prepend("&emsp;");
+
+</script>
+
+</body>
+</html>
