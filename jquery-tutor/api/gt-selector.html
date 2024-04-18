@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>:gt() Seçicisi</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+   <style>
+      div .scroll{
+         height:300px;
+         width: 100%;
+         overflow:scroll;
+         scrollbar-color: dark;
+      }
+
+      ::-webkit-scrollbar {
+         width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+         background: white;
+      }
+
+      ::-webkit-scrollbar-thumb {
+         background: gray;
+         border-radius: 10px;
+      }
+
+      .cborder {
+         border: 1px solid black;
+         padding: 5px;
+      }
+
+      .cpadding {
+         padding: 15px;
+      }
+
+      body {
+         font-size: 1.6rem;
+      }
+   </style>
+</head>
+<body style="font-family: Open Sans;">
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+      <img src="../../images/bayrak.jpg" alt="Turkish Flag" width="70" 
+         style="position: absolute; left: 20px; top: 10px;" class="hidden-xs">
+      <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+   </nav>
+
+   <div class="container" style="padding-top: 70px;">
+      <div class="row">
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+         <div class="col-md-8">
+            <ul class="breadcrumb small" >
+               <li><a href="../../index.html">Ana Sayfa</a></li>
+               <li><a href="index.html">JQuery API</a></li>
+               <li class="active"><span>:gt() Seçicisi</span></li>
+            </ul>
+               
+            <h1>:gt() Seçicisi</h1>
+
+            <div class="panel panel-primary">
+               <div class="panel-heading">
+                  <span>gt selector</span>
+                  <small class="pull-right">Vazgeçilen versiyon 3.4</small>
+               </div>
+               <div class="panel-body">
+                  <b>Açıklama : </b><i>Verilen set içinde index'i verilenden büyük olan elemanları seçer.</i>
+                  <br><br>
+                  <div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>jQuery( ":gt(index)" )</span>
+                        <small class="pull-right">Eklendiği Versiyon 1.0</small>
+                     </div>
+                     <div class="panel-body">
+                        <b>index : </b>Elemanın sıra numarası, sıfırdan başlayarak sayım.
+                     </div>
+                  </div>
+                  <div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>jQuery( ":gt(-index)" )</span>
+                        <small class="pull-right">Eklendiği Versiyon 1.8</small>
+                     </div>
+                     <div class="panel-body">
+                        <b>indexFromEnd : </b>Sıfırdan geri sayarak eleman index'i.
+                     </div>
+                  </div>
+                  <p class="well">
+                     <b>JQuery 3.4 itibarıyla</b> <code>:gt()</code> sahte sınıfından vazgeçildi. Eğer varsa 
+                     seçicilerinizden onu çıkarıp yerine sonuçları <code><a href="slice.html">.slice()</a></code>
+                     metodu ile filtreleyiniz. Mesela <code>:gt(3)</code> seçicisi yerine <code>.slice(4)</code>
+                     kullanınız (verilen index bir arttırılır).
+                  </p>
+                  <b>Index'e bağlı seçiciler</b>
+                  <p>
+                     Index'e bağlı seçiciler (<code>:eq()</code>, <code>:lt()</code>, <code>:gt()</code>, 
+                     <code>:even</code>, <code>:odd</code>) önlerine eklenen eleman setini filtrelerler. 
+                     Verilen seti seçiciye uygun olarak daraltırlar. Örneğin elemanlar önce bir <b>class</b>
+                     seçiciyle seçilirse ( <code>.myClass</code> ) ve 4 elemanlık bir set dönerse eleman 
+                     index'leri <code>0</code>'dan <code>3</code>'e sıralanarak bu seçicilerce işlenir. 
+                  </p>
+                  <p>
+                     <b>Not : </b>JavaScript array'ler sıfırdan başlayan indexlere sahip olduğu için 
+                     <code>$( ".myclass:gt(1)" )</code> dökümandaki <code>.myclass</code> sınıf değerine 
+                     sahip ikinci elemandan sonra gelen elemanları seçer. 
+                  </p>
+                  <p>
+                     Versiyon 1.8 öncesi <code>:gt(index)</code> seçicisi <b>index</b> olarak negatif 
+                     bir sayı almaz.
+                  </p>
+
+                  <br><br><h3>İlave Notlar : </h3>
+                  <ul><li>
+                     <code>:gt()</code> bir jQuery eklentisi olduğu ve CSS standardı olmadığı için 
+                     JavaScript <code>querySelectorAll()</code> metodu performansından yararlanamaz. 
+                     Modern tarayıcılarda daha iyi bir performans için 
+                     <code>$("saf-css-selector").slice(index)</code> şeklinde kullanınız.
+                  </li></ul>
+
+
+                  <br><br><h3>Örnekler:</h3>
+                  <p>
+                     <b>TD #5</b> ve sonrasını fosforlu kalemle işaretle ve <b>TD #8</b>'e kırmızı yazı ver.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">table</span><span style="color: #89ddff;"> </span><span style="color: white;">border</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">1</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;</span>TD #0<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;</span>TD #1<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;</span>TD #2<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;</span>TD #3<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;</span>TD #4<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;</span>TD #5<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;</span>TD #6<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;</span>TD #7<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;</span>TD #8<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">table</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp;</div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">td:gt(4)</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">css</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">backgroundColor</span><span style="color: #d9f5dd;">"</span>, <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">yellow</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">td:gt(-2)</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">css</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">color</span><span style="color: #d9f5dd;">"</span>, <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">red</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                  <div id="test1" class="cborder">
+                     <table border="1">
+                        <tr><td>TD #0</td><td>TD #1</td><td>TD #2</td></tr>
+                        <tr><td>TD #3</td><td>TD #4</td><td>TD #5</td></tr>
+                        <tr><td>TD #6</td><td>TD #7</td><td>TD #8</td></tr>
+                     </table>
+                     
+                     <script>
+                        $( "#test1 td:gt(4)" ).css( "backgroundColor", "yellow" );
+                        $( "#test1 td:gt(-2)" ).css( "color", "red" );
+                     </script>
+                  </div>
+
+               </div>
+            </div> <!-- panel-primary -->
+            
+            <p>.</p><p>.</p>
+
+         </div>
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+      </div>
+   </div>
+<script>
+   // put space at paragraph start
+   $("p").filter(function(){return !this.class}).prepend("&emsp;");
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>:focus Seçicisi</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+   <style>
+      div .scroll{
+         height:300px;
+         width: 100%;
+         overflow:scroll;
+         scrollbar-color: dark;
+      }
+
+      ::-webkit-scrollbar {
+         width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+         background: white;
+      }
+
+      ::-webkit-scrollbar-thumb {
+         background: gray;
+         border-radius: 10px;
+      }
+
+      .cborder {
+         border: 1px solid black;
+         padding: 5px;
+      }
+
+      .cpadding {
+         padding: 15px;
+      }
+
+      body {
+         font-size: 1.6rem;
+      }
+   </style>
+</head>
+<body style="font-family: Open Sans;">
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+      <img src="../../images/bayrak.jpg" alt="Turkish Flag" width="70" 
+         style="position: absolute; left: 20px; top: 10px;" class="hidden-xs">
+      <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+   </nav>
+
+   <div class="container" style="padding-top: 70px;">
+      <div class="row">
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+         <div class="col-md-8">
+            <ul class="breadcrumb small" >
+               <li><a href="../../index.html">Ana Sayfa</a></li>
+               <li><a href="index.html">JQuery API</a></li>
+               <li class="active"><span>:focus Seçicisi</span></li>
+            </ul>
+               
+            <h1>:focus Seçicisi</h1>
+
+            <div class="panel panel-primary">
+               <div class="panel-heading">
+                  <span>focus selector</span>
+               </div>
+               <div class="panel-body">
+                  <b>Açıklama : </b><i>Şu anda fokuslanılmış elemanı seçer.</i>
+                  <br><br>
+                  <div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>jQuery( ":focus" )</span>
+                        <small class="pull-right">Eklendiği Versiyon 1.6</small>
+                     </div>
+                  </div>
+                  <p>
+                     Tüm diğer sahte sınıf seçiciler (":" ile başlayanlar) gibi buna da öncesinde bir standart 
+                     CSS seçici eklemek tavsiye edilir. Yoksa <code>$(":focus")</code> verince 
+                     <code>$("*:focus")</code> kabul edilerek tüm sayfa elemanlarında arama yapılır.
+                     DOM ağacında şu andaki fokuslu elemanı arama yapmadan elde etmek için 
+                     <code>$( document.activeElement )</code> kullanılabilir.
+                  </p>
+
+                  <br><br><h3>Örnekler:</h3>
+                  <p>
+                     Elemana odaklanılınca <i>focused</i> sınıfı ver.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #ffcb6b;">.focused</span> { <span style="color: #80cbc4;">background</span>: <span style="color: #f78c6c;">#</span><span style="color: #ffeb95;">abcdef</span>; }</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">id</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">content</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">input</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">tabIndex</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">1</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">input</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">tabIndex</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">2</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">select</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">tabIndex</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">3</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">option</span><span style="color: #89ddff;">&gt;</span>select menu<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">option</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">select</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">tabIndex</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">4</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span>bir div<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">#content</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">delegate</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">*</span><span style="color: #d9f5dd;">"</span>, <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">focus blur</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">elem</span> <span style="color: #c792ea;">=</span> <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #ff5572;">this</span> <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #82aaff;">setTimeout</span><span style="color: #bfc7d5;">(</span><span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #bfc7d5;">elem</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">toggleClass</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">focused</span><span style="color: #d9f5dd;">"</span><span style="color: #eeffff;">,</span> <span style="color: #bfc7d5;">elem</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">is</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">:focus</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span> <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp; &nbsp; }<span style="color: #eeffff;">,</span> <span style="color: #f78c6c;">0</span> <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp;}<span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div>
+                  <div id="test1" class="cborder">
+                     <style>
+                        #test1 .focused { background: #abcdef; }
+                     </style>
+                     <div id="content">
+                        <input tabIndex="1">
+                        <input tabIndex="2">
+                        <select tabIndex="3">
+                           <option>select menu</option>
+                        </select>
+                        <div tabIndex="4">bir div</div>
+                     </div>
+                     <script>
+                        $( "#test1 #content" ).delegate( "*", "focus blur", function() {
+                           var elem = $( this );
+                           setTimeout(function() {
+                              elem.toggleClass( "focused", elem.is( ":focus" ) );
+                           }, 0 );
+                        });
+                     </script>
+                  </div>
+
+               </div>
+            </div> <!-- panel-primary -->
+            
+            <p>.</p><p>.</p>
+
+         </div>
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+      </div>
+   </div>
+<script>
+   // put space at paragraph start
+   $("p").filter(function(){return !this.class}).prepend("&emsp;");
+
+</script>
+
+</body>
+</html>

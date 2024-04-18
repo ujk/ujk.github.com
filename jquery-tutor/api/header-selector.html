@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>:header Seçicisi</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+   <style>
+      div .scroll{
+         height:300px;
+         width: 100%;
+         overflow:scroll;
+         scrollbar-color: dark;
+      }
+
+      ::-webkit-scrollbar {
+         width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+         background: white;
+      }
+
+      ::-webkit-scrollbar-thumb {
+         background: gray;
+         border-radius: 10px;
+      }
+
+      .cborder {
+         border: 1px solid black;
+         padding: 5px;
+      }
+
+      .cpadding {
+         padding: 15px;
+      }
+
+      body {
+         font-size: 1.6rem;
+      }
+   </style>
+</head>
+<body style="font-family: Open Sans;">
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+      <img src="../../images/bayrak.jpg" alt="Turkish Flag" width="70" 
+         style="position: absolute; left: 20px; top: 10px;" class="hidden-xs">
+      <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+   </nav>
+
+   <div class="container" style="padding-top: 70px;">
+      <div class="row">
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+         <div class="col-md-8">
+            <ul class="breadcrumb small" >
+               <li><a href="../../index.html">Ana Sayfa</a></li>
+               <li><a href="index.html">JQuery API</a></li>
+               <li class="active"><span>:header Seçicisi</span></li>
+            </ul>
+               
+            <h1>:header Seçicisi</h1>
+
+            <div class="panel panel-primary">
+               <div class="panel-heading">
+                  <span>header selector</span>
+               </div>
+               <div class="panel-body">
+                  <b>Açıklama : </b><i> Header (h1, h2, h3, h4, h5, h6) elemanları seçer.</i>
+                  <br><br>
+                  <div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>jQuery( ":header" )</span>
+                        <small class="pull-right">Eklendiği Versiyon 1.2</small>
+                     </div>
+                  </div>
+
+                  <br><h3>İlave Notlar :</h3>
+                  <ul><li>
+                     Bu <code>:header</code> seçicisi bir JQuery eklentisi olup standart CSS seçici olmadığı 
+                     için, standart DOM <code>querySelectorAll()</code> metodunun performansında olamaz. 
+                     Modern tarayıcılarda daha iyi performans için önce grup seçimini standart CSS 
+                     ile yapıp <code><a href="filter.html">.filter(":header").</a></code> metodu ile
+                     filtreleyiniz.
+                  </li></ul>
+
+                  <br><br><h3>Örnekler:</h3>
+                  <p>
+                     Sayfadaki tüm başlıklara arka renk ve yazı rengi ver.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">h1</span><span style="color: #89ddff;">&gt;</span>Header 1<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">h1</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span>Contents 1<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">h2</span><span style="color: #89ddff;">&gt;</span>Header 2<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">h2</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span>Contents 2<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp;</div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">:header</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">css</span><span style="color: #bfc7d5;">(</span>{ background: <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">#ccc</span><span style="color: #d9f5dd;">"</span>, color: <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">blue</span><span style="color: #d9f5dd;">"</span> }<span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                  <div id="test1" class="cborder">
+                     <h1>Header 1</h1>
+                     <p>Contents 1</p>
+                     <h2>Header 2</h2>
+                     <p>Contents 2</p>
+                     
+                     <script>
+                        $("#test1 :header").css({ background: "#ccc", color: "blue" });
+                     </script>
+                  </div>
+
+               </div>
+            </div> <!-- panel-primary -->
+            
+            <p>.</p><p>.</p>
+
+         </div>
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+      </div>
+   </div>
+<script>
+   // put space at paragraph start
+   $("p:not([class])").prepend("&emsp;");
+
+</script>
+
+</body>
+</html>

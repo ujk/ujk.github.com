@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>.slice() Metodu</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+   <style>
+      div .scroll{
+         height:300px;
+         width: 100%;
+         overflow:scroll;
+         scrollbar-color: dark;
+      }
+
+      ::-webkit-scrollbar {
+         width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+         background: white;
+      }
+
+      ::-webkit-scrollbar-thumb {
+         background: gray;
+         border-radius: 10px;
+      }
+
+      .cborder {
+         border: 1px solid black;
+         padding: 5px;
+      }
+
+      .cpadding {
+         padding: 15px;
+      }
+
+      body {
+         font-size: 1.6rem;
+      }
+   </style>
+</head>
+<body style="font-family: Open Sans;">
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+      <img src="../../images/bayrak.jpg" alt="Turkish Flag" width="70" 
+         style="position: absolute; left: 20px; top: 10px;" class="hidden-xs">
+      <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+   </nav>
+
+   <div class="container" style="padding-top: 70px;">
+      <div class="row">
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+         <div class="col-md-8">
+            <ul class="breadcrumb small" >
+               <li><a href="../../index.html">Ana Sayfa</a></li>
+               <li><a href="index.html">JQuery API</a></li>
+               <li class="active"><span>.slice() Metodu</span></li>
+            </ul>
+               
+            <h1>.slice()</h1>
+
+            <div class="panel panel-primary">
+               <div class="panel-heading">
+                  <span>.slice( start [, end ] )</span>
+                  <span class="pull-right">Dönen değer: 
+                     <a href="Types/index.html#jQuery" style="color: aqua;">jQuery Nesnesi</a></span>
+               </div>
+               <div class="panel-body">
+                  <b>Açıklama : </b><i> Bulunulan set'i indislerle belirtilen aralığa indirger.</i>
+                  <br><br>
+                  <div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>.slice( start [, end ] )</span>
+                        <small class="pull-right">Eklendiği Versiyon 1.1.4</small>
+                     </div>
+                     <div class="panel-body">
+                        <b>start</b><br>
+                        Tip : <a href="Types/index.html#Integer">Tamsayı</a><br>
+                        Elemanların seçilmeye başlanacağı index'i belirten sıfır temelli değer. Eksi değer 
+                        olursa sondan geri sayılacaktır. 
+                        <hr>
+                        <b>end</b><br>
+                        Tip : <a href="Types/index.html#Integer">Tamsayı</a><br>
+                        Elemanların seçiminin bitirileceği index'i belirten sıfır temelli değer. Eksi değer 
+                        olursa sondan geri sayılacaktır. Eğer verilmezse başlangıçtan en son dahil tüm elemanlar 
+                        seçilir.
+                     </div>
+                  </div>
+                  <p>
+                     DOM elemanlarından oluşan bir jQuery nesnesi verildiğinde, <code>.slice()</code> 
+                     metodu <code>start</code> ve <code>end</code> ile belirtilen aralıktaki indexlerdeki
+                     elemanlardan oluşan jQuery nesnesi döner. Girilmesi gereken <code>start</code> ile belirtilen 
+                     indexli elemandan eçim başlar, <code>end</code> verilmişse o index 
+                     elemana kadar elemanlar seçilir.
+                  </p>
+                  <p>
+                     Basit bir listemiz olsun.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>list item 1<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>list item 2<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>list item 3<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>list item 4<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>list item 5<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div></div>
+                  <br><p>
+                     Bu listeye metodumuzu uygulayarak elemanlarda değişiklik yapabiliriz.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">li</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">slice</span><span style="color: #bfc7d5;">(</span><span style="color: #f78c6c;">2</span>,<span style="color: #f78c6c;">4</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">css</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">background-color</span><span style="color: #d9f5dd;">"</span>, <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">red</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div></div></div></div></div>
+                  <div id="test1" class="cborder">
+                     <ul>
+                        <li>list item 1</li>
+                        <li>list item 2</li>
+                        <li>list item 3</li>
+                        <li>list item 4</li>
+                        <li>list item 5</li>
+                     </ul>
+                     <script>
+                        $( "#test1 li" ).slice(2,4).css( "background-color", "red" );
+                     </script>
+                  </div>
+                  <br><p>
+                     Index 2 ve 3 seçildi 4 ise seçilmedi.
+                  </p>
+                  <br><b>negatif indexler</b>
+                  <p>
+                     JQuery <code>.slice()</code> metodu JavaScript'in array'ler için olan <code>slice()</code>
+                     metoduna benzer. Negatif indexler verilirse sondan başa doğru geri sayılır.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">li</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">slice</span><span style="color: #bfc7d5;">(</span><span style="color: #89ddff;">-</span><span style="color: #f78c6c;">2</span>, <span style="color: #89ddff;">-</span><span style="color: #f78c6c;">1</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">css</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">background-color</span><span style="color: #d9f5dd;">"</span>, <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">red</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div>
+                  <div id="test2" class="cborder">
+                     <ul>
+                        <li>list item 1</li>
+                        <li>list item 2</li>
+                        <li>list item 3</li>
+                        <li>list item 4</li>
+                        <li>list item 5</li>
+                     </ul>
+                     <script>
+                        $( "#test2 li" ).slice(-2, -1).css( "background-color", "red" );
+                     </script>
+                  </div>
+
+                  <br><br><h3>Örnekler:</h3>
+                  <p>
+                     Rastgele bir şekilde <code>&lt;div></code> elemanların arka renklerini sarı yapar.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #ff5572;">div</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">width</span>: <span style="color: #f78c6c;">40</span><span style="color: #ffeb95;">px</span>; <span style="color: #80cbc4;">height</span>: <span style="color: #f78c6c;">40</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">margin</span>: <span style="color: #f78c6c;">10</span><span style="color: #ffeb95;">px</span>; <span style="color: #80cbc4;">float</span>: <span style="color: #89ddff;">left</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">border</span>: <span style="color: #f78c6c;">2</span><span style="color: #ffeb95;">px</span> <span style="color: #89ddff;">solid</span> <span style="color: #89ddff;">blue</span>;</div><div>&nbsp; &nbsp;}</div><div>&nbsp; &nbsp;<span style="color: #ff5572;">span</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">color</span>: <span style="color: #89ddff;">red</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">font-weight</span>: <span style="color: #89ddff;">bold</span>;</div><div>&nbsp; &nbsp;}</div><div>&nbsp; &nbsp;<span style="color: #ff5572;">button</span> { <span style="color: #80cbc4;">margin</span>: <span style="color: #f78c6c;">5</span><span style="color: #ffeb95;">px</span>; }</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">button</span><span style="color: #89ddff;">&gt;</span>Parçaları sarı yap<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">button</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">span</span><span style="color: #89ddff;">&gt;</span>Butona tıkla!<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">span</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #c792ea;">function</span> <span style="color: #82aaff;">colorEm</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">$div</span> <span style="color: #c792ea;">=</span> <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">div</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">start</span> <span style="color: #c792ea;">=</span> <span style="color: #bfc7d5;">Math</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">floor</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">Math</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">random</span><span style="color: #bfc7d5;">()</span> <span style="color: #89ddff;">*</span> <span style="color: #bfc7d5;">$div</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">length</span> <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">end</span> <span style="color: #c792ea;">=</span> <span style="color: #bfc7d5;">Math</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">floor</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">Math</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">random</span><span style="color: #bfc7d5;">()</span> <span style="color: #89ddff;">*</span> <span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">$div</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">length</span> <span style="color: #89ddff;">-</span> <span style="color: #bfc7d5;">start</span> <span style="color: #bfc7d5;">)</span> <span style="color: #bfc7d5;">)</span> <span style="color: #89ddff;">+</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #bfc7d5;">start</span> <span style="color: #89ddff;">+</span> <span style="color: #f78c6c;">1</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #c792ea;">if</span> <span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">end</span> <span style="color: #c792ea;">===</span> <span style="color: #bfc7d5;">$div</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">length</span> <span style="color: #bfc7d5;">)</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #bfc7d5;">end</span> <span style="color: #c792ea;">=</span> <span style="color: #82aaff;">undefined</span>;</div><div>&nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #bfc7d5;">$div</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">css</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">background</span><span style="color: #d9f5dd;">"</span><span style="color: #eeffff;">,</span> <span style="color: #d9f5dd;">""</span> <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #c792ea;">if</span> <span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">end</span> <span style="color: #bfc7d5;">)</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #bfc7d5;">$div</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">slice</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">start</span><span style="color: #eeffff;">,</span> <span style="color: #bfc7d5;">end</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">css</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">background</span><span style="color: #d9f5dd;">"</span><span style="color: #eeffff;">,</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">yellow</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp; &nbsp; } <span style="color: #c792ea;">else</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #bfc7d5;">$div</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">slice</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">start</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">css</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">background</span><span style="color: #d9f5dd;">"</span><span style="color: #eeffff;">,</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">yellow</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp; &nbsp; }</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">span</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">text</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">$( 'div' ).slice( </span><span style="color: #d9f5dd;">"</span> <span style="color: #89ddff;">+</span> <span style="color: #bfc7d5;">start</span> <span style="color: #89ddff;">+</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #bfc7d5;">(end</span> <span style="color: #89ddff;">?</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">, </span><span style="color: #d9f5dd;">"</span> <span style="color: #89ddff;">+</span> <span style="color: #bfc7d5;">end</span> <span style="color: #89ddff;">:</span> <span style="color: #d9f5dd;">""</span><span style="color: #bfc7d5;">)</span> <span style="color: #89ddff;">+</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">).css( 'background', 'yellow' );</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp;}</div><div>&nbsp; &nbsp;</div><div>&nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">button</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span>, <span style="color: #bfc7d5;">colorEm</span> <span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div></div></div></div>
+                  <div id="test3" class="cborder" style="height: 120px;">
+                     <style>
+                        #test3 div {
+                           width: 40px; height: 40px;
+                           margin: 10px; float: left;
+                           border: 2px solid blue;
+                        }
+                        #test3 span {
+                           color: red;
+                           font-weight: bold;
+                        }
+                        #test3 button { margin: 5px; }
+                     </style>
+                     <p><button>Parçaları sarı yap</button>
+                        <span>Butona tıkla!</span></p>
+                     <div></div><div></div><div></div>
+                     <div></div><div></div><div></div>
+                     <div></div><div></div><div></div>
+                     <script>
+                        function colorEm() {
+                           var $div = $( "#test3 div" );
+                           var start = Math.floor( Math.random() * $div.length );
+                           var end = Math.floor( Math.random() * ( $div.length - start ) ) +
+                              start + 1;
+                           if ( end === $div.length ) {
+                              end = undefined;
+                           }
+                           $div.css( "background", "" );
+                           if ( end ) {
+                              $div.slice( start, end ).css( "background", "yellow" );
+                           } else {
+                              $div.slice( start ).css( "background", "yellow" );
+                           }
+                           $( "#test3 span" ).text( "$( 'div' ).slice( " + start +
+                              (end ? ", " + end : "") +
+                              ").css( 'background', 'yellow' );" );
+                        }
+                        
+                        $( "#test3 button" ).on( "click", colorEm );
+                     </script>
+                  </div>
+                  <br><p>
+                     Tüm paragrafları seç, sonra ilkini slice ile seç.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">p</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">slice</span><span style="color: #bfc7d5;">(</span> <span style="color: #f78c6c;">0</span>, <span style="color: #f78c6c;">1</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">wrapInner</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">&lt;b&gt;&lt;/b&gt;</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div>
+                  <br><p>
+                     Tüm paragrafları seç, sonra ilk ikisini slice ile seç.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">p</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">slice</span><span style="color: #bfc7d5;">(</span> <span style="color: #f78c6c;">0</span>, <span style="color: #f78c6c;">2</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">wrapInner</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">&lt;b&gt;&lt;/b&gt;</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div></div>
+                  <br><p>
+                     Tüm paragrafları seç, sonra sadece ikinciyi slice ile seç.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">p</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">slice</span><span style="color: #bfc7d5;">(</span> <span style="color: #f78c6c;">1</span>, <span style="color: #f78c6c;">2</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">wrapInner</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">&lt;b&gt;&lt;/b&gt;</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div></div></div>
+                  <br><p>
+                     Tüm paragrafları seç, sonra ikinciyi ve sonrakileri slice ile seç.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">p</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">slice</span><span style="color: #bfc7d5;">(</span> <span style="color: #f78c6c;">1</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">wrapInner</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">&lt;b&gt;&lt;/b&gt;</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div></div></div></div>
+                  <br><p>
+                     Tüm paragrafları seç, sonra son elemanı slice ile seç.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">p</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">slice</span><span style="color: #bfc7d5;">(</span> <span style="color: #89ddff;">-</span><span style="color: #f78c6c;">1</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">wrapInner</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">&lt;b&gt;&lt;/b&gt;</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div></div></div></div></div>
+                  <script>
+
+                  </script>
+
+
+               </div>
+            </div> <!-- panel-primary -->
+            
+            <p>.</p><p>.</p>
+
+         </div>
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+      </div>
+   </div>
+<script>
+   // put space at paragraph start
+   $("p").filter(function(){return !this.class}).prepend("&emsp;");
+
+</script>
+
+</body>
+</html>

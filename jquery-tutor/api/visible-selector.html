@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>:visible Seçicisi</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+   <style>
+      div .scroll{
+         height:300px;
+         width: 100%;
+         overflow:scroll;
+         scrollbar-color: dark;
+      }
+
+      ::-webkit-scrollbar {
+         width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+         background: white;
+      }
+
+      ::-webkit-scrollbar-thumb {
+         background: gray;
+         border-radius: 10px;
+      }
+
+      .cborder {
+         border: 1px solid black;
+         padding: 5px;
+      }
+
+      .cpadding {
+         padding: 15px;
+      }
+
+      body {
+         font-size: 1.6rem;
+      }
+   </style>
+</head>
+<body style="font-family: Open Sans;">
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+      <img src="../../images/bayrak.jpg" alt="Turkish Flag" width="70" 
+         style="position: absolute; left: 20px; top: 10px;" class="hidden-xs">
+      <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+   </nav>
+
+   <div class="container" style="padding-top: 70px;">
+      <div class="row">
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+         <div class="col-md-8">
+            <ul class="breadcrumb small" >
+               <li><a href="../../index.html">Ana Sayfa</a></li>
+               <li><a href="index.html">JQuery API</a></li>
+               <li class="active"><span>:visible Seçicisi</span></li>
+            </ul>
+               
+            <h1>:visible Seçicisi</h1>
+
+            <div class="panel panel-primary">
+               <div class="panel-heading">
+                  <span>visible selector</span>
+               </div>
+               <div class="panel-body">
+                  <b>Açıklama : </b><i> Görünür tüm elemanları seçer.</i>
+                  <br><br>
+                  <div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>jQuery( ":visible" )</span>
+                        <small class="pull-right">Eklendiği Versiyon 1.0</small>
+                     </div>
+                  </div>
+                  ------------------ TO DO ------------------
+                  <p>
+                     Elemanlar çeşitli sebeplerle <b>hidden</b> (gizli) olabilir.
+                  </p>
+                  <ul>
+                     <li>CSS <code>display</code> değerleri <code>none</code> olabilir.</li>
+                     <li>Form elemanı olup <code>type="hidden"</code> özniteliği olabilir.</li>
+                     <li>Genişlik ve yükseklikleri tam sıfıra set edilmiş olabilir.</li>
+                     <li>Ata elemanlarından biri <b>hidden</b> olduğu için o da görünemez.</li>
+                  </ul>
+                  <p>
+                     Öznitelik değerleri <code>visibility: hidden</code> ve <code>opacity: 0</code> olan 
+                     elemanlar hala yerleşimde yer kapladığı için <b>görünür</b> kabul edilir. Elemanı 
+                     gizleyen animasyonlarda animasyon bitene kadar eleman <b>görünür</b> olur.
+                  </p>
+                  <p>
+                     Dökümanın içine eklenmemiş elemanlar görünür kabul edilmez, jQuery onların dökümana 
+                     eklendiğinde görünür olup olamayacağını bilemez.
+                  </p>
+                  <p>
+                     Bu seçici <code><a href="visible-selector.html">:visible</a></code> seçicisinin 
+                     tersidir. Bu yüzden <code>:hidden</code> ile seçilen elemanlar <code>:visible</code>
+                     ile seçilmeyenlerdir ya da tersi.
+                  </p>
+                  <p>
+                     Gizli bir elemanın gösterilmesi için animasyon başladığı andan itibaren eleman 
+                     <b>görünür</b> olur.
+                  </p>
+                  <p>
+                     Versiyon 1.3.2 de <code>:hidden</code> nasıl tayin edilir değişti. Bir eleman eğer o
+                     ya da ebeveynlerinden biri sayfada ter kaplamıyorsa <b>hidden</b> kabul edilir. CSS 
+                     özelliği <b>visiblity</b> sayılmaz (bu yüzden 
+                     <code>$(eleman).css("visibility", "hidden").is(":hidden") == false</code> olur). 
+                     <a href="https://blog.jquery.com/2009/02/20/jquery-1-3-2-released/" target="_blank">release 
+                     notes</a> sayfasına bakabilirsiniz.
+                  </p>
+                  <p>
+                     JQuery 3 <code>:hidden</code> (ve tabi ki <code><a href="visible-selector.html">:visible</a></code>)
+                     seçicisinde küçük bir değişim yapıldı. Bu versiyondan itibaren yerleşim kutusu olmayan 
+                     elemanlar <code>:hidden</code> kabul edilmedi. Örneğin <code>&lt;br></code> elemanları 
+                     ve içeriği boş olan <b>inline</b> elemanlar <code>:hidden</code> seçicisi tarafından 
+                     seçilmez.
+                  </p>
+
+                  <br><h3>İlave Notlar :</h3>
+                  <ul><li>
+                     Bu <code>:hidden</code> seçicisi bir JQuery eklentisi olup standart CSS seçici olmadığı 
+                     için, standart DOM <code>querySelectorAll()</code> metodunun performansında olamaz. 
+                     Modern tarayıcılarda daha iyi performans için önce grup seçimini standart CSS 
+                     ile yapıp <code><a href="filter.html">.filter(":hidden").</a></code> metodu ile
+                     filtreleyiniz.
+                  </li><li>
+                     Bu seçiciyi sık kullanmak ciddi performans sorunu üretebilir, görünebilirliği test etmek 
+                     için tarayıcıyı sayfayı tekrar yayınlamaya zorlayabilir. Elemanların görünürlüğünü 
+                     örneğin <i>class</i> üzerinden takip etmeniz daha doğru olacaktır.
+                  </li></ul>
+
+                  <br><br><h3>Örnekler:</h3>
+                  <p>
+                     Tüm görünmez <code>&lt;div></code> elemanları göster ve görünmez <code>input</code> 
+                     elemanları say.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="color: #f6f6f4;"><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div style="color: #f6f6f4;">&nbsp; &nbsp;<span style="color: #ff5572;">div</span> {</div><div style="color: #f6f6f4;">&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">width</span>: <span style="color: #f78c6c;">70</span><span style="color: #ffeb95;">px</span>; <span style="color: #80cbc4;">height</span>: <span style="color: #f78c6c;">40</span><span style="color: #ffeb95;">px</span>;</div><div style="color: #f6f6f4;">&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">background</span>: <span style="color: #f78c6c;">#</span><span style="color: #ffeb95;">e7f</span>;</div><div style="color: #f6f6f4;">&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">margin</span>: <span style="color: #f78c6c;">5</span><span style="color: #ffeb95;">px</span>; <span style="color: #80cbc4;">float</span>: <span style="color: #89ddff;">left</span>;</div><div style="color: #f6f6f4;">&nbsp; &nbsp;}</div><div style="color: #f6f6f4;">&nbsp; &nbsp;<span style="color: #ff5572;">span</span> {</div><div style="color: #f6f6f4;">&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">display</span>: <span style="color: #89ddff;">block</span>; <span style="color: #80cbc4;">clear</span>: <span style="color: #89ddff;">left</span>;</div><div style="color: #f6f6f4;">&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">color</span>: <span style="color: #89ddff;">red</span>;</div><div style="color: #f6f6f4;">&nbsp; &nbsp;}</div><div style="color: #f6f6f4;">&nbsp; &nbsp;<span style="color: #ffcb6b;">.starthidden</span> { <span style="color: #80cbc4;">display</span>: <span style="color: #89ddff;">none</span>; }</div><div style="color: #f6f6f4;"><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div style="color: #f6f6f4;"><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">span</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">span</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div style="color: #f6f6f4;"><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">style</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">display:none;</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span>Gizli!<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div style="color: #f6f6f4;"><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div style="color: #f6f6f4;"><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">starthidden</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span>Gizli!<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div style="color: #f6f6f4;"><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div style="color: #f6f6f4;">&nbsp;</div><div style="color: #f6f6f4;"><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">form</span><span style="color: #89ddff;">&gt;</span></div><div style="color: #f6f6f4;">&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">input</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">type</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">hidden</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">input</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">type</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">hidden</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div style="color: #f6f6f4;">&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">input</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">type</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">hidden</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div style="color: #f6f6f4;"><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">form</span><span style="color: #89ddff;">&gt;</span></div><div style="color: #f6f6f4;">&nbsp;</div><div style="color: #f6f6f4;"><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">span</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">span</span><span style="color: #89ddff;">&gt;</span></div><div style="color: #f6f6f4;"><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div><div style="color: #f6f6f4;">&nbsp; &nbsp;<span style="color: #00aa00;">//</span><span style="color: #00aa00; font-style: italic;"> Bazı tarayıcılarda :hidden head, title, script, etc. içerir..</span></div><div><span style="color: #f6f6f4;">&nbsp; &nbsp;</span><span style="color: #c792ea;">var</span><span style="color: #f6f6f4;"> </span><span style="color: #bfc7d5;">hiddenElements</span><span style="color: #f6f6f4;"> </span><span style="color: #c792ea;">=</span><span style="color: #f6f6f4;"> </span><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">body</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">find</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">:hidden</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">not</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">script</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span><span style="color: #f6f6f4;">;</span></div><div style="color: #f6f6f4;">&nbsp; &nbsp;</div><div style="color: #f6f6f4;">&nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">span</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">first</span><span style="color: #bfc7d5;">()</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">text</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Found </span><span style="color: #d9f5dd;">"</span> <span style="color: #89ddff;">+</span> <span style="color: #bfc7d5;">hiddenElements</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">length</span> <span style="color: #89ddff;">+</span> </div><div style="color: #f6f6f4;">&nbsp; &nbsp; &nbsp; <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;"> hidden elements total.</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span>;</div><div style="color: #f6f6f4;">&nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">div:hidden</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">show</span><span style="color: #bfc7d5;">(</span> <span style="color: #f78c6c;">3000</span> <span style="color: #bfc7d5;">)</span>;</div><div style="color: #f6f6f4;">&nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">span</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">last</span><span style="color: #bfc7d5;">()</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">text</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Found </span><span style="color: #d9f5dd;">"</span> <span style="color: #89ddff;">+</span> <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">input:hidden</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">length</span> <span style="color: #89ddff;">+</span> </div><div style="color: #f6f6f4;">&nbsp; &nbsp; &nbsp; <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;"> hidden inputs.</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span>;</div><div style="color: #f6f6f4;"><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                  <div id="test1" class="cborder">
+                     <style>
+                        #test1 div {
+                           width: 70px; height: 40px;
+                           background: #e7f;
+                           margin: 5px; float: left;
+                        }
+                        #test1 span {
+                           display: block; clear: left;
+                           color: red;
+                        }
+                        #test1 .starthidden { display: none; }
+                     </style>
+                     <span></span><div></div>
+                     <div style="display:none;">Gizli!</div>
+                     <div></div>
+                     <div class="starthidden">Gizli!</div>
+                     <div></div>
+                     
+                     <form>
+                     <input type="hidden"><input type="hidden">
+                     <input type="hidden">
+                     </form>
+                     
+                     <span></span>
+                     <script>
+                        // Bazı tarayıcılarda :hidden head, title, script, etc. içerir..
+                        var hiddenElements = $("#test1").find(":hidden").not("script");
+                        
+                        $("#test1 span").first().text("Found " + hiddenElements.length + 
+                           " hidden elements total.");
+                        $("#test1 div:hidden").show( 3000 );
+                        $("#test1 span").last().text("Found " + $("#test1 input:hidden").length + 
+                           " hidden inputs.");
+                     </script>
+                  </div>
+
+               </div>
+            </div> <!-- panel-primary -->
+            
+            <p>.</p><p>.</p>
+
+         </div>
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+      </div>
+   </div>
+<script>
+   // put space at paragraph start
+   $("p:not([class])").prepend("&emsp;");
+
+</script>
+
+</body>
+</html>
