@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>:last Seçicisi</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+   <style>
+      div .scroll{
+         height:300px;
+         width: 100%;
+         overflow:scroll;
+         scrollbar-color: dark;
+      }
+
+      ::-webkit-scrollbar {
+         width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+         background: white;
+      }
+
+      ::-webkit-scrollbar-thumb {
+         background: gray;
+         border-radius: 10px;
+      }
+
+      .cborder {
+         border: 1px solid black;
+         padding: 5px;
+      }
+
+      .cpadding {
+         padding: 15px;
+      }
+
+      body {
+         font-size: 1.6rem;
+      }
+   </style>
+</head>
+<body style="font-family: Open Sans;">
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+      <img src="../../images/bayrak.jpg" alt="Turkish Flag" width="70" 
+         style="position: absolute; left: 20px; top: 10px;" class="hidden-xs">
+      <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+   </nav>
+
+   <div class="container" style="padding-top: 70px;">
+      <div class="row">
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+         <div class="col-md-8">
+            <ul class="breadcrumb small" >
+               <li><a href="../../index.html">Ana Sayfa</a></li>
+               <li><a href="index.html">JQuery API</a></li>
+               <li class="active"><span>:last Seçicisi</span></li>
+            </ul>
+               
+            <h1>:last Seçicisi</h1>
+
+            <div class="panel panel-primary">
+               <div class="panel-heading">
+                  <span>last selector</span>
+                  <small class="pull-right">Vazgeçilen versiyon 3.4</small>
+               </div>
+               <div class="panel-body">
+                  <b>Açıklama : </b><i>Eşleşen setteki son DOM elemanı seçer.</i>
+                  <br><br>
+                  <div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>jQuery( ":last" )</span>
+                        <small class="pull-right">Eklendiği Versiyon 1.0</small>
+                     </div>
+                  </div>
+                  <p class="well">
+                     <b>JQuery 3.4 ile</b> <code>:last</code> sahte seçicisinden vazgeçildi. Eğer varsa 
+                     kodunuzdan çıkarıp yerine <code><a href="last.html">.last()</a></code> metodunu 
+                     kullanınız.
+                  </p>
+                  <p>
+                     <code>:last</code> seçicisi verilen eleman setinin en son elemanını içeren bir jQuery 
+                     nesnesi döner.
+                  </p>
+
+                  <br><br><h3>İlave Notlaar : </h3>
+                  <ul><li>
+                     <code>:last</code> standart CSS olmayıp bir jQuery eklentisi olduğu için JavaScript 
+                     <code>querySelectorAll()</code> metodu performansında olamaz. Daha iyi performans için 
+                     <code>:last</code> kullanmadan önce standart bir CSS seçici ile grup seçiniz ve 
+                     sonrasında <code><a href="filter.html">.filter(":last")</a></code> ile sonucu 
+                     filtreleyiniz.
+                  </li></ul>
+
+
+                  <br><br><h3>Örnekler:</h3>
+                  <p>
+                     Son tablo satırını bul.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">table</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;</span>First Row<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;</span>Middle Row<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;</span>Last Row<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">table</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp;</div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">tr</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">last</span><span style="color: #bfc7d5;">()</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">css</span><span style="color: #bfc7d5;">(</span>{</div><div>&nbsp; &nbsp; &nbsp; backgroundColor: <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">yellow</span><span style="color: #d9f5dd;">"</span>, </div><div>&nbsp; &nbsp; &nbsp; fontWeight: <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">bolder</span><span style="color: #d9f5dd;">"</span> }<span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div></div></div></div>
+                  <div id="test1" class="cborder">
+                     <table>
+                        <tr><td>First Row</td></tr>
+                        <tr><td>Middle Row</td></tr>
+                        <tr><td>Last Row</td></tr>
+                     </table>
+                     
+                     <script>
+                        $("#test1 tr").last().css({
+                           backgroundColor: "yellow", 
+                           fontWeight: "bolder" });
+                     </script>
+                  </div>
+
+               </div>
+            </div> <!-- panel-primary -->
+            
+            <p>.</p><p>.</p>
+
+         </div>
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+      </div>
+   </div>
+<script>
+   // put space at paragraph start
+   $("p").filter(function(){return !this.class}).prepend("&emsp;");
+
+</script>
+
+</body>
+</html>

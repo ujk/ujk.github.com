@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>.last() Metodu</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+   <style>
+      div .scroll{
+         height:300px;
+         width: 100%;
+         overflow:scroll;
+         scrollbar-color: dark;
+      }
+
+      ::-webkit-scrollbar {
+         width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+         background: white;
+      }
+
+      ::-webkit-scrollbar-thumb {
+         background: gray;
+         border-radius: 10px;
+      }
+
+      .cborder {
+         border: 1px solid black;
+         padding: 5px;
+      }
+
+      .cpadding {
+         padding: 15px;
+      }
+
+      body {
+         font-size: 1.6rem;
+      }
+   </style>
+</head>
+<body style="font-family: Open Sans;">
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+      <img src="../../images/bayrak.jpg" alt="Turkish Flag" width="70" 
+         style="position: absolute; left: 20px; top: 10px;" class="hidden-xs">
+      <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+   </nav>
+
+   <div class="container" style="padding-top: 70px;">
+      <div class="row">
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+         <div class="col-md-8">
+            <ul class="breadcrumb small" >
+               <li><a href="../../index.html">Ana Sayfa</a></li>
+               <li><a href="index.html">JQuery API</a></li>
+               <li class="active"><span>.last() Metodu</span></li>
+            </ul>
+               
+            <h1>.last()</h1>
+
+            <div class="panel panel-primary">
+               <div class="panel-heading">
+                  <span>.last()</span>
+                  <span class="pull-right">Dönen değer: 
+                     <a href="Types/index.html#jQuery" style="color: aqua;">jQuery Nesnesi</a></span>
+               </div>
+               <div class="panel-body">
+                  <b>Açıklama : </b><i> Bulunulan set içinde son elemanı bulur.</i>
+                  <br><br>
+                  <div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>.last()</span>
+                        <small class="pull-right">Eklendiği Versiyon 1.4</small>
+                     </div>
+                     <div class="panel-body">
+                        Bu metod parametre almaz.
+                     </div>
+                  </div>
+                  <p>
+                     DOM elemanlarından oluşan bir jQuery nesnesi verildiğinde, <code>.last()</code> metodu 
+                     bu setin son elemanından oluşan jQuery nesnesi döner. 
+                  </p>
+                  <p>
+                     Basit bir liste içeren sayfa düşünelim.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>list item 1<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>list item 2<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>list item 3<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>list item 4<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>list item 5<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div></div>
+                  <br><p>
+                     Bu listeye metodumuzu uygulayarak elemanlarda değişiklik yapabiliriz.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="color: #f6f6f4;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">li</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">last</span><span style="color: #bfc7d5;">()</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">css</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">background-color</span><span style="color: #d9f5dd;">"</span>, <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">red</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div></div></div></div></div></div>
+                  <div id="test1" class="cborder">
+                     <ul>
+                        <li>list item 1</li>
+                        <li>list item 2</li>
+                        <li>list item 3</li>
+                        <li>list item 4</li>
+                        <li>list item 5</li>
+                     </ul>
+                     <script>
+                        $("#test1 li").last().css("background-color", "red");
+                     </script>
+                  </div>
+                  <br>
+
+                  <br><br><h3>Örnekler:</h3>
+                  <p>
+                     Listenin son elemanını fosforlu kalemle çiz.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="color: #f6f6f4;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #ffcb6b;">.highlight</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">background-color</span>: <span style="color: #89ddff;">yellow</span>;</div><div>&nbsp; &nbsp;}</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>Bakınız:<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>Listede bir yazı.<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>Onun hakkında bir yazı.<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>Bu da başka bir not..<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp;</div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">ul li</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">last</span><span style="color: #bfc7d5;">()</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">addClass</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">highlight</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+                  <div id="test3" class="cborder" style="height: 120px;">
+                     <style>
+                        #test3 .highlight {
+                           background-color: yellow;
+                        }
+                     </style>
+                     <ul>
+                        <li>Bakınız:</li>
+                        <li>Listede bir yazı.</li>
+                        <li>Onun hakkında bir yazı.</li>
+                        <li>Bu da başka bir not..</li>
+                     </ul>
+                     
+                     <script>
+                        $("#test3 ul li").last().addClass("highlight");
+                     </script>
+                  </div>
+
+
+               </div>
+            </div> <!-- panel-primary -->
+            
+            <p>.</p><p>.</p>
+
+         </div>
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+      </div>
+   </div>
+<script>
+   // put space at paragraph start
+   $("p").filter(function(){return !this.class}).prepend("&emsp;");
+
+</script>
+
+</body>
+</html>
