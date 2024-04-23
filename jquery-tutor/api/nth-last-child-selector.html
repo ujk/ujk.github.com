@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>:nth-last-child() Seçicisi</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+   <style>
+      div .scroll{
+         height:300px;
+         width: 100%;
+         overflow:scroll;
+         scrollbar-color: dark;
+      }
+
+      ::-webkit-scrollbar {
+         width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+         background: white;
+      }
+
+      ::-webkit-scrollbar-thumb {
+         background: gray;
+         border-radius: 10px;
+      }
+
+      .cborder {
+         border: 1px solid black;
+         padding: 5px;
+      }
+
+      .cpadding {
+         padding: 15px;
+      }
+
+      body {
+         font-size: 1.6rem;
+      }
+   </style>
+</head>
+<body style="font-family: Open Sans;">
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+      <img src="../../images/bayrak.jpg" alt="Turkish Flag" width="70" 
+         style="position: absolute; left: 20px; top: 10px;" class="hidden-xs">
+      <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+   </nav>
+
+   <div class="container" style="padding-top: 70px;">
+      <div class="row">
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+         <div class="col-md-8">
+            <ul class="breadcrumb small" >
+               <li><a href="../../index.html">Ana Sayfa</a></li>
+               <li><a href="index.html">JQuery API</a></li>
+               <li class="active"><span>:nth-last-child() Seçicisi</span></li>
+            </ul>
+               
+            <h1>:nth-last-child() Seçicisi</h1>
+
+            <div class="panel panel-primary">
+               <div class="panel-heading">
+                  <span>nth-last-child selector</span>
+               </div>
+               <div class="panel-body">
+                  <b>Açıklama : </b><i> Ebeveyninin sondan geri sayarak n'inci çocuğu olan elemanları 
+                     seçer.</i>
+                  <br><br>
+                  <div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>jQuery( ":nth-last-child(index/even/odd/equation)" )</span>
+                        <small class="pull-right">Eklendiği Versiyon 1.9</small>
+                     </div>
+                     <div class="panel-body">
+                        <b>index : </b>Eşleşecek çocuğun index'i, sonuncudan başlayan sayma yapılır. <code>even</code> ve
+                        <code>odd</code> stringi de parametre verilebilir ya da bir eşitlik (mesela 
+                        <code>:nth-last-child(even)</code> veya <code>:nth-last-child(4n)</code> ). 
+                     </div>
+                  </div>
+                  <p>
+                     JQuery <code>:nth-</code> seçicilerini CSS seçicilerden uyarladığı için index değeri 
+                     1'den başlar. <code><a href="first.html">.first()</a></code> veya 
+                     <code><a href="eq.html">.eq()</a></code> gibi metodlar JavaScript kullandığı için sıfır 
+                     temelli index değerleri kullanırlar. İki tane <code>&lt;li></code> elemanı olan 
+                     <code>&lt;ul></code> listesine <code>$("li:nth-last-child(1)")</code> seçicisi son liste 
+                     elemanını seçer.
+                  </p>
+                  <p>
+                     Ayrıntılı bilgi <a target="_blank" href="https://www.w3.org/TR/css3-selectors/#nth-child-pseudo">W3C CSS specification</a>
+                     dökümanına bakınız.
+                  </p>
+
+                  <br><br><h3>Örnekler:</h3>
+                  <p>
+                     Her eşleşen <b>ul</b> içindeki sondan ikinci <b>li</b> elemanını bul ve not et.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #ff5572;">div</span> { <span style="color: #80cbc4;">float</span>: <span style="color: #89ddff;">left</span>; }</div><div>&nbsp; &nbsp;<span style="color: #ff5572;">span</span> { <span style="color: #80cbc4;">color</span>: <span style="color: #89ddff;">blue</span>; }</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>John<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>Karl<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>Brandon<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>Sam<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>Glen<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>Tane<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>Ralph<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>David<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">ul li:nth-last-child(2)</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">append</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">&lt;span&gt; - 2nd to last!&lt;/span&gt;</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div></div>
+                  <div id="test1" class="cborder" style="height: 120px;">
+                     <style>
+                        #test1 div { float: left; }
+                        #test1 span { color: blue; }
+                     </style>
+                     <div>
+                        <ul>
+                           <li>John</li><li>Karl</li><li>Brandon</li>
+                        </ul>
+                     </div>
+                     <div>
+                        <ul>
+                           <li>Sam</li>
+                        </ul>
+                     </div>
+                     <div>
+                        <ul>
+                           <li>Glen</li><li>Tane</li>
+                           <li>Ralph</li><li>David</li>
+                        </ul>
+                     </div>
+                     <script>
+                        $("#test1 ul li:nth-last-child(2)").append( "<span> - 2nd to last!</span>" );
+                     </script>
+                  </div>
+                  <br><p>
+                     Farklı string değerler nasıl çalışıyor, verilen set üzerinde sayım yapan 
+                     <code><a href="even.html">even</a></code> ve
+                     <code><a href="odd.html">odd</a></code> metodlarından farklı olarak nth-last-child 
+                     aynı ebeveynin 
+                     çocuklarında sayım yapar. 
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #ff5572;">button</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">display</span>: <span style="color: #89ddff;">block</span>; <span style="color: #80cbc4;">width</span>: <span style="color: #f78c6c;">110</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">font-size</span>: <span style="color: #f78c6c;">12</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp;}</div><div>&nbsp; &nbsp;<span style="color: #ff5572;">div</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">float</span>: <span style="color: #89ddff;">left</span>; <span style="color: #80cbc4;">margin</span>: <span style="color: #f78c6c;">10</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">font-size</span>: <span style="color: #f78c6c;">10</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">border</span>: <span style="color: #f78c6c;">1</span><span style="color: #ffeb95;">px</span> <span style="color: #89ddff;">solid</span> <span style="color: #89ddff;">black</span>;</div><div>&nbsp; &nbsp;}</div><div>&nbsp; &nbsp;<span style="color: #ff5572;">span</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">color</span>: <span style="color: #89ddff;">blue</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">font-size</span>: <span style="color: #f78c6c;">18</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp;}</div><div>&nbsp; &nbsp;<span style="color: #fad430;">#inner</span> { <span style="color: #80cbc4;">color</span>: <span style="color: #89ddff;">red</span>; }</div><div>&nbsp; &nbsp;<span style="color: #ff5572;">td</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">width</span>: <span style="color: #f78c6c;">60</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">text-align</span>: <span style="color: #89ddff;">center</span>;</div><div>&nbsp; &nbsp;}</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">button</span><span style="color: #89ddff;">&gt;</span>:nth-last-child(even)<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">button</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">button</span><span style="color: #89ddff;">&gt;</span>:nth-last-child(odd)<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">button</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">button</span><span style="color: #89ddff;">&gt;</span>:nth-last-child(3n)<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">button</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">button</span><span style="color: #89ddff;">&gt;</span>:nth-last-child(2)<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">button</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">button</span><span style="color: #89ddff;">&gt;</span>:nth-last-child(3n+1)<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">button</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">button</span><span style="color: #89ddff;">&gt;</span>:nth-last-child(3n+2)<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">button</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">table</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;</span>John<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;</span>Karl<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;</span>Brandon<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;</span>Benjamin<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">table</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">table</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;</span>Sam<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">table</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">table</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;</span>Glen<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;</span>Tane<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;</span>Ralph<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;</span>David<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;</span>Mike<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;</span>Dan<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">td</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">tr</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">table</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">span</span><span style="color: #89ddff;">&gt;</span>tr<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">span</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">id</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">inner</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">span</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">span</span><span style="color: #89ddff;">&gt;</span></div><br /><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">button</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">str</span> <span style="color: #c792ea;">=</span> <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #ff5572;">this</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">text</span><span style="color: #bfc7d5;">()</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">method</span> <span style="color: #c792ea;">=</span> <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #ff5572;">this</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">attr</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">data-method</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">tr</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">css</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">background</span><span style="color: #d9f5dd;">"</span><span style="color: #eeffff;">,</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">white</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">tr</span><span style="color: #d9f5dd;">"</span> <span style="color: #89ddff;">+</span> <span style="color: #bfc7d5;">str)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">css</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">background</span><span style="color: #d9f5dd;">"</span><span style="color: #eeffff;">,</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">#ff0000</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">#inner</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">text</span><span style="color: #bfc7d5;">(</span> <span style="color: #bfc7d5;">str</span> <span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp;}<span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div></div></div>
+                  <div id="test2" class="cborder" style="height: 180px;">
+                     <style>
+                        #test2 button {
+                           display: block; width: 110px;
+                           font-size: 12px;
+                        }
+                        #test2 div {
+                           float: left; margin: 10px;
+                           font-size: 10px;
+                           border: 1px solid black;
+                        }
+                        #test2 span {
+                           color: blue;
+                           font-size: 18px;
+                        }
+                        #test2 #inner { color: red; }
+                        #test2 td {
+                           width: 60px;
+                           text-align: center;
+                        }
+                     </style>
+                     <div>
+                        <button>:nth-last-child(even)</button>
+                        <button>:nth-last-child(odd)</button>
+                        <button>:nth-last-child(3n)</button>
+                        <button>:nth-last-child(2)</button>
+                     </div>
+                     <div>
+                        <button>:nth-last-child(3n+1)</button>
+                        <button>:nth-last-child(3n+2)</button>
+                     </div>
+                     <div>
+                        <table>
+                           <tr><td>John</td></tr>
+                           <tr><td>Karl</td></tr>
+                           <tr><td>Brandon</td></tr>
+                           <tr><td>Benjamin</td></tr>
+                        </table>
+                     </div>
+                     <div>
+                        <table>
+                           <tr><td>Sam</td></tr>
+                        </table>
+                     </div>
+                     <div>
+                        <table>
+                           <tr><td>Glen</td></tr>
+                           <tr><td>Tane</td></tr>
+                           <tr><td>Ralph</td></tr>
+                           <tr><td>David</td></tr>
+                           <tr><td>Mike</td></tr>
+                           <tr><td>Dan</td></tr>
+                        </table>
+                     </div>
+                     <span>tr<span id="inner"></span></span>
+                     
+                     <script>
+                        $("#test2 button").on("click", function() {
+                           var str = $(this).text();
+                           var method = $(this).attr("data-method");
+                           $("#test2 tr").css("background", "white");
+                           $("#test2 tr" + str).css("background", "#ff0000");
+                           $( "#test2 #inner" ).text( str );
+                        });
+                     </script>
+                  </div>
+
+
+               </div>
+            </div> <!-- panel-primary -->
+            
+            <p>.</p><p>.</p>
+
+         </div>
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+      </div>
+   </div>
+<script>
+   // put space at paragraph start
+   $("p:not([class])").prepend("&emsp;");
+
+</script>
+
+</body>
+</html>

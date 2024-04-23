@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>.parents() Metodu</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+   <style>
+      div .scroll{
+         height:300px;
+         width: 100%;
+         overflow:scroll;
+         scrollbar-color: dark;
+      }
+
+      ::-webkit-scrollbar {
+         width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+         background: white;
+      }
+
+      ::-webkit-scrollbar-thumb {
+         background: gray;
+         border-radius: 10px;
+      }
+
+      .cborder {
+         border: 1px solid black;
+         padding: 5px;
+      }
+
+      .cpadding {
+         padding: 15px;
+      }
+
+      body {
+         font-size: 1.6rem;
+      }
+   </style>
+</head>
+<body style="font-family: Open Sans;">
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+      <img src="../../images/bayrak.jpg" alt="Turkish Flag" width="70" 
+         style="position: absolute; left: 20px; top: 10px;" class="hidden-xs">
+      <h1 style="color: aliceblue;" class="text-center">Tek Milet, Tek Dil, Tek Devlet, Tek Bayrak</h1>
+   </nav>
+
+   <div class="container" style="padding-top: 70px;">
+      <div class="row">
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+         <div class="col-md-8">
+            <ul class="breadcrumb small" >
+               <li><a href="../../index.html">Ana Sayfa</a></li>
+               <li><a href="index.html">JQuery API</a></li>
+               <li class="active"><span>.parents() Metodu</span></li>
+            </ul>
+               
+            <h1>.parents()</h1>
+            <div class="panel panel-primary">
+               <div class="panel-heading">
+                  <span>.parents( [selector ] )</span>
+                  <span class="pull-right"><i>Dönen Değer : 
+                     <a href="Types/index.html#jQuery" style="color: aqua;">jQuery Nesnesi</a> </i></span>
+               </div>
+               <div class="panel-body">
+                  <b>Açıklama : </b><i>Bulunulan setteki her elemanın atalarını getirir, eğer verilmişse 
+                     atalar da bir seçici ile filtre edilebilir.</i>
+                  <br><br>
+                  <div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>.parents( [selector ] )</span>
+                        <small class="pull-right">Eklendiği Versiyon 1.0</small>
+                     </div>
+                     <div class="panel-body">
+                        <b>selector</b><br>
+                        Tip : <a href="Types/index.html#Selector">Seçici Deyim</a><br>
+                        Sonucun filtreleneceği bir seçici deyim. 
+                     </div>
+                  </div>
+
+
+                  <p>
+                     DOM elemanlarından oluşan bir jQuery nesnesi verildiğinde, <code>.parents()</code> 
+                     metodu her bir elemanın atalarını birleştirerek yeni bir jQuery nesnesi döner. 
+                     Elemanlar en yakın olandan en dıştakine doğru sırayla gelirler. Orjinal sette birçok 
+                     DOM elemanı verildiğinde sonuç set orjinalin tersine doğru sıralı ve aynı elemnlar 
+                     tekrarlanmayacak şekilde olur.
+                  </p>
+                  <p>
+                     Bu metod <code><a href="parent.html">.parent()</a></code> metoduna benzer, ama 
+                     <code>.parent()</code> sadece bir seviye yukarıdaki ebeveyni alır, daha yukarı çıkmaz.
+                     Ayrıca <code>$("html").parent()</code> çağrısı size <code>document</code> nesnesini 
+                     dönerken, <code>$("html").parents()</code> boş bir set döner.
+                  </p>
+                  <p>
+                     Bu metod opsiyonel olarak <code>$()</code> seçicisi gibi bir jQuery seçici parametresi 
+                     alabilir. Eğer seçici verilmişse bulunan ata elemanlar bu seçiciye uygun filtre 
+                     edilirler.
+                  </p>
+                  <p>
+                     İçiçe listelerden oluşan bir sayfa düşünelim.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">level-1</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">item-i</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span>I<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">item-ii</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span>II</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">level-2</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">item-a</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span>A<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">item-b</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span>B</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">level-3</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">item-1</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span>1<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">item-2</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span>2<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">item-3</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span>3<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">item-c</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span>C<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;"> </span><span style="color: #ffcb6b;">class</span><span style="color: #89ddff;">=</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">item-iii</span><span style="color: #d9f5dd;">"</span><span style="color: #89ddff;">&gt;</span>III<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;">&gt;</span></div></div></div><div></div></div></div></div></div></div></div>
+                  <br>
+                  <p>
+                     <b>A</b> elemanıyla başlayıp ebeveynini bulalım.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">li.item-a</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">parents</span><span style="color: #bfc7d5;">()</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">not</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">div, body, html</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span></div><div style="line-height: 19px;"><span style="color: #c792ea;">   .</span><span style="color: #82aaff;">css</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">background-color</span><span style="color: #d9f5dd;">"</span>, <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">red</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div><div></div></div></div></div></div></div></div>
+                  <div id="test1" class="cborder">
+                     <ul class="level-1">
+                        <li class="item-i">I</li>
+                        <li class="item-ii">II
+                           <ul class="level-2">
+                              <li class="item-a">A</li>
+                              <li class="item-b">B
+                              <ul class="level-3">
+                                 <li class="item-1">1</li>
+                                 <li class="item-2">2</li>
+                                 <li class="item-3">3</li>
+                              </ul>
+                              </li>
+                              <li class="item-c">C</li>
+                           </ul>
+                        </li>
+                        <li class="item-iii">III</li>
+                     </ul>
+                     <script>
+                        $("#test1 li.item-a").parents().not("div, body, html").css("background-color", "red");
+                     </script>
+                  </div>
+                  <br><p>
+                     O <code>.not()</code> olmasa tüm sayfa kırmızı olacaktı.
+                  </p>
+
+
+                  <br><br><h3>Örnekler:</h3>
+                  <p>
+                     Her <b>b</b> elemanın atalarını bul.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #ff5572;">b</span><span style="color: #c792ea;">, </span><span style="color: #ff5572;">span</span><span style="color: #c792ea;">, </span><span style="color: #ff5572;">p</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">padding</span>: <span style="color: #f78c6c;">.5</span><span style="color: #ffeb95;">em</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">border</span>: <span style="color: #f78c6c;">1</span><span style="color: #ffeb95;">px</span> <span style="color: #89ddff;">solid</span>;</div><div>&nbsp; &nbsp;}</div><div>&nbsp; &nbsp;<span style="color: #ff5572;">b</span> { <span style="color: #80cbc4;">color</span>: <span style="color: #89ddff;">blue</span>; }</div><div>&nbsp; &nbsp;<span style="color: #ff5572;">strong</span> { <span style="color: #80cbc4;">color</span>: <span style="color: #89ddff;">red</span>; }</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">span</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">b</span><span style="color: #89ddff;">&gt;</span>My parents are: <span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">b</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">span</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">div</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp;</div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">parentEls</span> <span style="color: #c792ea;">=</span> <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">b</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">parents</span><span style="color: #bfc7d5;">()</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #c792ea;">.</span><span style="color: #82aaff;">map</span><span style="color: #bfc7d5;">(</span><span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #c792ea;">return</span> <span style="color: #ff5572;">this</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">tagName</span>;</div><div>&nbsp; &nbsp; &nbsp; }<span style="color: #bfc7d5;">)</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #c792ea;">.</span><span style="color: #82aaff;">get</span><span style="color: #bfc7d5;">()</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #c792ea;">.</span><span style="color: #82aaff;">join</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">, </span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">b</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">append</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">&lt;strong&gt;</span><span style="color: #d9f5dd;">"</span> <span style="color: #89ddff;">+</span> <span style="color: #bfc7d5;">parentEls</span> <span style="color: #89ddff;">+</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">&lt;/strong&gt;</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div></div></div></div><div></div></div></div></div></div></div></div>
+                  <div class="cborder" id="test2">
+                     <style>
+                        #test2 b, #test2 span, #test2 p {
+                           padding: .5em;
+                           border: 1px solid;
+                        }
+                        #test2 b { color: blue; }
+                        #test2 strong { color: red; }
+                     </style>
+                     <div>
+                        <p>
+                           <span>
+                              <b>My parents are: </b>
+                           </span>
+                        </p>
+                     </div>
+                     
+                     <script>
+                        var parentEls = $("#test2 b").parents()
+                           .map(function() {
+                              return this.tagName;
+                           })
+                           .get()
+                           .join(", ");
+                        $("#test2 b").append("<strong>" + parentEls + "</strong>");
+                     </script>
+                  </div>
+                  <br><p>
+                     Her span elemanına tıklanınca atalarını belirt eme aynı ata için iki defa tekrarlama.
+                  </p>
+                  <div class="cpadding" style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #ff5572;">p</span><span style="color: #c792ea;">, </span><span style="color: #c792ea;">box, </span><span style="color: #ff5572;">span</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">margin</span>: <span style="color: #f78c6c;">2</span><span style="color: #ffeb95;">px</span>; <span style="color: #80cbc4;">padding</span>: <span style="color: #f78c6c;">1</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp;}</div><div>&nbsp; &nbsp;<span style="color: #c792ea;">box</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">border</span>: <span style="color: #f78c6c;">2</span><span style="color: #ffeb95;">px</span> <span style="color: #89ddff;">white</span> <span style="color: #89ddff;">solid</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">display</span>: <span style="color: #89ddff;">block</span>;</div><div>&nbsp; &nbsp;}</div><div>&nbsp; &nbsp;<span style="color: #ff5572;">span</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">cursor</span>: <span style="color: #89ddff;">pointer</span>; <span style="color: #80cbc4;">font-size</span>: <span style="color: #f78c6c;">12</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp;}</div><div>&nbsp; &nbsp;<span style="color: #ffcb6b;">.selected</span> { <span style="color: #80cbc4;">color</span>: <span style="color: #89ddff;">blue</span>; }</div><div>&nbsp; &nbsp;<span style="color: #ff5572;">b</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">color</span>: <span style="color: #89ddff;">red</span>; <span style="color: #80cbc4;">display</span>: <span style="color: #89ddff;">block</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #80cbc4;">font-size</span>: <span style="color: #f78c6c;">14</span><span style="color: #ffeb95;">px</span>;</div><div>&nbsp; &nbsp;}</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">style</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">box</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">box</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">span</span><span style="color: #89ddff;">&gt;</span>Merhaba<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">span</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">box</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">span</span><span style="color: #89ddff;">&gt;</span>Yine Merhaba<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">span</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">box</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">box</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp; &nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">span</span><span style="color: #89ddff;">&gt;</span>ve Yine Merhaba<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">span</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">box</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">p</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">b</span><span style="color: #89ddff;">&gt;</span>Atalarını görmek için "merhaba" lara tıkla.<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">b</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; &nbsp;<span style="color: #c792ea;">function</span> <span style="color: #82aaff;">showParents</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">box</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">css</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">border-color</span><span style="color: #d9f5dd;">"</span><span style="color: #eeffff;">,</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">white</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #c792ea;">var</span> <span style="color: #bfc7d5;">len</span> <span style="color: #c792ea;">=</span> <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">span.selected</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #c792ea;">.</span><span style="color: #82aaff;">parents</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">box</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #c792ea;">.</span><span style="color: #82aaff;">css</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">border</span><span style="color: #d9f5dd;">"</span><span style="color: #eeffff;">,</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">2px red solid</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span></div><div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #c792ea;">.</span><span style="color: #89ddff;">length</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">b</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">text</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">Tekrarlanmayan box sayısı: </span><span style="color: #d9f5dd;">"</span> <span style="color: #89ddff;">+</span> <span style="color: #bfc7d5;">len)</span>;</div><div>&nbsp; &nbsp;}</div><div>&nbsp; &nbsp;<span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">span</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">on</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">click</span><span style="color: #d9f5dd;">"</span>, <span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">()</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span><span style="color: #ff5572;">this</span><span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">toggleClass</span><span style="color: #bfc7d5;">(</span><span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">selected</span><span style="color: #d9f5dd;">"</span><span style="color: #bfc7d5;">)</span>;</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #82aaff;">showParents</span><span style="color: #bfc7d5;">()</span>;</div><div>&nbsp; &nbsp;}<span style="color: #bfc7d5;">)</span>;</div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">script</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div></div></div></div></div></div><div></div></div></div></div></div></div></div>
+                  <div class="cborder" id="test3">
+                     <style>
+                        #test3 p, #test3 box, #test3 span {
+                           margin: 2px; padding: 1px;
+                        }
+                        #test3 box {
+                           border: 2px white solid;
+                           display: block;
+                        }
+                        #test3 span {
+                           cursor: pointer; font-size: 12px;
+                        }
+                        #test3 .selected { color: blue; }
+                        #test3 b {
+                           color: red; display: block;
+                           font-size: 14px;
+                        }
+                     </style>
+                     <p>
+                        <box>
+                           <box><span>Merhaba</span></box>
+                           <span>Yine Merhaba</span>
+                        </box>
+                        <box>
+                           <span>ve Yine Merhaba</span>
+                        </box>
+                     </p>
+                     <b>Atalarını görmek için "merhaba" lara tıkla.</b>
+                     <script>
+                        function showParents() {
+                           $("#test3 box").css("border-color", "white");
+                           var len = $("#test3 span.selected")
+                              .parents("box")
+                              .css("border", "2px red solid")
+                              .length;
+                           $("#test3 b").text("Tekrarlanmayan box sayısı: " + len);
+                        }
+                        $("#test3 span").on("click", function() {
+                           $(this).toggleClass("selected");
+                           showParents();
+                        });
+                     </script>
+                  </div>
+                  <br><p>
+                     Daha net belli olsun diye <code>&lt;box></code> sahte HTML elemanı kullandık.
+                  </p>
+
+               </div>
+            </div>
+            <p>.</p><p>.</p>
+
+         </div>
+         <div class="col-md-2 hidden-xs">
+
+         </div>
+      </div>
+   </div>
+<script>
+   $("p:not([class])").prepend("&emsp;")
+</script>
+</body>
+</html>
