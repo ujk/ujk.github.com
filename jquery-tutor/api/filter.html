@@ -84,7 +84,137 @@
                         Mevcut eleman setinin sorgulanacağı seçici string. 
                      </div>
                   </div>
-                  ------------ TO DO ---------------
+                  <div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>.filter( fonksiyon )</span>
+                        <small class="pull-right">Eklendiği Versiyon 1.0</small>
+                     </div>
+                     <div class="panel-body">
+                        <b>fonksiyon</b><br>
+                        Tip : <a href="Types/index.html#Function">Fonksiyon</a>( 
+                           <a href="Types/index.html#Integer">Tamsayı</a> index, 
+                           <a href="Types/index.html#Element">Eleman</a> eleman )<br>
+                        Mevcut eleman setinin her elemanına uygulanacak fonksiyon, <code>this</code> kelimesi o anki 
+                        elemanı temsil eder. 
+                     </div>
+                  </div>
+                  <div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>.filter( elemanlar )</span>
+                        <small class="pull-right">Eklendiği Versiyon 1.4</small>
+                     </div>
+                     <div class="panel-body">
+                        <b>elemanlar</b><br>
+                        Tip : <a href="Types/index.html#Element">Elemanlar</a><br>
+                        Mevcut set elemanların bir ya da birçoğuyla eşleşen DOM eleman(lar)ı. 
+                     </div>
+                  </div>
+                  <div class="panel panel-info">
+                     <div class="panel-heading">
+                        <span>.filter( seçici )</span>
+                        <small class="pull-right">Eklendiği Versiyon 1.4</small>
+                     </div>
+                     <div class="panel-body">
+                        <b>seçici</b><br>
+                        Tip : <a href="Types/index.html#jQuery">jQuery</a><br>
+                        Mevcut set elemanların bir ya da birçoğuyla eşleşen jQuery nesnesi. 
+                     </div>
+                  </div>
+
+                  <br><br><p>
+                     Bir set DOM elemanını içeren bir jQuery nesnesi verildiğinde, <code>.filter()</code>
+                     metodu eşleşen elemanlardan oluşan bir alt set geri döner. Verilen seçici kriterler her
+                     elemana uygulanır ve eşleşen elemanlar sonuç setinde yer alır.
+                  </p>
+                  <p>
+                     Basit bir liste olan sayfa düşünelim:
+                  </p>
+                  <div style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div><div style="line-height: 19px;"><div><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>list item 1<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>list item 2<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>list item 3<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>list item 4<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>list item 5<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>list item 6<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;">&gt;</span> &nbsp;</div></div></div></div><div></div></div></div><div></div></div></div>
+                  <p>
+                     Liste elemanlarına bu metodu uygulayabiliriz.
+                  </p>
+                  <div style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div><div style="line-height: 19px;"><div><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">li</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">filter</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">:nth-child(2n)</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #82aaff;">css</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">background-color</span><span style="color: #d9f5dd;">"</span>, <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">red</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div></div></div></div><div></div></div></div><div></div></div></div>
+                  <div id="test1" class="cborder">
+                     <ul>
+                     <li>list item 1</li>
+                     <li>list item 2</li>
+                     <li>list item 3</li>
+                     <li>list item 4</li>
+                     <li>list item 5</li>
+                     <li>list item 6</li>
+                     </ul>
+                     <script>
+                        $( "#test1 li" ).filter( ":nth-child(2n)" ).css( "background-color", "red" );
+                     </script>
+                  </div>
+                  <br><p>
+                     Eşleşen 2, 4 ve 6. elemanların arka rengi değişecektir.
+                  </p><br>
+                  <h4><b>Fonksiyon kullanarak filtreleme</b></h4>
+                  <p>
+                     Metodun ikinci tekniği bize seçici deyim yerine fonksiyon kullanarak filtreleme imkanı 
+                     sunar. Her eleman için verilen fonksiyon çalıştırıldığında <code>true</code> değer 
+                     dönüyorsa o eleman sonuç setinde yer alır.
+                  </p>
+                  <p>
+                     Diyelim biraz daha kapsamlı bir HTML kodumuz var.
+                  </p>
+                  <div style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div><div style="line-height: 19px;"><div><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">strong</span><span style="color: #89ddff;">&gt;</span>list<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">strong</span><span style="color: #89ddff;">&gt;</span> eleman 1 - bir tane strong tag<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;&lt;</span><span style="color: #ff5572;">strong</span><span style="color: #89ddff;">&gt;</span>list<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">strong</span><span style="color: #89ddff;">&gt;</span> eleman <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">strong</span><span style="color: #89ddff;">&gt;</span>2<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">strong</span><span style="color: #89ddff;">&gt;</span> -</div><div>&nbsp; &nbsp; iki tane <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">span</span><span style="color: #89ddff;">&gt;</span>strong tag<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">span</span><span style="color: #89ddff;">&gt;&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>list eleman 3<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>list eleman 4<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>list eleman 5<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div>&nbsp; <span style="color: #89ddff;">&lt;</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span>list eleman 6<span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">li</span><span style="color: #89ddff;">&gt;</span></div><div><span style="color: #89ddff;">&lt;/</span><span style="color: #ff5572;">ul</span><span style="color: #89ddff;">&gt;</span></div></div></div></div></div></div><div></div></div></div><div></div></div></div>
+                  <br><p>
+                     İçeriklerine göre elemanları filtrelemek için şöyle metod kullanabiliriz:
+                  </p>
+                  <div style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div><div style="line-height: 19px;"><div><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">li</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span></div><div>&nbsp; <span style="color: #c792ea;">.</span><span style="color: #82aaff;">filter</span><span style="color: #bfc7d5;">(</span><span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">(</span> <span style="color: #7986e7;">index</span> <span style="color: #d9f5dd;">)</span> {</div><div>&nbsp; &nbsp; <span style="color: #c792ea;">return</span> <span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">strong</span><span style="color: #d9f5dd;">"</span><span style="color: #eeffff;">,</span> <span style="color: #ff5572;">this</span> <span style="color: #bfc7d5;">)</span><span style="color: #c792ea;">.</span><span style="color: #89ddff;">length</span> <span style="color: #c792ea;">===</span> <span style="color: #f78c6c;">1</span>;</div><div>&nbsp; }<span style="color: #bfc7d5;">)</span></div><div>&nbsp; &nbsp; <span style="color: #c792ea;">.</span><span style="color: #82aaff;">css</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">background-color</span><span style="color: #d9f5dd;">"</span>, <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">red</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div><div></div></div></div><div></div></div></div>
+                  <div id="test2" class="cborder">
+                     <ul>
+                     <li><strong>list</strong> eleman 1 - bir tane strong tag</li>
+                     <li><strong>list</strong> eleman <strong>2</strong> -
+                        iki tane <span>strong tag</span></li>
+                     <li>list eleman 3</li>
+                     <li>list eleman 4</li>
+                     <li>list eleman 5</li>
+                     <li>list eleman 6</li>
+                     </ul>
+                     <script>
+                        $( "#test2 li" )
+                        .filter(function( index ) {
+                           return $( "strong", this ).length === 1;
+                        })
+                           .css( "background-color", "red" );
+                     </script>
+                  </div>
+                  <br><p>
+                     Bu kod içinde <b>sadece bir tane</b> <code>&lt;strong></code> tag bulunduran "list eleman 1"
+                     elemanını seçecektir. Filtre fonksiyonu içinde <code>this</code> o anda fonksiyonun 
+                     uygulandığı DOM elemanı temsil eder. 
+                  </p>
+                  <p>
+                     Ayrıca fonksiyon içerisinde filtre edilmeden önceki eleman setindeki elemanın sıfır 
+                     temelli sıra numarasını da <code>index</code> değişkeninde kullanabiliriz. 
+                  </p>
+                  <div style="background-color: #3e313c; color: #f6f6f4; font-family: Consolas, 'Courier New', monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div style="line-height: 19px;"><div><div style="line-height: 19px;"><div><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div style="line-height: 19px;"><div><span style="color: #82aaff;">$</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">li</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span></div><div>&nbsp; &nbsp;<span style="color: #c792ea;">.</span><span style="color: #82aaff;">filter</span><span style="color: #bfc7d5;">(</span><span style="color: #c792ea;">function</span><span style="color: #d9f5dd;">(</span> <span style="color: #7986e7;">index</span> <span style="color: #d9f5dd;">)</span> {</div><div>&nbsp; &nbsp; &nbsp; <span style="color: #c792ea;">return</span> <span style="color: #bfc7d5;">index</span> <span style="color: #89ddff;">%</span> <span style="color: #f78c6c;">3</span> <span style="color: #c792ea;">===</span> <span style="color: #f78c6c;">2</span>;</div><div>&nbsp; &nbsp;}<span style="color: #bfc7d5;">)</span></div><div>&nbsp; &nbsp;<span style="color: #c792ea;">.</span><span style="color: #82aaff;">css</span><span style="color: #bfc7d5;">(</span> <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">background-color</span><span style="color: #d9f5dd;">"</span>, <span style="color: #d9f5dd;">"</span><span style="color: #c3e88d;">red</span><span style="color: #d9f5dd;">"</span> <span style="color: #bfc7d5;">)</span>;</div></div></div></div></div></div></div></div><div></div></div></div><div></div></div></div>
+                  <div id="test3" class="cborder">
+                     <ul>
+                     <li><strong>list</strong> eleman 1 - bir tane strong tag</li>
+                     <li><strong>list</strong> eleman <strong>2</strong> -
+                        iki tane <span>strong tag</span></li>
+                     <li>list eleman 3</li>
+                     <li>list eleman 4</li>
+                     <li>list eleman 5</li>
+                     <li>list eleman 6</li>
+                     </ul>
+                     <script>
+                        $( "#test3 li" )
+                           .filter(function( index ) {
+                              return index % 3 === 2;
+                           })
+                           .css( "background-color", "red" );
+                     </script>
+                  </div>
+                  <br><p>
+                     Bu kod index değeri mod 3'e göre 2 kalanı veren 2 ve 5 <b>index</b> değerli elemanları 
+                     seçecektir.
+                  </p>
+                ------------ TO DO ---------------
 
 
                   <br><h3>Örnekler:</h3>
