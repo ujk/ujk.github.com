@@ -27,7 +27,7 @@ for(ix=0; ix<urls.length; ix++){
     .then(arry => {
         var source = document.createElement("html");
         source.innerHTML = arry;
-        var els = source.getElementsByTagName("*");
+        var els = source.getElementsByClassName("post-entry")[0].getElementsByTagName("*");
 
         var isim_url = source.getElementsByTagName("isim_url")[0].innerHTML;
         console.log(isim_url);
