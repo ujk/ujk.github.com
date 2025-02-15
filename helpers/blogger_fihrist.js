@@ -3,6 +3,7 @@
 
 const h_all = document.querySelectorAll("h2,h3,h4");
 Array.from(h_all).forEach(el => {
+  console.log(el.innerText);
     el.setAttribute("id", el.innerText);
 });
 
@@ -38,7 +39,7 @@ for(ix=0; ix<urls.length; ix++){
             var tn = els[i].tagName;
             if(["H1","H2","H3","H4"].includes(tn)){
                 if(tn != "H1")
-                    link += "#" + els[i].innerText;
+                    link += `#${els[i].innerText.replaceAll("\"", "&quot;")}`;
                 liste.push([tn, els[i].innerText, link]);
                 list_index++;
                 link = isim_url;
@@ -125,3 +126,4 @@ function fh_onclick(el, ev) {
     }
 };
 
+  
