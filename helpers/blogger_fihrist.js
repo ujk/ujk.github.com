@@ -44,6 +44,7 @@ function fill_list() {
                     liste.push([tn, els[i].innerText, link]);
                     list_index++;
                     link = isim_url;
+                    console.log(urls.indexOf(isim_url), isim_url);
                 }
             };
             // TÜM LİSTE OLUŞTU
