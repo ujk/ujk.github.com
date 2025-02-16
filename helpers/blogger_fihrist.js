@@ -15,7 +15,7 @@ var list_index = 0;
 var url_index = 0;
 var liste = [];
 var top_ol = document.createElement("ol");
-top_ol.setAttribute("style", "padding-inline-start: 20px; display: none;");
+top_ol.setAttribute("style", "display: none;");
 fihrist.append(top_ol);
 
 for(ix=0; ix<urls.length; ix++){
@@ -64,7 +64,7 @@ for(ix=0; ix<urls.length; ix++){
                 }
                 if(x[0] == "H2"){
                     if(tn_ex == "H1")
-                        content += `<ol style="padding-inline-start: 20px">`;
+                        content += `<ol>`;
                     if(tn_ex == "H2")
                         content += `</li>`;
                     if(tn_ex == "H3")
@@ -75,10 +75,9 @@ for(ix=0; ix<urls.length; ix++){
                 }
                 if(x[0] == "H3"){
                     if(tn_ex == "H1")
-                        content += `<ol style="padding-inline-start: 20px">
-                            <li><ol style="padding-inline-start: 20px">`;
+                        content += `<ol><li><ol>`;
                     if(tn_ex == "H2")
-                        content += `<ol style="padding-inline-start: 20px">`;
+                        content += `<ol>`;
                     if(tn_ex == "H3")
                         content += "</li>";
                     if(tn_ex == "H4")
@@ -87,14 +86,11 @@ for(ix=0; ix<urls.length; ix++){
                 }
                 if(x[0] == "H4"){
                     if(tn_ex == "H1")
-                        content += `<ol style="padding-inline-start: 20px">
-                            <li><ol style="padding-inline-start: 20px">
-                            <li><ol style="padding-inline-start: 20px">`;
+                        content += `<ol><li><ol><li><ol>`;
                     if(tn_ex == "H2")
-                        content += `<ol style="padding-inline-start: 20px">
-                            <li><ol style="padding-inline-start: 20px">`;
+                        content += `<ol><li><ol>`;
                     if(tn_ex == "H3")
-                        content += `<ol style="padding-inline-start: 20px">`;
+                        content += `<ol>`;
                     if(tn_ex == "H4")
                         content += "</li>";
                     content += `<li><a href="${x[2]}">${x[1]}</a>`;
@@ -103,7 +99,7 @@ for(ix=0; ix<urls.length; ix++){
                 tn_ex = x[0];
             });
             // içerik tamam , yerine koyalım
-            console.log(content);
+            //console.log(content);
             top_ol.innerHTML += content;
         }
     });
