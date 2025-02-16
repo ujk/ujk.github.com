@@ -41,10 +41,9 @@ function fill_list() {
                 if(["H1","H2","H3","H4"].includes(tn)){
                     if(tn != "H1")
                         link += `#${encodeURIComponent(els[i].innerText)}`; //.replaceAll("\"", "&quot;").replaceAll(" ","%20")}`;
-                    liste.push([tn, els[i].innerText, link]);
+                    liste.push([tn, els[i].innerText, link, urls.indexOf(isim_url)]);
                     list_index++;
                     link = isim_url;
-                    console.log(urls.indexOf(isim_url), isim_url);
                 }
             };
             // TÜM LİSTE OLUŞTU
@@ -52,6 +51,8 @@ function fill_list() {
                 var tn_ex = "H";
                 var content = ""; // direk innerHTML basarsan her işlem sonu açık tagler kapanıyor
                 //console.log(document.URL);
+                // listeyi sayfalara göre sırala
+                liste.sort((x,y) => {return x[3]-y[3];});
                 liste.forEach( x => {
                     //console.log(x[2]); 
                     if(x[0] == "H1"){
