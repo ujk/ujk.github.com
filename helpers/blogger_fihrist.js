@@ -12,6 +12,8 @@ fihrist.append(top_ol);
 
 fill_list();
 
+adjust_links();
+
 // Listeyi topla verilen url'lerdeki h1,h2,h3,h4 elemanları topla
 function fill_list() {
     const fihrist = document.getElementById("fihrist");
@@ -144,3 +146,25 @@ navigation.addEventListener("navigate", e => {
     top_ol.innerHTML = "";
     fill_list();
 });
+
+// navi div içindeki önceki ve sonraki linkleri
+function adjust_links(){
+    const fihrist = document.getElementById("fihrist");
+    var urls = fihrist.getAttribute("urls").split(",");
+    const isim_el = isim_url = document.getElementsByTagName("isim_url")
+    var isim_url = document.getElementsByTagName("isim_url")[0].innerHTML;
+    var ind = urls.indexOf(isim_url);
+    var navis = document.querySelectorAll(".navi");
+    navis.forEach( n => {
+      if(ind == 0){
+        n.children[0].style.display = "none";      
+      }else{
+        n.children[0].setAttribute("href", urls[ind - 1]);
+      }
+      if(ind == urls.length - 1){
+        n.children[1].style.display = "none";      
+      }else{
+        n.children[1].setAttribute("href", urls[ind + 1]);
+      }
+    });
+}
